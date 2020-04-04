@@ -4,6 +4,13 @@ import pandas as pd
 from inits import tweets_preprocessor
 from tweets_vectorization import TweetsVectorization
 from models import Models
+import json
+
+
+def save_to_file(file_path, data):
+    with open(file_path, 'w', encoding='utf8') as file:
+        file.write(json.dumps(data, ensure_ascii=False))
+
 
 '''COLUMNS: id, keyword, location, text, target'''
 data = pd.read_csv('./data/train.csv')
@@ -14,7 +21,21 @@ x_train, y_train, x_val, y_val, words, vectors, max_vector_len = TweetsVectoriza
     tweets_preprocessor=tweets_preprocessor,
     tweets=data.text,
     target=data.target,
-    preprocess_options={'stem': False, 'join': False},
+    preprocess_options={
+        'remove_links': True,
+        'remove_users': True,
+        'remove_hash': True,
+        'unslang': True,
+        'split_words': True,
+        'stem': True,
+        'remove_punctuations': True,
+        'remove_numbers': True,
+        'to_lower_case': True,
+        'remove_stop_words': True,
+        'remove_not_alpha': True,
+        'join': False
+    },
+    # tweets_for_words_base=data.text[data.target == 1],
     words_reputation_filter=0,
     train_percentage=0.8
 )

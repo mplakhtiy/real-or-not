@@ -12,7 +12,7 @@ slang_abbreviations = {
     'ASAP': 'As Soon As Possible',
     'ATK': 'At The Keyboard',
     'ATM': 'At The Moment',
-    'A3': 'Anytime, Anywhere, Anyplace',
+    'A3': 'Anytime Anywhere Anyplace',
     'BAK': 'Back At Keyboard',
     'BBL': 'Be Back Later',
     'BBS': 'Be Back Soon',
@@ -33,7 +33,7 @@ slang_abbreviations = {
     'GG': 'Good Game',
     'GN': 'Good Night',
     'GMTA': 'Great Minds Think Alike',
-    'GR8': 'Great!',
+    'GR8': 'Great',
     'G9': 'Genius',
     'IC': 'I See',
     'ICQ': 'I Seek you',
@@ -56,25 +56,26 @@ slang_abbreviations = {
     'PITA': 'Pain In The Ass',
     'PRT': 'Party',
     'PRW': 'Parents Are Watching',
-    'QPSA?': 'Que Pasa?',
+    'QPSA?': 'Que Pasa',
     'ROFL': 'Rolling On The Floor Laughing',
     'ROFLOL': 'Rolling On The Floor Laughing Out Loud',
     'ROTFLMAO': 'Rolling On The Floor Laughing My Ass Off',
     'SK8': 'Skate',
     'STATS': 'Your sex and age',
-    'ASL': 'Age, Sex, Location',
+    'ASL': 'Age Sex Location',
     'THX': 'Thank You',
-    'TTFN': 'Ta-Ta For Now!',
+    'TTFN': 'Ta Ta For Now',
     'TTYL': 'Talk To You Later',
     'U': 'You',
     'U2': 'You Too',
     'U4E': 'Yours For Ever',
     'WB': 'Welcome Back',
     'WTF': 'What The Fuck',
-    'WTG': 'Way To Go!',
-    'WUF': 'Where Are You From?',
+    'WTG': 'Way To Go',
+    'WUF': 'Where Are You From',
     'W8': 'Wait',
-    '7K': 'Sick:-D Laugher'
+    '7K': 'Sick Laughter'
 }
+splitters = {"'", '-', ':', ' ', '_', '/'}
 
-tweets_preprocessor = TweetsPreprocessor(tweet_tokenizer, porter_stemmer, stop_words, slang_abbreviations)
+tweets_preprocessor = TweetsPreprocessor(tweet_tokenizer, porter_stemmer, stop_words, slang_abbreviations, splitters)

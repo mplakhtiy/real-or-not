@@ -54,12 +54,25 @@ class TweetsVectorization:
         return len(max(tweets, key=len))
 
     @staticmethod
-    def get_prepared_data(tweets_preprocessor, tweets, target, preprocess_options, words_reputation_filter, train_percentage=0.8):
+    def get_prepared_data(
+            tweets_preprocessor,
+            tweets,
+            target,
+            preprocess_options,
+            tweets_for_words_base=None,
+            words_reputation_filter=0,
+            train_percentage=0.8
+    ):
         t = tweets_preprocessor.preprocess(tweets, options=preprocess_options)
+
+        if tweets_for_words_base is None:
+            words_base = t
+        else:
+            words_base = tweets_preprocessor.preprocess(tweets_for_words_base, options=preprocess_options)
 
         words = TweetsVectorization.get_sorted_words(
             TweetsVectorization.get_filtered_dict(
-                TweetsVectorization.get_words_dict(t),
+                TweetsVectorization.get_words_dict(words_base),
                 words_reputation_filter
             )
         )
