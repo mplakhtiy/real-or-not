@@ -2,7 +2,7 @@
 from keras.models import Sequential
 from keras.layers import Dense
 import numpy as np
-from utils import get_data, preprocess, get_sorted_words, get_filtered_dict, get_words_dict, get_vectors
+from old.utils import get_data, preprocess, get_sorted_words, get_filtered_dict, get_words_dict, get_vectors
 
 '''COLUMNS: id, keyword, location, text, target'''
 train, test = get_data('./data/train.csv', './data/test.csv')
@@ -17,7 +17,7 @@ vectors, words_indexes = get_vectors(train.text, words_list_disaster, 17)
 target = list(train.target)
 
 batch_size = 64
-epochs = 200
+epochs = 300
 verbose = 1
 length = 17
 
@@ -33,7 +33,8 @@ model.compile(
     metrics=['accuracy']
 )
 
-x_train, y_train = np.array(words_indexes), np.array(target)
+x_train, y_train = np.array(words_indexes[:7000]), np.array(target[:7000])
+x_val, y_val = np.array(words_indexes[7000:7613]), np.array(target[7000:7613])
 
 model.fit(
     x=np.array(x_train),
@@ -41,11 +42,11 @@ model.fit(
     batch_size=batch_size,
     epochs=epochs,
     verbose=verbose,
-    shuffle=True
-    # validation_data=(
-    #     np.array(x_val),
-    #     np.array(y_val)
-    # )
+    shuffle=True,
+    validation_data=(
+        np.array(x_val),
+        np.array(y_val)
+    )
 )
 
 # model.save(path)

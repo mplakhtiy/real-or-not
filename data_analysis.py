@@ -1,5 +1,5 @@
 import matplotlib.pyplot as plt
-from .utils import get_data
+from old.utils import get_data
 
 train_data, test_data = get_data('./data/train.csv', './data/test.csv')
 
