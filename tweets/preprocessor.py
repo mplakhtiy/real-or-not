@@ -25,7 +25,8 @@ class TweetsPreprocessor:
 
     @staticmethod
     def _remove_punctuations(words):
-        return [w for w in words if w != '' and ((len(w) > 1 and w.startswith('#')) or (w[0] not in string.punctuation and w[-1] not in string.punctuation))]
+        return [w for w in words if w != '' and ((len(w) > 1 and w.startswith('#')) or (
+                w[0] not in string.punctuation and w[-1] not in string.punctuation))]
 
     @staticmethod
     def _remove_not_alpha(words):
@@ -64,7 +65,7 @@ class TweetsPreprocessor:
         new_words = []
 
         for word in words:
-            key = word.upper()
+            key = word.lower()
             if key in self.slang_abbreviations_keys:
                 new_words += self.tokenizer.tokenize(self.slang_abbreviations[key])
             else:

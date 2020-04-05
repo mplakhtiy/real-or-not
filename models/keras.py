@@ -3,7 +3,7 @@ from keras.models import Sequential
 from keras.layers import Dense, Flatten, Embedding, LSTM
 
 
-class Models:
+class KerasModels:
     @staticmethod
     def get_keras_model(layers, embedding_options=None, activation='sigmoid', optimizer='rmsprop'):  # optimizer='adam'
         model = Sequential()
@@ -26,7 +26,7 @@ class Models:
 
     @staticmethod
     def get_binary_classification_model(embedding_options):
-        return Models.get_keras_model([Flatten()], embedding_options=embedding_options)
+        return KerasModels.get_keras_model([Flatten()], embedding_options=embedding_options)
 
     @staticmethod
     def get_mlp_for_binary_classification_model(embedding_options, dense_units=None):
@@ -38,8 +38,8 @@ class Models:
         for index, units in enumerate(dense_units):
             layers.append(Dense(units, activation='relu'))
 
-        return Models.get_keras_model(layers, embedding_options=embedding_options)
+        return KerasModels.get_keras_model(layers, embedding_options=embedding_options)
 
     @staticmethod
     def get_lstm_model(embedding_options, lstm_units):
-        return Models.get_keras_model([LSTM(lstm_units)], embedding_options=embedding_options)
+        return KerasModels.get_keras_model([LSTM(lstm_units)], embedding_options=embedding_options)

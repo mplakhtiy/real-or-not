@@ -2,9 +2,7 @@ import unittest
 import string
 import random
 import pandas as pd
-from tweets_vectorization import TweetsVectorization
-from tweets_preprocessor import TweetsPreprocessor
-from inits import tweet_tokenizer, porter_stemmer, stop_words, slang_abbreviations, splitters
+from tweets import TweetsPreprocessor, tweet_tokenizer, porter_stemmer, stop_words, slang_abbreviations, splitters
 
 
 class TestTweetsPreprocessor(unittest.TestCase):
@@ -124,7 +122,7 @@ class TestTweetsPreprocessor(unittest.TestCase):
 
         result = self.preprocessor._unslang(tweet)
 
-        expected = ['Oh', 'My', 'God', 'For', 'Your', 'Information']
+        expected = ['oh', 'my', 'god', 'for', 'your', 'information']
 
         self.assertEqual(result, expected)
 
@@ -226,94 +224,6 @@ class TestTweetsPreprocessor(unittest.TestCase):
             '#flood bago myanmar #we arrived bago',
             'damage school bus multi car crash #breaking'
         ]
-
-        self.assertEqual(result, expected)
-
-
-class TestTweetsVectorization(unittest.TestCase):
-    tweets = [
-        ['hello', 'world'],
-        ['hello', 'disaster', 'big'],
-        ['world', 'burns']
-    ]
-
-    def test_get_words_dict(self):
-        result = TweetsVectorization.get_words_dict(self.tweets)
-
-        expected = {
-            'hello': 2,
-            'world': 2,
-            'disaster': 1,
-            'big': 1,
-            'burns': 1
-        }
-
-        self.assertEqual(result, expected)
-
-    def test_get_filtered_dict(self):
-        result = TweetsVectorization.get_filtered_dict(
-            TweetsVectorization.get_words_dict(self.tweets),
-            2
-        )
-
-        expected = {'hello': 2, 'world': 2}
-
-        self.assertEqual(result, expected)
-
-    def test_get_sorted_words(self):
-        result = TweetsVectorization.get_sorted_words(
-            TweetsVectorization.get_filtered_dict(
-                TweetsVectorization.get_words_dict(self.tweets),
-                0
-            ),
-        )
-
-        expected = ['hello', 'world', 'disaster', 'big', 'burns']
-
-        self.assertEqual(result, expected)
-
-    def test_get_vectors_of_words_indexes(self):
-        words = TweetsVectorization.get_sorted_words(
-            TweetsVectorization.get_filtered_dict(
-                TweetsVectorization.get_words_dict(self.tweets),
-                0
-            )
-        )
-
-        result = TweetsVectorization.get_vectors_of_words_indexes(self.tweets, words)
-
-        expected = [[0, 1], [0, 2, 3], [1, 4]]
-
-        self.assertEqual(result, expected)
-
-    def test_get_max_vector_len(self):
-        words = TweetsVectorization.get_sorted_words(
-            TweetsVectorization.get_filtered_dict(
-                TweetsVectorization.get_words_dict(self.tweets),
-                0
-            )
-        )
-        vectors = TweetsVectorization.get_vectors_of_words_indexes(self.tweets, words)
-
-        result = TweetsVectorization.get_max_vector_len(vectors)
-
-        expected = 3
-
-        self.assertEqual(result, expected)
-
-    def test_to_same_length(self):
-        words = TweetsVectorization.get_sorted_words(
-            TweetsVectorization.get_filtered_dict(
-                TweetsVectorization.get_words_dict(self.tweets),
-                0
-            )
-        )
-        vectors = TweetsVectorization.get_vectors_of_words_indexes(self.tweets, words)
-        max_vector_len = TweetsVectorization.get_max_vector_len(vectors)
-
-        result = TweetsVectorization.to_same_length(vectors, max_vector_len)
-
-        expected = [[0, 1, 0], [0, 2, 3], [1, 4, 0]]
 
         self.assertEqual(result, expected)
 
