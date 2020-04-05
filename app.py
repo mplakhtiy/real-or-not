@@ -4,13 +4,6 @@ import pandas as pd
 from inits import tweets_preprocessor
 from tweets_vectorization import TweetsVectorization
 from models import Models
-import json
-
-
-def save_to_file(file_path, data):
-    with open(file_path, 'w', encoding='utf8') as file:
-        file.write(json.dumps(data, ensure_ascii=False))
-
 
 '''COLUMNS: id, keyword, location, text, target'''
 data = pd.read_csv('./data/train.csv')
@@ -49,7 +42,7 @@ input_length = max_vector_len
 embedding_options = {
     'input_dim': len(words),
     'output_dim': embedding_dim,
-    'input_length': max_vector_len
+    'input_length': input_length
 }
 
 model = Models.get_binary_classification_model(embedding_options)

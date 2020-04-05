@@ -21,19 +21,15 @@ class TweetsPreprocessor:
 
     @staticmethod
     def _remove_hash(words):
-        return [word[1:] if word.startswith('#') else word for word in words]
+        return [word.replace('#', '') for word in words]
 
     @staticmethod
     def _remove_punctuations(words):
-        return [w for w in words if w != '' and w[0] not in string.punctuation and w[-1] not in string.punctuation]
+        return [w for w in words if w != '' and ((len(w) > 1 and w.startswith('#')) or (w[0] not in string.punctuation and w[-1] not in string.punctuation))]
 
     @staticmethod
     def _remove_not_alpha(words):
-        return [word for word in words if word.isalpha()]
-
-    @staticmethod
-    def _flatten(x):
-        return [item for sublist in x for item in sublist]
+        return [word for word in words if (len(word) > 1 and word.startswith('#')) or word.isalpha()]
 
     @staticmethod
     def _to_lower_case(words):
@@ -51,7 +47,7 @@ class TweetsPreprocessor:
         with_split_words = [w for w in words]
 
         for splitter in self.splitters:
-            with_split_words = [w for sub in map(lambda w: w.split(splitter), with_split_words) for w in sub]
+            with_split_words = [w for sub in map(lambda w: w.split(splitter), with_split_words) for w in sub if w != '']
 
         return with_split_words
 
@@ -88,14 +84,14 @@ class TweetsPreprocessor:
         if options.get('remove_users', True):
             t = t.map(TweetsPreprocessor._remove_users)
 
-        if options.get('remove_hash', True):
-            t = t.map(TweetsPreprocessor._remove_hash)
-
         if options.get('unslang', True):
             t = t.map(self._unslang)
 
         if options.get('split_words', True):
             t = t.map(self._split_words)
+
+        if options.get('remove_hash', True):
+            t = t.map(TweetsPreprocessor._remove_hash)
 
         if options.get('stem', True):
             t = t.map(self._stem)

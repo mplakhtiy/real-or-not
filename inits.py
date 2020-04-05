@@ -1,11 +1,12 @@
 from tweets_preprocessor import TweetsPreprocessor
 from nltk.tokenize import TweetTokenizer
 from nltk.corpus import stopwords
+from wordcloud import STOPWORDS
 from nltk.stem.porter import *
 
 tweet_tokenizer = TweetTokenizer(strip_handles=True, reduce_len=True)
 porter_stemmer = PorterStemmer()
-stop_words = set(stopwords.words('english'))
+stop_words = set(stopwords.words('english')) | STOPWORDS
 slang_abbreviations = {
     'AFAIK': 'As Far As I Know',
     'AFK': 'Away From Keyboard',
@@ -76,6 +77,6 @@ slang_abbreviations = {
     'W8': 'Wait',
     '7K': 'Sick Laughter'
 }
-splitters = {"'", '-', ':', ' ', '_', '/'}
+splitters = {"'", '-', ':', ' ', '_', '/', '.'}
 
 tweets_preprocessor = TweetsPreprocessor(tweet_tokenizer, porter_stemmer, stop_words, slang_abbreviations, splitters)

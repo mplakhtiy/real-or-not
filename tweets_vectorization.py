@@ -23,8 +23,10 @@ class TweetsVectorization:
         return filtered_words
 
     @staticmethod
-    def get_sorted_words(words):
-        return [word for word, count in sorted(words.items(), key=lambda item: item[1], reverse=True)]
+    def get_sorted_words(words, add_start_symbol=False, symbol='!!!!***START***!!!'):
+        sorted_words = [word for word, count in sorted(words.items(), key=lambda item: item[1], reverse=True)]
+
+        return [symbol] + sorted_words if add_start_symbol else sorted_words
 
     @staticmethod
     def get_vectors_of_words_indexes(tweets, words):
