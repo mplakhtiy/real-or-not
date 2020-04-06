@@ -82,7 +82,8 @@ class TweetsVectorization:
             preprocess_options,
             tweets_for_words_base=None,
             words_reputation_filter=0,
-            train_percentage=0.8
+            train_percentage=0.8,
+            add_start_symbol=False
     ):
         t = tweets_preprocessor.preprocess(tweets, options=preprocess_options)
 
@@ -95,7 +96,8 @@ class TweetsVectorization:
             TweetsVectorization._get_filtered_dict(
                 TweetsVectorization._get_words_dict(words_base),
                 words_reputation_filter
-            )
+            ),
+            add_start_symbol
         )
 
         vectors = TweetsVectorization._get_vectors_of_words_indexes(t, words)
@@ -104,7 +106,7 @@ class TweetsVectorization:
         target = list(map(lambda x: x, target))
         x_train, y_train, x_val, y_val = TweetsVectorization._get_train_test_split(vectors, target, train_percentage)
 
-        return x_train, y_train, x_val, y_val, words, vectors, max_vector_len
+        return x_train, y_train, x_val, y_val, words, max_vector_len
 
     @staticmethod
     def get_prepared_data_based_on_count_vectorizer(

@@ -2,3 +2,5 @@ venv
 app.py
 .idea
 __pycache__
+data/*/**/*.json
+data/*/**/*.h5

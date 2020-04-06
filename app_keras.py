@@ -1,49 +1,20 @@
 # -*- coding: utf-8 -*-
 import numpy as np
-from tweets import TweetsVectorization, tweets_preprocessor
 from models import KerasModels
-from utils import draw_keras_graph
-from data import data
+from utils import draw_keras_graph, get_prepared_data_from_file, get_from_file
 
-# shuffle data
-# data = data.sample(frac=1).reset_index(drop=True)
+PREPARED_DATA_FILE_PATH = './data/prepared_data/words_indexes_preprocess_all_true.json'
 
-WORDS_REPUTATION_FILTER = 0
-TRAIN_PERCENTAGE = 0.8
-PREPROCESS_OPTRIONS = {
-    'remove_links': True,
-    'remove_users': True,
-    'remove_hash': True,
-    'unslang': True,
-    'split_words': True,
-    'stem': True,
-    'remove_punctuations': True,
-    'remove_numbers': True,
-    'to_lower_case': True,
-    'remove_stop_words': True,
-    'remove_not_alpha': True,
-    'join': False
-}
-
-x_train, y_train, x_val, y_val, words, vectors, max_vector_len = TweetsVectorization.get_prepared_data_based_on_words_indexes(
-    tweets_preprocessor=tweets_preprocessor,
-    tweets=data.text,
-    target=data.target,
-    preprocess_options=PREPROCESS_OPTRIONS,
-    # tweets_for_words_base=data.text[data.target == 1],
-    words_reputation_filter=WORDS_REPUTATION_FILTER,
-    train_percentage=TRAIN_PERCENTAGE
-)
+x_train, y_train, x_val, y_val, data = get_prepared_data_from_file(PREPARED_DATA_FILE_PATH)
 
 BATCH_SIZE = 256
 EPOCHS = 15
 VERBOSE = 1
 EMBEDING_DIM = 256
 LSTM_UNITS = 128
-INPUT_LENGTH = max_vector_len
-
+INPUT_LENGTH = data.get('max_vector_len')
 EMBEDDING_OPTIONS = {
-    'input_dim': len(words),
+    'input_dim': data.get('vocabulary_len'),
     'output_dim': EMBEDING_DIM,
     'input_length': INPUT_LENGTH
 }
