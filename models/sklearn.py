@@ -20,7 +20,7 @@ class SklearnModels:
 
     @staticmethod
     def get_random_forest_classifier():
-        return RandomForestClassifier(n_estimators=100)
+        return RandomForestClassifier()
 
     @staticmethod
     def get_decission_tree_classifier():
@@ -28,4 +28,4 @@ class SklearnModels:
 
     @staticmethod
     def get_svm():
-        return GridSearchCV(SVC(kernel='rbf'), {'gamma': [0.7, 1, 'auto', 'scale']}, cv=5, n_jobs=-1, scoring="f1")
+        return SVC()
