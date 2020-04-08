@@ -9,12 +9,11 @@ from data import data
 
 ########################################################################################################################
 
-# Shuffle Data
-# data = data.sample(frac=1).reset_index(drop=True)
-
 WORDS_REPUTATION_FILTER = 0
 TRAIN_PERCENTAGE = 0.8
 ADD_START_SYMBOL = True
+TWEETS_FOR_VOCABULARY_BASE = None
+SHUFFLE_DATA = False
 PREPROCESS_OPTRIONS = {
     'remove_links': True,
     'remove_users': True,
@@ -35,10 +34,12 @@ x_train, y_train, x_val, y_val, vocabulary, max_vector_len = TweetsVectorization
     tweets=data.text,
     target=data.target,
     preprocess_options=PREPROCESS_OPTRIONS,
-    tweets_for_words_base=data.text[data.target == 1],
+    tweets_for_vocabulary_base=data.text[data.target == 1] if TWEETS_FOR_VOCABULARY_BASE is True else
+    (data.text[data.target == 0] if TWEETS_FOR_VOCABULARY_BASE is False else None),
     words_reputation_filter=WORDS_REPUTATION_FILTER,
     train_percentage=TRAIN_PERCENTAGE,
-    add_start_symbol=ADD_START_SYMBOL
+    add_start_symbol=ADD_START_SYMBOL,
+    shuffle_data=SHUFFLE_DATA
 )
 
 ########################################################################################################################
@@ -46,7 +47,7 @@ x_train, y_train, x_val, y_val, vocabulary, max_vector_len = TweetsVectorization
 BATCH_SIZE = 512
 EPOCHS = 20
 VERBOSE = 1
-EMBEDING_DIM = 256
+EMBEDING_DIM = 64
 OPTIMIZER = 'rmsprop'
 INPUT_LENGTH = max_vector_len
 EMBEDDING_OPTIONS = {
@@ -54,6 +55,11 @@ EMBEDDING_OPTIONS = {
     'output_dim': EMBEDING_DIM,
     'input_length': INPUT_LENGTH
 }
+
+########################################################################################################################
+
+# x_train = TweetsVectorization.to_same_smaller_length(x_train, INPUT_LENGTH)
+# x_val = TweetsVectorization.to_same_smaller_length(x_val, INPUT_LENGTH)
 
 ########################################################################################################################
 
@@ -154,5 +160,7 @@ log(
     vocabulary_len=len(vocabulary),
     add_start_symbol=ADD_START_SYMBOL,
     input_len=INPUT_LENGTH,
-    optimizer=OPTIMIZER
+    optimizer=OPTIMIZER,
+    tweets_for_vocabulary_base=TWEETS_FOR_VOCABULARY_BASE,
+    shuffle_data=SHUFFLE_DATA,
 )

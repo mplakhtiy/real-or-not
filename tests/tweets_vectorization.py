@@ -83,7 +83,7 @@ class TestTweetsVectorization(unittest.TestCase):
         vectors = TweetsVectorization._get_vectors_of_words_indexes(self.tweets, words)
         max_vector_len = TweetsVectorization._get_max_vector_len(vectors)
 
-        result = TweetsVectorization._to_same_greater_length(vectors, max_vector_len)
+        result = TweetsVectorization.to_same_greater_length(vectors, max_vector_len)
 
         expected = [[0, 1, 0], [0, 2, 3], [1, 4, 0]]
 
@@ -99,7 +99,7 @@ class TestTweetsVectorization(unittest.TestCase):
         self.assertEqual(result, expected)
 
     def test_to_same_smaller_length(self):
-        result = TweetsVectorization._to_same_smaller_length([[1, 2, 3], [1, 2, 3]], 2)
+        result = TweetsVectorization.to_same_smaller_length([[1, 2, 3], [1, 2, 3]], 2)
 
         expected = [[1, 2], [1, 2]]
 

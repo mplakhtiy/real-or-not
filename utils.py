@@ -47,6 +47,8 @@ def log(
         add_start_symbol=None,
         input_len=None,
         optimizer=None,
+        tweets_for_vocabulary_base=None,
+        shuffle_data=None,
         file_path=f'./logs/log-{datetime.now().date()}.json'
 ):
     if not os.path.exists(file_path):
@@ -60,11 +62,13 @@ def log(
             'words_reputation_filter': words_reputation_filter,
             'add_start_symbol': add_start_symbol,
             'train_percentage': train_percentage,
-            'vocabulary_len': vocabulary_len
+            'vocabulary_len': vocabulary_len,
+            'tweets_for_vocabulary_base': tweets_for_vocabulary_base,
+            'shuffle_data': shuffle_data
         },
         'model': {
             'config': model_config,
-            'history': {k: [float(v) for v in l] for k, l in model_history.items() if k.startswith('val')},
+            'val_accuracy': [float(a) for a in model_history['val_accuracy']],
             'epochs': epochs,
             'embedding_dim': embedding_dim,
             'input_len': input_len,
@@ -74,27 +78,3 @@ def log(
     }
 
     save_to_file(file_path, log_data)
-
-
-def remove_val_los_from_log(file_path=f'./logs/log-{datetime.now().date()}.json'):
-    log_data = get_from_file(file_path)
-    res = {}
-
-    for k, v in log_data.items():
-        res[k] = {
-            'data': v['data'],
-            'model': {
-                'config': v['model']['config'],
-                'history': {'val_accuracy': v['model']['history']['val_accuracy']},
-                'epochs': v['model']['epochs'],
-                'embedding_dim': v['model']['embedding_dim'],
-                'input_len': v['model']['input_len'],
-                'batch_size': v['model']['batch_size'],
-                'optimizer': v['model']['optimizer'],
-            }
-        }
-
-    save_to_file(f'./logs-copy-{datetime.now().date()}.json', res)
-
-
-remove_val_los_from_log()

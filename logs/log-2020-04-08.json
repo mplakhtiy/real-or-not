@@ -1,0 +1,1507 @@
+{
+  "2020-04-08 13:17:32.080257": {
+    "data": {
+      "preprocess_options": {
+        "remove_links": true,
+        "remove_users": true,
+        "remove_hash": false,
+        "unslang": false,
+        "split_words": true,
+        "stem": false,
+        "remove_punctuations": true,
+        "remove_numbers": false,
+        "to_lower_case": true,
+        "remove_stop_words": true,
+        "remove_not_alpha": false,
+        "join": false
+      },
+      "words_reputation_filter": 0,
+      "add_start_symbol": true,
+      "train_percentage": 0.8,
+      "vocabulary_len": 8504,
+      "tweets_for_vocabulary_base": true,
+      "shuffle_data": false
+    },
+    "model": {
+      "config": {
+        "name": "sequential_1",
+        "layers": [
+          {
+            "class_name": "Embedding",
+            "config": {
+              "name": "embedding_1",
+              "trainable": true,
+              "batch_input_shape": [
+                null,
+                23
+              ],
+              "dtype": "float32",
+              "input_dim": 8504,
+              "output_dim": 256,
+              "embeddings_initializer": {
+                "class_name": "RandomUniform",
+                "config": {
+                  "minval": -0.05,
+                  "maxval": 0.05,
+                  "seed": null
+                }
+              },
+              "embeddings_regularizer": null,
+              "activity_regularizer": null,
+              "embeddings_constraint": null,
+              "mask_zero": false,
+              "input_length": 23
+            }
+          },
+          {
+            "class_name": "Flatten",
+            "config": {
+              "name": "flatten_1",
+              "trainable": true,
+              "dtype": "float32",
+              "data_format": "channels_last"
+            }
+          },
+          {
+            "class_name": "Dense",
+            "config": {
+              "name": "dense_1",
+              "trainable": true,
+              "dtype": "float32",
+              "units": 1,
+              "activation": "sigmoid",
+              "use_bias": true,
+              "kernel_initializer": {
+                "class_name": "VarianceScaling",
+                "config": {
+                  "scale": 1.0,
+                  "mode": "fan_avg",
+                  "distribution": "uniform",
+                  "seed": null
+                }
+              },
+              "bias_initializer": {
+                "class_name": "Zeros",
+                "config": {}
+              },
+              "kernel_regularizer": null,
+              "bias_regularizer": null,
+              "activity_regularizer": null,
+              "kernel_constraint": null,
+              "bias_constraint": null
+            }
+          }
+        ]
+      },
+      "val_accuracy": [
+        0.7596848607063293,
+        0.7754431962966919,
+        0.8030203580856323,
+        0.8161523342132568,
+        0.8174655437469482,
+        0.8273144960403442,
+        0.8279711008071899,
+        0.8260012865066528,
+        0.8240315318107605,
+        0.8305975198745728,
+        0.8161523342132568,
+        0.818122148513794,
+        0.8200919032096863,
+        0.8174655437469482,
+        0.8174655437469482,
+        0.8128693103790283,
+        0.8141825199127197,
+        0.8069599270820618,
+        0.8128693103790283,
+        0.8056467771530151
+      ],
+      "epochs": 20,
+      "embedding_dim": 256,
+      "input_len": 23,
+      "batch_size": 512,
+      "optimizer": "rmsprop"
+    }
+  },
+  "2020-04-08 13:27:21.136875": {
+    "data": {
+      "preprocess_options": {
+        "remove_links": true,
+        "remove_users": true,
+        "remove_hash": false,
+        "unslang": false,
+        "split_words": true,
+        "stem": false,
+        "remove_punctuations": true,
+        "remove_numbers": false,
+        "to_lower_case": true,
+        "remove_stop_words": true,
+        "remove_not_alpha": false,
+        "join": false
+      },
+      "words_reputation_filter": 0,
+      "add_start_symbol": true,
+      "train_percentage": 0.8,
+      "vocabulary_len": 8504,
+      "tweets_for_vocabulary_base": true,
+      "shuffle_data": true
+    },
+    "model": {
+      "config": {
+        "name": "sequential_1",
+        "layers": [
+          {
+            "class_name": "Embedding",
+            "config": {
+              "name": "embedding_1",
+              "trainable": true,
+              "batch_input_shape": [
+                null,
+                23
+              ],
+              "dtype": "float32",
+              "input_dim": 8504,
+              "output_dim": 256,
+              "embeddings_initializer": {
+                "class_name": "RandomUniform",
+                "config": {
+                  "minval": -0.05,
+                  "maxval": 0.05,
+                  "seed": null
+                }
+              },
+              "embeddings_regularizer": null,
+              "activity_regularizer": null,
+              "embeddings_constraint": null,
+              "mask_zero": false,
+              "input_length": 23
+            }
+          },
+          {
+            "class_name": "Flatten",
+            "config": {
+              "name": "flatten_1",
+              "trainable": true,
+              "dtype": "float32",
+              "data_format": "channels_last"
+            }
+          },
+          {
+            "class_name": "Dense",
+            "config": {
+              "name": "dense_1",
+              "trainable": true,
+              "dtype": "float32",
+              "units": 1,
+              "activation": "sigmoid",
+              "use_bias": true,
+              "kernel_initializer": {
+                "class_name": "VarianceScaling",
+                "config": {
+                  "scale": 1.0,
+                  "mode": "fan_avg",
+                  "distribution": "uniform",
+                  "seed": null
+                }
+              },
+              "bias_initializer": {
+                "class_name": "Zeros",
+                "config": {}
+              },
+              "kernel_regularizer": null,
+              "bias_regularizer": null,
+              "activity_regularizer": null,
+              "kernel_constraint": null,
+              "bias_constraint": null
+            }
+          }
+        ]
+      },
+      "val_accuracy": [
+        0.7034120559692383,
+        0.7828084230422974,
+        0.7959317564964294,
+        0.81561678647995,
+        0.8162729740142822,
+        0.8103674650192261,
+        0.8162729740142822,
+        0.819553792476654,
+        0.8116797804832458,
+        0.806430459022522,
+        0.8051180839538574,
+        0.8103674650192261,
+        0.8090550899505615,
+        0.8097112774848938,
+        0.8070865869522095,
+        0.806430459022522,
+        0.8031495809555054,
+        0.8024934530258179,
+        0.7972440719604492,
+        0.7965879440307617
+      ],
+      "epochs": 20,
+      "embedding_dim": 256,
+      "input_len": 23,
+      "batch_size": 512,
+      "optimizer": "rmsprop"
+    }
+  },
+  "2020-04-08 13:28:20.352496": {
+    "data": {
+      "preprocess_options": {
+        "remove_links": true,
+        "remove_users": true,
+        "remove_hash": false,
+        "unslang": false,
+        "split_words": true,
+        "stem": false,
+        "remove_punctuations": true,
+        "remove_numbers": false,
+        "to_lower_case": true,
+        "remove_stop_words": true,
+        "remove_not_alpha": false,
+        "join": false
+      },
+      "words_reputation_filter": 0,
+      "add_start_symbol": true,
+      "train_percentage": 0.8,
+      "vocabulary_len": 8504,
+      "tweets_for_vocabulary_base": true,
+      "shuffle_data": true
+    },
+    "model": {
+      "config": {
+        "name": "sequential_1",
+        "layers": [
+          {
+            "class_name": "Embedding",
+            "config": {
+              "name": "embedding_1",
+              "trainable": true,
+              "batch_input_shape": [
+                null,
+                23
+              ],
+              "dtype": "float32",
+              "input_dim": 8504,
+              "output_dim": 256,
+              "embeddings_initializer": {
+                "class_name": "RandomUniform",
+                "config": {
+                  "minval": -0.05,
+                  "maxval": 0.05,
+                  "seed": null
+                }
+              },
+              "embeddings_regularizer": null,
+              "activity_regularizer": null,
+              "embeddings_constraint": null,
+              "mask_zero": false,
+              "input_length": 23
+            }
+          },
+          {
+            "class_name": "Flatten",
+            "config": {
+              "name": "flatten_1",
+              "trainable": true,
+              "dtype": "float32",
+              "data_format": "channels_last"
+            }
+          },
+          {
+            "class_name": "Dense",
+            "config": {
+              "name": "dense_1",
+              "trainable": true,
+              "dtype": "float32",
+              "units": 1,
+              "activation": "sigmoid",
+              "use_bias": true,
+              "kernel_initializer": {
+                "class_name": "VarianceScaling",
+                "config": {
+                  "scale": 1.0,
+                  "mode": "fan_avg",
+                  "distribution": "uniform",
+                  "seed": null
+                }
+              },
+              "bias_initializer": {
+                "class_name": "Zeros",
+                "config": {}
+              },
+              "kernel_regularizer": null,
+              "bias_regularizer": null,
+              "activity_regularizer": null,
+              "kernel_constraint": null,
+              "bias_constraint": null
+            }
+          }
+        ]
+      },
+      "val_accuracy": [
+        0.7467191815376282,
+        0.7913385629653931,
+        0.8162729740142822,
+        0.8202099800109863,
+        0.8300524950027466,
+        0.8293963074684143,
+        0.8313648104667664,
+        0.8287401795387268,
+        0.8254593014717102,
+        0.8267716765403748,
+        0.8215222954750061,
+        0.8248031735420227,
+        0.8202099800109863,
+        0.81561678647995,
+        0.8169291615486145,
+        0.8123359680175781,
+        0.8110235929489136,
+        0.8070865869522095,
+        0.8077427744865417,
+        0.8097112774848938
+      ],
+      "epochs": 20,
+      "embedding_dim": 256,
+      "input_len": 23,
+      "batch_size": 512,
+      "optimizer": "rmsprop"
+    }
+  },
+  "2020-04-08 13:29:09.933354": {
+    "data": {
+      "preprocess_options": {
+        "remove_links": true,
+        "remove_users": true,
+        "remove_hash": false,
+        "unslang": false,
+        "split_words": true,
+        "stem": false,
+        "remove_punctuations": true,
+        "remove_numbers": false,
+        "to_lower_case": true,
+        "remove_stop_words": true,
+        "remove_not_alpha": false,
+        "join": false
+      },
+      "words_reputation_filter": 0,
+      "add_start_symbol": true,
+      "train_percentage": 0.8,
+      "vocabulary_len": 8504,
+      "tweets_for_vocabulary_base": true,
+      "shuffle_data": false
+    },
+    "model": {
+      "config": {
+        "name": "sequential_1",
+        "layers": [
+          {
+            "class_name": "Embedding",
+            "config": {
+              "name": "embedding_1",
+              "trainable": true,
+              "batch_input_shape": [
+                null,
+                23
+              ],
+              "dtype": "float32",
+              "input_dim": 8504,
+              "output_dim": 256,
+              "embeddings_initializer": {
+                "class_name": "RandomUniform",
+                "config": {
+                  "minval": -0.05,
+                  "maxval": 0.05,
+                  "seed": null
+                }
+              },
+              "embeddings_regularizer": null,
+              "activity_regularizer": null,
+              "embeddings_constraint": null,
+              "mask_zero": false,
+              "input_length": 23
+            }
+          },
+          {
+            "class_name": "Flatten",
+            "config": {
+              "name": "flatten_1",
+              "trainable": true,
+              "dtype": "float32",
+              "data_format": "channels_last"
+            }
+          },
+          {
+            "class_name": "Dense",
+            "config": {
+              "name": "dense_1",
+              "trainable": true,
+              "dtype": "float32",
+              "units": 1,
+              "activation": "sigmoid",
+              "use_bias": true,
+              "kernel_initializer": {
+                "class_name": "VarianceScaling",
+                "config": {
+                  "scale": 1.0,
+                  "mode": "fan_avg",
+                  "distribution": "uniform",
+                  "seed": null
+                }
+              },
+              "bias_initializer": {
+                "class_name": "Zeros",
+                "config": {}
+              },
+              "kernel_regularizer": null,
+              "bias_regularizer": null,
+              "activity_regularizer": null,
+              "kernel_constraint": null,
+              "bias_constraint": null
+            }
+          }
+        ]
+      },
+      "val_accuracy": [
+        0.760998010635376,
+        0.7826657891273499,
+        0.7925148010253906,
+        0.8122127652168274,
+        0.8214051127433777,
+        0.8187787532806396,
+        0.8246881365776062,
+        0.8233749270439148,
+        0.8187787532806396,
+        0.8220617175102234,
+        0.820748507976532,
+        0.8154957294464111,
+        0.813525915145874,
+        0.8154957294464111,
+        0.8122127652168274,
+        0.8102429509162903,
+        0.8095863461494446,
+        0.8082731366157532,
+        0.8089297413825989,
+        0.8049901723861694
+      ],
+      "epochs": 20,
+      "embedding_dim": 256,
+      "input_len": 23,
+      "batch_size": 512,
+      "optimizer": "rmsprop"
+    }
+  },
+  "2020-04-08 13:29:56.605085": {
+    "data": {
+      "preprocess_options": {
+        "remove_links": true,
+        "remove_users": true,
+        "remove_hash": false,
+        "unslang": false,
+        "split_words": true,
+        "stem": false,
+        "remove_punctuations": true,
+        "remove_numbers": false,
+        "to_lower_case": true,
+        "remove_stop_words": true,
+        "remove_not_alpha": false,
+        "join": false
+      },
+      "words_reputation_filter": 0,
+      "add_start_symbol": true,
+      "train_percentage": 0.8,
+      "vocabulary_len": 8504,
+      "tweets_for_vocabulary_base": true,
+      "shuffle_data": true
+    },
+    "model": {
+      "config": {
+        "name": "sequential_1",
+        "layers": [
+          {
+            "class_name": "Embedding",
+            "config": {
+              "name": "embedding_1",
+              "trainable": true,
+              "batch_input_shape": [
+                null,
+                23
+              ],
+              "dtype": "float32",
+              "input_dim": 8504,
+              "output_dim": 256,
+              "embeddings_initializer": {
+                "class_name": "RandomUniform",
+                "config": {
+                  "minval": -0.05,
+                  "maxval": 0.05,
+                  "seed": null
+                }
+              },
+              "embeddings_regularizer": null,
+              "activity_regularizer": null,
+              "embeddings_constraint": null,
+              "mask_zero": false,
+              "input_length": 23
+            }
+          },
+          {
+            "class_name": "Flatten",
+            "config": {
+              "name": "flatten_1",
+              "trainable": true,
+              "dtype": "float32",
+              "data_format": "channels_last"
+            }
+          },
+          {
+            "class_name": "Dense",
+            "config": {
+              "name": "dense_1",
+              "trainable": true,
+              "dtype": "float32",
+              "units": 1,
+              "activation": "sigmoid",
+              "use_bias": true,
+              "kernel_initializer": {
+                "class_name": "VarianceScaling",
+                "config": {
+                  "scale": 1.0,
+                  "mode": "fan_avg",
+                  "distribution": "uniform",
+                  "seed": null
+                }
+              },
+              "bias_initializer": {
+                "class_name": "Zeros",
+                "config": {}
+              },
+              "kernel_regularizer": null,
+              "bias_regularizer": null,
+              "activity_regularizer": null,
+              "kernel_constraint": null,
+              "bias_constraint": null
+            }
+          }
+        ]
+      },
+      "val_accuracy": [
+        0.7493438124656677,
+        0.7755905389785767,
+        0.7946194410324097,
+        0.8149606585502625,
+        0.8248031735420227,
+        0.8287401795387268,
+        0.8307086825370789,
+        0.8300524950027466,
+        0.8267716765403748,
+        0.8287401795387268,
+        0.8261154890060425,
+        0.8287401795387268,
+        0.8248031735420227,
+        0.8248031735420227,
+        0.8208661675453186,
+        0.8202099800109863,
+        0.8182414770126343,
+        0.8162729740142822,
+        0.8116797804832458,
+        0.8103674650192261
+      ],
+      "epochs": 20,
+      "embedding_dim": 256,
+      "input_len": 23,
+      "batch_size": 512,
+      "optimizer": "rmsprop"
+    }
+  },
+  "2020-04-08 13:31:13.833650": {
+    "data": {
+      "preprocess_options": {
+        "remove_links": true,
+        "remove_users": true,
+        "remove_hash": false,
+        "unslang": false,
+        "split_words": true,
+        "stem": false,
+        "remove_punctuations": true,
+        "remove_numbers": false,
+        "to_lower_case": true,
+        "remove_stop_words": true,
+        "remove_not_alpha": false,
+        "join": false
+      },
+      "words_reputation_filter": 0,
+      "add_start_symbol": true,
+      "train_percentage": 0.8,
+      "vocabulary_len": 8504,
+      "tweets_for_vocabulary_base": true,
+      "shuffle_data": true
+    },
+    "model": {
+      "config": {
+        "name": "sequential_1",
+        "layers": [
+          {
+            "class_name": "Embedding",
+            "config": {
+              "name": "embedding_1",
+              "trainable": true,
+              "batch_input_shape": [
+                null,
+                8
+              ],
+              "dtype": "float32",
+              "input_dim": 8504,
+              "output_dim": 256,
+              "embeddings_initializer": {
+                "class_name": "RandomUniform",
+                "config": {
+                  "minval": -0.05,
+                  "maxval": 0.05,
+                  "seed": null
+                }
+              },
+              "embeddings_regularizer": null,
+              "activity_regularizer": null,
+              "embeddings_constraint": null,
+              "mask_zero": false,
+              "input_length": 8
+            }
+          },
+          {
+            "class_name": "Flatten",
+            "config": {
+              "name": "flatten_1",
+              "trainable": true,
+              "dtype": "float32",
+              "data_format": "channels_last"
+            }
+          },
+          {
+            "class_name": "Dense",
+            "config": {
+              "name": "dense_1",
+              "trainable": true,
+              "dtype": "float32",
+              "units": 1,
+              "activation": "sigmoid",
+              "use_bias": true,
+              "kernel_initializer": {
+                "class_name": "VarianceScaling",
+                "config": {
+                  "scale": 1.0,
+                  "mode": "fan_avg",
+                  "distribution": "uniform",
+                  "seed": null
+                }
+              },
+              "bias_initializer": {
+                "class_name": "Zeros",
+                "config": {}
+              },
+              "kernel_regularizer": null,
+              "bias_regularizer": null,
+              "activity_regularizer": null,
+              "kernel_constraint": null,
+              "bias_constraint": null
+            }
+          }
+        ]
+      },
+      "val_accuracy": [
+        0.7545931935310364,
+        0.7709974050521851,
+        0.7847769260406494,
+        0.7952755689620972,
+        0.8031495809555054,
+        0.8123359680175781,
+        0.808398962020874,
+        0.8070865869522095,
+        0.8057742714881897,
+        0.8057742714881897,
+        0.8057742714881897,
+        0.8057742714881897,
+        0.8038057684898376,
+        0.8077427744865417,
+        0.808398962020874,
+        0.8051180839538574,
+        0.8024934530258179,
+        0.8005249500274658,
+        0.7998687624931335,
+        0.7959317564964294
+      ],
+      "epochs": 20,
+      "embedding_dim": 256,
+      "input_len": 8,
+      "batch_size": 512,
+      "optimizer": "rmsprop"
+    }
+  },
+  "2020-04-08 13:31:41.726426": {
+    "data": {
+      "preprocess_options": {
+        "remove_links": true,
+        "remove_users": true,
+        "remove_hash": false,
+        "unslang": false,
+        "split_words": true,
+        "stem": false,
+        "remove_punctuations": true,
+        "remove_numbers": false,
+        "to_lower_case": true,
+        "remove_stop_words": true,
+        "remove_not_alpha": false,
+        "join": false
+      },
+      "words_reputation_filter": 0,
+      "add_start_symbol": true,
+      "train_percentage": 0.8,
+      "vocabulary_len": 8504,
+      "tweets_for_vocabulary_base": true,
+      "shuffle_data": true
+    },
+    "model": {
+      "config": {
+        "name": "sequential_1",
+        "layers": [
+          {
+            "class_name": "Embedding",
+            "config": {
+              "name": "embedding_1",
+              "trainable": true,
+              "batch_input_shape": [
+                null,
+                12
+              ],
+              "dtype": "float32",
+              "input_dim": 8504,
+              "output_dim": 256,
+              "embeddings_initializer": {
+                "class_name": "RandomUniform",
+                "config": {
+                  "minval": -0.05,
+                  "maxval": 0.05,
+                  "seed": null
+                }
+              },
+              "embeddings_regularizer": null,
+              "activity_regularizer": null,
+              "embeddings_constraint": null,
+              "mask_zero": false,
+              "input_length": 12
+            }
+          },
+          {
+            "class_name": "Flatten",
+            "config": {
+              "name": "flatten_1",
+              "trainable": true,
+              "dtype": "float32",
+              "data_format": "channels_last"
+            }
+          },
+          {
+            "class_name": "Dense",
+            "config": {
+              "name": "dense_1",
+              "trainable": true,
+              "dtype": "float32",
+              "units": 1,
+              "activation": "sigmoid",
+              "use_bias": true,
+              "kernel_initializer": {
+                "class_name": "VarianceScaling",
+                "config": {
+                  "scale": 1.0,
+                  "mode": "fan_avg",
+                  "distribution": "uniform",
+                  "seed": null
+                }
+              },
+              "bias_initializer": {
+                "class_name": "Zeros",
+                "config": {}
+              },
+              "kernel_regularizer": null,
+              "bias_regularizer": null,
+              "activity_regularizer": null,
+              "kernel_constraint": null,
+              "bias_constraint": null
+            }
+          }
+        ]
+      },
+      "val_accuracy": [
+        0.7185039520263672,
+        0.7703412175178528,
+        0.7939632534980774,
+        0.8038057684898376,
+        0.8090550899505615,
+        0.8123359680175781,
+        0.8143044710159302,
+        0.8123359680175781,
+        0.8077427744865417,
+        0.8090550899505615,
+        0.8149606585502625,
+        0.8077427744865417,
+        0.8051180839538574,
+        0.8005249500274658,
+        0.7998687624931335,
+        0.7972440719604492,
+        0.7926509380340576,
+        0.7972440719604492,
+        0.7933070659637451,
+        0.7946194410324097
+      ],
+      "epochs": 20,
+      "embedding_dim": 256,
+      "input_len": 12,
+      "batch_size": 512,
+      "optimizer": "rmsprop"
+    }
+  },
+  "2020-04-08 13:32:28.300614": {
+    "data": {
+      "preprocess_options": {
+        "remove_links": true,
+        "remove_users": true,
+        "remove_hash": false,
+        "unslang": false,
+        "split_words": true,
+        "stem": false,
+        "remove_punctuations": true,
+        "remove_numbers": false,
+        "to_lower_case": true,
+        "remove_stop_words": true,
+        "remove_not_alpha": false,
+        "join": false
+      },
+      "words_reputation_filter": 0,
+      "add_start_symbol": true,
+      "train_percentage": 0.8,
+      "vocabulary_len": 8504,
+      "tweets_for_vocabulary_base": true,
+      "shuffle_data": true
+    },
+    "model": {
+      "config": {
+        "name": "sequential_1",
+        "layers": [
+          {
+            "class_name": "Embedding",
+            "config": {
+              "name": "embedding_1",
+              "trainable": true,
+              "batch_input_shape": [
+                null,
+                50
+              ],
+              "dtype": "float32",
+              "input_dim": 8504,
+              "output_dim": 256,
+              "embeddings_initializer": {
+                "class_name": "RandomUniform",
+                "config": {
+                  "minval": -0.05,
+                  "maxval": 0.05,
+                  "seed": null
+                }
+              },
+              "embeddings_regularizer": null,
+              "activity_regularizer": null,
+              "embeddings_constraint": null,
+              "mask_zero": false,
+              "input_length": 50
+            }
+          },
+          {
+            "class_name": "Flatten",
+            "config": {
+              "name": "flatten_1",
+              "trainable": true,
+              "dtype": "float32",
+              "data_format": "channels_last"
+            }
+          },
+          {
+            "class_name": "Dense",
+            "config": {
+              "name": "dense_1",
+              "trainable": true,
+              "dtype": "float32",
+              "units": 1,
+              "activation": "sigmoid",
+              "use_bias": true,
+              "kernel_initializer": {
+                "class_name": "VarianceScaling",
+                "config": {
+                  "scale": 1.0,
+                  "mode": "fan_avg",
+                  "distribution": "uniform",
+                  "seed": null
+                }
+              },
+              "bias_initializer": {
+                "class_name": "Zeros",
+                "config": {}
+              },
+              "kernel_regularizer": null,
+              "bias_regularizer": null,
+              "activity_regularizer": null,
+              "kernel_constraint": null,
+              "bias_constraint": null
+            }
+          }
+        ]
+      },
+      "val_accuracy": [
+        0.7618110179901123,
+        0.7814960479736328,
+        0.8090550899505615,
+        0.8254593014717102,
+        0.819553792476654,
+        0.8254593014717102,
+        0.8261154890060425,
+        0.8241469860076904,
+        0.81561678647995,
+        0.8234907984733582,
+        0.819553792476654,
+        0.8143044710159302,
+        0.8202099800109863,
+        0.8149606585502625,
+        0.8097112774848938,
+        0.8011810779571533,
+        0.8005249500274658,
+        0.8038057684898376,
+        0.8044619560241699,
+        0.7887139320373535
+      ],
+      "epochs": 20,
+      "embedding_dim": 256,
+      "input_len": 50,
+      "batch_size": 512,
+      "optimizer": "rmsprop"
+    }
+  },
+  "2020-04-08 13:32:58.610600": {
+    "data": {
+      "preprocess_options": {
+        "remove_links": true,
+        "remove_users": true,
+        "remove_hash": false,
+        "unslang": false,
+        "split_words": true,
+        "stem": false,
+        "remove_punctuations": true,
+        "remove_numbers": false,
+        "to_lower_case": true,
+        "remove_stop_words": true,
+        "remove_not_alpha": false,
+        "join": false
+      },
+      "words_reputation_filter": 0,
+      "add_start_symbol": true,
+      "train_percentage": 0.8,
+      "vocabulary_len": 8504,
+      "tweets_for_vocabulary_base": true,
+      "shuffle_data": true
+    },
+    "model": {
+      "config": {
+        "name": "sequential_1",
+        "layers": [
+          {
+            "class_name": "Embedding",
+            "config": {
+              "name": "embedding_1",
+              "trainable": true,
+              "batch_input_shape": [
+                null,
+                15
+              ],
+              "dtype": "float32",
+              "input_dim": 8504,
+              "output_dim": 256,
+              "embeddings_initializer": {
+                "class_name": "RandomUniform",
+                "config": {
+                  "minval": -0.05,
+                  "maxval": 0.05,
+                  "seed": null
+                }
+              },
+              "embeddings_regularizer": null,
+              "activity_regularizer": null,
+              "embeddings_constraint": null,
+              "mask_zero": false,
+              "input_length": 15
+            }
+          },
+          {
+            "class_name": "Flatten",
+            "config": {
+              "name": "flatten_1",
+              "trainable": true,
+              "dtype": "float32",
+              "data_format": "channels_last"
+            }
+          },
+          {
+            "class_name": "Dense",
+            "config": {
+              "name": "dense_1",
+              "trainable": true,
+              "dtype": "float32",
+              "units": 1,
+              "activation": "sigmoid",
+              "use_bias": true,
+              "kernel_initializer": {
+                "class_name": "VarianceScaling",
+                "config": {
+                  "scale": 1.0,
+                  "mode": "fan_avg",
+                  "distribution": "uniform",
+                  "seed": null
+                }
+              },
+              "bias_initializer": {
+                "class_name": "Zeros",
+                "config": {}
+              },
+              "kernel_regularizer": null,
+              "bias_regularizer": null,
+              "activity_regularizer": null,
+              "kernel_constraint": null,
+              "bias_constraint": null
+            }
+          }
+        ]
+      },
+      "val_accuracy": [
+        0.7493438124656677,
+        0.780183732509613,
+        0.8038057684898376,
+        0.8103674650192261,
+        0.8202099800109863,
+        0.8234907984733582,
+        0.8287401795387268,
+        0.8274278044700623,
+        0.8274278044700623,
+        0.8267716765403748,
+        0.8215222954750061,
+        0.8182414770126343,
+        0.8202099800109863,
+        0.8169291615486145,
+        0.8149606585502625,
+        0.81561678647995,
+        0.81561678647995,
+        0.8090550899505615,
+        0.8051180839538574,
+        0.8077427744865417
+      ],
+      "epochs": 20,
+      "embedding_dim": 256,
+      "input_len": 15,
+      "batch_size": 512,
+      "optimizer": "rmsprop"
+    }
+  },
+  "2020-04-08 13:33:45.735756": {
+    "data": {
+      "preprocess_options": {
+        "remove_links": true,
+        "remove_users": true,
+        "remove_hash": false,
+        "unslang": false,
+        "split_words": true,
+        "stem": false,
+        "remove_punctuations": true,
+        "remove_numbers": false,
+        "to_lower_case": true,
+        "remove_stop_words": true,
+        "remove_not_alpha": false,
+        "join": false
+      },
+      "words_reputation_filter": 0,
+      "add_start_symbol": true,
+      "train_percentage": 0.8,
+      "vocabulary_len": 8504,
+      "tweets_for_vocabulary_base": true,
+      "shuffle_data": true
+    },
+    "model": {
+      "config": {
+        "name": "sequential_1",
+        "layers": [
+          {
+            "class_name": "Embedding",
+            "config": {
+              "name": "embedding_1",
+              "trainable": true,
+              "batch_input_shape": [
+                null,
+                23
+              ],
+              "dtype": "float32",
+              "input_dim": 8504,
+              "output_dim": 256,
+              "embeddings_initializer": {
+                "class_name": "RandomUniform",
+                "config": {
+                  "minval": -0.05,
+                  "maxval": 0.05,
+                  "seed": null
+                }
+              },
+              "embeddings_regularizer": null,
+              "activity_regularizer": null,
+              "embeddings_constraint": null,
+              "mask_zero": false,
+              "input_length": 23
+            }
+          },
+          {
+            "class_name": "Flatten",
+            "config": {
+              "name": "flatten_1",
+              "trainable": true,
+              "dtype": "float32",
+              "data_format": "channels_last"
+            }
+          },
+          {
+            "class_name": "Dense",
+            "config": {
+              "name": "dense_1",
+              "trainable": true,
+              "dtype": "float32",
+              "units": 32,
+              "activation": "relu",
+              "use_bias": true,
+              "kernel_initializer": {
+                "class_name": "VarianceScaling",
+                "config": {
+                  "scale": 1.0,
+                  "mode": "fan_avg",
+                  "distribution": "uniform",
+                  "seed": null
+                }
+              },
+              "bias_initializer": {
+                "class_name": "Zeros",
+                "config": {}
+              },
+              "kernel_regularizer": null,
+              "bias_regularizer": null,
+              "activity_regularizer": null,
+              "kernel_constraint": null,
+              "bias_constraint": null
+            }
+          },
+          {
+            "class_name": "Dense",
+            "config": {
+              "name": "dense_2",
+              "trainable": true,
+              "dtype": "float32",
+              "units": 1,
+              "activation": "sigmoid",
+              "use_bias": true,
+              "kernel_initializer": {
+                "class_name": "VarianceScaling",
+                "config": {
+                  "scale": 1.0,
+                  "mode": "fan_avg",
+                  "distribution": "uniform",
+                  "seed": null
+                }
+              },
+              "bias_initializer": {
+                "class_name": "Zeros",
+                "config": {}
+              },
+              "kernel_regularizer": null,
+              "bias_regularizer": null,
+              "activity_regularizer": null,
+              "kernel_constraint": null,
+              "bias_constraint": null
+            }
+          }
+        ]
+      },
+      "val_accuracy": [
+        0.7604987025260925,
+        0.8051180839538574,
+        0.8221784830093384,
+        0.8149606585502625,
+        0.8182414770126343,
+        0.8188976645469666,
+        0.8136482834815979,
+        0.8038057684898376,
+        0.8129921555519104,
+        0.808398962020874,
+        0.8090550899505615,
+        0.8024934530258179,
+        0.8031495809555054,
+        0.7972440719604492,
+        0.8038057684898376,
+        0.7952755689620972,
+        0.7906824350357056,
+        0.787401556968689,
+        0.7887139320373535,
+        0.7867454290390015
+      ],
+      "epochs": 20,
+      "embedding_dim": 256,
+      "input_len": 23,
+      "batch_size": 512,
+      "optimizer": "rmsprop"
+    }
+  },
+  "2020-04-08 13:35:38.407349": {
+    "data": {
+      "preprocess_options": {
+        "remove_links": true,
+        "remove_users": true,
+        "remove_hash": false,
+        "unslang": false,
+        "split_words": true,
+        "stem": false,
+        "remove_punctuations": true,
+        "remove_numbers": false,
+        "to_lower_case": true,
+        "remove_stop_words": true,
+        "remove_not_alpha": false,
+        "join": false
+      },
+      "words_reputation_filter": 0,
+      "add_start_symbol": true,
+      "train_percentage": 0.8,
+      "vocabulary_len": 15360,
+      "tweets_for_vocabulary_base": null,
+      "shuffle_data": true
+    },
+    "model": {
+      "config": {
+        "name": "sequential_1",
+        "layers": [
+          {
+            "class_name": "Embedding",
+            "config": {
+              "name": "embedding_1",
+              "trainable": true,
+              "batch_input_shape": [
+                null,
+                25
+              ],
+              "dtype": "float32",
+              "input_dim": 15360,
+              "output_dim": 64,
+              "embeddings_initializer": {
+                "class_name": "RandomUniform",
+                "config": {
+                  "minval": -0.05,
+                  "maxval": 0.05,
+                  "seed": null
+                }
+              },
+              "embeddings_regularizer": null,
+              "activity_regularizer": null,
+              "embeddings_constraint": null,
+              "mask_zero": false,
+              "input_length": 25
+            }
+          },
+          {
+            "class_name": "Flatten",
+            "config": {
+              "name": "flatten_1",
+              "trainable": true,
+              "dtype": "float32",
+              "data_format": "channels_last"
+            }
+          },
+          {
+            "class_name": "Dense",
+            "config": {
+              "name": "dense_1",
+              "trainable": true,
+              "dtype": "float32",
+              "units": 1,
+              "activation": "sigmoid",
+              "use_bias": true,
+              "kernel_initializer": {
+                "class_name": "VarianceScaling",
+                "config": {
+                  "scale": 1.0,
+                  "mode": "fan_avg",
+                  "distribution": "uniform",
+                  "seed": null
+                }
+              },
+              "bias_initializer": {
+                "class_name": "Zeros",
+                "config": {}
+              },
+              "kernel_regularizer": null,
+              "bias_regularizer": null,
+              "activity_regularizer": null,
+              "kernel_constraint": null,
+              "bias_constraint": null
+            }
+          }
+        ]
+      },
+      "val_accuracy": [
+        0.5754593014717102,
+        0.6830708384513855,
+        0.7185039520263672,
+        0.7362204790115356,
+        0.748031497001648,
+        0.7604987025260925,
+        0.7709974050521851,
+        0.7755905389785767,
+        0.7867454290390015,
+        0.7900262475013733,
+        0.7906824350357056,
+        0.7939632534980774,
+        0.7906824350357056,
+        0.7965879440307617,
+        0.7867454290390015,
+        0.7906824350357056,
+        0.7854330539703369,
+        0.7867454290390015,
+        0.787401556968689,
+        0.780183732509613
+      ],
+      "epochs": 20,
+      "embedding_dim": 64,
+      "input_len": 25,
+      "batch_size": 512,
+      "optimizer": "rmsprop"
+    }
+  },
+  "2020-04-08 13:36:16.401718": {
+    "data": {
+      "preprocess_options": {
+        "remove_links": true,
+        "remove_users": true,
+        "remove_hash": false,
+        "unslang": false,
+        "split_words": true,
+        "stem": false,
+        "remove_punctuations": true,
+        "remove_numbers": false,
+        "to_lower_case": true,
+        "remove_stop_words": true,
+        "remove_not_alpha": false,
+        "join": false
+      },
+      "words_reputation_filter": 0,
+      "add_start_symbol": true,
+      "train_percentage": 0.8,
+      "vocabulary_len": 15360,
+      "tweets_for_vocabulary_base": null,
+      "shuffle_data": false
+    },
+    "model": {
+      "config": {
+        "name": "sequential_1",
+        "layers": [
+          {
+            "class_name": "Embedding",
+            "config": {
+              "name": "embedding_1",
+              "trainable": true,
+              "batch_input_shape": [
+                null,
+                25
+              ],
+              "dtype": "float32",
+              "input_dim": 15360,
+              "output_dim": 64,
+              "embeddings_initializer": {
+                "class_name": "RandomUniform",
+                "config": {
+                  "minval": -0.05,
+                  "maxval": 0.05,
+                  "seed": null
+                }
+              },
+              "embeddings_regularizer": null,
+              "activity_regularizer": null,
+              "embeddings_constraint": null,
+              "mask_zero": false,
+              "input_length": 25
+            }
+          },
+          {
+            "class_name": "Flatten",
+            "config": {
+              "name": "flatten_1",
+              "trainable": true,
+              "dtype": "float32",
+              "data_format": "channels_last"
+            }
+          },
+          {
+            "class_name": "Dense",
+            "config": {
+              "name": "dense_1",
+              "trainable": true,
+              "dtype": "float32",
+              "units": 1,
+              "activation": "sigmoid",
+              "use_bias": true,
+              "kernel_initializer": {
+                "class_name": "VarianceScaling",
+                "config": {
+                  "scale": 1.0,
+                  "mode": "fan_avg",
+                  "distribution": "uniform",
+                  "seed": null
+                }
+              },
+              "bias_initializer": {
+                "class_name": "Zeros",
+                "config": {}
+              },
+              "kernel_regularizer": null,
+              "bias_regularizer": null,
+              "activity_regularizer": null,
+              "kernel_constraint": null,
+              "bias_constraint": null
+            }
+          }
+        ]
+      },
+      "val_accuracy": [
+        0.5449770092964172,
+        0.6211425065994263,
+        0.7078135013580322,
+        0.734734058380127,
+        0.7649376392364502,
+        0.7695338129997253,
+        0.7754431962966919,
+        0.7787262201309204,
+        0.7826657891273499,
+        0.7866053581237793,
+        0.7793828248977661,
+        0.7813525795936584,
+        0.7780696153640747,
+        0.7806959748268127,
+        0.7787262201309204,
+        0.7754431962966919,
+        0.777413010597229,
+        0.7760998010635376,
+        0.7780696153640747,
+        0.7708470225334167
+      ],
+      "epochs": 20,
+      "embedding_dim": 64,
+      "input_len": 25,
+      "batch_size": 512,
+      "optimizer": "rmsprop"
+    }
+  }
+}
