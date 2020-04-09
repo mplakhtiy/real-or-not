@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 from keras.models import Sequential
-from keras.layers import Dense, Flatten, Embedding, LSTM, Bidirectional, GRU, Conv1D, GlobalAveragePooling1D, Dropout, \
-    MaxPool1D
+from keras.layers import Dense, Embedding
 
 
 class KerasModels:

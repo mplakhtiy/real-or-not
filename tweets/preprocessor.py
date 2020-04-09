@@ -24,21 +24,44 @@ class TweetsPreprocessor:
         return [word.replace('#', '') for word in words]
 
     @staticmethod
-    def _remove_punctuations(words):
-        return [w for w in words if w != '' and ((len(w) > 1 and w.startswith('#')) or (
-                w[0] not in string.punctuation and w[-1] not in string.punctuation))]
-
-    @staticmethod
-    def _remove_not_alpha(words):
-        return [word for word in words if (len(word) > 1 and word.startswith('#')) or word.isalpha()]
-
-    @staticmethod
     def _to_lower_case(words):
         return [word.lower() for word in words]
 
     @staticmethod
+    def _is_punctuation(word):
+        chars = list(word)
+
+        for char in chars:
+            if char not in string.punctuation:
+                return False
+
+        return True
+
+    @staticmethod
+    def _is_empty_str(word):
+        return word.replace(' ', '') == ''
+
+    @staticmethod
+    def _is_hashtag(word):
+        return len(word) > 1 and word.startswith('#')
+
+    @staticmethod
+    def _is_number(word):
+        return word.replace('.', '').replace(',', '').replace(' ', '').isdigit()
+
+    @staticmethod
+    def _remove_punctuations(words):
+        return [w for w in words if
+                not TweetsPreprocessor._is_empty_str(w) and not TweetsPreprocessor._is_punctuation(w)]
+
+    @staticmethod
+    def _remove_not_alpha(words):
+        return [word for word in words if
+                TweetsPreprocessor._is_hashtag(word) or TweetsPreprocessor._is_number(word) or word.isalpha()]
+
+    @staticmethod
     def _remove_numbers(words):
-        return [word for word in words if not word.replace('.', '').isdigit()]
+        return [word for word in words if not TweetsPreprocessor._is_number(word)]
 
     @staticmethod
     def _join(words):
@@ -48,7 +71,8 @@ class TweetsPreprocessor:
         with_split_words = [w for w in words]
 
         for splitter in self.splitters:
-            with_split_words = [w for sub in map(lambda w: w.split(splitter), with_split_words) for w in sub if w != '']
+            with_split_words = [w for sub in map(lambda w: w.split(splitter), with_split_words) for w in sub if
+                                not TweetsPreprocessor._is_empty_str(w)]
 
         return with_split_words
 

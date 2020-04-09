@@ -1,12 +1,17 @@
 import unittest
 import string
-import random
 import pandas as pd
 from tweets import TweetsPreprocessor, tweet_tokenizer, porter_stemmer, stop_words, slang_abbreviations, splitters
 
 
 class TestTweetsPreprocessor(unittest.TestCase):
-    preprocessor = TweetsPreprocessor(tweet_tokenizer, porter_stemmer, stop_words, slang_abbreviations, splitters)
+    preprocessor = TweetsPreprocessor(
+        tokenizer=tweet_tokenizer,
+        stemmer=porter_stemmer,
+        stop_words=stop_words,
+        slang_abbreviations=slang_abbreviations,
+        splitters=splitters
+    )
     tweets = pd.Series([
         'Our Deeds are the Reason of this #earthquake May ALLAH Forgive us all',
         'Forest fire near La Ronge Sask. Canada',
@@ -64,20 +69,20 @@ class TestTweetsPreprocessor(unittest.TestCase):
 
     def test_remove_punctuations(self):
         punct = list(string.punctuation)
-        tweet = punct + [f'{random.choice(punct)}word', f'word{random.choice(punct)}', '#word', '#hello']
+        tweet = punct + ['1300', '...', '!!!', '', '!??!!*^&', '#word', '#hello']
 
         result = set(TweetsPreprocessor._remove_punctuations(tweet))
 
-        expected = {'#word', '#hello'}
+        expected = {'#word', '#hello', '1300'}
 
         self.assertEqual(result, expected)
 
     def test_remove_alpha(self):
-        tweet = ['hello3', '#hello', '#', "'s", '*', '2pm', '3miles', '22:30'] + list(string.punctuation)
+        tweet = ['hello3', '#hello', '#', "'s", '*', '2pm', '3miles', '22:30', '13'] + list(string.punctuation)
 
         result = TweetsPreprocessor._remove_not_alpha(tweet)
 
-        expected = ['#hello']
+        expected = ['#hello', '13']
 
         self.assertEqual(result, expected)
 
@@ -91,7 +96,7 @@ class TestTweetsPreprocessor(unittest.TestCase):
         self.assertEqual(result, expected)
 
     def test_split_words(self):
-        tweet = list(splitters) + ['hello-world', '1.2:3/4']
+        tweet = list(splitters) + ['hello-world', '1 2:3/4']
 
         result = self.preprocessor._split_words(tweet)
 
@@ -147,17 +152,55 @@ class TestTweetsPreprocessor(unittest.TestCase):
 
         self.assertEqual(result, expected)
 
+    def test_is_punctuation(self):
+        puncts = ['##!*', '.', '&*?>!', '']
+
+        result = [TweetsPreprocessor._is_punctuation(p) for p in puncts]
+
+        expected = [True, True, True, True]
+
+        self.assertEqual(result, expected)
+
+    def test_is_empty_str(self):
+        epty_strs = ['   ', ' ', '']
+
+        result = [TweetsPreprocessor._is_empty_str(s) for s in epty_strs]
+
+        expected = [True, True, True]
+
+        self.assertEqual(result, expected)
+
+    def test_is_hash_tag(self):
+        hashtags = ['#', '#h', 'h#']
+
+        result = [TweetsPreprocessor._is_hashtag(h) for h in hashtags]
+
+        expected = [False, True, False]
+
+        self.assertEqual(result, expected)
+
+    def test_is_number(self):
+        numbers = ['1,2', '1 000', '1.0', '01']
+
+        result = [TweetsPreprocessor._is_number(n) for n in numbers]
+
+        expected = [True, True, True, True]
+
+        self.assertEqual(result, expected)
+
     def test_preprocess_1(self):
         result = list(self.preprocessor.preprocess(
             self.tweets,
             options={
                 'remove_numbers': False,
-                'remove_not_alpha': False
+                'remove_not_alpha': False,
+                'correct_spellings': True
             }
         ))
 
         expected = [
-            'deed reason thi earthquak may allah forgiv us', 'forest fire near la rong sask canada',
+            'deed reason thi earthquak may allah forgiv us',
+            'forest fire near la rong sask canada',
             'resid ask shelter place notifi offic evacu shelter place order expect',
             '13,000 peopl receiv wildfir evacu order california',
             'got sent thi photo rubi alaska smoke wildfir pour school',
@@ -223,6 +266,67 @@ class TestTweetsPreprocessor(unittest.TestCase):
             '#raining #flooding #florida #tampabay #tampa days lost count',
             '#flood bago myanmar #we arrived bago',
             'damage school bus multi car crash #breaking'
+        ]
+
+        self.assertEqual(result, expected)
+
+    def test_preprocess_4(self):
+        result = list(self.preprocessor.preprocess(
+            self.tweets,
+            options={
+                'remove_hash': False,
+                'stem': False,
+                'remove_numbers': False,
+            }
+        ))
+
+        expected = [
+            'deeds reason #earthquake may allah forgive us',
+            'forest fire near la ronge sask canada',
+            'residents asked shelter place notified officers evacuation shelter place orders expected',
+            '13,000 people receive #wildfires evacuation orders california',
+            'got sent photo ruby #alaska smoke #wildfires pours school',
+            '#rockyfire update california hwy 20 closed directions due lake county fire #cafire #wildfires',
+            '#flood #disaster heavy rain causes flash flooding streets manitou colorado springs areas',
+            'top hill see fire woods',
+            'emergency evacuation happening building across street',
+            'afraid tornado coming area',
+            'three people died heat wave far',
+            'haha south tampa getting flooded hah wait second live south tampa gonna gonna fvck #flooding',
+            '#raining #flooding #florida #tampabay #tampa 18 19 days lost count',
+            '#flood bago myanmar #we arrived bago',
+            'damage school bus 80 multi car crash #breaking'
+        ]
+
+        self.assertEqual(result, expected)
+
+    def test_preprocess_5(self):
+        result = list(self.preprocessor.preprocess(
+            self.tweets,
+            options={
+                'remove_hash': False,
+                'stem': False,
+                'remove_numbers': False,
+                'remove_stop_words': False,
+            }
+        ))
+
+        expected = [
+            'our deeds are the reason of this #earthquake may allah forgive us all',
+            'forest fire near la ronge sask canada',
+            'all residents asked to shelter in place are being notified by officers no other evacuation or shelter in place orders are expected',
+            '13,000 people receive #wildfires evacuation orders in california',
+            'just got sent this photo from ruby #alaska as smoke from #wildfires pours into a school',
+            '#rockyfire update california hwy 20 closed in both directions due to lake county fire #cafire #wildfires',
+            '#flood #disaster heavy rain causes flash flooding of streets in manitou colorado springs areas',
+            'i m on top of the hill and i can see a fire in the woods',
+            'there s an emergency evacuation happening now in the building across the street',
+            'i m afraid that the tornado is coming to our area',
+            'three people died from the heat wave so far',
+            'haha south tampa is getting flooded hah wait a second i live in south tampa what am i gonna do what am i gonna do fvck #flooding',
+            '#raining #flooding #florida #tampabay #tampa 18 or 19 days i ve lost count',
+            '#flood in bago myanmar #we arrived bago',
+            'damage to school bus on 80 in multi car crash #breaking'
         ]
 
         self.assertEqual(result, expected)

@@ -246,6 +246,12 @@ slang_abbreviations = {
     "zzz": "sleeping bored and tired"
 }
 
-splitters = {"'", '-', ':', ' ', '_', '/', '.'}
+splitters = {"'", '-', ':', ' ', '_', '/'}
 
-tweets_preprocessor = TweetsPreprocessor(tweet_tokenizer, porter_stemmer, stop_words, slang_abbreviations, splitters)
+tweets_preprocessor = TweetsPreprocessor(
+    tokenizer=tweet_tokenizer,
+    stemmer=porter_stemmer,
+    stop_words=stop_words,
+    slang_abbreviations=slang_abbreviations,
+    splitters=splitters
+)

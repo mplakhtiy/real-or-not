@@ -1,4 +1,7 @@
 import pandas as pd
 
-'''COLUMNS: id, keyword, location, text, target'''
-data = pd.read_csv('./data/train.csv')
+train_data = pd.read_csv('./train.csv')
+
+test_data = pd.read_csv('./test.csv')
+
+test_data_with_target = pd.read_csv('./test_with_target.csv')
