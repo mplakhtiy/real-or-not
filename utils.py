@@ -35,20 +35,12 @@ def get_prepared_data_from_file(file_path):
 
 
 def log(
-        preprocess_options=None,
+        data=None,
+        vocabulary=None,
+        model=None,
         model_history=None,
         model_config=None,
-        words_reputation_filter=None,
-        train_percentage=None,
-        batch_size=None,
-        epochs=None,
-        embedding_dim=None,
-        vocabulary_len=None,
-        add_start_symbol=None,
-        input_len=None,
-        optimizer=None,
-        tweets_for_vocabulary_base=None,
-        shuffle_data=None,
+        test_performance=None,
         file_path=f'./logs/log-{datetime.now().date()}.json'
 ):
     if not os.path.exists(file_path):
@@ -56,25 +48,16 @@ def log(
 
     log_data = get_from_file(file_path)
 
-    log_data[str(datetime.now())] = {
-        'data': {
-            'preprocess_options': preprocess_options,
-            'words_reputation_filter': words_reputation_filter,
-            'add_start_symbol': add_start_symbol,
-            'train_percentage': train_percentage,
-            'vocabulary_len': vocabulary_len,
-            'tweets_for_vocabulary_base': tweets_for_vocabulary_base,
-            'shuffle_data': shuffle_data
-        },
-        'model': {
-            'config': model_config,
-            'val_accuracy': [float(a) for a in model_history['val_accuracy']],
-            'epochs': epochs,
-            'embedding_dim': embedding_dim,
-            'input_len': input_len,
-            'batch_size': batch_size,
-            'optimizer': optimizer,
-        },
+    current_log = {
+        'data': data,
+        'model': model,
+        'vocabulary': vocabulary,
     }
+
+    current_log['model']['config'] = model_config
+    current_log['model']['val_accuracy'] = [float(a) for a in model_history['val_accuracy']]
+    current_log['model']['test_performance'] = test_performance
+
+    log_data[str(datetime.now())] = current_log
 
     save_to_file(file_path, log_data)

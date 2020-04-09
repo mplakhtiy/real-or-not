@@ -1,65 +1,93 @@
 # -*- coding: utf-8 -*-
 import numpy as np
+import pandas as pd
 from tweets import TweetsVectorization, tweets_preprocessor
-from models import KerasModels
+from models import KerasModels, KerasTestCallback
 from utils import draw_keras_graph, log
+from keras.models import load_model
+from keras.callbacks import ModelCheckpoint
 from keras.layers import Dense, Flatten, Embedding, LSTM
 from keras.layers import Bidirectional, GRU, Conv1D, GlobalAveragePooling1D, Dropout, MaxPool1D
-from data import data
+from data import train_data as data, test_data_with_target
 
 ########################################################################################################################
 
-WORDS_REPUTATION_FILTER = 0
-TRAIN_PERCENTAGE = 0.8
-ADD_START_SYMBOL = True
-TWEETS_FOR_VOCABULARY_BASE = None
-SHUFFLE_DATA = False
-PREPROCESS_OPTRIONS = {
-    'remove_links': True,
-    'remove_users': True,
-    'remove_hash': False,
-    'unslang': False,
-    'split_words': True,
-    'stem': False,
-    'remove_punctuations': True,
-    'remove_numbers': False,
-    'to_lower_case': True,
-    'remove_stop_words': True,
-    'remove_not_alpha': False,
-    'join': False
+VOCABULARY = {
+    'WORDS_REPUTATION_FILTER': 0,
+    'SORT_VOCABULARY': False,
+    'REVERSE_SORT': False,
+    'TWEETS_FOR_VOCABULARY_BASE': None,
+    'ADD_START_SYMBOL': False
 }
 
-x_train, y_train, x_val, y_val, vocabulary, max_vector_len = TweetsVectorization.get_prepared_data_based_on_words_indexes(
-    tweets_preprocessor=tweets_preprocessor,
-    tweets=data.text,
+DATA = {
+    'TRAIN_PERCENTAGE': 0.8,
+    'SHUFFLE_DATA': True,
+    'PREPROCESS_OPTRIONS': {
+        'remove_links': True,
+        'remove_users': True,
+        'remove_hash': True,
+        'unslang': True,
+        'split_words': True,
+        'stem': True,
+        'remove_punctuations': True,
+        'remove_numbers': True,
+        'to_lower_case': True,
+        'remove_stop_words': True,
+        'remove_not_alpha': True,
+        'join': False
+    }
+}
+
+########################################################################################################################
+
+data['preprocessed'] = tweets_preprocessor.preprocess(data.text, DATA['PREPROCESS_OPTRIONS'])
+
+vocabulary = TweetsVectorization.get_vocabulary(
+    tweets=data.preprocessed[data.target == 1] if VOCABULARY['TWEETS_FOR_VOCABULARY_BASE'] is True else
+    (data.preprocessed[data.target == 0] if VOCABULARY['TWEETS_FOR_VOCABULARY_BASE'] is False else data.preprocessed),
+    vocabulary_filter=VOCABULARY['WORDS_REPUTATION_FILTER'],
+    sort=VOCABULARY['SORT_VOCABULARY'],
+    reverse=VOCABULARY['REVERSE_SORT'],
+    add_start_symbol=VOCABULARY['ADD_START_SYMBOL']
+)
+
+x, y = TweetsVectorization.get_prepared_data_based_on_vocabulary_indexes(
+    tweets=data.preprocessed,
     target=data.target,
-    preprocess_options=PREPROCESS_OPTRIONS,
-    tweets_for_vocabulary_base=data.text[data.target == 1] if TWEETS_FOR_VOCABULARY_BASE is True else
-    (data.text[data.target == 0] if TWEETS_FOR_VOCABULARY_BASE is False else None),
-    words_reputation_filter=WORDS_REPUTATION_FILTER,
-    train_percentage=TRAIN_PERCENTAGE,
-    add_start_symbol=ADD_START_SYMBOL,
-    shuffle_data=SHUFFLE_DATA
+    vocabulary=vocabulary,
+)
+
+x_train, y_train, x_val, y_val = TweetsVectorization.get_train_test_split(
+    x=x, y=y, train_percentage=DATA['TRAIN_PERCENTAGE'], shuffle_data=DATA['SHUFFLE_DATA']
+)
+
+x_test, y_test = TweetsVectorization.get_prepared_data_based_on_vocabulary_indexes(
+    tweets=tweets_preprocessor.preprocess(test_data_with_target.text, DATA['PREPROCESS_OPTRIONS']),
+    target=test_data_with_target.target,
+    vocabulary=vocabulary,
 )
 
 ########################################################################################################################
 
-BATCH_SIZE = 512
-EPOCHS = 20
-VERBOSE = 1
-EMBEDING_DIM = 64
-OPTIMIZER = 'rmsprop'
-INPUT_LENGTH = max_vector_len
-EMBEDDING_OPTIONS = {
-    'input_dim': len(vocabulary),
-    'output_dim': EMBEDING_DIM,
-    'input_length': INPUT_LENGTH
+MODEL = {
+    'BATCH_SIZE': 512,
+    'EPOCHS': 30,
+    'VERBOSE': 1,
+    'OPTIMIZER': 'rmsprop',
+    'SHUFFLE': True,
+    'EMBEDDING_OPTIONS': {
+        'input_dim': len(vocabulary),
+        'output_dim': 16,
+        'input_length': len(x_train[0])
+    }
 }
 
 ########################################################################################################################
 
-# x_train = TweetsVectorization.to_same_smaller_length(x_train, INPUT_LENGTH)
-# x_val = TweetsVectorization.to_same_smaller_length(x_val, INPUT_LENGTH)
+x_train = TweetsVectorization.to_same_length(x_train, MODEL['EMBEDDING_OPTIONS']['input_length'])
+x_val = TweetsVectorization.to_same_length(x_val, MODEL['EMBEDDING_OPTIONS']['input_length'])
+x_test = TweetsVectorization.to_same_length(x_test, MODEL['EMBEDDING_OPTIONS']['input_length'])
 
 ########################################################################################################################
 
@@ -67,7 +95,7 @@ EMBEDDING_OPTIONS = {
 LAYERS = [Flatten()]
 
 '''Multi layer binary classification model'''
-# DENSE_LAYERS_UNITS = [32]
+# DENSE_LAYERS_UNITS = [16]
 # LAYERS = [Flatten()] + [Dense(unit, activation='relu') for unit in DENSE_LAYERS_UNITS]
 
 '''LSTM model'''
@@ -125,42 +153,58 @@ LAYERS = [Flatten()]
 #     LSTM(LSTM_UNITS),
 # ]
 
+'''Model'''
+
+# DENSE_UNITS = 64
+# LAYERS = [
+#     GlobalAveragePooling1D(),
+#     Dense(DENSE_UNITS, activation='relu'),
+# ]
+
+########################################################################################################################
+
+# checkpoint = ModelCheckpoint(
+#     './data/models/model-{epoch:03d}-{accuracy:03f}-{val_accuracy:03f}.h5',
+#     verbose=1,
+#     monitor='val_loss',
+#     save_best_only=True,
+#     mode='auto'
+# )
+
+test_callback = KerasTestCallback(
+    x_test=TweetsVectorization.to_same_length(x_test, MODEL['EMBEDDING_OPTIONS']['input_length']),
+    y_test=y_test
+)
+
 ########################################################################################################################
 
 model = KerasModels.get_keras_model(
     layers=LAYERS,
-    embedding_options=EMBEDDING_OPTIONS,
-    optimizer=OPTIMIZER
+    embedding_options=MODEL['EMBEDDING_OPTIONS'],
+    optimizer=MODEL['OPTIMIZER']
 )
 
 history = model.fit(
     x=np.array(x_train),
     y=np.array(y_train),
-    batch_size=BATCH_SIZE,
-    epochs=EPOCHS,
-    verbose=VERBOSE,
-    shuffle=True,
+    batch_size=MODEL['BATCH_SIZE'],
+    epochs=MODEL['EPOCHS'],
+    verbose=MODEL['VERBOSE'],
+    shuffle=MODEL['SHUFFLE'],
     validation_data=(
         np.array(x_val),
         np.array(y_val)
-    )
+    ),
+    callbacks=[test_callback]
 )
 
 draw_keras_graph(history)
 
 log(
-    preprocess_options=PREPROCESS_OPTRIONS,
+    data=DATA,
+    vocabulary=VOCABULARY,
+    model=MODEL,
     model_history=history.history,
     model_config=model.get_config(),
-    words_reputation_filter=WORDS_REPUTATION_FILTER,
-    train_percentage=TRAIN_PERCENTAGE,
-    batch_size=BATCH_SIZE,
-    epochs=EPOCHS,
-    embedding_dim=EMBEDING_DIM,
-    vocabulary_len=len(vocabulary),
-    add_start_symbol=ADD_START_SYMBOL,
-    input_len=INPUT_LENGTH,
-    optimizer=OPTIMIZER,
-    tweets_for_vocabulary_base=TWEETS_FOR_VOCABULARY_BASE,
-    shuffle_data=SHUFFLE_DATA,
+    test_performance=test_callback.test_performance
 )

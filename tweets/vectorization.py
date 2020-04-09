@@ -6,58 +6,72 @@ from sklearn.feature_extraction.text import CountVectorizer
 
 class TweetsVectorization:
     @staticmethod
-    def _get_words_dict(tweets):
-        words = {}
+    def get_vocabulary_dict(tweets):
+        vocabulary = {}
 
         for tweet in tweets:
             for word in tweet:
-                if word in words:
-                    words[word] += 1
+                if word in vocabulary:
+                    vocabulary[word] += 1
                 else:
-                    words[word] = 1
+                    vocabulary[word] = 1
 
-        return words
-
-    @staticmethod
-    def _get_filtered_dict(words, lower=0, upper=1000000):
-        filtered_words = {}
-        for word, count in words.items():
-            if lower <= count <= upper:
-                filtered_words[word] = count
-
-        return filtered_words
+        return vocabulary
 
     @staticmethod
-    def _get_sorted_words(words, add_start_symbol=False, symbol='!!!!***START***!!!'):
-        sorted_words = [word for word, count in sorted(words.items(), key=lambda item: item[1], reverse=True)]
+    def get_filtered_vocabulary_dict(vocabulary, lower=0):
+        filtered_vocabulary = {}
 
-        return [symbol] + sorted_words if add_start_symbol else sorted_words
+        for word, count in vocabulary.items():
+            if lower <= count:
+                filtered_vocabulary[word] = count
+
+        return filtered_vocabulary
 
     @staticmethod
-    def _get_vectors_of_words_indexes(tweets, words):
-        words_indexes = []
+    def get_vocabulary_list(vocabulary, sort=False, reverse=True, add_start_symbol=False, symbol='!!!!***START***!!!'):
+        if sort is True:
+            sorted_vocabulary = sorted(vocabulary.items(), key=lambda item: item[1], reverse=reverse)
+            vocabulary_list = [word for word, count in sorted_vocabulary]
+        else:
+            vocabulary_list = list(vocabulary.keys())
+
+        return [symbol] + vocabulary_list if add_start_symbol else vocabulary_list
+
+    @staticmethod
+    def get_vectors_of_vocabulary_indexes(tweets, vocabulary):
+        vectors_of_indexes = []
 
         for tweet in tweets:
-            indexes = []
-            tweet_words = list(set(tweet))
+            vector = []
 
-            for i, word in enumerate(words):
-                if len(tweet_words) == 0:
-                    break
-                elif word in tweet_words:
-                    indexes.append(i)
-                    tweet_words.remove(word)
+            for word in tweet:
+                try:
+                    vector.append(vocabulary.index(word))
+                except ValueError:
+                    pass
 
-            words_indexes.append(indexes)
+            vectors_of_indexes.append(vector)
 
-        return words_indexes
+        return vectors_of_indexes
 
     @staticmethod
-    def to_same_greater_length(tweets, length, symbol=0):
-        return list(map(lambda tweet: tweet + [symbol] * (length - len(tweet)), tweets))
+    def to_same_length(tweets, length, symbol=0):
+        tweets_with_same_len = []
+        for tweet in tweets:
+            tweet_len = len(tweet)
+
+            if tweet_len < length:
+                tweets_with_same_len.append(tweet + [symbol] * (length - tweet_len))
+            elif tweet_len > length:
+                tweets_with_same_len.append(tweet[:length])
+            else:
+                tweets_with_same_len.append(tweet)
+
+        return tweets_with_same_len
 
     @staticmethod
-    def _get_max_vector_len(tweets):
+    def get_max_vector_len(tweets):
         return len(max(tweets, key=len))
 
     @staticmethod
@@ -73,7 +87,7 @@ class TweetsVectorization:
         return new_x, new_y
 
     @staticmethod
-    def _get_train_test_split(x, y, train_percentage, shuffle_data=False):
+    def get_train_test_split(x, y, train_percentage, shuffle_data=False):
         if shuffle_data is False:
             data_division_point = int(train_percentage * len(y))
             x_train = x[:data_division_point]
@@ -113,45 +127,37 @@ class TweetsVectorization:
         return x_train, y_train, x_val, y_val
 
     @staticmethod
-    def to_same_smaller_length(tweets, length):
-        return list(map(lambda tweet: tweet[:length], tweets))
+    def get_vocabulary(
+            tweets,
+            vocabulary_filter,
+            sort,
+            reverse,
+            add_start_symbol,
+            symbol=None
+    ):
+        return TweetsVectorization.get_vocabulary_list(
+            vocabulary=TweetsVectorization.get_filtered_vocabulary_dict(
+                vocabulary=TweetsVectorization.get_vocabulary_dict(tweets),
+                lower=vocabulary_filter
+            ),
+            add_start_symbol=add_start_symbol,
+            sort=sort,
+            reverse=reverse,
+            symbol=symbol,
+        )
 
     @staticmethod
-    def get_prepared_data_based_on_words_indexes(
-            tweets_preprocessor,
+    def get_prepared_data_based_on_vocabulary_indexes(
             tweets,
             target,
-            preprocess_options,
-            tweets_for_vocabulary_base=None,
-            words_reputation_filter=0,
-            train_percentage=0.8,
-            add_start_symbol=False,
-            shuffle_data=False
+            vocabulary
     ):
-        t = tweets_preprocessor.preprocess(tweets, options=preprocess_options)
+        vectors = TweetsVectorization.get_vectors_of_vocabulary_indexes(tweets, vocabulary)
+        max_vector_len = TweetsVectorization.get_max_vector_len(vectors)
+        x = TweetsVectorization.to_same_length(vectors, max_vector_len)
+        y = list(target)
 
-        if tweets_for_vocabulary_base is None:
-            vocabulary_base = t
-        else:
-            vocabulary_base = tweets_preprocessor.preprocess(tweets_for_vocabulary_base, options=preprocess_options)
-
-        vocabulary = TweetsVectorization._get_sorted_words(
-            TweetsVectorization._get_filtered_dict(
-                TweetsVectorization._get_words_dict(vocabulary_base),
-                words_reputation_filter
-            ),
-            add_start_symbol
-        )
-
-        vectors = TweetsVectorization._get_vectors_of_words_indexes(t, vocabulary)
-        max_vector_len = TweetsVectorization._get_max_vector_len(vectors)
-        vectors = TweetsVectorization.to_same_greater_length(vectors, max_vector_len)
-        target = list(map(lambda x: x, target))
-        x_train, y_train, x_val, y_val = TweetsVectorization._get_train_test_split(
-            vectors, target, train_percentage, shuffle_data=shuffle_data
-        )
-
-        return x_train, y_train, x_val, y_val, vocabulary, max_vector_len
+        return x, y
 
     @staticmethod
     def get_prepared_data_based_on_count_vectorizer(
@@ -174,6 +180,6 @@ class TweetsVectorization:
         vectors = vectorizer.fit_transform(t).todense()
 
         target = target.values
-        x_train, y_train, x_val, y_val = TweetsVectorization._get_train_test_split(vectors, target, train_percentage)
+        x_train, y_train, x_val, y_val = TweetsVectorization.get_train_test_split(vectors, target, train_percentage)
 
         return x_train, y_train, x_val, y_val
