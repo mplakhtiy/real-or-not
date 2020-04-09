@@ -1,10 +1,15 @@
 # -*- coding: utf-8 -*-
 import random
 import numpy as np
-from sklearn.feature_extraction.text import CountVectorizer
+from sklearn.feature_extraction.text import CountVectorizer, TfidfVectorizer
 
 
 class TweetsVectorization:
+    vectorizers = {
+        'TFIDF': TfidfVectorizer,
+        'COUNT': CountVectorizer
+    }
+
     @staticmethod
     def get_vocabulary_dict(tweets):
         vocabulary = {}
@@ -155,31 +160,23 @@ class TweetsVectorization:
         vectors = TweetsVectorization.get_vectors_of_vocabulary_indexes(tweets, vocabulary)
         max_vector_len = TweetsVectorization.get_max_vector_len(vectors)
         x = TweetsVectorization.to_same_length(vectors, max_vector_len)
-        y = list(target)
+        y = target
 
         return x, y
 
     @staticmethod
+    def get_vectorizer(vectorizer_type, vectorizer_options=None):
+        return TweetsVectorization.vectorizers[vectorizer_type](
+            **vectorizer_options if vectorizer_options is not None else {}
+        )
+
+    @staticmethod
     def get_prepared_data_based_on_count_vectorizer(
-            tweets_preprocessor,
             tweets,
             target,
-            preprocess_options,
-            train_percentage=0.8,
-            count_vectorizer_options=None
+            vectorizer,
     ):
-        if count_vectorizer_options is None:
-            count_vectorizer_options = {
-                'analyzer': 'word',
-                'binary': True
-            }
+        x = vectorizer.fit_transform(tweets).todense()
+        y = target
 
-        t = tweets_preprocessor.preprocess(tweets, options=preprocess_options)
-
-        vectorizer = CountVectorizer(**count_vectorizer_options)
-        vectors = vectorizer.fit_transform(t).todense()
-
-        target = target.values
-        x_train, y_train, x_val, y_val = TweetsVectorization.get_train_test_split(vectors, target, train_percentage)
-
-        return x_train, y_train, x_val, y_val
+        return x, y

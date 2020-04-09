@@ -41,6 +41,8 @@ def log(
         model_history=None,
         model_config=None,
         test_performance=None,
+        classifier=None,
+        vectorizer=None,
         file_path=f'./logs/log-{datetime.now().date()}.json'
 ):
     if not os.path.exists(file_path):
@@ -48,15 +50,24 @@ def log(
 
     log_data = get_from_file(file_path)
 
-    current_log = {
-        'data': data,
-        'model': model,
-        'vocabulary': vocabulary,
-    }
+    current_log = {}
+    if data is not None:
+        current_log['data'] = data
 
-    current_log['model']['config'] = model_config
-    current_log['model']['val_accuracy'] = [float(a) for a in model_history['val_accuracy']]
-    current_log['model']['test_performance'] = test_performance
+    if vocabulary is not None:
+        current_log['vocabulary']: vocabulary
+
+    if model is not None:
+        current_log['model'] = model
+        current_log['model']['config'] = model_config
+        current_log['model']['val_accuracy'] = [float(a) for a in model_history['val_accuracy']]
+        current_log['model']['test_performance'] = test_performance
+
+    if classifier is not None:
+        current_log['classifier'] = classifier
+
+    if vectorizer is not None:
+        current_log['vectorizer'] = vectorizer
 
     log_data[str(datetime.now())] = current_log
 

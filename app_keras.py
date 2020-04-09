@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-
 import numpy as np
-import pandas as pd
 from tweets import TweetsVectorization, tweets_preprocessor
 from models import KerasModels, KerasTestCallback
 from utils import draw_keras_graph, log
@@ -42,6 +41,10 @@ DATA = {
 ########################################################################################################################
 
 data['preprocessed'] = tweets_preprocessor.preprocess(data.text, DATA['PREPROCESS_OPTRIONS'])
+test_data_with_target['preprocessed'] = tweets_preprocessor.preprocess(
+    test_data_with_target.text,
+    DATA['PREPROCESS_OPTRIONS']
+)
 
 vocabulary = TweetsVectorization.get_vocabulary(
     tweets=data.preprocessed[data.target == 1] if VOCABULARY['TWEETS_FOR_VOCABULARY_BASE'] is True else
@@ -54,7 +57,7 @@ vocabulary = TweetsVectorization.get_vocabulary(
 
 x, y = TweetsVectorization.get_prepared_data_based_on_vocabulary_indexes(
     tweets=data.preprocessed,
-    target=data.target,
+    target=data.target.values,
     vocabulary=vocabulary,
 )
 
@@ -63,8 +66,8 @@ x_train, y_train, x_val, y_val = TweetsVectorization.get_train_test_split(
 )
 
 x_test, y_test = TweetsVectorization.get_prepared_data_based_on_vocabulary_indexes(
-    tweets=tweets_preprocessor.preprocess(test_data_with_target.text, DATA['PREPROCESS_OPTRIONS']),
-    target=test_data_with_target.target,
+    tweets=test_data_with_target.preprocessed,
+    target=test_data_with_target.target.values,
     vocabulary=vocabulary,
 )
 
@@ -172,8 +175,8 @@ LAYERS = [Flatten()]
 # )
 
 test_callback = KerasTestCallback(
-    x_test=TweetsVectorization.to_same_length(x_test, MODEL['EMBEDDING_OPTIONS']['input_length']),
-    y_test=y_test
+    x_test=np.array(x_test),
+    y_test=np.array(y_test)
 )
 
 ########################################################################################################################
