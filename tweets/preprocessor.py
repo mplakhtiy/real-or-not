@@ -12,6 +12,26 @@ class TweetsPreprocessor:
         self.splitters = splitters
 
     @staticmethod
+    def _add_link_flag(tweet):
+        return tweet + ' <url>' if 'http' in tweet or 'www.' in tweet else tweet
+
+    @staticmethod
+    def _add_user_flag(tweet):
+        return tweet + ' <user>' if any(word.startswith('@') for word in TweetsPreprocessor._split(tweet)) else tweet
+
+    @staticmethod
+    def _add_hash_flag(tweet):
+        return tweet + ' <hashtag>' if '#' in tweet else tweet
+
+    @staticmethod
+    def _add_number_flag(tweet):
+        return tweet + ' <number>' if any(char.isdigit() for char in tweet) else tweet
+
+    @staticmethod
+    def _is_flag(word):
+        return word in {'<url>', '<user>', '<hashtag>', '<number>'}
+
+    @staticmethod
     def _remove_links(words):
         return [word for word in words if not word.startswith(('http', 'www.'))]
 
@@ -51,21 +71,35 @@ class TweetsPreprocessor:
 
     @staticmethod
     def _remove_punctuations(words):
-        return [w for w in words if
-                not TweetsPreprocessor._is_empty_str(w) and not TweetsPreprocessor._is_punctuation(w)]
+        return [
+            w for w in words if
+            not TweetsPreprocessor._is_empty_str(w) and
+            not TweetsPreprocessor._is_punctuation(w)
+        ]
 
     @staticmethod
     def _remove_not_alpha(words):
-        return [word for word in words if
-                TweetsPreprocessor._is_hashtag(word) or TweetsPreprocessor._is_number(word) or word.isalpha()]
+        return [
+            word for word in words if
+            TweetsPreprocessor._is_hashtag(word) or
+            TweetsPreprocessor._is_flag(word) or
+            TweetsPreprocessor._is_number(word) or
+            word.isalpha()
+        ]
 
     @staticmethod
     def _remove_numbers(words):
-        return [word for word in words if not TweetsPreprocessor._is_number(word)]
+        return [
+            word for word in words if not TweetsPreprocessor._is_number(word)
+        ]
 
     @staticmethod
     def _join(words):
         return ' '.join(words)
+
+    @staticmethod
+    def _split(tweet):
+        return tweet.split(' ')
 
     def _split_words(self, words):
         with_split_words = [w for w in words]
@@ -80,10 +114,16 @@ class TweetsPreprocessor:
         return self.tokenizer.tokenize(tweet)
 
     def _remove_stop_words(self, words):
-        return [word for word in words if word not in self.stop_words]
+        return [
+            word for word in words if
+            TweetsPreprocessor._is_flag(word) or
+            word not in self.stop_words
+        ]
 
     def _stem(self, words):
-        return [self.stemmer.stem(word) for word in words]
+        return [
+            self.stemmer.stem(word) if not TweetsPreprocessor._is_flag(word) else word for word in words
+        ]
 
     def _unslang(self, words):
         new_words = []
@@ -102,6 +142,22 @@ class TweetsPreprocessor:
             options = {}
 
         t = tweets.map(self._tokenize)
+
+        t = t.map(self._join)
+
+        if options.get('add_link_flag', True):
+            t = t.map(TweetsPreprocessor._add_link_flag)
+
+        if options.get('add_user_flag', True):
+            t = t.map(TweetsPreprocessor._add_user_flag)
+
+        if options.get('add_hash_flag', True):
+            t = t.map(TweetsPreprocessor._add_hash_flag)
+
+        if options.get('add_number_flag', True):
+            t = t.map(TweetsPreprocessor._add_number_flag)
+
+        t = t.map(self._split)
 
         if options.get('remove_links', True):
             t = t.map(TweetsPreprocessor._remove_links)

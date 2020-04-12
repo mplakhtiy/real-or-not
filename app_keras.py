@@ -23,6 +23,10 @@ DATA = {
     'TRAIN_PERCENTAGE': 0.8,
     'SHUFFLE_DATA': True,
     'PREPROCESS_OPTRIONS': {
+        'add_link_flag': True,
+        'add_user_flag': True,
+        'add_hash_flag': True,
+        'add_number_flag': True,
         'remove_links': True,
         'remove_users': True,
         'remove_hash': True,

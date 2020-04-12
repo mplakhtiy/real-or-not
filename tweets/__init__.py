@@ -6,7 +6,7 @@ from nltk.corpus import stopwords
 from wordcloud import STOPWORDS
 from nltk.stem.porter import *
 
-tweet_tokenizer = TweetTokenizer(strip_handles=True, reduce_len=True)
+tweet_tokenizer = TweetTokenizer(strip_handles=False, reduce_len=True)
 porter_stemmer = PorterStemmer()
 stop_words = set(stopwords.words('english')) | STOPWORDS
 slang_abbreviations = {
@@ -246,6 +246,7 @@ slang_abbreviations = {
     "zzz": "sleeping bored and tired"
 }
 
+# splitting removes ://
 splitters = {"'", '-', ':', ' ', '_', '/'}
 
 tweets_preprocessor = TweetsPreprocessor(
