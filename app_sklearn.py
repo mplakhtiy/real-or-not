@@ -1,19 +1,23 @@
 # -*- coding: utf-8 -*-
-import numpy as np
-from tweets import TweetsVectorization, tweets_preprocessor
-from models import SklearnClassifiers
-from data import train_data as data, test_data_with_target
+from tweets import tweets_preprocessor, Helpers
+from models import Sklearn
+from sklearn.model_selection import cross_val_score
+from sklearn.model_selection import train_test_split
 from utils import log
+from data import train_data as data, test_data_with_target as test_data
 
 ########################################################################################################################
 
 DATA = {
-    'TRAIN_PERCENTAGE': 0.8,
-    'SHUFFLE_DARA': True,
+    'VALIDATION_PERCENTAGE': 0.2,
     'PREPROCESS_OPTRIONS': {
+        'add_link_flag': False,
+        'add_user_flag': False,
+        'add_hash_flag': False,
+        'add_number_flag': False,
         'remove_links': True,
         'remove_users': True,
-        'remove_hash': False,
+        'remove_hash': True,
         'unslang': True,
         'split_words': True,
         'stem': False,
@@ -43,51 +47,49 @@ CLASSIFIER = 'RIDGE'
 ########################################################################################################################
 
 data['preprocessed'] = tweets_preprocessor.preprocess(data.text, DATA['PREPROCESS_OPTRIONS'])
-test_data_with_target['preprocessed'] = tweets_preprocessor.preprocess(
-    test_data_with_target.text,
+
+Helpers.coorrect_data(data)
+
+test_data['preprocessed'] = tweets_preprocessor.preprocess(
+    test_data.text,
     DATA['PREPROCESS_OPTRIONS']
 )
 
-vectorizer = TweetsVectorization.get_vectorizer(VECTORIZER['TYPE'], VECTORIZER['OPTIONS'])
+vectorizer = Sklearn.get_vectorizer(VECTORIZER['TYPE'], VECTORIZER['OPTIONS'])
 
-x_train, y_train, x_val, y_val = TweetsVectorization.get_train_test_split(
-    x=data.preprocessed,
-    y=data.target.values,
-    train_percentage=DATA['TRAIN_PERCENTAGE'],
-    shuffle_data=DATA['SHUFFLE_DARA']
+x_train, x_val, y_train, y_val = train_test_split(
+    vectorizer.fit_transform(data.preprocessed).todense(),
+    data['target_relabeled'].values,
+    test_size=DATA['VALIDATION_PERCENTAGE']
 )
 
-x_train, y_train = TweetsVectorization.get_prepared_data_based_on_count_vectorizer(
-    tweets=x_train,
-    target=y_train,
-    vectorizer=vectorizer
-)
-
-x_val = vectorizer.transform(x_val)
-y_val = y_val
-
-x_test = vectorizer.transform(test_data_with_target.preprocessed)
-y_test = test_data_with_target.target.values
+x_test = vectorizer.transform(test_data.preprocessed)
+y_test = test_data.target.values
 
 ########################################################################################################################
 
-classifier = SklearnClassifiers.get_classifier(CLASSIFIER)
+classifier = Sklearn.get_classifier(CLASSIFIER)
 
 ########################################################################################################################
+
+cross_val_scores = cross_val_score(classifier, x_train, y_train, cv=3, scoring="f1")
 
 classifier.fit(x_train, y_train)
 
 validation_score = classifier.score(x_val, y_val)
 test_score = classifier.score(x_test, y_test)
 
+print(f'Cross Validation Scores: {cross_val_scores}')
 print(f'Mean Score of Validation Set: {validation_score}')
 print(f'Mean Score of Test Set: {test_score}')
 
 log(
+    file='app_sklearn.py',
     classifier={
         'classifier': CLASSIFIER,
-        'validation_score': "%.2f%%" % (validation_score * 100),
-        'test_score': "%.2f%%" % (test_score * 100)
+        'val_score': round(validation_score, 5),
+        'test_score': round(test_score, 5),
+        'cross_val_scores': [round(s, 5) for s in cross_val_scores]
     },
     vectorizer=VECTORIZER,
     data=DATA

@@ -1,5 +1,5 @@
 from .preprocessor import TweetsPreprocessor
-from .vectorization import TweetsVectorization
+from .helpers import Helpers
 
 from nltk.tokenize import TweetTokenizer
 from nltk.corpus import stopwords

@@ -1,27 +1,22 @@
 # -*- coding: utf-8 -*-
 import numpy as np
-from tweets import TweetsVectorization, tweets_preprocessor
-from models import KerasModels, KerasTestCallback
-from utils import draw_keras_graph, log, relable
-from keras.models import load_model
+from tweets import Helpers, tweets_preprocessor
+from models import Keras, TestDataCallback
+from utils import log, get_glove_embeddings
 from keras.callbacks import ModelCheckpoint
-from keras.layers import Dense, Flatten, Embedding, LSTM
+from keras.layers import Dense, Flatten, LSTM, SpatialDropout1D, GlobalMaxPool1D
 from keras.layers import Bidirectional, GRU, Conv1D, GlobalAveragePooling1D, Dropout, MaxPool1D
-from data import train_data as data, test_data_with_target
+from data import train_data as data, test_data_with_target as test_data
+from keras.preprocessing.text import Tokenizer
+from keras.initializers import Constant
+from keras.preprocessing.sequence import pad_sequences
+from sklearn.model_selection import train_test_split
 
 ########################################################################################################################
-
-VOCABULARY = {
-    'WORDS_REPUTATION_FILTER': 0,
-    'SORT_VOCABULARY': False,
-    'REVERSE_SORT': False,
-    'TWEETS_FOR_VOCABULARY_BASE': None,
-    'ADD_START_SYMBOL': False
-}
+USE_GLOVE = False
 
 DATA = {
-    'TRAIN_PERCENTAGE': 0.8,
-    'SHUFFLE_DATA': True,
+    'VALIDATION_PERCENTAGE': 0.2,
     'PREPROCESS_OPTRIONS': {
         'add_link_flag': True,
         'add_user_flag': True,
@@ -32,7 +27,7 @@ DATA = {
         'remove_hash': True,
         'unslang': True,
         'split_words': True,
-        'stem': True,
+        'stem': False,
         'remove_punctuations': True,
         'remove_numbers': True,
         'to_lower_case': True,
@@ -44,63 +39,94 @@ DATA = {
 
 ########################################################################################################################
 
-data['preprocessed'] = tweets_preprocessor.preprocess(data.text, DATA['PREPROCESS_OPTRIONS'])
-test_data_with_target['preprocessed'] = tweets_preprocessor.preprocess(
-    test_data_with_target.text,
+data['preprocessed'] = tweets_preprocessor.preprocess(
+    data.text,
     DATA['PREPROCESS_OPTRIONS']
 )
-data = relable(data)
 
-vocabulary = TweetsVectorization.get_vocabulary(
-    tweets=data.preprocessed[data.target == 1] if VOCABULARY['TWEETS_FOR_VOCABULARY_BASE'] is True else
-    (data.preprocessed[data.target == 0] if VOCABULARY['TWEETS_FOR_VOCABULARY_BASE'] is False else data.preprocessed),
-    vocabulary_filter=VOCABULARY['WORDS_REPUTATION_FILTER'],
-    sort=VOCABULARY['SORT_VOCABULARY'],
-    reverse=VOCABULARY['REVERSE_SORT'],
-    add_start_symbol=VOCABULARY['ADD_START_SYMBOL']
-)
+Helpers.coorrect_data(data)
 
-x, y = TweetsVectorization.get_prepared_data_based_on_vocabulary_indexes(
-    tweets=data.preprocessed,
-    target=data.target_relabeled.values,
-    vocabulary=vocabulary,
-)
-
-x_train, y_train, x_val, y_val = TweetsVectorization.get_train_test_split(
-    x=x, y=y, train_percentage=DATA['TRAIN_PERCENTAGE'], shuffle_data=DATA['SHUFFLE_DATA']
-)
-
-x_test, y_test = TweetsVectorization.get_prepared_data_based_on_vocabulary_indexes(
-    tweets=test_data_with_target.preprocessed,
-    target=test_data_with_target.target.values,
-    vocabulary=vocabulary,
+test_data['preprocessed'] = tweets_preprocessor.preprocess(
+    test_data.text,
+    DATA['PREPROCESS_OPTRIONS']
 )
 
 ########################################################################################################################
 
+keras_tokenizer = Tokenizer()
+keras_tokenizer.fit_on_texts(data.preprocessed)
+
+sequences = keras_tokenizer.texts_to_sequences(data.preprocessed)
+sequences_test = keras_tokenizer.texts_to_sequences(test_data.preprocessed)
+
+MAX_LEN = Helpers.get_max_vector_len(sequences)
+
+sequences_padded = pad_sequences(sequences, maxlen=MAX_LEN, truncating='post', padding='post')
+sequences_test_padded = pad_sequences(sequences_test, maxlen=MAX_LEN, truncating='post', padding='post')
+
+WORD_INDEX_SIZE = len(keras_tokenizer.word_index) + 1
+
+x_train, x_val, y_train, y_val = train_test_split(
+    sequences_padded,
+    data['target_relabeled'].values,
+    test_size=DATA['VALIDATION_PERCENTAGE']
+)
+
+x_test = sequences_test_padded
+y_test = test_data.target.values
+
+########################################################################################################################
+
 MODEL = {
-    'BATCH_SIZE': 512,
-    'EPOCHS': 30,
+    'BATCH_SIZE': 32,
+    'EPOCHS': 10,
     'VERBOSE': 1,
     'OPTIMIZER': 'rmsprop',
+    'LEARNING_RATE': 0.001,
     'SHUFFLE': True,
     'EMBEDDING_OPTIONS': {
-        'input_dim': len(vocabulary),
-        'output_dim': 16,
-        'input_length': len(x_train[0])
+        'input_dim': WORD_INDEX_SIZE,
+        'output_dim': 50,
+        'input_length': MAX_LEN
     }
 }
 
 ########################################################################################################################
 
-x_train = TweetsVectorization.to_same_length(x_train, MODEL['EMBEDDING_OPTIONS']['input_length'])
-x_val = TweetsVectorization.to_same_length(x_val, MODEL['EMBEDDING_OPTIONS']['input_length'])
-x_test = TweetsVectorization.to_same_length(x_test, MODEL['EMBEDDING_OPTIONS']['input_length'])
+if USE_GLOVE:
+    DATA['GLOVE_SIZE'] = 100
+    GLOVE_FILE_PATH = f'./data/glove/glove.twitter.27B.{DATA["GLOVE_SIZE"]}d.txt'
+    # GLOVE_FILE_PATH = f'./data/glove/glove.6b.{DATA["GLOVE_SIZE"]}d.txt'
+    # GLOVE_FILE_PATH = f'./data/glove/glove.42B.{DATA["GLOVE_SIZE"]}d.txt'
+    glove_embeddings = get_glove_embeddings(GLOVE_FILE_PATH)
+    train_glove_vocab_coverage, train_glove_text_coverage, _ = Helpers.check_embeddings_coverage(
+        keras_tokenizer.word_counts,
+        glove_embeddings
+    )
+    print(
+        'GloVe Embeddings cover {:.2%} of vocabulary and {:.2%} of text in Training Set'.format(
+            train_glove_vocab_coverage, train_glove_text_coverage
+        )
+    )
+    embedding_matrix = Helpers.get_embedding_matrix(
+        word_index=keras_tokenizer.word_index,
+        word_index_size=WORD_INDEX_SIZE,
+        glove_embeddings=glove_embeddings,
+        glove_size=DATA['GLOVE_SIZE'],
+    )
+    MODEL['EMBEDDING_OPTIONS']['output_dim'] = DATA['GLOVE_SIZE']
+    MODEL['EMBEDDING_OPTIONS']['embeddings_initializer'] = Constant(embedding_matrix)
+    MODEL['EMBEDDING_OPTIONS']['trainable'] = False
 
 ########################################################################################################################
-
 '''Binary classification model'''
-LAYERS = [Flatten()]
+# LAYERS = [Flatten()]
+
+'''Model'''
+LAYERS = [
+    SpatialDropout1D(0.2),
+    LSTM(50, dropout=0.2, recurrent_dropout=0.2)
+]
 
 '''Multi layer binary classification model'''
 # DENSE_LAYERS_UNITS = [16]
@@ -120,7 +146,7 @@ LAYERS = [Flatten()]
 
 '''Multilayer bidirectional LSTM with Dense layers model'''
 # LSTM_LAYERS_UNITS = [64, 32]
-# DENSE_LAYERS_UNITS = [4]
+# DENSE_LAYERS_UNITS = [8]
 # LAYERS = [Bidirectional(LSTM(units, return_sequences=True if i < (len(LSTM_LAYERS_UNITS) - 1) else None)) for i, units
 #           in enumerate(LSTM_LAYERS_UNITS)] + [Dense(units, activation='relu') for units in DENSE_LAYERS_UNITS]
 
@@ -153,7 +179,7 @@ LAYERS = [Flatten()]
 #     'activation': 'relu'
 # }
 # POOL_SIZE = 4
-# LSTM_UNITS = 64
+# LSTM_UNITS = 24
 # LAYERS = [
 #     Dropout(DROPOUT_PERCENTAGE),
 #     Conv1D(**CONVD_OPTIONS),
@@ -162,11 +188,21 @@ LAYERS = [Flatten()]
 # ]
 
 '''Model'''
-
 # DENSE_UNITS = 64
 # LAYERS = [
 #     GlobalAveragePooling1D(),
 #     Dense(DENSE_UNITS, activation='relu'),
+# ]
+
+'''Model'''
+# GRU_UNITS = 64
+# DENSE_UNITS = 16
+# DROPOUT_PERCENTAGE = 0.1
+# LAYERS = [
+#     Bidirectional(GRU(GRU_UNITS, return_sequences=True)),
+#     GlobalMaxPool1D(),
+#     Dense(DENSE_UNITS, activation="relu"),
+#     Dropout(DROPOUT_PERCENTAGE)
 # ]
 
 ########################################################################################################################
@@ -179,17 +215,17 @@ LAYERS = [Flatten()]
 #     mode='auto'
 # )
 
-test_callback = KerasTestCallback(
+test_data_callback = TestDataCallback(
     x_test=np.array(x_test),
     y_test=np.array(y_test)
 )
 
 ########################################################################################################################
-
-model = KerasModels.get_keras_model(
+model = Keras.get_model(
     layers=LAYERS,
     embedding_options=MODEL['EMBEDDING_OPTIONS'],
-    optimizer=MODEL['OPTIMIZER']
+    optimizer=MODEL['OPTIMIZER'],
+    learning_rate=MODEL['LEARNING_RATE']
 )
 
 history = model.fit(
@@ -203,16 +239,19 @@ history = model.fit(
         np.array(x_val),
         np.array(y_val)
     ),
-    callbacks=[test_callback]
+    callbacks=[test_data_callback]
 )
 
-draw_keras_graph(history)
+mode_history = history.history.copy()
+mode_history['test_loss'] = test_data_callback.loss
+mode_history['test_accuracy'] = test_data_callback.accuracy
+
+Keras.draw_graph(mode_history)
 
 log(
+    file='app_keras.py',
     data=DATA,
-    vocabulary=VOCABULARY,
     model=MODEL,
-    model_history=history.history,
+    model_history=mode_history,
     model_config=model.get_config(),
-    test_performance=test_callback.test_performance
 )

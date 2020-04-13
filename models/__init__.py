@@ -1,2 +1,2 @@
-from .keras import KerasModels, KerasTestCallback
-from .sklearn import SklearnClassifiers
+from .keras import Keras, TestDataCallback
+from .sklearn import Sklearn
