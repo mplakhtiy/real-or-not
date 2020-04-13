@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 import random
 import numpy as np
+import operator
 from sklearn.feature_extraction.text import CountVectorizer, TfidfVectorizer
 
 
@@ -180,3 +181,36 @@ class TweetsVectorization:
         y = target
 
         return x, y
+
+    @staticmethod
+    def check_embeddings_coverage(word_counts, embeddings):
+        covered = {}
+        missing = {}
+        n_covered = 0
+        n_missing = 0
+
+        for word in word_counts:
+            try:
+                covered[word] = embeddings[word]
+                n_covered += word_counts[word]
+            except KeyError:
+                missing[word] = word_counts[word]
+                n_missing += word_counts[word]
+
+        vocab_coverage = len(covered) / len(word_counts)
+        text_coverage = (n_covered / (n_covered + n_missing))
+        sorted_missing = sorted(missing.items(), key=operator.itemgetter(1))[::-1]
+
+        return sorted_missing, vocab_coverage, text_coverage
+
+    @staticmethod
+    def get_embedding_matrix(word_index, word_index_size, glove_embeddings, glove_size):
+        embedding_matrix = np.zeros((word_index_size, glove_size))
+
+        for word, index in word_index.items():
+
+            embedding_vector = glove_embeddings.get(word)
+            if embedding_vector is not None:
+                embedding_matrix[index] = embedding_vector
+
+        return embedding_matrix

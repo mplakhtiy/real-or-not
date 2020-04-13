@@ -3,6 +3,12 @@ import numpy as np
 from keras.models import Sequential
 from keras.layers import Dense, Embedding
 from keras.callbacks import Callback
+from keras.optimizers import Adam, RMSprop
+
+OPTIMIZERS = {
+    'adam': Adam,
+    'rmsprop': RMSprop
+}
 
 
 class KerasTestCallback(Callback):
@@ -14,13 +20,13 @@ class KerasTestCallback(Callback):
 
     def on_epoch_end(self, epoch, logs=None):
         score = self.model.evaluate(self.x_test, self.y_test, verbose=0)
-        self.test_performance.append("%.2f%%" % (score[1] * 100))
+        self.test_performance.append("%.4f%%" % (score[1] * 100))
         print("Test %s: %.2f%%" % (self.model.metrics_names[1], score[1] * 100))
 
 
 class KerasModels:
     @staticmethod
-    def get_keras_model(layers, embedding_options=None, activation='sigmoid', optimizer='rmsprop'):  # optimizer='adam'
+    def get_keras_model(layers, embedding_options=None, activation='sigmoid', optimizer='rmsprop', learning_rate=0.001):
         model = Sequential()
 
         if embedding_options is not None:
@@ -32,7 +38,7 @@ class KerasModels:
         model.add(Dense(1, activation=activation))
 
         model.compile(
-            optimizer=optimizer,
+            optimizer=OPTIMIZERS[optimizer](learning_rate=learning_rate),
             loss='binary_crossentropy',
             metrics=['accuracy']
         )
