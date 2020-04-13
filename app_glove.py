@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-
 import numpy as np
-import json
 from tweets import TweetsVectorization, tweets_preprocessor
 from keras.preprocessing.text import Tokenizer
 from keras.preprocessing.sequence import pad_sequences
@@ -15,7 +14,7 @@ from utils import log, draw_keras_graph, relable, get_glove_from_txt
 from sklearn.model_selection import train_test_split
 
 DATA = {
-    'GLOVE_SIZE': 100,
+    'GLOVE_SIZE': 300,
     'VALIDATION_PERCENTAGE': 0.2,
     'PREPROCESS_OPTRIONS': {
         'add_link_flag': True,
@@ -37,7 +36,9 @@ DATA = {
     }
 }
 
-GLOVE_FILE_PATH = f'./data/glove/glove.twitter.27B.{DATA["GLOVE_SIZE"]}d.txt'
+# GLOVE_FILE_PATH = f'./data/glove/glove.twitter.27B.{DATA["GLOVE_SIZE"]}d.txt'
+# GLOVE_FILE_PATH = f'./data/glove/glove.6b.{DATA["GLOVE_SIZE"]}d.txt'
+GLOVE_FILE_PATH = f'./data/glove/glove.42B.{DATA["GLOVE_SIZE"]}d.txt'
 
 ########################################################################################################################
 
@@ -100,8 +101,8 @@ y_test = test_data.target.values
 ########################################################################################################################
 
 MODEL = {
-    'BATCH_SIZE': 4,
-    'EPOCHS': 70,
+    'BATCH_SIZE': 8,
+    'EPOCHS': 50,
     'VERBOSE': 1,
     'OPTIMIZER': 'rmsprop',
     'LEARNING_RATE': 0.0001,
