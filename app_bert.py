@@ -12,6 +12,8 @@ from bert_tokenization import FullTokenizer
 from data import train_data as data, test_data_with_target as test_data
 from tweets import Helpers, tweets_preprocessor
 from models import Keras, TestDataCallback
+from utils import log
+import os
 
 
 def bert_encode(texts, tokenizer, max_len=512):
@@ -20,24 +22,14 @@ def bert_encode(texts, tokenizer, max_len=512):
     all_segments = []
 
     for text in texts:
-        # print(f'TEXT - {text}')
         text = tokenizer.tokenize(text)
-        # print(f'TEXT - {text}')
         text = text[:max_len - 2]
-        # print(f'TEXT - {text}')
         input_sequence = ["[CLS]"] + text + ["[SEP]"]
-        # print(f'INPUT_SEQUENCE - {input_sequence}')
         pad_len = max_len - len(input_sequence)
-        # print(f'PAD_LEN - {pad_len}')
-
         tokens = tokenizer.convert_tokens_to_ids(input_sequence)
-        # print(f'TOKENS - {tokens}')
         tokens += [0] * pad_len
-        # print(f'TOKENS - {tokens}')
         pad_masks = [1] * len(input_sequence) + [0] * pad_len
-        # print(f'PAD_MASKS - {pad_masks}')
         segment_ids = [0] * max_len
-        # print(f'SEGMENT_IDS - {segment_ids}')
 
         all_tokens.append(tokens)
         all_masks.append(pad_masks)
@@ -46,7 +38,7 @@ def bert_encode(texts, tokenizer, max_len=512):
     return np.array(all_tokens), np.array(all_masks), np.array(all_segments)
 
 
-def build_model(bert_layer, max_len=512):
+def build_model(bert_layer, max_len=512, lr=2e-6):
     input_word_ids = Input(shape=(max_len,), dtype=tf.int32, name="input_word_ids")
     input_mask = Input(shape=(max_len,), dtype=tf.int32, name="input_mask")
     segment_ids = Input(shape=(max_len,), dtype=tf.int32, name="segment_ids")
@@ -56,7 +48,7 @@ def build_model(bert_layer, max_len=512):
     out = Dense(1, activation='sigmoid')(clf_output)
 
     model = Model(inputs=[input_word_ids, input_mask, segment_ids], outputs=out)
-    model.compile(Adam(lr=2e-6), loss='binary_crossentropy', metrics=['accuracy'])
+    model.compile(Adam(learning_rate=lr), loss='binary_crossentropy', metrics=['accuracy'])
 
     return model
 
@@ -95,7 +87,7 @@ Helpers.coorrect_data(data)
 #     DATA['PREPROCESS_OPTRIONS']
 # )
 
-module_url = "https://tfhub.dev/tensorflow/bert_en_uncased_L-24_H-1024_A-16/1"
+module_url = "https://tfhub.dev/tensorflow/bert_en_uncased_L-12_H-768_A-12/1"
 
 bert_layer = hub.KerasLayer(module_url, trainable=True)
 
@@ -105,32 +97,51 @@ do_lower_case = bert_layer.resolved_object.do_lower_case.numpy()
 
 tokenizer = FullTokenizer(vocab_file, do_lower_case)
 
-train_input = bert_encode(data.text.values, tokenizer, max_len=100)
-test_input = bert_encode(test_data.text.values, tokenizer, max_len=100)
-
 train_labels = data.target_relabeled.values
 test_labels = test_data.target.values
 
-model = build_model(bert_layer, max_len=100)
+for lr in [2e-6, 1e-4, 3e-5]:
+    for l in [84, 100, 160]:
+        for batch_size in [16, 32, 64]:
+            p = f'./data/models/{lr}-{l}-{batch_size}'
+            if not os.path.exists(p):
+                os.makedirs(p)
 
-model.summary()
+            checkpoint = ModelCheckpoint(
+                p + '/model-{epoch:03d}-{accuracy:03f}-{val_accuracy:03f}.h5',
+                verbose=1,
+                monitor='val_loss',
+                save_best_only=True,
+                mode='auto'
+            )
 
-test_data_callback = TestDataCallback(
-    x_test=test_input,
-    y_test=test_labels
-)
+            train_input = bert_encode(data.text.values, tokenizer, max_len=l)
+            test_input = bert_encode(test_data.text.values, tokenizer, max_len=l)
+            model = build_model(bert_layer, max_len=l, lr=lr)
 
-history = model.fit(
-    train_input, train_labels,
-    validation_split=0.2,
-    epochs=10,
-    batch_size=16,
-    verbose=1,
-    callbacks=[test_data_callback]
-)
+            model.summary()
 
-mode_history = history.history.copy()
-mode_history['test_loss'] = test_data_callback.loss
-mode_history['test_accuracy'] = test_data_callback.accuracy
+            test_data_callback = TestDataCallback(
+                x_test=test_input,
+                y_test=test_labels
+            )
 
-Keras.draw_graph(mode_history)
+            history = model.fit(
+                train_input, train_labels,
+                validation_split=0.2,
+                epochs=4,
+                batch_size=batch_size,
+                verbose=1,
+                callbacks=[checkpoint, test_data_callback]
+            )
+
+            mode_history = history.history.copy()
+            mode_history['test_loss'] = test_data_callback.loss
+            mode_history['test_accuracy'] = test_data_callback.accuracy
+
+            # Keras.draw_graph(mode_history)
+            log(
+                file='app_bert.py',
+                model={'bert': module_url, 'batch_size': batch_size, 'lr': lr, 'length': l},
+                model_history=mode_history
+            )

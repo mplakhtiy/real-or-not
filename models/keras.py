@@ -12,8 +12,8 @@ class TestDataCallback(Callback):
         super().__init__()
         self.accuracy = []
         self.loss = []
-        self.x_test = np.array(x_test)
-        self.y_test = np.array(y_test)
+        self.x_test = x_test
+        self.y_test = y_test
 
     def on_epoch_end(self, epoch, logs=None):
         score = self.model.evaluate(self.x_test, self.y_test, verbose=0)
