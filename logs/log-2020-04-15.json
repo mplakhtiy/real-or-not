@@ -1,1 +1,701 @@
-{"2020-04-15 03:05:29.783508": {"file": "app_bert.py", "model": {"bert": "https://tfhub.dev/tensorflow/bert_en_uncased_L-12_H-768_A-12/1", "max_len": 84, "batch_size": 32, "config": null, "history": {"loss": [0.72132, 0.68732, 0.68394, 0.68751], "accuracy": [0.57619, 0.567, 0.57159, 0.56502], "val_loss": [0.74682, 0.69049, 0.69052, 0.72547], "val_accuracy": [0.53644, 0.53644, 0.53644, 0.53644], "test_loss": [0.71865, 0.68571, 0.68505, 0.70232], "test_accuracy": [0.57033, 0.57033, 0.57033, 0.57033]}}}, "2020-04-15 05:19:37.348528": {"file": "app_bert.py", "model": {"bert": "https://tfhub.dev/tensorflow/bert_en_uncased_L-12_H-768_A-12/1", "max_len": 84, "batch_size": 64, "config": null, "history": {"loss": [0.68589, 0.68354, 0.68276, 0.68345], "accuracy": [0.56995, 0.58342, 0.57652, 0.57915], "val_loss": [0.6913, 0.69109, 0.72229, 0.6924], "val_accuracy": [0.53644, 0.53644, 0.53644, 0.53644], "test_loss": [0.68361, 0.6885, 0.7, 0.68324], "test_accuracy": [0.57033, 0.57033, 0.57033, 0.57033]}}}, "2020-04-15 07:35:28.244990": {"file": "app_bert.py", "model": {"bert": "https://tfhub.dev/tensorflow/bert_en_uncased_L-12_H-768_A-12/1", "batch_size": 128, "max_len": 84, "config": null, "history": {"loss": [0.68302, 0.68092, 0.68019, 0.68213], "accuracy": [0.57619, 0.58342, 0.58342, 0.58342], "val_loss": [0.69095, 0.69817, 0.69076, 0.69282], "val_accuracy": [0.53644, 0.53644, 0.53644, 0.53644], "test_loss": [0.68393, 0.68476, 0.68422, 0.68322], "test_accuracy": [0.57033, 0.57033, 0.57033, 0.57033]}}}, "2020-04-15 11:13:04.565267": {"file": "app_bert.py", "model": {"bert": "https://tfhub.dev/tensorflow/bert_en_uncased_L-12_H-768_A-12/1", "batch_size": 16, "lr": 2e-06, "length": 84, "config": null, "history": {"loss": [0.50415, 0.3621, 0.2958, 0.24146], "accuracy": [0.74926, 0.84548, 0.88095, 0.90328], "val_loss": [0.42405, 0.38494, 0.38895, 0.39792], "val_accuracy": [0.82272, 0.84242, 0.84176, 0.8411], "test_loss": [0.44626, 0.40407, 0.41189, 0.4184], "test_accuracy": [0.80907, 0.83114, 0.83022, 0.82899]}}}}
+{
+  "2020-04-15 03:05:29.783508": {
+    "file": "app_bert.py",
+    "model": {
+      "bert": "https://tfhub.dev/tensorflow/bert_en_uncased_L-12_H-768_A-12/1",
+      "max_len": 84,
+      "batch_size": 32,
+      "config": null,
+      "history": {
+        "loss": [
+          0.72132,
+          0.68732,
+          0.68394,
+          0.68751
+        ],
+        "accuracy": [
+          0.57619,
+          0.567,
+          0.57159,
+          0.56502
+        ],
+        "val_loss": [
+          0.74682,
+          0.69049,
+          0.69052,
+          0.72547
+        ],
+        "val_accuracy": [
+          0.53644,
+          0.53644,
+          0.53644,
+          0.53644
+        ],
+        "test_loss": [
+          0.71865,
+          0.68571,
+          0.68505,
+          0.70232
+        ],
+        "test_accuracy": [
+          0.57033,
+          0.57033,
+          0.57033,
+          0.57033
+        ]
+      }
+    }
+  },
+  "2020-04-15 05:19:37.348528": {
+    "file": "app_bert.py",
+    "model": {
+      "bert": "https://tfhub.dev/tensorflow/bert_en_uncased_L-12_H-768_A-12/1",
+      "max_len": 84,
+      "batch_size": 64,
+      "config": null,
+      "history": {
+        "loss": [
+          0.68589,
+          0.68354,
+          0.68276,
+          0.68345
+        ],
+        "accuracy": [
+          0.56995,
+          0.58342,
+          0.57652,
+          0.57915
+        ],
+        "val_loss": [
+          0.6913,
+          0.69109,
+          0.72229,
+          0.6924
+        ],
+        "val_accuracy": [
+          0.53644,
+          0.53644,
+          0.53644,
+          0.53644
+        ],
+        "test_loss": [
+          0.68361,
+          0.6885,
+          0.7,
+          0.68324
+        ],
+        "test_accuracy": [
+          0.57033,
+          0.57033,
+          0.57033,
+          0.57033
+        ]
+      }
+    }
+  },
+  "2020-04-15 07:35:28.244990": {
+    "file": "app_bert.py",
+    "model": {
+      "bert": "https://tfhub.dev/tensorflow/bert_en_uncased_L-12_H-768_A-12/1",
+      "batch_size": 128,
+      "max_len": 84,
+      "config": null,
+      "history": {
+        "loss": [
+          0.68302,
+          0.68092,
+          0.68019,
+          0.68213
+        ],
+        "accuracy": [
+          0.57619,
+          0.58342,
+          0.58342,
+          0.58342
+        ],
+        "val_loss": [
+          0.69095,
+          0.69817,
+          0.69076,
+          0.69282
+        ],
+        "val_accuracy": [
+          0.53644,
+          0.53644,
+          0.53644,
+          0.53644
+        ],
+        "test_loss": [
+          0.68393,
+          0.68476,
+          0.68422,
+          0.68322
+        ],
+        "test_accuracy": [
+          0.57033,
+          0.57033,
+          0.57033,
+          0.57033
+        ]
+      }
+    }
+  },
+  "2020-04-15 11:13:04.565267": {
+    "file": "app_bert.py",
+    "model": {
+      "bert": "https://tfhub.dev/tensorflow/bert_en_uncased_L-12_H-768_A-12/1",
+      "batch_size": 16,
+      "lr": 2e-06,
+      "length": 84,
+      "config": null,
+      "history": {
+        "loss": [
+          0.50415,
+          0.3621,
+          0.2958,
+          0.24146
+        ],
+        "accuracy": [
+          0.74926,
+          0.84548,
+          0.88095,
+          0.90328
+        ],
+        "val_loss": [
+          0.42405,
+          0.38494,
+          0.38895,
+          0.39792
+        ],
+        "val_accuracy": [
+          0.82272,
+          0.84242,
+          0.84176,
+          0.8411
+        ],
+        "test_loss": [
+          0.44626,
+          0.40407,
+          0.41189,
+          0.4184
+        ],
+        "test_accuracy": [
+          0.80907,
+          0.83114,
+          0.83022,
+          0.82899
+        ]
+      }
+    }
+  },
+  "2020-04-15 13:35:19.628093": {
+    "file": "app_bert.py",
+    "model": {
+      "bert": "https://tfhub.dev/tensorflow/bert_en_uncased_L-12_H-768_A-12/1",
+      "batch_size": 32,
+      "lr": 2e-06,
+      "length": 84,
+      "config": null,
+      "history": {
+        "loss": [
+          0.29919,
+          0.20871,
+          0.15983,
+          0.12128
+        ],
+        "accuracy": [
+          0.88374,
+          0.9202,
+          0.94335,
+          0.95714
+        ],
+        "val_loss": [
+          0.41281,
+          0.43693,
+          0.46907,
+          0.53508
+        ],
+        "val_accuracy": [
+          0.83322,
+          0.82928,
+          0.82928,
+          0.82009
+        ],
+        "test_loss": [
+          0.42068,
+          0.44381,
+          0.48636,
+          0.53102
+        ],
+        "test_accuracy": [
+          0.82715,
+          0.82286,
+          0.82654,
+          0.82194
+        ]
+      }
+    }
+  },
+  "2020-04-15 16:15:53.543142": {
+    "file": "app_bert.py",
+    "model": {
+      "bert": "https://tfhub.dev/tensorflow/bert_en_uncased_L-12_H-768_A-12/1",
+      "batch_size": 16,
+      "lr": 2e-06,
+      "length": 84,
+      "config": null,
+      "history": {
+        "loss": [
+          0.49477,
+          0.35556,
+          0.29346
+        ],
+        "accuracy": [
+          0.76946,
+          0.85386,
+          0.88309
+        ],
+        "val_loss": [
+          0.38906,
+          0.37776,
+          0.37496
+        ],
+        "val_accuracy": [
+          0.83322,
+          0.83716,
+          0.83979
+        ],
+        "test_loss": [
+          0.42168,
+          0.40646,
+          0.39948
+        ],
+        "test_accuracy": [
+          0.82531,
+          0.83052,
+          0.83328
+        ]
+      }
+    }
+  },
+  "2020-04-15 17:59:35.575211": {
+    "file": "app_bert.py",
+    "model": {
+      "bert": "https://tfhub.dev/tensorflow/bert_en_uncased_L-12_H-768_A-12/1",
+      "batch_size": 32,
+      "lr": 2e-06,
+      "length": 84,
+      "config": null,
+      "history": {
+        "loss": [
+          0.35925,
+          0.24578,
+          0.19799
+        ],
+        "accuracy": [
+          0.84581,
+          0.90624,
+          0.92808
+        ],
+        "val_loss": [
+          0.39856,
+          0.40349,
+          0.42091
+        ],
+        "val_accuracy": [
+          0.83782,
+          0.8411,
+          0.84176
+        ],
+        "test_loss": [
+          0.41756,
+          0.42977,
+          0.45025
+        ],
+        "test_accuracy": [
+          0.8293,
+          0.82593,
+          0.82777
+        ]
+      }
+    }
+  },
+  "2020-04-15 19:42:58.790998": {
+    "file": "app_bert.py",
+    "model": {
+      "bert": "https://tfhub.dev/tensorflow/bert_en_uncased_L-12_H-768_A-12/1",
+      "batch_size": 64,
+      "lr": 2e-06,
+      "length": 84,
+      "config": null,
+      "history": {
+        "loss": [
+          0.31324,
+          0.18271,
+          0.14689
+        ],
+        "accuracy": [
+          0.87455,
+          0.93744,
+          0.9514
+        ],
+        "val_loss": [
+          0.42717,
+          0.43487,
+          0.47271
+        ],
+        "val_accuracy": [
+          0.82797,
+          0.83716,
+          0.83125
+        ],
+        "test_loss": [
+          0.43741,
+          0.4567,
+          0.49573
+        ],
+        "test_accuracy": [
+          0.8293,
+          0.83451,
+          0.82409
+        ]
+      }
+    }
+  },
+  "2020-04-15 21:30:37.076582": {
+    "file": "app_bert.py",
+    "model": {
+      "bert": "https://tfhub.dev/tensorflow/bert_en_uncased_L-12_H-768_A-12/1",
+      "batch_size": 16,
+      "lr": 0.0001,
+      "length": 84,
+      "config": null,
+      "history": {
+        "loss": [
+          0.44223,
+          0.25361,
+          0.1617
+        ],
+        "accuracy": [
+          0.81002,
+          0.90591,
+          0.94483
+        ],
+        "val_loss": [
+          0.4963,
+          0.49617,
+          0.60909
+        ],
+        "val_accuracy": [
+          0.79251,
+          0.82666,
+          0.81353
+        ],
+        "test_loss": [
+          0.46154,
+          0.50031,
+          0.59608
+        ],
+        "test_accuracy": [
+          0.79099,
+          0.81796,
+          0.8198
+        ]
+      }
+    }
+  },
+  "2020-04-15 23:14:21.573700": {
+    "file": "app_bert.py",
+    "model": {
+      "bert": "https://tfhub.dev/tensorflow/bert_en_uncased_L-12_H-768_A-12/1",
+      "batch_size": 32,
+      "lr": 0.0001,
+      "length": 84,
+      "config": null,
+      "history": {
+        "loss": [
+          0.11295,
+          0.06408,
+          0.06591
+        ],
+        "accuracy": [
+          0.96092,
+          0.97652,
+          0.97504
+        ],
+        "val_loss": [
+          0.78363,
+          0.74353,
+          1.07995
+        ],
+        "val_accuracy": [
+          0.79514,
+          0.7958,
+          0.79054
+        ],
+        "test_loss": [
+          0.703,
+          0.76703,
+          1.04219
+        ],
+        "test_accuracy": [
+          0.79896,
+          0.79988,
+          0.79988
+        ]
+      }
+    }
+  },
+  "2020-04-16 00:57:02.051516": {
+    "file": "app_bert.py",
+    "model": {
+      "bert": "https://tfhub.dev/tensorflow/bert_en_uncased_L-12_H-768_A-12/1",
+      "batch_size": 64,
+      "lr": 0.0001,
+      "length": 84,
+      "config": null,
+      "history": {
+        "loss": [
+          0.05732,
+          0.02464,
+          0.02082
+        ],
+        "accuracy": [
+          0.97816,
+          0.98752,
+          0.98998
+        ],
+        "val_loss": [
+          0.97162,
+          1.05688,
+          1.25426
+        ],
+        "val_accuracy": [
+          0.7912,
+          0.80499,
+          0.79645
+        ],
+        "test_loss": [
+          0.85905,
+          1.14991,
+          1.29533
+        ],
+        "test_accuracy": [
+          0.79926,
+          0.80386,
+          0.80356
+        ]
+      }
+    }
+  },
+  "2020-04-16 02:44:21.455370": {
+    "file": "app_bert.py",
+    "model": {
+      "bert": "https://tfhub.dev/tensorflow/bert_en_uncased_L-12_H-768_A-12/1",
+      "batch_size": 16,
+      "lr": 3e-05,
+      "length": 84,
+      "config": null,
+      "history": {
+        "loss": [
+          0.03215,
+          0.01422,
+          0.02592
+        ],
+        "accuracy": [
+          0.98818,
+          0.9936,
+          0.99048
+        ],
+        "val_loss": [
+          1.243,
+          1.47273,
+          0.99987
+        ],
+        "val_accuracy": [
+          0.79448,
+          0.80039,
+          0.80105
+        ],
+        "test_loss": [
+          1.13236,
+          1.48014,
+          0.98233
+        ],
+        "test_accuracy": [
+          0.79528,
+          0.79222,
+          0.80049
+        ]
+      }
+    }
+  },
+  "2020-04-16 04:27:34.032735": {
+    "file": "app_bert.py",
+    "model": {
+      "bert": "https://tfhub.dev/tensorflow/bert_en_uncased_L-12_H-768_A-12/1",
+      "batch_size": 32,
+      "lr": 3e-05,
+      "length": 84,
+      "config": null,
+      "history": {
+        "loss": [
+          0.02733,
+          0.00828,
+          0.00711
+        ],
+        "accuracy": [
+          0.98637,
+          0.99655,
+          0.99672
+        ],
+        "val_loss": [
+          1.33829,
+          1.58111,
+          1.59925
+        ],
+        "val_accuracy": [
+          0.7958,
+          0.79645,
+          0.79186
+        ],
+        "test_loss": [
+          1.30476,
+          1.53815,
+          1.52113
+        ],
+        "test_accuracy": [
+          0.79896,
+          0.79773,
+          0.79375
+        ]
+      }
+    }
+  },
+  "2020-04-16 06:09:51.029928": {
+    "file": "app_bert.py",
+    "model": {
+      "bert": "https://tfhub.dev/tensorflow/bert_en_uncased_L-12_H-768_A-12/1",
+      "batch_size": 64,
+      "lr": 3e-05,
+      "length": 84,
+      "config": null,
+      "history": {
+        "loss": [
+          0.02202,
+          0.00945,
+          0.00642
+        ],
+        "accuracy": [
+          0.99343,
+          0.99688,
+          0.99819
+        ],
+        "val_loss": [
+          1.67674,
+          1.28576,
+          1.23632
+        ],
+        "val_accuracy": [
+          0.76691,
+          0.79186,
+          0.78923
+        ],
+        "test_loss": [
+          1.5874,
+          1.26851,
+          1.25668
+        ],
+        "test_accuracy": [
+          0.7726,
+          0.80172,
+          0.79344
+        ]
+      }
+    }
+  },
+  "2020-04-16 08:17:31.167715": {
+    "file": "app_bert.py",
+    "model": {
+      "bert": "https://tfhub.dev/tensorflow/bert_en_uncased_L-12_H-768_A-12/1",
+      "batch_size": 16,
+      "lr": 2e-06,
+      "length": 100,
+      "config": null,
+      "history": {
+        "loss": [
+          0.06433,
+          0.00463,
+          0.00295
+        ],
+        "accuracy": [
+          0.97882,
+          0.99787,
+          0.99836
+        ],
+        "val_loss": [
+          0.92999,
+          1.15864,
+          1.31516
+        ],
+        "val_accuracy": [
+          0.79317,
+          0.7958,
+          0.79777
+        ],
+        "test_loss": [
+          0.95277,
+          1.18509,
+          1.34811
+        ],
+        "test_accuracy": [
+          0.79007,
+          0.78915,
+          0.7913
+        ]
+      }
+    }
+  },
+  "2020-04-16 10:21:37.547012": {
+    "file": "app_bert.py",
+    "model": {
+      "bert": "https://tfhub.dev/tensorflow/bert_en_uncased_L-12_H-768_A-12/1",
+      "batch_size": 32,
+      "lr": 2e-06,
+      "length": 100,
+      "config": null,
+      "history": {
+        "loss": [
+          0.05185,
+          0.00342,
+          0.00234
+        ],
+        "accuracy": [
+          0.989,
+          0.99885,
+          0.99918
+        ],
+        "val_loss": [
+          0.99134,
+          1.20484,
+          1.33085
+        ],
+        "val_accuracy": [
+          0.79448,
+          0.79317,
+          0.79317
+        ],
+        "test_loss": [
+          0.992,
+          1.20072,
+          1.32613
+        ],
+        "test_accuracy": [
+          0.79038,
+          0.78915,
+          0.78915
+        ]
+      }
+    }
+  }
+}
