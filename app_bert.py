@@ -14,6 +14,7 @@ from tweets import Helpers, tweets_preprocessor
 from models import Keras, TestDataCallback
 from utils import log
 import os
+import gc
 
 
 def bert_encode(texts, tokenizer, max_len=512):
@@ -100,48 +101,54 @@ tokenizer = FullTokenizer(vocab_file, do_lower_case)
 train_labels = data.target_relabeled.values
 test_labels = test_data.target.values
 
-for lr in [2e-6, 1e-4, 3e-5]:
-    for l in [84, 100, 160]:
-        for batch_size in [16, 32, 64]:
-            p = f'./data/models/{lr}-{l}-{batch_size}'
-            if not os.path.exists(p):
-                os.makedirs(p)
+iter = 0
+l = 84
+lr = 3e-7
+batch_size = 16
 
-            checkpoint = ModelCheckpoint(
-                p + '/model-{epoch:03d}-{accuracy:03f}-{val_accuracy:03f}.h5',
-                verbose=1,
-                monitor='val_loss',
-                save_best_only=True,
-                mode='auto'
-            )
+p = f'./data/models2/{l}_{lr}_{batch_size}_second'
+if not os.path.exists(p):
+    os.makedirs(p)
 
-            train_input = bert_encode(data.text.values, tokenizer, max_len=l)
-            test_input = bert_encode(test_data.text.values, tokenizer, max_len=l)
-            model = build_model(bert_layer, max_len=l, lr=lr)
+checkpoint = ModelCheckpoint(
+    p + '/model-{epoch:03d}-{accuracy:03f}-{val_accuracy:03f}.h5',
+    verbose=1,
+    monitor='val_loss',
+    save_best_only=True,
+    mode='auto'
+)
 
-            model.summary()
+train_input = bert_encode(data.text.values, tokenizer, max_len=l)
+test_input = bert_encode(test_data.text.values, tokenizer, max_len=l)
+model = build_model(bert_layer, max_len=l, lr=lr)
 
-            test_data_callback = TestDataCallback(
-                x_test=test_input,
-                y_test=test_labels
-            )
+model.summary()
 
-            history = model.fit(
-                train_input, train_labels,
-                validation_split=0.2,
-                epochs=4,
-                batch_size=batch_size,
-                verbose=1,
-                callbacks=[checkpoint, test_data_callback]
-            )
+test_data_callback = TestDataCallback(
+    x_test=test_input,
+    y_test=test_labels
+)
 
-            mode_history = history.history.copy()
-            mode_history['test_loss'] = test_data_callback.loss
-            mode_history['test_accuracy'] = test_data_callback.accuracy
+os.system(f'spd-say "Training experiment {iter} has started!"')
 
-            # Keras.draw_graph(mode_history)
-            log(
-                file='app_bert.py',
-                model={'bert': module_url, 'batch_size': batch_size, 'lr': lr, 'length': l},
-                model_history=mode_history
-            )
+history = model.fit(
+    train_input, train_labels,
+    validation_split=0.2,
+    epochs=13,
+    batch_size=batch_size,
+    verbose=1,
+    callbacks=[checkpoint, test_data_callback]
+)
+
+mode_history = history.history.copy()
+mode_history['test_loss'] = test_data_callback.loss
+mode_history['test_accuracy'] = test_data_callback.accuracy
+
+# Keras.draw_graph(mode_history)
+log(
+    file='app_bert.py',
+    model={'bert': module_url, 'batch_size': batch_size, 'lr': lr, 'length': l},
+    model_history=mode_history
+)
+
+os.system(f'spd-say "Training experiment {iter} has finished!"')
