@@ -1,11 +1,4 @@
 # -*- coding: utf-8 -*-
-
-import numpy as np
-import pandas as pd
-import tensorflow as tf
-from tensorflow.keras.layers import Dense, Input
-from tensorflow.keras.optimizers import Adam
-from tensorflow.keras.models import Model
 from tensorflow.keras.callbacks import ModelCheckpoint
 import tensorflow_hub as hub
 from bert_tokenization import FullTokenizer
@@ -14,45 +7,6 @@ from tweets import Helpers, tweets_preprocessor
 from models import Keras, TestDataCallback
 from utils import log
 import os
-import gc
-
-
-def bert_encode(texts, tokenizer, max_len=512):
-    all_tokens = []
-    all_masks = []
-    all_segments = []
-
-    for text in texts:
-        text = tokenizer.tokenize(text)
-        text = text[:max_len - 2]
-        input_sequence = ["[CLS]"] + text + ["[SEP]"]
-        pad_len = max_len - len(input_sequence)
-        tokens = tokenizer.convert_tokens_to_ids(input_sequence)
-        tokens += [0] * pad_len
-        pad_masks = [1] * len(input_sequence) + [0] * pad_len
-        segment_ids = [0] * max_len
-
-        all_tokens.append(tokens)
-        all_masks.append(pad_masks)
-        all_segments.append(segment_ids)
-
-    return np.array(all_tokens), np.array(all_masks), np.array(all_segments)
-
-
-def build_model(bert_layer, max_len=512, lr=2e-6):
-    input_word_ids = Input(shape=(max_len,), dtype=tf.int32, name="input_word_ids")
-    input_mask = Input(shape=(max_len,), dtype=tf.int32, name="input_mask")
-    segment_ids = Input(shape=(max_len,), dtype=tf.int32, name="segment_ids")
-
-    _, sequence_output = bert_layer([input_word_ids, input_mask, segment_ids])
-    clf_output = sequence_output[:, 0, :]
-    out = Dense(1, activation='sigmoid')(clf_output)
-
-    model = Model(inputs=[input_word_ids, input_mask, segment_ids], outputs=out)
-    model.compile(Adam(learning_rate=lr), loss='binary_crossentropy', metrics=['accuracy'])
-
-    return model
-
 
 DATA = {
     'VALIDATION_PERCENTAGE': 0.2,
@@ -76,6 +30,17 @@ DATA = {
     }
 }
 
+MODEL = {
+    # 'BERT_URL': "https://tfhub.dev/tensorflow/bert_en_uncased_L-12_H-768_A-12/1",
+    'BERT_URL': "https://tfhub.dev/tensorflow/bert_en_uncased_L-24_H-1024_A-16/1",
+    'BATCH_SIZE': 16,
+    'EPOCHS': 4,
+    'VERBOSE': 1,
+    'OPTIMIZER': 'adam',
+    'LEARNING_RATE': 2e-6,
+    'SHUFFLE': True
+}
+
 # data['preprocessed'] = tweets_preprocessor.preprocess(
 #     data.text,
 #     DATA['PREPROCESS_OPTRIONS']
@@ -88,67 +53,60 @@ Helpers.coorrect_data(data)
 #     DATA['PREPROCESS_OPTRIONS']
 # )
 
-module_url = "https://tfhub.dev/tensorflow/bert_en_uncased_L-12_H-768_A-12/1"
-
-bert_layer = hub.KerasLayer(module_url, trainable=True)
-
+bert_layer = hub.KerasLayer(MODEL['BERT_URL'], trainable=True)
 vocab_file = bert_layer.resolved_object.vocab_file.asset_path.numpy()
-
 do_lower_case = bert_layer.resolved_object.do_lower_case.numpy()
-
 tokenizer = FullTokenizer(vocab_file, do_lower_case)
 
-train_labels = data.target_relabeled.values
-test_labels = test_data.target.values
+x, INPUT_LENGTH = Helpers.get_bert_input(data.text.values, tokenizer)
+x_test = Helpers.get_bert_input(test_data.text.values, tokenizer, input_length=INPUT_LENGTH)
+y = data.target_relabeled.values
+y_test = test_data.target.values
 
-iter = 0
-l = 84
-lr = 3e-7
-batch_size = 16
+MODEL_SAVE_PATH = f'./data/models/{MODEL["BATCH_SIZE"]}-{MODEL["LEARNING_RATE"]}-{INPUT_LENGTH}'
 
-p = f'./data/models2/{l}_{lr}_{batch_size}_second'
-if not os.path.exists(p):
-    os.makedirs(p)
+if not os.path.exists(MODEL_SAVE_PATH):
+    os.makedirs(MODEL_SAVE_PATH)
+
+test_data_callback = TestDataCallback(
+    x_test=x_test,
+    y_test=y_test
+)
 
 checkpoint = ModelCheckpoint(
-    p + '/model-{epoch:03d}-{accuracy:03f}-{val_accuracy:03f}.h5',
-    verbose=1,
+    MODEL_SAVE_PATH + '/model-{epoch:03d}-{accuracy:03f}-{val_accuracy:03f}.h5',
+    verbose=MODEL['VERBOSE'],
     monitor='val_loss',
     save_best_only=True,
     mode='auto'
 )
 
-train_input = bert_encode(data.text.values, tokenizer, max_len=l)
-test_input = bert_encode(test_data.text.values, tokenizer, max_len=l)
-model = build_model(bert_layer, max_len=l, lr=lr)
+model = Keras.get_bert_model(
+    bert_layer=bert_layer,
+    input_length=INPUT_LENGTH,
+    optimizer=MODEL['OPTIMIZER'],
+    learning_rate=MODEL['LEARNING_RATE']
+)
 
 model.summary()
 
-test_data_callback = TestDataCallback(
-    x_test=test_input,
-    y_test=test_labels
-)
-
-os.system(f'spd-say "Training experiment {iter} has started!"')
-
 history = model.fit(
-    train_input, train_labels,
-    validation_split=0.2,
-    epochs=13,
-    batch_size=batch_size,
-    verbose=1,
+    x, y,
+    validation_split=DATA['VALIDATION_PERCENTAGE'],
+    epochs=MODEL['EPOCHS'],
+    batch_size=MODEL['BATCH_SIZE'],
+    verbose=MODEL['VERBOSE'],
     callbacks=[checkpoint, test_data_callback]
 )
 
-mode_history = history.history.copy()
-mode_history['test_loss'] = test_data_callback.loss
-mode_history['test_accuracy'] = test_data_callback.accuracy
+model_history = history.history.copy()
+model_history['test_loss'] = test_data_callback.loss
+model_history['test_accuracy'] = test_data_callback.accuracy
 
-# Keras.draw_graph(mode_history)
+Keras.draw_graph(model_history)
+
 log(
     file='app_bert.py',
-    model={'bert': module_url, 'batch_size': batch_size, 'lr': lr, 'length': l},
-    model_history=mode_history
+    model=MODEL,
+    model_history=model_history
 )
-
-os.system(f'spd-say "Training experiment {iter} has finished!"')

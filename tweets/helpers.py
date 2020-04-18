@@ -72,3 +72,30 @@ class Helpers:
 
         for t_id in ids_with_target_error:
             data.loc[data['id'] == t_id, 'target_relabeled'] = 0
+
+    @staticmethod
+    def get_bert_input(tweets, tokenizer, input_length=None):
+        all_tokens = []
+        all_masks = []
+        all_segments = []
+
+        tokenized_tweets = [tokenizer.tokenize(t) for t in tweets]
+
+        max_len = Helpers.get_max_vector_len(tokenized_tweets) + 2 if input_length is None else input_length
+
+        for tweet in tokenized_tweets:
+            input_sequence = ["[CLS]"] + tweet[:max_len - 2] + ["[SEP]"]
+            pad_len = max_len - len(input_sequence)
+            tokens = tokenizer.convert_tokens_to_ids(input_sequence)
+            tokens += [0] * pad_len
+            pad_masks = [1] * len(input_sequence) + [0] * pad_len
+            segment_ids = [0] * max_len
+
+            all_tokens.append(tokens)
+            all_masks.append(pad_masks)
+            all_segments.append(segment_ids)
+
+        if input_length is None:
+            return (np.array(all_tokens), np.array(all_masks), np.array(all_segments)), max_len
+
+        return np.array(all_tokens), np.array(all_masks), np.array(all_segments)

@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
-import numpy as np
-from keras.models import Sequential
-from keras.layers import Dense, Embedding
-from keras.callbacks import Callback
-from keras.optimizers import Adam, RMSprop
+from tensorflow.keras.layers import Dense, Input, Embedding
+from tensorflow.keras.callbacks import Callback
+from tensorflow.keras.optimizers import Adam, RMSprop
+from tensorflow.keras.models import Model, Sequential
 import matplotlib.pyplot as plt
+import tensorflow as tf
 
 
 class TestDataCallback(Callback):
@@ -71,3 +71,22 @@ class Keras:
     def draw_graph(history):
         Keras._plot(history, 'accuracy')
         Keras._plot(history, 'loss')
+
+    @staticmethod
+    def get_bert_model(bert_layer, input_length, optimizer='rmsprop', learning_rate=2e-6):
+        input_word_ids = Input(shape=(input_length,), dtype=tf.int32, name="input_word_ids")
+        input_mask = Input(shape=(input_length,), dtype=tf.int32, name="input_mask")
+        segment_ids = Input(shape=(input_length,), dtype=tf.int32, name="segment_ids")
+
+        _, sequence_output = bert_layer([input_word_ids, input_mask, segment_ids])
+        clf_output = sequence_output[:, 0, :]
+        out = Dense(1, activation='sigmoid')(clf_output)
+
+        model = Model(inputs=[input_word_ids, input_mask, segment_ids], outputs=out)
+        model.compile(
+            optimizer=Keras.OPTIMIZERS[optimizer](learning_rate=learning_rate),
+            loss='binary_crossentropy',
+            metrics=['accuracy']
+        )
+
+        return model

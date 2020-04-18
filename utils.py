@@ -45,7 +45,10 @@ def log(
 
     if model is not None:
         current_log['model'] = model
-        current_log['model']['config'] = model_config
+
+        if model_config is not None:
+            current_log['model']['config'] = model_config
+
         current_log['model']['history'] = {k: [round(float(v), 5) for v in data] for k, data in model_history.items()}
 
     if classifier is not None:
