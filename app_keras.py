@@ -3,13 +3,13 @@ import numpy as np
 from tweets import Helpers, tweets_preprocessor
 from models import Keras, TestDataCallback
 from utils import log, get_glove_embeddings
-from keras.callbacks import ModelCheckpoint
-from keras.layers import Dense, Flatten, LSTM, SpatialDropout1D, GlobalMaxPool1D
-from keras.layers import Bidirectional, GRU, Conv1D, GlobalAveragePooling1D, Dropout, MaxPool1D
+from tensorflow.keras.callbacks import ModelCheckpoint
+from tensorflow.keras.layers import Dense, Flatten, LSTM, SpatialDropout1D, GlobalMaxPool1D
+from tensorflow.keras.layers import Bidirectional, GRU, Conv1D, GlobalAveragePooling1D, Dropout, MaxPool1D
 from data import train_data as data, test_data_with_target as test_data
-from keras.preprocessing.text import Tokenizer
-from keras.initializers import Constant
-from keras.preprocessing.sequence import pad_sequences
+from tensorflow.keras.preprocessing.text import Tokenizer
+from tensorflow.keras.initializers import Constant
+from tensorflow.keras.preprocessing.sequence import pad_sequences
 from sklearn.model_selection import train_test_split
 
 ########################################################################################################################
@@ -44,7 +44,7 @@ data['preprocessed'] = tweets_preprocessor.preprocess(
     DATA['PREPROCESS_OPTRIONS']
 )
 
-Helpers.coorrect_data(data)
+Helpers.correct_data(data)
 
 test_data['preprocessed'] = tweets_preprocessor.preprocess(
     test_data.text,
@@ -216,8 +216,8 @@ LAYERS = [
 # )
 
 test_data_callback = TestDataCallback(
-    x_test=np.array(x_test),
-    y_test=np.array(y_test)
+    x_test=x_test,
+    y_test=y_test
 )
 
 ########################################################################################################################

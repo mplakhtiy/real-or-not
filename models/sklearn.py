@@ -6,12 +6,12 @@ from sklearn.svm import SVC
 
 
 class Sklearn:
-    vectorizers = {
+    VECTORIZERS = {
         'TFIDF': TfidfVectorizer,
         'COUNT': CountVectorizer
     }
 
-    classifiers = {
+    CLASSIFIERS = {
         'RIDGE': RidgeClassifier,
         'LINEAR_REGRESSION': LinearRegression,
         'LOGISTIC_REGRESSION': LogisticRegression,
@@ -20,15 +20,3 @@ class Sklearn:
         'SVM': SVC,
         'SGDClassifier': SGDClassifier
     }
-
-    @staticmethod
-    def get_classifier(classifier_type, classifier_options=None):
-        return Sklearn.classifiers[classifier_type](
-            **classifier_options if classifier_options is not None else {}
-        )
-
-    @staticmethod
-    def get_vectorizer(vectorizer_type, vectorizer_options=None):
-        return Sklearn.vectorizers[vectorizer_type](
-            **vectorizer_options if vectorizer_options is not None else {}
-        )

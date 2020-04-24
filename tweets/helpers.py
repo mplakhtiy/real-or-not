@@ -42,7 +42,7 @@ class Helpers:
         return embedding_matrix
 
     @staticmethod
-    def coorrect_data(data):
+    def correct_data(data):
         data['target_relabeled'] = data['target'].copy()
         corrections = [
             ('like for the music video I want some real action shit like burning buildings and police chases not some weak ben winston shit', 0),

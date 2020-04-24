@@ -33,16 +33,15 @@ DATA = {
 VECTORIZER = {
     'TYPE': 'TFIDF',
     'OPTIONS': {
+        'binary': True,
         'ngram_range': (1, 3)
-    },
-    # 'TYPE': 'COUNT',
-    # 'OPTIONS': {
-    #     'analyzer': 'word',
-    #     'binary': True
-    # }
+    }
 }
 
-CLASSIFIER = 'RIDGE'
+CLASSIFIER = {
+    'TYPE': 'LINEAR_REGRESSION',
+    'OPTIONS': {}
+}
 
 ########################################################################################################################
 
@@ -55,7 +54,7 @@ test_data['preprocessed'] = tweets_preprocessor.preprocess(
     DATA['PREPROCESS_OPTRIONS']
 )
 
-vectorizer = Sklearn.get_vectorizer(VECTORIZER['TYPE'], VECTORIZER['OPTIONS'])
+vectorizer = Sklearn.VECTORIZERS[VECTORIZER['TYPE']](**VECTORIZER['OPTIONS'])
 
 x_train, x_val, y_train, y_val = train_test_split(
     vectorizer.fit_transform(data.preprocessed).todense(),
@@ -68,7 +67,7 @@ y_test = test_data.target.values
 
 ########################################################################################################################
 
-classifier = Sklearn.get_classifier(CLASSIFIER)
+classifier = Sklearn.CLASSIFIERS[CLASSIFIER['TYPE']](**CLASSIFIER['OPTIONS'])
 
 ########################################################################################################################
 

@@ -46,7 +46,7 @@ MODEL = {
 #     DATA['PREPROCESS_OPTRIONS']
 # )
 
-Helpers.coorrect_data(data)
+Helpers.correct_data(data)
 
 # test_data['preprocessed'] = tweets_preprocessor.preprocess(
 #     test_data.text,
