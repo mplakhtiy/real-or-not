@@ -1,5 +1,7 @@
 # -*- coding: utf-8 -*-
 import string
+import pandas as pd
+import numpy as np
 
 
 class TweetsPreprocessor:
@@ -28,8 +30,20 @@ class TweetsPreprocessor:
         return tweet + ' <number>' if any(char.isdigit() for char in tweet) else tweet
 
     @staticmethod
+    def _add_keyword_flags(tweets, keywords):
+        return pd.Series(
+            [tweet if keywords[index] is np.nan else tweet + ' <keyword>' for index, tweet in tweets.items()]
+        )
+
+    @staticmethod
+    def _add_location_flags(tweets, locations):
+        return pd.Series(
+            [tweet if locations[index] is np.nan else tweet + ' <location>' for index, tweet in tweets.items()]
+        )
+
+    @staticmethod
     def _is_flag(word):
-        return word in {'<url>', '<user>', '<hashtag>', '<number>'}
+        return word in {'<url>', '<user>', '<hashtag>', '<number>', '<location>', '<keyword>'}
 
     @staticmethod
     def _remove_links(words):
@@ -137,7 +151,7 @@ class TweetsPreprocessor:
 
         return new_words
 
-    def preprocess(self, tweets, options=None):
+    def preprocess(self, tweets, options=None, keywords=None, locations=None):
         if options is None:
             options = {}
 
@@ -156,6 +170,12 @@ class TweetsPreprocessor:
 
         if options.get('add_number_flag', True):
             t = t.map(TweetsPreprocessor._add_number_flag)
+
+        if options.get('add_keyword_flag', True) and keywords is not None:
+            t = TweetsPreprocessor._add_keyword_flags(t, keywords)
+
+        if options.get('add_location_flag', True) and locations is not None:
+            t = TweetsPreprocessor._add_location_flags(t, locations)
 
         t = t.map(self._split)
 

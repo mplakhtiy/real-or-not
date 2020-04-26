@@ -1,6 +1,7 @@
 import unittest
 import string
 import pandas as pd
+import numpy as np
 from tweets import TweetsPreprocessor, tweet_tokenizer, porter_stemmer, stop_words, slang_abbreviations, splitters
 
 
@@ -28,6 +29,40 @@ class TestTweetsPreprocessor(unittest.TestCase):
         "#raining #flooding #Florida #TampaBay #Tampa 18 or 19 days. I've lost count",
         "#Flood in Bago Myanmar #We arrived Bago",
         "Damage to school bus on 80 in multi car crash #BREAKING"
+    ])
+    locations = pd.Series([
+        np.nan,
+        'Canada',
+        np.nan,
+        'California',
+        'Alaska',
+        'California',
+        'Colorado',
+        np.nan,
+        np.nan,
+        np.nan,
+        np.nan,
+        'South Tampa',
+        'Florida',
+        'Bago Myanmar',
+        np.nan
+    ])
+    keywords = pd.Series([
+        'earthquake',
+        'fire',
+        'evacuation',
+        'wildfires',
+        'wildfires',
+        'fire',
+        'flood',
+        'fire',
+        'emergency',
+        'tornado',
+        'died',
+        'flooding',
+        'flooding',
+        np.nan,
+        np.nan
     ])
 
     def test_remove_links(self):
@@ -194,47 +229,53 @@ class TestTweetsPreprocessor(unittest.TestCase):
                 'remove_numbers': False,
                 'remove_not_alpha': False,
                 'correct_spellings': True
-            }
+            },
+            keywords=self.keywords,
+            locations=self.locations
         ))
 
         expected = [
-            'deed reason thi earthquak may allah forgiv us <url> <user> <hashtag>',
-            'forest fire near la rong sask canada',
-            'resid ask shelter place notifi offic evacu shelter place order expect',
-            '13,000 peopl receiv wildfir evacu order california <hashtag> <number>',
-            'got sent thi photo rubi alaska smoke wildfir pour school <hashtag>',
-            'rockyfir updat california hwi 20 close direct due lake counti fire cafir wildfir <hashtag> <number>',
-            'flood disast heavi rain caus flash flood street manit colorado spring area <hashtag>',
-            'top hill see fire wood',
-            'emerg evacu happen build across street',
-            'afraid tornado come area',
-            'three peopl die heat wave far',
-            'haha south tampa flood hah wait second live south tampa gonna gonna fvck flood <hashtag>',
-            'rain flood florida tampabay tampa 18 19 day lost count <hashtag> <number>',
-            'flood bago myanmar arriv bago <hashtag>',
+            'deed reason thi earthquak may allah forgiv us <url> <user> <hashtag> <keyword>',
+            'forest fire near la rong sask canada <keyword> <location>',
+            'resid ask shelter place notifi offic evacu shelter place order expect <keyword>',
+            '13,000 peopl receiv wildfir evacu order california <hashtag> <number> <keyword> <location>',
+            'got sent thi photo rubi alaska smoke wildfir pour school <hashtag> <keyword> <location>',
+            'rockyfir updat california hwi 20 close direct due lake counti fire cafir wildfir <hashtag> <number> <keyword> <location>',
+            'flood disast heavi rain caus flash flood street manit colorado spring area <hashtag> <keyword> <location>',
+            'top hill see fire wood <keyword>',
+            'emerg evacu happen build across street <keyword>',
+            'afraid tornado come area <keyword>',
+            'three peopl die heat wave far <keyword>',
+            'haha south tampa flood hah wait second live south tampa gonna gonna fvck flood <hashtag> <keyword> <location>',
+            'rain flood florida tampabay tampa 18 19 day lost count <hashtag> <number> <keyword> <location>',
+            'flood bago myanmar arriv bago <hashtag> <location>',
             'damag school bu 80 multi car crash break <hashtag> <number>'
         ]
 
         self.assertEqual(result, expected)
 
     def test_preprocess_2(self):
-        result = list(self.preprocessor.preprocess(self.tweets))
+        result = list(self.preprocessor.preprocess(
+            self.tweets,
+            keywords=self.keywords,
+            locations=self.locations
+        ))
 
         expected = [
-            'deed reason thi earthquak may allah forgiv us <url> <user> <hashtag>',
-            'forest fire near la rong sask canada',
-            'resid ask shelter place notifi offic evacu shelter place order expect',
-            'peopl receiv wildfir evacu order california <hashtag> <number>',
-            'got sent thi photo rubi alaska smoke wildfir pour school <hashtag>',
-            'rockyfir updat california hwi close direct due lake counti fire cafir wildfir <hashtag> <number>',
-            'flood disast heavi rain caus flash flood street manit colorado spring area <hashtag>',
-            'top hill see fire wood',
-            'emerg evacu happen build across street',
-            'afraid tornado come area',
-            'three peopl die heat wave far',
-            'haha south tampa flood hah wait second live south tampa gonna gonna fvck flood <hashtag>',
-            'rain flood florida tampabay tampa day lost count <hashtag> <number>',
-            'flood bago myanmar arriv bago <hashtag>',
+            'deed reason thi earthquak may allah forgiv us <url> <user> <hashtag> <keyword>',
+            'forest fire near la rong sask canada <keyword> <location>',
+            'resid ask shelter place notifi offic evacu shelter place order expect <keyword>',
+            'peopl receiv wildfir evacu order california <hashtag> <number> <keyword> <location>',
+            'got sent thi photo rubi alaska smoke wildfir pour school <hashtag> <keyword> <location>',
+            'rockyfir updat california hwi close direct due lake counti fire cafir wildfir <hashtag> <number> <keyword> <location>',
+            'flood disast heavi rain caus flash flood street manit colorado spring area <hashtag> <keyword> <location>',
+            'top hill see fire wood <keyword>',
+            'emerg evacu happen build across street <keyword>',
+            'afraid tornado come area <keyword>',
+            'three peopl die heat wave far <keyword>',
+            'haha south tampa flood hah wait second live south tampa gonna gonna fvck flood <hashtag> <keyword> <location>',
+            'rain flood florida tampabay tampa day lost count <hashtag> <number> <keyword> <location>',
+            'flood bago myanmar arriv bago <hashtag> <location>',
             'damag school bu multi car crash break <hashtag> <number>'
         ]
 
@@ -249,25 +290,26 @@ class TestTweetsPreprocessor(unittest.TestCase):
                 'remove_not_alpha': False,
                 'remove_hash': False,
                 'stem': False,
-            }
+            },
+            keywords=self.keywords,
+            locations=self.locations
         ))
 
         expected = [
-            '@maryan ikn.com www.goog.com deeds reason #earthquake may allah forgive us <url> <user> <hashtag>',
-            'forest fire near la ronge sask canada',
-            'residents asked shelter place notified officers evacuation shelter place orders expected',
-            'people receive #wildfires evacuation orders california <hashtag> <number>',
-            'got sent photo ruby #alaska smoke #wildfires pours school <hashtag>',
-            '#rockyfire update california hwy closed directions due lake county fire #cafire #wildfires <hashtag> <number>',
-            '#flood #disaster heavy rain causes flash flooding streets manitou colorado '
-            'springs areas <hashtag>',
-            'top hill see fire woods',
-            'emergency evacuation happening building across street',
-            'afraid tornado coming area',
-            'three people died heat wave far',
-            'haha south tampa getting flooded hah wait second live south tampa gonna gonna fvck #flooding <hashtag>',
-            '#raining #flooding #florida #tampabay #tampa days lost count <hashtag> <number>',
-            '#flood bago myanmar #we arrived bago <hashtag>',
+            '@maryan ikn.com www.goog.com deeds reason #earthquake may allah forgive us <url> <user> <hashtag> <keyword>',
+            'forest fire near la ronge sask canada <keyword> <location>',
+            'residents asked shelter place notified officers evacuation shelter place orders expected <keyword>',
+            'people receive #wildfires evacuation orders california <hashtag> <number> <keyword> <location>',
+            'got sent photo ruby #alaska smoke #wildfires pours school <hashtag> <keyword> <location>',
+            '#rockyfire update california hwy closed directions due lake county fire #cafire #wildfires <hashtag> <number> <keyword> <location>',
+            '#flood #disaster heavy rain causes flash flooding streets manitou colorado springs areas <hashtag> <keyword> <location>',
+            'top hill see fire woods <keyword>',
+            'emergency evacuation happening building across street <keyword>',
+            'afraid tornado coming area <keyword>',
+            'three people died heat wave far <keyword>',
+            'haha south tampa getting flooded hah wait second live south tampa gonna gonna fvck #flooding <hashtag> <keyword> <location>',
+            '#raining #flooding #florida #tampabay #tampa days lost count <hashtag> <number> <keyword> <location>',
+            '#flood bago myanmar #we arrived bago <hashtag> <location>',
             'damage school bus multi car crash #breaking <hashtag> <number>'
         ]
 
@@ -280,24 +322,26 @@ class TestTweetsPreprocessor(unittest.TestCase):
                 'remove_hash': False,
                 'stem': False,
                 'remove_numbers': False,
-            }
+            },
+            keywords=self.keywords,
+            locations=self.locations
         ))
 
         expected = [
-            'deeds reason #earthquake may allah forgive us <url> <user> <hashtag>',
-            'forest fire near la ronge sask canada',
-            'residents asked shelter place notified officers evacuation shelter place orders expected',
-            '13,000 people receive #wildfires evacuation orders california <hashtag> <number>',
-            'got sent photo ruby #alaska smoke #wildfires pours school <hashtag>',
-            '#rockyfire update california hwy 20 closed directions due lake county fire #cafire #wildfires <hashtag> <number>',
-            '#flood #disaster heavy rain causes flash flooding streets manitou colorado springs areas <hashtag>',
-            'top hill see fire woods',
-            'emergency evacuation happening building across street',
-            'afraid tornado coming area',
-            'three people died heat wave far',
-            'haha south tampa getting flooded hah wait second live south tampa gonna gonna fvck #flooding <hashtag>',
-            '#raining #flooding #florida #tampabay #tampa 18 19 days lost count <hashtag> <number>',
-            '#flood bago myanmar #we arrived bago <hashtag>',
+            'deeds reason #earthquake may allah forgive us <url> <user> <hashtag> <keyword>',
+            'forest fire near la ronge sask canada <keyword> <location>',
+            'residents asked shelter place notified officers evacuation shelter place orders expected <keyword>',
+            '13,000 people receive #wildfires evacuation orders california <hashtag> <number> <keyword> <location>',
+            'got sent photo ruby #alaska smoke #wildfires pours school <hashtag> <keyword> <location>',
+            '#rockyfire update california hwy 20 closed directions due lake county fire #cafire #wildfires <hashtag> <number> <keyword> <location>',
+            '#flood #disaster heavy rain causes flash flooding streets manitou colorado springs areas <hashtag> <keyword> <location>',
+            'top hill see fire woods <keyword>',
+            'emergency evacuation happening building across street <keyword>',
+            'afraid tornado coming area <keyword>',
+            'three people died heat wave far <keyword>',
+            'haha south tampa getting flooded hah wait second live south tampa gonna gonna fvck #flooding <hashtag> <keyword> <location>',
+            '#raining #flooding #florida #tampabay #tampa 18 19 days lost count <hashtag> <number> <keyword> <location>',
+            '#flood bago myanmar #we arrived bago <hashtag> <location>',
             'damage school bus 80 multi car crash #breaking <hashtag> <number>'
         ]
 
@@ -311,24 +355,26 @@ class TestTweetsPreprocessor(unittest.TestCase):
                 'stem': False,
                 'remove_numbers': False,
                 'remove_stop_words': False,
-            }
+            },
+            keywords=self.keywords,
+            locations=self.locations
         ))
 
         expected = [
-            'our deeds are the reason of this #earthquake may allah forgive us all <url> <user> <hashtag>',
-            'forest fire near la ronge sask canada',
-            'all residents asked to shelter in place are being notified by officers no other evacuation or shelter in place orders are expected',
-            '13,000 people receive #wildfires evacuation orders in california <hashtag> <number>',
-            'just got sent this photo from ruby #alaska as smoke from #wildfires pours into a school <hashtag>',
-            '#rockyfire update california hwy 20 closed in both directions due to lake county fire #cafire #wildfires <hashtag> <number>',
-            '#flood #disaster heavy rain causes flash flooding of streets in manitou colorado springs areas <hashtag>',
-            'i m on top of the hill and i can see a fire in the woods',
-            'there s an emergency evacuation happening now in the building across the street',
-            'i m afraid that the tornado is coming to our area',
-            'three people died from the heat wave so far',
-            'haha south tampa is getting flooded hah wait a second i live in south tampa what am i gonna do what am i gonna do fvck #flooding <hashtag>',
-            '#raining #flooding #florida #tampabay #tampa 18 or 19 days i ve lost count <hashtag> <number>',
-            '#flood in bago myanmar #we arrived bago <hashtag>',
+            'our deeds are the reason of this #earthquake may allah forgive us all <url> <user> <hashtag> <keyword>',
+            'forest fire near la ronge sask canada <keyword> <location>',
+            'all residents asked to shelter in place are being notified by officers no other evacuation or shelter in place orders are expected <keyword>',
+            '13,000 people receive #wildfires evacuation orders in california <hashtag> <number> <keyword> <location>',
+            'just got sent this photo from ruby #alaska as smoke from #wildfires pours into a school <hashtag> <keyword> <location>',
+            '#rockyfire update california hwy 20 closed in both directions due to lake county fire #cafire #wildfires <hashtag> <number> <keyword> <location>',
+            '#flood #disaster heavy rain causes flash flooding of streets in manitou colorado springs areas <hashtag> <keyword> <location>',
+            'i m on top of the hill and i can see a fire in the woods <keyword>',
+            'there s an emergency evacuation happening now in the building across the street <keyword>',
+            'i m afraid that the tornado is coming to our area <keyword>',
+            'three people died from the heat wave so far <keyword>',
+            'haha south tampa is getting flooded hah wait a second i live in south tampa what am i gonna do what am i gonna do fvck #flooding <hashtag> <keyword> <location>',
+            '#raining #flooding #florida #tampabay #tampa 18 or 19 days i ve lost count <hashtag> <number> <keyword> <location>',
+            '#flood in bago myanmar #we arrived bago <hashtag> <location>',
             'damage to school bus on 80 in multi car crash #breaking <hashtag> <number>'
         ]
 
@@ -371,13 +417,33 @@ class TestTweetsPreprocessor(unittest.TestCase):
         self.assertEqual(result, expected)
 
     def test_is_flag(self):
-        tweet = ['<url>', '<user>', '<hashtag>', '<number>']
+        tweet = ['<url>', '<user>', '<hashtag>', '<number>', '<keyword>', '<location>']
 
         result = [TweetsPreprocessor._is_flag(w) for w in tweet]
 
-        expected = [True, True, True, True]
+        expected = [True, True, True, True, True, True]
 
         self.assertEqual(result, expected)
+
+    def test_add_keyword_flags(self):
+        tweets = pd.Series(['', ''])
+        keywords = pd.Series(['fire', np.nan])
+
+        result = TweetsPreprocessor._add_keyword_flags(tweets, keywords)
+
+        expected = pd.Series([' <keyword>', ''])
+
+        self.assertEqual(list(result), list(expected))
+
+    def test_add_location_flags(self):
+        tweets = pd.Series(['', ''])
+        locations = pd.Series(['USA', np.nan])
+
+        result = TweetsPreprocessor._add_location_flags(tweets, locations)
+
+        expected = pd.Series([' <location>', ''])
+
+        self.assertEqual(list(result), list(expected))
 
 
 if __name__ == '__main__':
