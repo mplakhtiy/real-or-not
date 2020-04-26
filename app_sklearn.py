@@ -15,6 +15,8 @@ DATA = {
         'add_user_flag': False,
         'add_hash_flag': False,
         'add_number_flag': False,
+        'add_keyword_flag': True,
+        'add_location_flag': True,
         'remove_links': True,
         'remove_users': True,
         'remove_hash': True,
@@ -45,13 +47,20 @@ CLASSIFIER = {
 
 ########################################################################################################################
 
-data['preprocessed'] = tweets_preprocessor.preprocess(data.text, DATA['PREPROCESS_OPTRIONS'])
+data['preprocessed'] = tweets_preprocessor.preprocess(
+    data.text,
+    DATA['PREPROCESS_OPTRIONS'],
+    keywords=data.keyword,
+    locations=data.location
+)
 
 Helpers.correct_data(data)
 
 test_data['preprocessed'] = tweets_preprocessor.preprocess(
     test_data.text,
-    DATA['PREPROCESS_OPTRIONS']
+    DATA['PREPROCESS_OPTRIONS'],
+    keywords=test_data.keyword,
+    locations=test_data.location
 )
 
 vectorizer = Sklearn.VECTORIZERS[VECTORIZER['TYPE']](**VECTORIZER['OPTIONS'])
