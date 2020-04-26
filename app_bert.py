@@ -10,24 +10,80 @@ import os
 
 DATA = {
     'VALIDATION_PERCENTAGE': 0.2,
-    'PREPROCESS_OPTRIONS': {
-        'add_link_flag': True,
-        'add_user_flag': True,
-        'add_hash_flag': True,
-        'add_number_flag': True,
-        'remove_links': True,
-        'remove_users': True,
-        'remove_hash': True,
-        'unslang': True,
-        'split_words': True,
-        'stem': False,
-        'remove_punctuations': True,
-        'remove_numbers': True,
-        'to_lower_case': True,
-        'remove_stop_words': True,
-        'remove_not_alpha': True,
-        'join': True
-    }
+    'PREPROCESS_OPTRIONS': [
+        {
+            'add_link_flag': False,
+            'add_user_flag': False,
+            'add_hash_flag': False,
+            'add_number_flag': False,
+            'remove_links': True,
+            'remove_users': True,
+            'remove_hash': True,
+            'unslang': True,
+            'split_words': True,
+            'stem': False,
+            'remove_punctuations': True,
+            'remove_numbers': True,
+            'to_lower_case': True,
+            'remove_stop_words': True,
+            'remove_not_alpha': True,
+            'join': True
+        },
+        {
+            'add_link_flag': False,
+            'add_user_flag': False,
+            'add_hash_flag': False,
+            'add_number_flag': False,
+            'remove_links': True,
+            'remove_users': True,
+            'remove_hash': True,
+            'unslang': True,
+            'split_words': False,
+            'stem': False,
+            'remove_punctuations': True,
+            'remove_numbers': True,
+            'to_lower_case': True,
+            'remove_stop_words': True,
+            'remove_not_alpha': False,
+            'join': True
+        },
+        {
+            'add_link_flag': False,
+            'add_user_flag': False,
+            'add_hash_flag': False,
+            'add_number_flag': False,
+            'remove_links': True,
+            'remove_users': True,
+            'remove_hash': True,
+            'unslang': True,
+            'split_words': False,
+            'stem': False,
+            'remove_punctuations': True,
+            'remove_numbers': True,
+            'to_lower_case': True,
+            'remove_stop_words': False,
+            'remove_not_alpha': False,
+            'join': True
+        },
+        {
+            'add_link_flag': False,
+            'add_user_flag': False,
+            'add_hash_flag': False,
+            'add_number_flag': False,
+            'remove_links': True,
+            'remove_users': True,
+            'remove_hash': True,
+            'unslang': False,
+            'split_words': False,
+            'stem': False,
+            'remove_punctuations': False,
+            'remove_numbers': False,
+            'to_lower_case': True,
+            'remove_stop_words': False,
+            'remove_not_alpha': False,
+            'join': True
+        },
+    ]
 }
 
 MODEL = {
@@ -41,29 +97,28 @@ MODEL = {
     'SHUFFLE': True
 }
 
-# data['preprocessed'] = tweets_preprocessor.preprocess(
-#     data.text,
-#     DATA['PREPROCESS_OPTRIONS']
-# )
+data['preprocessed'] = tweets_preprocessor.preprocess(
+    data.text,
+    DATA['PREPROCESS_OPTRIONS'][0]
+)
 
 Helpers.correct_data(data)
 
-# test_data['preprocessed'] = tweets_preprocessor.preprocess(
-#     test_data.text,
-#     DATA['PREPROCESS_OPTRIONS']
-# )
+test_data['preprocessed'] = tweets_preprocessor.preprocess(
+    test_data.text,
+    DATA['PREPROCESS_OPTRIONS'][0]
+)
 
 bert_layer = hub.KerasLayer(MODEL['BERT_URL'], trainable=True)
 vocab_file = bert_layer.resolved_object.vocab_file.asset_path.numpy()
 do_lower_case = bert_layer.resolved_object.do_lower_case.numpy()
 tokenizer = FullTokenizer(vocab_file, do_lower_case)
 
-x, INPUT_LENGTH = Helpers.get_bert_input(data.text.values, tokenizer)
-x_test = Helpers.get_bert_input(test_data.text.values, tokenizer, input_length=INPUT_LENGTH)
+x, INPUT_LENGTH = Helpers.get_bert_input(data.preprocessed.values, tokenizer)
+x_test = Helpers.get_bert_input(test_data.preprocessed.values, tokenizer, input_length=INPUT_LENGTH)
 y = data.target_relabeled.values
 y_test = test_data.target.values
-
-MODEL_SAVE_PATH = f'./data/models/{MODEL["BATCH_SIZE"]}-{MODEL["LEARNING_RATE"]}-{INPUT_LENGTH}'
+MODEL_SAVE_PATH = f'./data/models/bert/{MODEL["BATCH_SIZE"]}-{MODEL["LEARNING_RATE"]}-{INPUT_LENGTH}'
 
 if not os.path.exists(MODEL_SAVE_PATH):
     os.makedirs(MODEL_SAVE_PATH)
@@ -103,10 +158,11 @@ model_history = history.history.copy()
 model_history['test_loss'] = test_data_callback.loss
 model_history['test_accuracy'] = test_data_callback.accuracy
 
-Keras.draw_graph(model_history)
+# Keras.draw_graph(model_history)
 
 log(
     file='app_bert.py',
     model=MODEL,
+    data={'PREPROCESS_OPTRIONS': DATA['PREPROCESS_OPTRIONS'][0]},
     model_history=model_history
 )

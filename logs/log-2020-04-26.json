@@ -1,0 +1,142 @@
+{
+  "2020-04-26 01:19:22.021261": {
+    "file": "app_bert.py",
+    "data": {
+      "PREPROCESS_OPTRIONS": {
+        "add_link_flag": false,
+        "add_user_flag": false,
+        "add_hash_flag": false,
+        "add_number_flag": false,
+        "remove_links": true,
+        "remove_users": true,
+        "remove_hash": true,
+        "unslang": true,
+        "split_words": false,
+        "stem": false,
+        "remove_punctuations": true,
+        "remove_numbers": true,
+        "to_lower_case": true,
+        "remove_stop_words": false,
+        "remove_not_alpha": false,
+        "join": true
+      }
+    },
+    "model": {
+      "BERT_URL": "https://tfhub.dev/tensorflow/bert_en_uncased_L-12_H-768_A-12/1",
+      "BATCH_SIZE": 16,
+      "EPOCHS": 4,
+      "VERBOSE": 1,
+      "OPTIMIZER": "adam",
+      "LEARNING_RATE": 2e-06,
+      "SHUFFLE": true,
+      "history": {
+        "loss": [
+          0.49629,
+          0.36119,
+          0.29829,
+          0.23848
+        ],
+        "accuracy": [
+          0.76929,
+          0.8509,
+          0.88062,
+          0.90722
+        ],
+        "val_loss": [
+          0.42405,
+          0.39867,
+          0.39225,
+          0.41615
+        ],
+        "val_accuracy": [
+          0.81615,
+          0.82797,
+          0.83388,
+          0.82731
+        ],
+        "test_loss": [
+          0.42692,
+          0.40585,
+          0.40492,
+          0.42343
+        ],
+        "test_accuracy": [
+          0.81888,
+          0.83359,
+          0.83359,
+          0.83727
+        ]
+      }
+    }
+  },
+  "2020-04-26 11:01:18.805496": {
+    "file": "app_bert.py",
+    "data": {
+      "PREPROCESS_OPTRIONS": {
+        "add_link_flag": false,
+        "add_user_flag": false,
+        "add_hash_flag": false,
+        "add_number_flag": false,
+        "remove_links": true,
+        "remove_users": true,
+        "remove_hash": true,
+        "unslang": false,
+        "split_words": false,
+        "stem": false,
+        "remove_punctuations": false,
+        "remove_numbers": false,
+        "to_lower_case": true,
+        "remove_stop_words": false,
+        "remove_not_alpha": false,
+        "join": true
+      }
+    },
+    "model": {
+      "BERT_URL": "https://tfhub.dev/tensorflow/bert_en_uncased_L-12_H-768_A-12/1",
+      "BATCH_SIZE": 16,
+      "EPOCHS": 4,
+      "VERBOSE": 1,
+      "OPTIMIZER": "adam",
+      "LEARNING_RATE": 2e-06,
+      "SHUFFLE": true,
+      "history": {
+        "loss": [
+          0.49123,
+          0.35723,
+          0.29227,
+          0.23089
+        ],
+        "accuracy": [
+          0.77291,
+          0.85057,
+          0.88506,
+          0.91084
+        ],
+        "val_loss": [
+          0.40735,
+          0.39652,
+          0.39927,
+          0.40912
+        ],
+        "val_accuracy": [
+          0.82075,
+          0.82272,
+          0.82797,
+          0.83257
+        ],
+        "test_loss": [
+          0.42295,
+          0.41556,
+          0.41956,
+          0.42346
+        ],
+        "test_accuracy": [
+          0.80417,
+          0.82409,
+          0.82807,
+          0.82838
+        ]
+      }
+    }
+  }
+}
