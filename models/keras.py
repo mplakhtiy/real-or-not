@@ -16,10 +16,9 @@ class TestDataCallback(Callback):
         self.y_test = y_test
 
     def on_epoch_end(self, epoch, logs=None):
-        score = self.model.evaluate(self.x_test, self.y_test, verbose=0)
+        score = self.model.evaluate(self.x_test, self.y_test, verbose=1)
         self.loss.append(score[0])
         self.accuracy.append(score[1])
-        print(f"test_{self.model.metrics_names[0]}: {score[0]:.4f}, test_{self.model.metrics_names[1]}: {score[1]:.4f}")
 
 
 class Keras:
@@ -40,6 +39,25 @@ class Keras:
 
         model.add(Dense(1, activation=activation))
 
+        model.compile(
+            optimizer=Keras.OPTIMIZERS[optimizer](learning_rate=learning_rate),
+            loss='binary_crossentropy',
+            metrics=['accuracy']
+        )
+
+        return model
+
+    @staticmethod
+    def get_bert_model(bert_layer, input_length, optimizer='rmsprop', learning_rate=2e-6):
+        input_word_ids = Input(shape=(input_length,), dtype=tf.int32, name="input_word_ids")
+        input_mask = Input(shape=(input_length,), dtype=tf.int32, name="input_mask")
+        segment_ids = Input(shape=(input_length,), dtype=tf.int32, name="segment_ids")
+
+        _, sequence_output = bert_layer([input_word_ids, input_mask, segment_ids])
+        clf_output = sequence_output[:, 0, :]
+        out = Dense(1, activation='sigmoid')(clf_output)
+
+        model = Model(inputs=[input_word_ids, input_mask, segment_ids], outputs=out)
         model.compile(
             optimizer=Keras.OPTIMIZERS[optimizer](learning_rate=learning_rate),
             loss='binary_crossentropy',
@@ -71,22 +89,3 @@ class Keras:
     def draw_graph(history):
         Keras._plot(history, 'accuracy')
         Keras._plot(history, 'loss')
-
-    @staticmethod
-    def get_bert_model(bert_layer, input_length, optimizer='rmsprop', learning_rate=2e-6):
-        input_word_ids = Input(shape=(input_length,), dtype=tf.int32, name="input_word_ids")
-        input_mask = Input(shape=(input_length,), dtype=tf.int32, name="input_mask")
-        segment_ids = Input(shape=(input_length,), dtype=tf.int32, name="segment_ids")
-
-        _, sequence_output = bert_layer([input_word_ids, input_mask, segment_ids])
-        clf_output = sequence_output[:, 0, :]
-        out = Dense(1, activation='sigmoid')(clf_output)
-
-        model = Model(inputs=[input_word_ids, input_mask, segment_ids], outputs=out)
-        model.compile(
-            optimizer=Keras.OPTIMIZERS[optimizer](learning_rate=learning_rate),
-            loss='binary_crossentropy',
-            metrics=['accuracy']
-        )
-
-        return model
