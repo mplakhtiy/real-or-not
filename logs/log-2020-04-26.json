@@ -1245,5 +1245,397 @@
         ]
       }
     }
+  },
+  "2020-04-26 16:33:38.413186": {
+    "file": "app_sklearn.py",
+    "data": {
+      "VALIDATION_PERCENTAGE": 0.2,
+      "PREPROCESS_OPTRIONS": {
+        "add_link_flag": true,
+        "add_user_flag": true,
+        "add_hash_flag": true,
+        "add_number_flag": true,
+        "add_keyword_flag": true,
+        "add_location_flag": true,
+        "remove_links": true,
+        "remove_users": true,
+        "remove_hash": true,
+        "unslang": true,
+        "split_words": true,
+        "stem": false,
+        "remove_punctuations": true,
+        "remove_numbers": true,
+        "to_lower_case": true,
+        "remove_stop_words": true,
+        "remove_not_alpha": true,
+        "join": true
+      }
+    },
+    "classifier": {
+      "classifier": {
+        "TYPE": "RIDGE",
+        "OPTIONS": {}
+      },
+      "val_score": 0.80236,
+      "test_score": 0.79314,
+      "cross_val_scores": [
+        0.70444,
+        0.67179,
+        0.70621
+      ]
+    },
+    "vectorizer": {
+      "TYPE": "TFIDF",
+      "OPTIONS": {
+        "binary": true,
+        "ngram_range": [
+          1,
+          3
+        ]
+      }
+    }
+  },
+  "2020-04-26 16:36:54.402636": {
+    "file": "app_sklearn.py",
+    "data": {
+      "VALIDATION_PERCENTAGE": 0.2,
+      "PREPROCESS_OPTRIONS": {
+        "add_link_flag": true,
+        "add_user_flag": true,
+        "add_hash_flag": true,
+        "add_number_flag": true,
+        "add_keyword_flag": true,
+        "add_location_flag": true,
+        "remove_links": true,
+        "remove_users": true,
+        "remove_hash": true,
+        "unslang": true,
+        "split_words": true,
+        "stem": false,
+        "remove_punctuations": true,
+        "remove_numbers": true,
+        "to_lower_case": true,
+        "remove_stop_words": true,
+        "remove_not_alpha": true,
+        "join": true
+      }
+    },
+    "classifier": {
+      "classifier": {
+        "TYPE": "RIDGE",
+        "OPTIONS": {}
+      },
+      "val_score": 0.78661,
+      "test_score": 0.7913,
+      "cross_val_scores": [
+        0.70442,
+        0.71644,
+        0.67414
+      ]
+    },
+    "vectorizer": {
+      "TYPE": "TFIDF",
+      "OPTIONS": {
+        "binary": true,
+        "ngram_range": [
+          1,
+          3
+        ]
+      }
+    }
+  },
+  "2020-04-26 16:49:29.285523": {
+    "file": "app_sklearn.py",
+    "data": {
+      "VALIDATION_PERCENTAGE": 0.2,
+      "PREPROCESS_OPTRIONS": {
+        "add_link_flag": true,
+        "add_user_flag": true,
+        "add_hash_flag": true,
+        "add_number_flag": true,
+        "add_keyword_flag": true,
+        "add_location_flag": true,
+        "remove_links": true,
+        "remove_users": true,
+        "remove_hash": true,
+        "unslang": true,
+        "split_words": true,
+        "stem": false,
+        "remove_punctuations": true,
+        "remove_numbers": true,
+        "to_lower_case": true,
+        "remove_stop_words": true,
+        "remove_not_alpha": true,
+        "join": true
+      }
+    },
+    "classifier": {
+      "classifier": {
+        "TYPE": "RIDGE",
+        "OPTIONS": {}
+      },
+      "val_score": 0.79514,
+      "test_score": 0.78455,
+      "cross_val_scores": [
+        0.68985,
+        0.67556,
+        0.70248
+      ]
+    },
+    "vectorizer": {
+      "TYPE": "TFIDF",
+      "OPTIONS": {
+        "binary": true,
+        "ngram_range": [
+          1,
+          4
+        ]
+      }
+    }
+  },
+  "2020-04-26 17:26:43.757371": {
+    "file": "app_sklearn.py",
+    "data": {
+      "VALIDATION_PERCENTAGE": 0.2,
+      "PREPROCESS_OPTRIONS": {
+        "add_link_flag": true,
+        "add_user_flag": true,
+        "add_hash_flag": true,
+        "add_number_flag": true,
+        "add_keyword_flag": true,
+        "add_location_flag": true,
+        "remove_links": true,
+        "remove_users": true,
+        "remove_hash": true,
+        "unslang": true,
+        "split_words": true,
+        "stem": false,
+        "remove_punctuations": true,
+        "remove_numbers": true,
+        "to_lower_case": true,
+        "remove_stop_words": true,
+        "remove_not_alpha": true,
+        "join": true
+      }
+    },
+    "classifier": {
+      "classifier": {
+        "TYPE": "RIDGE",
+        "OPTIONS": {}
+      },
+      "val_score": 0.79711,
+      "test_score": 0.79528,
+      "cross_val_scores": [
+        0.7212,
+        0.73469,
+        0.71429
+      ]
+    },
+    "vectorizer": {
+      "TYPE": "TFIDF",
+      "OPTIONS": {
+        "binary": true,
+        "ngram_range": [
+          1,
+          2
+        ]
+      }
+    }
+  },
+  "2020-04-26 17:33:37.449495": {
+    "file": "app_sklearn.py",
+    "data": {
+      "VALIDATION_PERCENTAGE": 0.2,
+      "PREPROCESS_OPTRIONS": {
+        "add_link_flag": true,
+        "add_user_flag": true,
+        "add_hash_flag": true,
+        "add_number_flag": true,
+        "add_keyword_flag": true,
+        "add_location_flag": true,
+        "remove_links": true,
+        "remove_users": true,
+        "remove_hash": true,
+        "unslang": true,
+        "split_words": true,
+        "stem": false,
+        "remove_punctuations": true,
+        "remove_numbers": true,
+        "to_lower_case": true,
+        "remove_stop_words": true,
+        "remove_not_alpha": true,
+        "join": true
+      }
+    },
+    "classifier": {
+      "classifier": {
+        "TYPE": "RIDGE",
+        "OPTIONS": {}
+      },
+      "val_score": 0.79514,
+      "test_score": 0.79344,
+      "cross_val_scores": [
+        0.69402,
+        0.69139,
+        0.6972
+      ]
+    },
+    "vectorizer": {
+      "TYPE": "TFIDF",
+      "OPTIONS": {
+        "binary": true,
+        "ngram_range": [
+          1,
+          3
+        ]
+      }
+    }
+  },
+  "2020-04-26 17:37:35.467750": {
+    "file": "app_sklearn.py",
+    "data": {
+      "VALIDATION_PERCENTAGE": 0.2,
+      "PREPROCESS_OPTRIONS": {
+        "add_link_flag": true,
+        "add_user_flag": true,
+        "add_hash_flag": true,
+        "add_number_flag": true,
+        "add_keyword_flag": true,
+        "add_location_flag": true,
+        "remove_links": true,
+        "remove_users": true,
+        "remove_hash": false,
+        "unslang": true,
+        "split_words": false,
+        "stem": false,
+        "remove_punctuations": true,
+        "remove_numbers": true,
+        "to_lower_case": true,
+        "remove_stop_words": true,
+        "remove_not_alpha": false,
+        "join": true
+      }
+    },
+    "classifier": {
+      "classifier": {
+        "TYPE": "RIDGE",
+        "OPTIONS": {}
+      },
+      "val_score": 0.81681,
+      "test_score": 0.79222,
+      "cross_val_scores": [
+        0.69535,
+        0.66759,
+        0.71175
+      ]
+    },
+    "vectorizer": {
+      "TYPE": "TFIDF",
+      "OPTIONS": {
+        "binary": true,
+        "ngram_range": [
+          1,
+          3
+        ]
+      }
+    }
+  },
+  "2020-04-26 19:02:05.448307": {
+    "file": "app_sklearn.py",
+    "data": {
+      "VALIDATION_PERCENTAGE": 0.2,
+      "PREPROCESS_OPTRIONS": {
+        "add_link_flag": false,
+        "add_user_flag": false,
+        "add_hash_flag": false,
+        "add_number_flag": false,
+        "add_keyword_flag": false,
+        "add_location_flag": false,
+        "remove_links": true,
+        "remove_users": true,
+        "remove_hash": false,
+        "unslang": true,
+        "split_words": false,
+        "stem": false,
+        "remove_punctuations": true,
+        "remove_numbers": true,
+        "to_lower_case": true,
+        "remove_stop_words": true,
+        "remove_not_alpha": false,
+        "join": true
+      }
+    },
+    "classifier": {
+      "classifier": {
+        "TYPE": "RIDGE",
+        "OPTIONS": {}
+      },
+      "val_score": 0.79842,
+      "test_score": 0.79405,
+      "cross_val_scores": [
+        0.6878,
+        0.70836,
+        0.70376
+      ]
+    },
+    "vectorizer": {
+      "TYPE": "TFIDF",
+      "OPTIONS": {
+        "binary": true,
+        "ngram_range": [
+          1,
+          3
+        ]
+      }
+    }
+  },
+  "2020-04-26 19:13:46.846202": {
+    "file": "app_sklearn.py",
+    "data": {
+      "VALIDATION_PERCENTAGE": 0.2,
+      "PREPROCESS_OPTRIONS": {
+        "add_link_flag": false,
+        "add_user_flag": false,
+        "add_hash_flag": false,
+        "add_number_flag": false,
+        "add_keyword_flag": false,
+        "add_location_flag": false,
+        "remove_links": true,
+        "remove_users": true,
+        "remove_hash": false,
+        "unslang": true,
+        "split_words": false,
+        "stem": false,
+        "remove_punctuations": true,
+        "remove_numbers": true,
+        "to_lower_case": true,
+        "remove_stop_words": true,
+        "remove_not_alpha": false,
+        "join": true
+      }
+    },
+    "classifier": {
+      "classifier": {
+        "TYPE": "RIDGE",
+        "OPTIONS": {}
+      },
+      "val_score": 0.79842,
+      "test_score": 0.79283,
+      "cross_val_scores": [
+        0.66239,
+        0.68265,
+        0.68848
+      ]
+    },
+    "vectorizer": {
+      "TYPE": "TFIDF",
+      "OPTIONS": {
+        "binary": true,
+        "ngram_range": [
+          1,
+          3
+        ]
+      }
+    }
   }
 }
