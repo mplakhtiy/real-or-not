@@ -3,122 +3,36 @@ from tensorflow.keras.callbacks import ModelCheckpoint
 import tensorflow_hub as hub
 from bert_tokenization import FullTokenizer
 from data import train_data as data, test_data_with_target as test_data
-from tweets import Helpers, tweets_preprocessor
+from tweets import Helpers
 from models import Keras, TestDataCallback
 from utils import log
 import os
 
-DATA = {
-    'VALIDATION_PERCENTAGE': 0.2,
-    'PREPROCESS_OPTRIONS': [
-        {
-            'add_link_flag': False,
-            'add_user_flag': False,
-            'add_hash_flag': False,
-            'add_number_flag': False,
-            'remove_links': True,
-            'remove_users': True,
-            'remove_hash': True,
-            'unslang': True,
-            'split_words': True,
-            'stem': False,
-            'remove_punctuations': True,
-            'remove_numbers': True,
-            'to_lower_case': True,
-            'remove_stop_words': True,
-            'remove_not_alpha': True,
-            'join': True
-        },
-        {
-            'add_link_flag': False,
-            'add_user_flag': False,
-            'add_hash_flag': False,
-            'add_number_flag': False,
-            'remove_links': True,
-            'remove_users': True,
-            'remove_hash': True,
-            'unslang': True,
-            'split_words': False,
-            'stem': False,
-            'remove_punctuations': True,
-            'remove_numbers': True,
-            'to_lower_case': True,
-            'remove_stop_words': True,
-            'remove_not_alpha': False,
-            'join': True
-        },
-        {
-            'add_link_flag': False,
-            'add_user_flag': False,
-            'add_hash_flag': False,
-            'add_number_flag': False,
-            'remove_links': True,
-            'remove_users': True,
-            'remove_hash': True,
-            'unslang': True,
-            'split_words': False,
-            'stem': False,
-            'remove_punctuations': True,
-            'remove_numbers': True,
-            'to_lower_case': True,
-            'remove_stop_words': False,
-            'remove_not_alpha': False,
-            'join': True
-        },
-        {
-            'add_link_flag': False,
-            'add_user_flag': False,
-            'add_hash_flag': False,
-            'add_number_flag': False,
-            'remove_links': True,
-            'remove_users': True,
-            'remove_hash': True,
-            'unslang': False,
-            'split_words': False,
-            'stem': False,
-            'remove_punctuations': False,
-            'remove_numbers': False,
-            'to_lower_case': True,
-            'remove_stop_words': False,
-            'remove_not_alpha': False,
-            'join': True
-        },
-    ]
-}
-
 MODEL = {
-    # 'BERT_URL': "https://tfhub.dev/tensorflow/bert_en_uncased_L-12_H-768_A-12/1",
-    'BERT_URL': "https://tfhub.dev/tensorflow/bert_en_uncased_L-24_H-1024_A-16/1",
-    'BATCH_SIZE': 16,
-    'EPOCHS': 4,
+    'BERT': 'bert_en_uncased_L-12_H-768_A-12',
+    # 'BERT': 'bert_en_uncased_L-24_H-1024_A-16',
+    'BATCH_SIZE': 32,
+    'EPOCHS': 8,
     'VERBOSE': 1,
     'OPTIMIZER': 'adam',
     'LEARNING_RATE': 2e-6,
-    'SHUFFLE': True
+    'SHUFFLE': True,
+    'VALIDATION_PERCENTAGE': 0.2
 }
-
-data['preprocessed'] = tweets_preprocessor.preprocess(
-    data.text,
-    DATA['PREPROCESS_OPTRIONS'][0]
-)
 
 Helpers.correct_data(data)
 
-test_data['preprocessed'] = tweets_preprocessor.preprocess(
-    test_data.text,
-    DATA['PREPROCESS_OPTRIONS'][0]
-)
-
-bert_layer = hub.KerasLayer(MODEL['BERT_URL'], trainable=True)
+bert_layer = hub.KerasLayer(f'https://tfhub.dev/tensorflow/{MODEL["BERT"]}/1', trainable=True)
 vocab_file = bert_layer.resolved_object.vocab_file.asset_path.numpy()
 do_lower_case = bert_layer.resolved_object.do_lower_case.numpy()
 tokenizer = FullTokenizer(vocab_file, do_lower_case)
 
-x, INPUT_LENGTH = Helpers.get_bert_input(data.preprocessed.values, tokenizer)
-x_test = Helpers.get_bert_input(test_data.preprocessed.values, tokenizer, input_length=INPUT_LENGTH)
+x, INPUT_LENGTH = Helpers.get_bert_input(data.text.values, tokenizer)
+x_test = Helpers.get_bert_input(test_data.text.values, tokenizer, input_length=INPUT_LENGTH)
 y = data.target_relabeled.values
 y_test = test_data.target.values
-MODEL_SAVE_PATH = f'./data/models/bert/{MODEL["BATCH_SIZE"]}-{MODEL["LEARNING_RATE"]}-{INPUT_LENGTH}'
+
+MODEL_SAVE_PATH = f'./data/models/{MODEL["BERT"]}/{MODEL["BATCH_SIZE"]}-{MODEL["LEARNING_RATE"]}-{INPUT_LENGTH}'
 
 if not os.path.exists(MODEL_SAVE_PATH):
     os.makedirs(MODEL_SAVE_PATH)
@@ -147,7 +61,7 @@ model.summary()
 
 history = model.fit(
     x, y,
-    validation_split=DATA['VALIDATION_PERCENTAGE'],
+    validation_split=MODEL['VALIDATION_PERCENTAGE'],
     epochs=MODEL['EPOCHS'],
     batch_size=MODEL['BATCH_SIZE'],
     verbose=MODEL['VERBOSE'],
@@ -163,6 +77,5 @@ model_history['test_accuracy'] = test_data_callback.accuracy
 log(
     file='app_bert.py',
     model=MODEL,
-    data={'PREPROCESS_OPTRIONS': DATA['PREPROCESS_OPTRIONS'][0]},
     model_history=model_history
 )
