@@ -5,4 +5,4 @@ __pycache__
 data/*/**/*.json
 data/*/**/*.h5
 data/glove
-data/bert
+data/models

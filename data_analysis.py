@@ -1,5 +1,5 @@
 import matplotlib.pyplot as plt
-from data import data
+from data import train_data
 
 
 # DATA ANALYSIS SECTION #
@@ -29,8 +29,9 @@ def draw_number_of_characters_graph(data):
     fig.suptitle('Characters in Tweets')
     plt.show()
 
-# draw_class_distribution_graph(train_data)
-# draw_number_of_characters_graph(train_data)
+
+draw_class_distribution_graph(train_data)
+draw_number_of_characters_graph(train_data)
 
 # https://www.kaggle.com/ratan123/start-from-here-disaster-tweets-eda-basic-model
 # train["num_words"] = train["text"].apply(lambda x: len(str(x).split()))
