@@ -5,6 +5,7 @@ from sklearn.model_selection import cross_val_score
 from sklearn.model_selection import train_test_split
 from utils import log
 from data import train_data as data, test_data_with_target as test_data
+import pickle
 
 ########################################################################################################################
 
@@ -15,19 +16,19 @@ DATA = {
         'add_user_flag': False,
         'add_hash_flag': False,
         'add_number_flag': False,
-        'add_keyword_flag': True,
-        'add_location_flag': True,
+        'add_keyword_flag': False,
+        'add_location_flag': False,
         'remove_links': True,
         'remove_users': True,
-        'remove_hash': True,
+        'remove_hash': False,
         'unslang': True,
-        'split_words': True,
+        'split_words': False,
         'stem': False,
         'remove_punctuations': True,
         'remove_numbers': True,
         'to_lower_case': True,
         'remove_stop_words': True,
-        'remove_not_alpha': True,
+        'remove_not_alpha': False,
         'join': True
     }
 }
@@ -102,3 +103,6 @@ log(
     vectorizer=VECTORIZER,
     data=DATA
 )
+
+filename = f'./data/classifiers/{CLASSIFIER["TYPE"]}-{VECTORIZER["TYPE"]}-{validation_score}-{test_score}.pickle'
+pickle.dump(classifier, open(filename, 'wb'))
