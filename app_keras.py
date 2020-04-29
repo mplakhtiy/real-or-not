@@ -3,15 +3,16 @@ from tweets import Helpers, tweets_preprocessor
 from models import Keras, TestDataCallback
 from utils import log, get_glove_embeddings
 from tensorflow.keras.callbacks import ModelCheckpoint
-from tensorflow.keras.layers import Dense, Flatten, LSTM, SpatialDropout1D, Dropout, GlobalMaxPooling1D
-from tensorflow.keras.layers import Bidirectional, Conv1D, GlobalAveragePooling1D, MaxPooling1D
+from tensorflow.keras.layers import Dense, Flatten, LSTM, SpatialDropout1D, Dropout, GlobalMaxPooling1D, GRU
+from tensorflow.keras.layers import Bidirectional, Conv1D, GlobalAveragePooling1D, MaxPooling1D, GlobalMaxPool1D
 from data import train_data as data, test_data_with_target as test_data
 from tensorflow.keras.preprocessing.text import Tokenizer
 from tensorflow.keras.initializers import Constant
 from tensorflow.keras.preprocessing.sequence import pad_sequences
+import os
 
 ########################################################################################################################
-USE_GLOVE = True
+USE_GLOVE = False
 
 DATA = {
     'PREPROCESS_OPTRIONS': {
@@ -31,7 +32,7 @@ DATA = {
         'remove_numbers': True,
         'to_lower_case': True,
         'remove_stop_words': True,
-        'remove_not_alpha': True,
+        'remove_not_alpha': False,
         'join': False
     }
 }
@@ -79,17 +80,18 @@ y_test = test_data.target.values
 
 MODEL = {
     'BATCH_SIZE': 32,
-    'EPOCHS': 20,
+    'EPOCHS': 10,
     'VERBOSE': 1,
     'OPTIMIZER': 'rmsprop',
-    'LEARNING_RATE': 0.001,
+    'LEARNING_RATE': 1e-4,
     'SHUFFLE': True,
     'EMBEDDING_OPTIONS': {
         'input_dim': WORD_INDEX_SIZE,
-        'output_dim': 50,
+        'output_dim': 128,
         'input_length': MAX_LEN
     },
-    'VALIDATION_PERCENTAGE': 0.2
+    'VALIDATION_PERCENTAGE': 0.2,
+    'TYPE': 'GRU'
 }
 
 ########################################################################################################################
@@ -123,45 +125,54 @@ if USE_GLOVE:
 ########################################################################################################################
 
 MODELS_LAYERS = {
-    'FLATTEN_LAYER': [
+    'FLATTEN': [
         Flatten()
     ],
     'LSTM': [
-        LSTM(128, dropout=0.2, recurrent_dropout=0.2)
+        LSTM(64)
     ],
-    'LSTM_WITH_SPATIAL_DROPOUT': [
+    'LSTM_DROPOUT': [
         SpatialDropout1D(0.2),
-        LSTM(50, dropout=0.2, recurrent_dropout=0.2)
+        LSTM(64, dropout=0.2, recurrent_dropout=0.2)
     ],
-    'BIDIRECTIONAL_LSTM': [
+    'BI_LSTM': [
         Bidirectional(LSTM(64)),
-        Dropout(0.5)
+        Dropout(0.2)
     ],
     'GlobalAveragePooling1D': [
-        GlobalAveragePooling1D()
+        GlobalAveragePooling1D(),
+        Dense(32, activation='relu')
     ],
-    'RecurrentConvolutionalNetwork': [
+    'RCNN': [
         Dropout(0.25),
         Conv1D(filters=64, kernel_size=5, activation='relu', strides=1, padding='valid'),
         MaxPooling1D(pool_size=4),
-        LSTM(70),
+        LSTM(64),
     ],
     'CNN': [
         Dropout(0.2),
-        Conv1D(filters=250, kernel_size=3, activation='relu', strides=1, padding='valid'),
+        Conv1D(filters=64, kernel_size=3, activation='relu', strides=1, padding='valid'),
         GlobalMaxPooling1D(),
-        Dense(250, activation='relu'),
+        Dense(32, activation='relu'),
     ],
     'RNN': [
         Bidirectional(LSTM(64)),
         Dense(64, activation='relu')
-    ]
+    ],
+    'GRU': [
+        Bidirectional(GRU(64, return_sequences=True)),
+        GlobalMaxPool1D(),
+        Dense(64, activation="relu"),
+        Dropout(0.1)
+    ],
 }
 
 ########################################################################################################################
-
+MODEL_SAVE_PATH = f'./data/models/keras/{MODEL["TYPE"]}/'
+if not os.path.exists(MODEL_SAVE_PATH):
+    os.makedirs(MODEL_SAVE_PATH)
 checkpoint = ModelCheckpoint(
-    './data/models/keras/model-{epoch:03d}-{accuracy:03f}-{val_accuracy:03f}.h5',
+    MODEL_SAVE_PATH + 'model-' + f'{MODEL["OPTIMIZER"]}-bs{MODEL["BATCH_SIZE"]}-lr{MODEL["LEARNING_RATE"]}-len{MODEL["EMBEDDING_OPTIONS"]["output_dim"]}' + '-e{epoch:03d}-a{accuracy:03f}-va{val_accuracy:03f}.h5',
     verbose=1,
     monitor='val_loss',
     save_best_only=True,
@@ -175,7 +186,7 @@ test_data_callback = TestDataCallback(
 
 ########################################################################################################################
 model = Keras.get_model(
-    layers=MODELS_LAYERS['DENSE'],
+    layers=MODELS_LAYERS[MODEL['TYPE']],
     embedding_options=MODEL['EMBEDDING_OPTIONS'],
     optimizer=MODEL['OPTIMIZER'],
     learning_rate=MODEL['LEARNING_RATE']
@@ -188,7 +199,7 @@ history = model.fit(
     verbose=MODEL['VERBOSE'],
     shuffle=MODEL['SHUFFLE'],
     validation_split=MODEL['VALIDATION_PERCENTAGE'],
-    callbacks=[test_data_callback]  # checkpoint
+    callbacks=[checkpoint, test_data_callback]  # checkpoint
 )
 
 model_history = history.history.copy()

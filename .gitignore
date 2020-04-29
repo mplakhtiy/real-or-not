@@ -4,7 +4,7 @@ app.py
 __pycache__
 data/classifiers/SVM*
 data/*/**/*.json
-data/*/**/*.h5
+data/models/bert*
 data/glove
-data/models
+
 .DS_Store
