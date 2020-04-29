@@ -4479,5 +4479,464 @@
         ]
       }
     }
+  },
+  "2020-04-28 22:30:54.272963": {
+    "file": "app_sklearn.py",
+    "data": {
+      "VALIDATION_PERCENTAGE": 0.2,
+      "PREPROCESS_OPTRIONS": {
+        "add_link_flag": false,
+        "add_user_flag": false,
+        "add_hash_flag": false,
+        "add_number_flag": false,
+        "add_keyword_flag": false,
+        "add_location_flag": false,
+        "remove_links": true,
+        "remove_users": true,
+        "remove_hash": false,
+        "unslang": true,
+        "split_words": false,
+        "stem": false,
+        "remove_punctuations": true,
+        "remove_numbers": true,
+        "to_lower_case": true,
+        "remove_stop_words": true,
+        "remove_not_alpha": false,
+        "join": true
+      }
+    },
+    "classifier": {
+      "classifier": {
+        "TYPE": "SVM",
+        "OPTIONS": {
+          "gamma": 0.7
+        }
+      },
+      "val_score": 0.82337,
+      "test_score": 0.79773
+    },
+    "vectorizer": {
+      "TYPE": "TFIDF",
+      "OPTIONS": {
+        "binary": true
+      }
+    }
+  },
+  "2020-04-28 22:51:18.152344": {
+    "file": "app_sklearn.py",
+    "data": {
+      "VALIDATION_PERCENTAGE": 0.2,
+      "PREPROCESS_OPTRIONS": {
+        "add_link_flag": false,
+        "add_user_flag": false,
+        "add_hash_flag": false,
+        "add_number_flag": false,
+        "add_keyword_flag": false,
+        "add_location_flag": false,
+        "remove_links": true,
+        "remove_users": true,
+        "remove_hash": false,
+        "unslang": true,
+        "split_words": false,
+        "stem": false,
+        "remove_punctuations": true,
+        "remove_numbers": true,
+        "to_lower_case": true,
+        "remove_stop_words": true,
+        "remove_not_alpha": false,
+        "join": true
+      }
+    },
+    "classifier": {
+      "classifier": {
+        "TYPE": "SVM",
+        "OPTIONS": {
+          "gamma": 0.7
+        }
+      },
+      "val_score": 0.66316,
+      "test_score": 0.65982
+    },
+    "vectorizer": {
+      "TYPE": "COUNT",
+      "OPTIONS": {
+        "binary": true
+      }
+    }
+  },
+  "2020-04-28 23:05:47.239905": {
+    "file": "app_sklearn.py",
+    "data": {
+      "VALIDATION_PERCENTAGE": 0.2,
+      "PREPROCESS_OPTRIONS": {
+        "add_link_flag": false,
+        "add_user_flag": false,
+        "add_hash_flag": false,
+        "add_number_flag": false,
+        "add_keyword_flag": false,
+        "add_location_flag": false,
+        "remove_links": true,
+        "remove_users": true,
+        "remove_hash": false,
+        "unslang": true,
+        "split_words": false,
+        "stem": false,
+        "remove_punctuations": true,
+        "remove_numbers": true,
+        "to_lower_case": true,
+        "remove_stop_words": true,
+        "remove_not_alpha": false,
+        "join": true
+      }
+    },
+    "classifier": {
+      "classifier": {
+        "TYPE": "SVM",
+        "OPTIONS": {
+          "gamma": 0.7
+        }
+      },
+      "val_score": 0.75049,
+      "test_score": 0.78884
+    },
+    "vectorizer": {
+      "TYPE": "TFIDF",
+      "OPTIONS": {
+        "binary": true,
+        "ngram_range": [
+          1,
+          3
+        ]
+      }
+    }
+  },
+  "2020-04-28 23:27:50.479743": {
+    "file": "app_sklearn.py",
+    "data": {
+      "VALIDATION_PERCENTAGE": 0.2,
+      "PREPROCESS_OPTRIONS": {
+        "add_link_flag": false,
+        "add_user_flag": false,
+        "add_hash_flag": false,
+        "add_number_flag": false,
+        "add_keyword_flag": false,
+        "add_location_flag": false,
+        "remove_links": true,
+        "remove_users": true,
+        "remove_hash": false,
+        "unslang": true,
+        "split_words": false,
+        "stem": false,
+        "remove_punctuations": true,
+        "remove_numbers": true,
+        "to_lower_case": true,
+        "remove_stop_words": true,
+        "remove_not_alpha": false,
+        "join": true
+      }
+    },
+    "classifier": {
+      "classifier": {
+        "TYPE": "SVM",
+        "OPTIONS": {}
+      },
+      "val_score": 0.80696,
+      "test_score": 0.79314
+    },
+    "vectorizer": {
+      "TYPE": "TFIDF",
+      "OPTIONS": {
+        "binary": true
+      }
+    }
+  },
+  "2020-04-29 01:02:15.280801": {
+    "file": "app_sklearn.py",
+    "data": {
+      "VALIDATION_PERCENTAGE": 0.2,
+      "PREPROCESS_OPTRIONS": {
+        "add_link_flag": false,
+        "add_user_flag": false,
+        "add_hash_flag": false,
+        "add_number_flag": false,
+        "add_keyword_flag": false,
+        "add_location_flag": false,
+        "remove_links": true,
+        "remove_users": true,
+        "remove_hash": false,
+        "unslang": true,
+        "split_words": false,
+        "stem": false,
+        "remove_punctuations": true,
+        "remove_numbers": true,
+        "to_lower_case": true,
+        "remove_stop_words": true,
+        "remove_not_alpha": false,
+        "join": true
+      }
+    },
+    "classifier": {
+      "classifier": {
+        "TYPE": "SVM",
+        "OPTIONS": {}
+      },
+      "val_score": 0.76953,
+      "test_score": 0.7916
+    },
+    "vectorizer": {
+      "TYPE": "TFIDF",
+      "OPTIONS": {
+        "binary": true,
+        "ngram_range": [
+          1,
+          2
+        ]
+      }
+    }
+  },
+  "2020-04-29 04:18:21.300900": {
+    "file": "app_bert.py",
+    "model": {
+      "BERT": "bert_en_uncased_L-24_H-1024_A-16",
+      "BATCH_SIZE": 16,
+      "EPOCHS": 3,
+      "VERBOSE": 1,
+      "OPTIMIZER": "adam",
+      "LEARNING_RATE": 2e-06,
+      "SHUFFLE": true,
+      "VALIDATION_PERCENTAGE": 0.2,
+      "config": {
+        "name": "model",
+        "layers": [
+          {
+            "class_name": "InputLayer",
+            "config": {
+              "batch_input_shape": [
+                null,
+                84
+              ],
+              "dtype": "int32",
+              "sparse": false,
+              "ragged": false,
+              "name": "input_word_ids"
+            },
+            "name": "input_word_ids",
+            "inbound_nodes": []
+          },
+          {
+            "class_name": "InputLayer",
+            "config": {
+              "batch_input_shape": [
+                null,
+                84
+              ],
+              "dtype": "int32",
+              "sparse": false,
+              "ragged": false,
+              "name": "input_mask"
+            },
+            "name": "input_mask",
+            "inbound_nodes": []
+          },
+          {
+            "class_name": "InputLayer",
+            "config": {
+              "batch_input_shape": [
+                null,
+                84
+              ],
+              "dtype": "int32",
+              "sparse": false,
+              "ragged": false,
+              "name": "segment_ids"
+            },
+            "name": "segment_ids",
+            "inbound_nodes": []
+          },
+          {
+            "class_name": "KerasLayer",
+            "config": {
+              "name": "keras_layer",
+              "trainable": true,
+              "dtype": "float32",
+              "handle": "https://tfhub.dev/tensorflow/bert_en_uncased_L-24_H-1024_A-16/2"
+            },
+            "name": "keras_layer",
+            "inbound_nodes": [
+              [
+                [
+                  "input_word_ids",
+                  0,
+                  0,
+                  {}
+                ],
+                [
+                  "input_mask",
+                  0,
+                  0,
+                  {}
+                ],
+                [
+                  "segment_ids",
+                  0,
+                  0,
+                  {}
+                ]
+              ]
+            ]
+          },
+          {
+            "class_name": "TensorFlowOpLayer",
+            "config": {
+              "name": "strided_slice",
+              "trainable": true,
+              "dtype": "float32",
+              "node_def": {
+                "name": "strided_slice",
+                "op": "StridedSlice",
+                "input": [
+                  "keras_layer/Identity_1",
+                  "strided_slice/begin",
+                  "strided_slice/end",
+                  "strided_slice/strides"
+                ],
+                "attr": {
+                  "T": {
+                    "type": "DT_FLOAT"
+                  },
+                  "Index": {
+                    "type": "DT_INT32"
+                  },
+                  "shrink_axis_mask": {
+                    "i": "2"
+                  },
+                  "ellipsis_mask": {
+                    "i": "0"
+                  },
+                  "begin_mask": {
+                    "i": "5"
+                  },
+                  "new_axis_mask": {
+                    "i": "0"
+                  },
+                  "end_mask": {
+                    "i": "5"
+                  }
+                }
+              },
+              "constants": {
+                "1": "{\"class_name\": \"ndarray\"}",
+                "2": "{\"class_name\": \"ndarray\"}",
+                "3": "{\"class_name\": \"ndarray\"}"
+              }
+            },
+            "name": "tf_op_layer_strided_slice",
+            "inbound_nodes": [
+              [
+                [
+                  "keras_layer",
+                  0,
+                  1,
+                  {}
+                ]
+              ]
+            ]
+          },
+          {
+            "class_name": "Dense",
+            "config": {
+              "name": "dense",
+              "trainable": true,
+              "dtype": "float32",
+              "units": 1,
+              "activation": "sigmoid",
+              "use_bias": true,
+              "kernel_initializer": {
+                "class_name": "GlorotUniform",
+                "config": {
+                  "seed": null
+                }
+              },
+              "bias_initializer": {
+                "class_name": "Zeros",
+                "config": {}
+              },
+              "kernel_regularizer": null,
+              "bias_regularizer": null,
+              "activity_regularizer": null,
+              "kernel_constraint": null,
+              "bias_constraint": null
+            },
+            "name": "dense",
+            "inbound_nodes": [
+              [
+                [
+                  "tf_op_layer_strided_slice",
+                  0,
+                  0,
+                  {}
+                ]
+              ]
+            ]
+          }
+        ],
+        "input_layers": [
+          [
+            "input_word_ids",
+            0,
+            0
+          ],
+          [
+            "input_mask",
+            0,
+            0
+          ],
+          [
+            "segment_ids",
+            0,
+            0
+          ]
+        ],
+        "output_layers": [
+          [
+            "dense",
+            0,
+            0
+          ]
+        ]
+      },
+      "history": {
+        "loss": [
+          0.47797,
+          0.38538,
+          0.35148
+        ],
+        "accuracy": [
+          0.77915,
+          0.83744,
+          0.85599
+        ],
+        "val_loss": [
+          0.39444,
+          0.3879,
+          0.39214
+        ],
+        "val_accuracy": [
+          0.82666,
+          0.83782,
+          0.8411
+        ],
+        "test_loss": [
+          0.42016,
+          0.40196,
+          0.39524
+        ],
+        "test_accuracy": [
+          0.80938,
+          0.82439,
+          0.83543
+        ]
+      }
+    }
   }
 }

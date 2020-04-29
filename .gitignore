@@ -2,7 +2,9 @@ venv
 app.py
 .idea
 __pycache__
+data/classifiers/SVM*
 data/*/**/*.json
 data/*/**/*.h5
 data/glove
 data/models
+.DS_Store

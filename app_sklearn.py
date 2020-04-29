@@ -72,7 +72,7 @@ x_train, x_val, y_train, y_val = train_test_split(
     test_size=DATA['VALIDATION_PERCENTAGE']
 )
 
-x_test = vectorizer.transform(test_data.preprocessed)
+x_test = vectorizer.transform(test_data.preprocessed).todense()
 y_test = test_data.target.values
 
 ########################################################################################################################
@@ -81,12 +81,12 @@ classifier = Sklearn.CLASSIFIERS[CLASSIFIER['TYPE']](**CLASSIFIER['OPTIONS'])
 
 ########################################################################################################################
 
-cross_val_scores = cross_val_score(classifier, x_train, y_train, cv=3, scoring="f1")
+cross_val_scores = [round(s, 5) for s in cross_val_score(classifier, x_train, y_train, cv=3, scoring="f1")]
 
 classifier.fit(x_train, y_train)
 
-validation_score = classifier.score(x_val, y_val)
-test_score = classifier.score(x_test, y_test)
+validation_score = round(classifier.score(x_val, y_val), 5)
+test_score = round(classifier.score(x_test, y_test), 5)
 
 print(f'Cross Validation Scores: {cross_val_scores}')
 print(f'Mean Score of Validation Set: {validation_score}')
@@ -96,9 +96,9 @@ log(
     file='app_sklearn.py',
     classifier={
         'classifier': CLASSIFIER,
-        'val_score': round(validation_score, 5),
-        'test_score': round(test_score, 5),
-        'cross_val_scores': [round(s, 5) for s in cross_val_scores]
+        'val_score': validation_score,
+        'test_score': test_score,
+        'cross_val_scores': cross_val_scores
     },
     vectorizer=VECTORIZER,
     data=DATA

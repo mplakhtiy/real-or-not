@@ -3,8 +3,8 @@ from tweets import Helpers, tweets_preprocessor
 from models import Keras, TestDataCallback
 from utils import log, get_glove_embeddings
 from tensorflow.keras.callbacks import ModelCheckpoint
-from tensorflow.keras.layers import Dense, Flatten, LSTM, SpatialDropout1D
-from tensorflow.keras.layers import Bidirectional, Conv1D, GlobalAveragePooling1D
+from tensorflow.keras.layers import Dense, Flatten, LSTM, SpatialDropout1D, Dropout, GlobalMaxPooling1D
+from tensorflow.keras.layers import Bidirectional, Conv1D, GlobalAveragePooling1D, MaxPooling1D
 from data import train_data as data, test_data_with_target as test_data
 from tensorflow.keras.preprocessing.text import Tokenizer
 from tensorflow.keras.initializers import Constant
@@ -123,16 +123,38 @@ if USE_GLOVE:
 ########################################################################################################################
 
 MODELS_LAYERS = {
-    'FLATTEN_LAYER': [Flatten()],
+    'FLATTEN_LAYER': [
+        Flatten()
+    ],
+    'LSTM': [
+        LSTM(128, dropout=0.2, recurrent_dropout=0.2)
+    ],
     'LSTM_WITH_SPATIAL_DROPOUT': [
         SpatialDropout1D(0.2),
         LSTM(50, dropout=0.2, recurrent_dropout=0.2)
     ],
-    'BIDIRECTIONAL_LSTM': [Bidirectional(LSTM(50))],
+    'BIDIRECTIONAL_LSTM': [
+        Bidirectional(LSTM(64)),
+        Dropout(0.5)
+    ],
+    'GlobalAveragePooling1D': [
+        GlobalAveragePooling1D()
+    ],
+    'RecurrentConvolutionalNetwork': [
+        Dropout(0.25),
+        Conv1D(filters=64, kernel_size=5, activation='relu', strides=1, padding='valid'),
+        MaxPooling1D(pool_size=4),
+        LSTM(70),
+    ],
     'CNN': [
-        Conv1D(**{'filters': 50, 'kernel_size': 5, 'activation': 'relu'}),
-        GlobalAveragePooling1D(),
-        Dense(10, activation='relu')
+        Dropout(0.2),
+        Conv1D(filters=250, kernel_size=3, activation='relu', strides=1, padding='valid'),
+        GlobalMaxPooling1D(),
+        Dense(250, activation='relu'),
+    ],
+    'RNN': [
+        Bidirectional(LSTM(64)),
+        Dense(64, activation='relu')
     ]
 }
 
