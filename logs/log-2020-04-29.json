@@ -72273,5 +72273,2435 @@
         ]
       }
     }
+  },
+  "2020-04-29 22:36:04.147168": {
+    "file": "app_keras.py",
+    "data": {
+      "PREPROCESS_OPTRIONS": {
+        "add_link_flag": true,
+        "add_user_flag": true,
+        "add_hash_flag": true,
+        "add_number_flag": true,
+        "add_keyword_flag": false,
+        "add_location_flag": false,
+        "remove_links": true,
+        "remove_users": true,
+        "remove_hash": true,
+        "unslang": true,
+        "split_words": true,
+        "stem": false,
+        "remove_punctuations": false,
+        "remove_numbers": true,
+        "to_lower_case": true,
+        "remove_stop_words": false,
+        "remove_not_alpha": true,
+        "join": false
+      },
+      "GLOVE_SIZE": 100,
+      "GLOVE": "glove.twitter.27B.100d.txt"
+    },
+    "model": {
+      "BATCH_SIZE": 256,
+      "EPOCHS": 30,
+      "VERBOSE": 1,
+      "OPTIMIZER": "rmsprop",
+      "LEARNING_RATE": 0.001,
+      "SHUFFLE": true,
+      "EMBEDDING_OPTIONS": {
+        "input_dim": 13985,
+        "output_dim": 100,
+        "input_length": 35,
+        "embeddings_initializer": "{\"class_name\": \"Constant\"}",
+        "trainable": false
+      },
+      "VALIDATION_PERCENTAGE": 0.2,
+      "TYPE": "LSTM",
+      "config": {
+        "name": "sequential",
+        "layers": [
+          {
+            "class_name": "Embedding",
+            "config": {
+              "name": "embedding",
+              "trainable": false,
+              "batch_input_shape": [
+                null,
+                35
+              ],
+              "dtype": "float32",
+              "input_dim": 13985,
+              "output_dim": 100,
+              "embeddings_initializer": {
+                "class_name": "Constant",
+                "config": {
+                  "value": "{\"class_name\": \"ndarray\"}"
+                }
+              },
+              "embeddings_regularizer": null,
+              "activity_regularizer": null,
+              "embeddings_constraint": null,
+              "mask_zero": false,
+              "input_length": 35
+            }
+          },
+          {
+            "class_name": "LSTM",
+            "config": {
+              "name": "lstm",
+              "trainable": true,
+              "dtype": "float32",
+              "return_sequences": false,
+              "return_state": false,
+              "go_backwards": false,
+              "stateful": false,
+              "unroll": false,
+              "time_major": false,
+              "units": 50,
+              "activation": "tanh",
+              "recurrent_activation": "sigmoid",
+              "use_bias": true,
+              "kernel_initializer": {
+                "class_name": "GlorotUniform",
+                "config": {
+                  "seed": null
+                }
+              },
+              "recurrent_initializer": {
+                "class_name": "Orthogonal",
+                "config": {
+                  "gain": 1.0,
+                  "seed": null
+                }
+              },
+              "bias_initializer": {
+                "class_name": "Zeros",
+                "config": {}
+              },
+              "unit_forget_bias": true,
+              "kernel_regularizer": null,
+              "recurrent_regularizer": null,
+              "bias_regularizer": null,
+              "activity_regularizer": null,
+              "kernel_constraint": null,
+              "recurrent_constraint": null,
+              "bias_constraint": null,
+              "dropout": 0.0,
+              "recurrent_dropout": 0.0,
+              "implementation": 2
+            }
+          },
+          {
+            "class_name": "Dense",
+            "config": {
+              "name": "dense_4",
+              "trainable": true,
+              "dtype": "float32",
+              "units": 1,
+              "activation": "sigmoid",
+              "use_bias": true,
+              "kernel_initializer": {
+                "class_name": "GlorotUniform",
+                "config": {
+                  "seed": null
+                }
+              },
+              "bias_initializer": {
+                "class_name": "Zeros",
+                "config": {}
+              },
+              "kernel_regularizer": null,
+              "bias_regularizer": null,
+              "activity_regularizer": null,
+              "kernel_constraint": null,
+              "bias_constraint": null
+            }
+          }
+        ]
+      },
+      "history": {
+        "loss": [
+          0.57431,
+          0.46832,
+          0.44744,
+          0.43196,
+          0.42095,
+          0.41234,
+          0.40651,
+          0.39771,
+          0.39119,
+          0.38901,
+          0.38575,
+          0.3725,
+          0.37062,
+          0.36392,
+          0.36082,
+          0.35752,
+          0.34763,
+          0.33786,
+          0.33542,
+          0.32889,
+          0.31748,
+          0.31143,
+          0.31287,
+          0.30616,
+          0.29074,
+          0.29027,
+          0.27788,
+          0.28567,
+          0.27029,
+          0.26257
+        ],
+        "accuracy": [
+          0.70903,
+          0.79951,
+          0.80788,
+          0.81412,
+          0.81888,
+          0.82299,
+          0.82644,
+          0.8312,
+          0.83645,
+          0.83547,
+          0.83629,
+          0.84302,
+          0.84729,
+          0.84384,
+          0.84893,
+          0.85255,
+          0.85271,
+          0.85961,
+          0.86371,
+          0.86519,
+          0.86929,
+          0.87488,
+          0.8688,
+          0.87307,
+          0.88128,
+          0.88473,
+          0.88949,
+          0.88243,
+          0.89491,
+          0.8977
+        ],
+        "val_loss": [
+          0.46902,
+          0.46439,
+          0.4353,
+          0.43024,
+          0.43421,
+          0.43081,
+          0.45694,
+          0.42659,
+          0.43297,
+          0.45601,
+          0.42811,
+          0.44466,
+          0.4462,
+          0.46127,
+          0.45647,
+          0.46152,
+          0.47641,
+          0.44949,
+          0.45982,
+          0.45512,
+          0.51098,
+          0.51112,
+          0.46642,
+          0.47794,
+          0.48318,
+          0.51954,
+          0.55775,
+          0.4956,
+          0.53195,
+          0.58125
+        ],
+        "val_accuracy": [
+          0.7958,
+          0.78989,
+          0.80499,
+          0.80827,
+          0.79908,
+          0.80499,
+          0.78595,
+          0.8063,
+          0.80959,
+          0.80959,
+          0.81221,
+          0.80827,
+          0.80499,
+          0.81156,
+          0.81156,
+          0.81156,
+          0.81156,
+          0.81418,
+          0.80959,
+          0.8155,
+          0.80433,
+          0.79908,
+          0.81221,
+          0.81024,
+          0.81287,
+          0.79645,
+          0.79711,
+          0.8155,
+          0.80893,
+          0.79186
+        ],
+        "test_loss": [
+          0.491,
+          0.47911,
+          0.45387,
+          0.44748,
+          0.453,
+          0.4475,
+          0.48165,
+          0.44115,
+          0.44316,
+          0.46487,
+          0.43472,
+          0.44828,
+          0.46569,
+          0.46556,
+          0.46656,
+          0.4659,
+          0.48125,
+          0.45476,
+          0.47395,
+          0.46162,
+          0.5181,
+          0.52539,
+          0.47538,
+          0.48094,
+          0.48765,
+          0.50778,
+          0.54452,
+          0.49155,
+          0.52351,
+          0.57274
+        ],
+        "test_accuracy": [
+          0.78333,
+          0.78884,
+          0.79773,
+          0.79988,
+          0.79681,
+          0.8103,
+          0.79252,
+          0.80907,
+          0.80876,
+          0.78915,
+          0.8103,
+          0.80386,
+          0.80172,
+          0.8011,
+          0.80601,
+          0.80356,
+          0.80478,
+          0.80172,
+          0.79681,
+          0.8008,
+          0.78823,
+          0.78793,
+          0.79835,
+          0.79467,
+          0.79651,
+          0.78762,
+          0.79252,
+          0.79835,
+          0.79589,
+          0.77015
+        ]
+      }
+    }
+  },
+  "2020-04-29 22:40:00.537304": {
+    "file": "app_keras.py",
+    "data": {
+      "PREPROCESS_OPTRIONS": {
+        "add_link_flag": true,
+        "add_user_flag": true,
+        "add_hash_flag": true,
+        "add_number_flag": true,
+        "add_keyword_flag": false,
+        "add_location_flag": false,
+        "remove_links": true,
+        "remove_users": true,
+        "remove_hash": true,
+        "unslang": true,
+        "split_words": true,
+        "stem": false,
+        "remove_punctuations": false,
+        "remove_numbers": true,
+        "to_lower_case": true,
+        "remove_stop_words": false,
+        "remove_not_alpha": true,
+        "join": false
+      },
+      "GLOVE_SIZE": 100,
+      "GLOVE": "glove.twitter.27B.100d.txt"
+    },
+    "model": {
+      "BATCH_SIZE": 256,
+      "EPOCHS": 30,
+      "VERBOSE": 1,
+      "OPTIMIZER": "rmsprop",
+      "LEARNING_RATE": 0.001,
+      "SHUFFLE": true,
+      "EMBEDDING_OPTIONS": {
+        "input_dim": 13985,
+        "output_dim": 100,
+        "input_length": 35,
+        "embeddings_initializer": "{\"class_name\": \"Constant\"}",
+        "trainable": false
+      },
+      "VALIDATION_PERCENTAGE": 0.2,
+      "TYPE": "LSTM",
+      "config": {
+        "name": "sequential",
+        "layers": [
+          {
+            "class_name": "Embedding",
+            "config": {
+              "name": "embedding",
+              "trainable": false,
+              "batch_input_shape": [
+                null,
+                35
+              ],
+              "dtype": "float32",
+              "input_dim": 13985,
+              "output_dim": 100,
+              "embeddings_initializer": {
+                "class_name": "Constant",
+                "config": {
+                  "value": "{\"class_name\": \"ndarray\"}"
+                }
+              },
+              "embeddings_regularizer": null,
+              "activity_regularizer": null,
+              "embeddings_constraint": null,
+              "mask_zero": false,
+              "input_length": 35
+            }
+          },
+          {
+            "class_name": "LSTM",
+            "config": {
+              "name": "lstm",
+              "trainable": true,
+              "dtype": "float32",
+              "return_sequences": false,
+              "return_state": false,
+              "go_backwards": false,
+              "stateful": false,
+              "unroll": false,
+              "time_major": false,
+              "units": 64,
+              "activation": "tanh",
+              "recurrent_activation": "sigmoid",
+              "use_bias": true,
+              "kernel_initializer": {
+                "class_name": "GlorotUniform",
+                "config": {
+                  "seed": null
+                }
+              },
+              "recurrent_initializer": {
+                "class_name": "Orthogonal",
+                "config": {
+                  "gain": 1.0,
+                  "seed": null
+                }
+              },
+              "bias_initializer": {
+                "class_name": "Zeros",
+                "config": {}
+              },
+              "unit_forget_bias": true,
+              "kernel_regularizer": null,
+              "recurrent_regularizer": null,
+              "bias_regularizer": null,
+              "activity_regularizer": null,
+              "kernel_constraint": null,
+              "recurrent_constraint": null,
+              "bias_constraint": null,
+              "dropout": 0.0,
+              "recurrent_dropout": 0.0,
+              "implementation": 2
+            }
+          },
+          {
+            "class_name": "Dense",
+            "config": {
+              "name": "dense_4",
+              "trainable": true,
+              "dtype": "float32",
+              "units": 1,
+              "activation": "sigmoid",
+              "use_bias": true,
+              "kernel_initializer": {
+                "class_name": "GlorotUniform",
+                "config": {
+                  "seed": null
+                }
+              },
+              "bias_initializer": {
+                "class_name": "Zeros",
+                "config": {}
+              },
+              "kernel_regularizer": null,
+              "bias_regularizer": null,
+              "activity_regularizer": null,
+              "kernel_constraint": null,
+              "bias_constraint": null
+            }
+          }
+        ]
+      },
+      "history": {
+        "loss": [
+          0.55871,
+          0.47135,
+          0.44314,
+          0.43546,
+          0.42555,
+          0.41774,
+          0.41876,
+          0.40353,
+          0.40337,
+          0.39704,
+          0.39176,
+          0.38671,
+          0.37945,
+          0.38369,
+          0.37094,
+          0.37024,
+          0.35358,
+          0.35818,
+          0.34649,
+          0.34098,
+          0.3358,
+          0.33308,
+          0.32219,
+          0.31442,
+          0.31712,
+          0.30904,
+          0.30665,
+          0.29456,
+          0.28577,
+          0.28943
+        ],
+        "accuracy": [
+          0.71757,
+          0.79245,
+          0.80985,
+          0.8133,
+          0.81593,
+          0.82085,
+          0.81921,
+          0.82791,
+          0.82496,
+          0.82841,
+          0.83186,
+          0.82906,
+          0.83974,
+          0.8376,
+          0.8399,
+          0.83859,
+          0.85172,
+          0.84795,
+          0.85484,
+          0.85632,
+          0.85944,
+          0.86174,
+          0.87011,
+          0.86979,
+          0.86847,
+          0.87225,
+          0.87406,
+          0.88227,
+          0.88325,
+          0.88309
+        ],
+        "val_loss": [
+          0.4818,
+          0.43395,
+          0.42355,
+          0.42839,
+          0.4191,
+          0.42022,
+          0.41516,
+          0.41375,
+          0.44836,
+          0.46902,
+          0.42365,
+          0.41436,
+          0.45614,
+          0.42511,
+          0.43524,
+          0.44616,
+          0.46493,
+          0.43127,
+          0.45647,
+          0.45312,
+          0.45684,
+          0.47766,
+          0.45709,
+          0.52077,
+          0.48556,
+          0.51581,
+          0.47068,
+          0.5375,
+          0.51292,
+          0.48291
+        ],
+        "val_accuracy": [
+          0.77019,
+          0.80893,
+          0.80893,
+          0.81287,
+          0.81418,
+          0.81878,
+          0.80959,
+          0.81681,
+          0.79383,
+          0.78989,
+          0.81287,
+          0.81944,
+          0.80696,
+          0.81353,
+          0.81156,
+          0.81944,
+          0.79448,
+          0.81287,
+          0.8155,
+          0.81681,
+          0.81353,
+          0.81418,
+          0.81812,
+          0.7912,
+          0.79317,
+          0.80565,
+          0.81221,
+          0.79514,
+          0.80893,
+          0.80565
+        ],
+        "test_loss": [
+          0.51571,
+          0.47019,
+          0.45351,
+          0.45867,
+          0.4453,
+          0.44396,
+          0.43521,
+          0.43682,
+          0.47915,
+          0.50042,
+          0.43664,
+          0.43355,
+          0.47376,
+          0.43876,
+          0.44431,
+          0.45227,
+          0.47769,
+          0.4362,
+          0.47018,
+          0.45441,
+          0.45503,
+          0.48293,
+          0.46655,
+          0.5345,
+          0.49643,
+          0.49888,
+          0.48128,
+          0.51491,
+          0.53432,
+          0.48868
+        ],
+        "test_accuracy": [
+          0.75329,
+          0.78639,
+          0.79743,
+          0.80049,
+          0.8011,
+          0.80478,
+          0.80478,
+          0.80723,
+          0.78793,
+          0.78118,
+          0.80601,
+          0.80846,
+          0.80264,
+          0.80938,
+          0.80325,
+          0.8011,
+          0.76525,
+          0.80815,
+          0.80876,
+          0.81122,
+          0.80876,
+          0.79681,
+          0.80815,
+          0.7916,
+          0.79773,
+          0.79926,
+          0.79988,
+          0.79344,
+          0.79804,
+          0.79038
+        ]
+      }
+    }
+  },
+  "2020-04-29 22:42:33.622300": {
+    "file": "app_keras.py",
+    "data": {
+      "PREPROCESS_OPTRIONS": {
+        "add_link_flag": true,
+        "add_user_flag": true,
+        "add_hash_flag": true,
+        "add_number_flag": true,
+        "add_keyword_flag": false,
+        "add_location_flag": false,
+        "remove_links": true,
+        "remove_users": true,
+        "remove_hash": true,
+        "unslang": true,
+        "split_words": true,
+        "stem": false,
+        "remove_punctuations": false,
+        "remove_numbers": true,
+        "to_lower_case": true,
+        "remove_stop_words": false,
+        "remove_not_alpha": true,
+        "join": false
+      },
+      "GLOVE_SIZE": 100,
+      "GLOVE": "glove.twitter.27B.100d.txt"
+    },
+    "model": {
+      "BATCH_SIZE": 256,
+      "EPOCHS": 15,
+      "VERBOSE": 1,
+      "OPTIMIZER": "adam",
+      "LEARNING_RATE": 0.001,
+      "SHUFFLE": true,
+      "EMBEDDING_OPTIONS": {
+        "input_dim": 13985,
+        "output_dim": 100,
+        "input_length": 35,
+        "embeddings_initializer": "{\"class_name\": \"Constant\"}",
+        "trainable": false
+      },
+      "VALIDATION_PERCENTAGE": 0.2,
+      "TYPE": "LSTM",
+      "config": {
+        "name": "sequential",
+        "layers": [
+          {
+            "class_name": "Embedding",
+            "config": {
+              "name": "embedding",
+              "trainable": false,
+              "batch_input_shape": [
+                null,
+                35
+              ],
+              "dtype": "float32",
+              "input_dim": 13985,
+              "output_dim": 100,
+              "embeddings_initializer": {
+                "class_name": "Constant",
+                "config": {
+                  "value": "{\"class_name\": \"ndarray\"}"
+                }
+              },
+              "embeddings_regularizer": null,
+              "activity_regularizer": null,
+              "embeddings_constraint": null,
+              "mask_zero": false,
+              "input_length": 35
+            }
+          },
+          {
+            "class_name": "LSTM",
+            "config": {
+              "name": "lstm",
+              "trainable": true,
+              "dtype": "float32",
+              "return_sequences": false,
+              "return_state": false,
+              "go_backwards": false,
+              "stateful": false,
+              "unroll": false,
+              "time_major": false,
+              "units": 50,
+              "activation": "tanh",
+              "recurrent_activation": "sigmoid",
+              "use_bias": true,
+              "kernel_initializer": {
+                "class_name": "GlorotUniform",
+                "config": {
+                  "seed": null
+                }
+              },
+              "recurrent_initializer": {
+                "class_name": "Orthogonal",
+                "config": {
+                  "gain": 1.0,
+                  "seed": null
+                }
+              },
+              "bias_initializer": {
+                "class_name": "Zeros",
+                "config": {}
+              },
+              "unit_forget_bias": true,
+              "kernel_regularizer": null,
+              "recurrent_regularizer": null,
+              "bias_regularizer": null,
+              "activity_regularizer": null,
+              "kernel_constraint": null,
+              "recurrent_constraint": null,
+              "bias_constraint": null,
+              "dropout": 0.0,
+              "recurrent_dropout": 0.0,
+              "implementation": 2
+            }
+          },
+          {
+            "class_name": "Dense",
+            "config": {
+              "name": "dense_4",
+              "trainable": true,
+              "dtype": "float32",
+              "units": 1,
+              "activation": "sigmoid",
+              "use_bias": true,
+              "kernel_initializer": {
+                "class_name": "GlorotUniform",
+                "config": {
+                  "seed": null
+                }
+              },
+              "bias_initializer": {
+                "class_name": "Zeros",
+                "config": {}
+              },
+              "kernel_regularizer": null,
+              "bias_regularizer": null,
+              "activity_regularizer": null,
+              "kernel_constraint": null,
+              "bias_constraint": null
+            }
+          }
+        ]
+      },
+      "history": {
+        "loss": [
+          0.6608,
+          0.50921,
+          0.44727,
+          0.42873,
+          0.41968,
+          0.40917,
+          0.39808,
+          0.38998,
+          0.38058,
+          0.37375,
+          0.36876,
+          0.35972,
+          0.34704,
+          0.3615,
+          0.34721
+        ],
+        "accuracy": [
+          0.59951,
+          0.76552,
+          0.80739,
+          0.81691,
+          0.82167,
+          0.82611,
+          0.83399,
+          0.84039,
+          0.84204,
+          0.84302,
+          0.84614,
+          0.85468,
+          0.86043,
+          0.8509,
+          0.85911
+        ],
+        "val_loss": [
+          0.57598,
+          0.47336,
+          0.44487,
+          0.42736,
+          0.42888,
+          0.4206,
+          0.42209,
+          0.42191,
+          0.42348,
+          0.44883,
+          0.43875,
+          0.43314,
+          0.44172,
+          0.44408,
+          0.44735
+        ],
+        "val_accuracy": [
+          0.74721,
+          0.78332,
+          0.80236,
+          0.79974,
+          0.80959,
+          0.80565,
+          0.81353,
+          0.81353,
+          0.8063,
+          0.80827,
+          0.81287,
+          0.81156,
+          0.80565,
+          0.80039,
+          0.8155
+        ],
+        "test_loss": [
+          0.58981,
+          0.49311,
+          0.47755,
+          0.45068,
+          0.4547,
+          0.44145,
+          0.44222,
+          0.43846,
+          0.44175,
+          0.45016,
+          0.44034,
+          0.43523,
+          0.44258,
+          0.44885,
+          0.44339
+        ],
+        "test_accuracy": [
+          0.72724,
+          0.77781,
+          0.78639,
+          0.79804,
+          0.79467,
+          0.79773,
+          0.79835,
+          0.80386,
+          0.8008,
+          0.80417,
+          0.80356,
+          0.80539,
+          0.79988,
+          0.79283,
+          0.81122
+        ]
+      }
+    }
+  },
+  "2020-04-29 22:45:04.385327": {
+    "file": "app_keras.py",
+    "data": {
+      "PREPROCESS_OPTRIONS": {
+        "add_link_flag": true,
+        "add_user_flag": true,
+        "add_hash_flag": true,
+        "add_number_flag": true,
+        "add_keyword_flag": false,
+        "add_location_flag": false,
+        "remove_links": true,
+        "remove_users": true,
+        "remove_hash": true,
+        "unslang": true,
+        "split_words": true,
+        "stem": false,
+        "remove_punctuations": false,
+        "remove_numbers": true,
+        "to_lower_case": true,
+        "remove_stop_words": false,
+        "remove_not_alpha": true,
+        "join": false
+      },
+      "GLOVE_SIZE": 100,
+      "GLOVE": "glove.twitter.27B.100d.txt"
+    },
+    "model": {
+      "BATCH_SIZE": 128,
+      "EPOCHS": 15,
+      "VERBOSE": 1,
+      "OPTIMIZER": "rmsprop",
+      "LEARNING_RATE": 0.001,
+      "SHUFFLE": true,
+      "EMBEDDING_OPTIONS": {
+        "input_dim": 13985,
+        "output_dim": 100,
+        "input_length": 35,
+        "embeddings_initializer": "{\"class_name\": \"Constant\"}",
+        "trainable": false
+      },
+      "VALIDATION_PERCENTAGE": 0.2,
+      "TYPE": "LSTM",
+      "config": {
+        "name": "sequential",
+        "layers": [
+          {
+            "class_name": "Embedding",
+            "config": {
+              "name": "embedding",
+              "trainable": false,
+              "batch_input_shape": [
+                null,
+                35
+              ],
+              "dtype": "float32",
+              "input_dim": 13985,
+              "output_dim": 100,
+              "embeddings_initializer": {
+                "class_name": "Constant",
+                "config": {
+                  "value": "{\"class_name\": \"ndarray\"}"
+                }
+              },
+              "embeddings_regularizer": null,
+              "activity_regularizer": null,
+              "embeddings_constraint": null,
+              "mask_zero": false,
+              "input_length": 35
+            }
+          },
+          {
+            "class_name": "LSTM",
+            "config": {
+              "name": "lstm",
+              "trainable": true,
+              "dtype": "float32",
+              "return_sequences": false,
+              "return_state": false,
+              "go_backwards": false,
+              "stateful": false,
+              "unroll": false,
+              "time_major": false,
+              "units": 50,
+              "activation": "tanh",
+              "recurrent_activation": "sigmoid",
+              "use_bias": true,
+              "kernel_initializer": {
+                "class_name": "GlorotUniform",
+                "config": {
+                  "seed": null
+                }
+              },
+              "recurrent_initializer": {
+                "class_name": "Orthogonal",
+                "config": {
+                  "gain": 1.0,
+                  "seed": null
+                }
+              },
+              "bias_initializer": {
+                "class_name": "Zeros",
+                "config": {}
+              },
+              "unit_forget_bias": true,
+              "kernel_regularizer": null,
+              "recurrent_regularizer": null,
+              "bias_regularizer": null,
+              "activity_regularizer": null,
+              "kernel_constraint": null,
+              "recurrent_constraint": null,
+              "bias_constraint": null,
+              "dropout": 0.0,
+              "recurrent_dropout": 0.0,
+              "implementation": 2
+            }
+          },
+          {
+            "class_name": "Dense",
+            "config": {
+              "name": "dense_4",
+              "trainable": true,
+              "dtype": "float32",
+              "units": 1,
+              "activation": "sigmoid",
+              "use_bias": true,
+              "kernel_initializer": {
+                "class_name": "GlorotUniform",
+                "config": {
+                  "seed": null
+                }
+              },
+              "bias_initializer": {
+                "class_name": "Zeros",
+                "config": {}
+              },
+              "kernel_regularizer": null,
+              "bias_regularizer": null,
+              "activity_regularizer": null,
+              "kernel_constraint": null,
+              "bias_constraint": null
+            }
+          }
+        ]
+      },
+      "history": {
+        "loss": [
+          0.55666,
+          0.45777,
+          0.43591,
+          0.4221,
+          0.41573,
+          0.40358,
+          0.39797,
+          0.38721,
+          0.38127,
+          0.37124,
+          0.36701,
+          0.35776,
+          0.35149,
+          0.3426,
+          0.33792
+        ],
+        "accuracy": [
+          0.72069,
+          0.8023,
+          0.81297,
+          0.82217,
+          0.82233,
+          0.83169,
+          0.83202,
+          0.83842,
+          0.84811,
+          0.84795,
+          0.84943,
+          0.85452,
+          0.85878,
+          0.86305,
+          0.86946
+        ],
+        "val_loss": [
+          0.4482,
+          0.43346,
+          0.42356,
+          0.41969,
+          0.42707,
+          0.43203,
+          0.42648,
+          0.45548,
+          0.42753,
+          0.45366,
+          0.4449,
+          0.4579,
+          0.45346,
+          0.45263,
+          0.47868
+        ],
+        "val_accuracy": [
+          0.80696,
+          0.80171,
+          0.80499,
+          0.81878,
+          0.79974,
+          0.8063,
+          0.80827,
+          0.7912,
+          0.79711,
+          0.79711,
+          0.8109,
+          0.80565,
+          0.79974,
+          0.79711,
+          0.80499
+        ],
+        "test_loss": [
+          0.47877,
+          0.45991,
+          0.45065,
+          0.44523,
+          0.45082,
+          0.44686,
+          0.43902,
+          0.45209,
+          0.43698,
+          0.455,
+          0.44256,
+          0.45308,
+          0.44624,
+          0.43782,
+          0.47821
+        ],
+        "test_accuracy": [
+          0.78762,
+          0.79835,
+          0.8008,
+          0.80417,
+          0.79896,
+          0.80325,
+          0.79835,
+          0.78915,
+          0.80631,
+          0.80325,
+          0.8106,
+          0.80631,
+          0.80264,
+          0.80478,
+          0.80539
+        ]
+      }
+    }
+  },
+  "2020-04-29 22:46:24.077507": {
+    "file": "app_keras.py",
+    "data": {
+      "PREPROCESS_OPTRIONS": {
+        "add_link_flag": true,
+        "add_user_flag": true,
+        "add_hash_flag": true,
+        "add_number_flag": true,
+        "add_keyword_flag": false,
+        "add_location_flag": false,
+        "remove_links": true,
+        "remove_users": true,
+        "remove_hash": true,
+        "unslang": true,
+        "split_words": true,
+        "stem": false,
+        "remove_punctuations": false,
+        "remove_numbers": true,
+        "to_lower_case": true,
+        "remove_stop_words": false,
+        "remove_not_alpha": true,
+        "join": false
+      },
+      "GLOVE_SIZE": 100,
+      "GLOVE": "glove.twitter.27B.100d.txt"
+    },
+    "model": {
+      "BATCH_SIZE": 128,
+      "EPOCHS": 15,
+      "VERBOSE": 1,
+      "OPTIMIZER": "rmsprop",
+      "LEARNING_RATE": 0.001,
+      "SHUFFLE": true,
+      "EMBEDDING_OPTIONS": {
+        "input_dim": 13985,
+        "output_dim": 100,
+        "input_length": 35,
+        "embeddings_initializer": "{\"class_name\": \"Constant\"}",
+        "trainable": false
+      },
+      "VALIDATION_PERCENTAGE": 0.2,
+      "TYPE": "LSTM",
+      "config": {
+        "name": "sequential",
+        "layers": [
+          {
+            "class_name": "Embedding",
+            "config": {
+              "name": "embedding",
+              "trainable": false,
+              "batch_input_shape": [
+                null,
+                35
+              ],
+              "dtype": "float32",
+              "input_dim": 13985,
+              "output_dim": 100,
+              "embeddings_initializer": {
+                "class_name": "Constant",
+                "config": {
+                  "value": "{\"class_name\": \"ndarray\"}"
+                }
+              },
+              "embeddings_regularizer": null,
+              "activity_regularizer": null,
+              "embeddings_constraint": null,
+              "mask_zero": false,
+              "input_length": 35
+            }
+          },
+          {
+            "class_name": "LSTM",
+            "config": {
+              "name": "lstm",
+              "trainable": true,
+              "dtype": "float32",
+              "return_sequences": false,
+              "return_state": false,
+              "go_backwards": false,
+              "stateful": false,
+              "unroll": false,
+              "time_major": false,
+              "units": 64,
+              "activation": "tanh",
+              "recurrent_activation": "sigmoid",
+              "use_bias": true,
+              "kernel_initializer": {
+                "class_name": "GlorotUniform",
+                "config": {
+                  "seed": null
+                }
+              },
+              "recurrent_initializer": {
+                "class_name": "Orthogonal",
+                "config": {
+                  "gain": 1.0,
+                  "seed": null
+                }
+              },
+              "bias_initializer": {
+                "class_name": "Zeros",
+                "config": {}
+              },
+              "unit_forget_bias": true,
+              "kernel_regularizer": null,
+              "recurrent_regularizer": null,
+              "bias_regularizer": null,
+              "activity_regularizer": null,
+              "kernel_constraint": null,
+              "recurrent_constraint": null,
+              "bias_constraint": null,
+              "dropout": 0.0,
+              "recurrent_dropout": 0.0,
+              "implementation": 2
+            }
+          },
+          {
+            "class_name": "Dense",
+            "config": {
+              "name": "dense_4",
+              "trainable": true,
+              "dtype": "float32",
+              "units": 1,
+              "activation": "sigmoid",
+              "use_bias": true,
+              "kernel_initializer": {
+                "class_name": "GlorotUniform",
+                "config": {
+                  "seed": null
+                }
+              },
+              "bias_initializer": {
+                "class_name": "Zeros",
+                "config": {}
+              },
+              "kernel_regularizer": null,
+              "bias_regularizer": null,
+              "activity_regularizer": null,
+              "kernel_constraint": null,
+              "bias_constraint": null
+            }
+          }
+        ]
+      },
+      "history": {
+        "loss": [
+          0.54167,
+          0.45435,
+          0.43233,
+          0.42411,
+          0.41289,
+          0.40767,
+          0.39848,
+          0.39467,
+          0.38418,
+          0.37569,
+          0.36393,
+          0.35616,
+          0.35052,
+          0.33758,
+          0.33311
+        ],
+        "accuracy": [
+          0.73924,
+          0.80739,
+          0.81494,
+          0.81412,
+          0.81954,
+          0.81823,
+          0.82972,
+          0.833,
+          0.83695,
+          0.83941,
+          0.84729,
+          0.84959,
+          0.85484,
+          0.85829,
+          0.86141
+        ],
+        "val_loss": [
+          0.43914,
+          0.41881,
+          0.42971,
+          0.44672,
+          0.44792,
+          0.44787,
+          0.43095,
+          0.42998,
+          0.42583,
+          0.44531,
+          0.43628,
+          0.44344,
+          0.47887,
+          0.45279,
+          0.60099
+        ],
+        "val_accuracy": [
+          0.79842,
+          0.81812,
+          0.79777,
+          0.78726,
+          0.79514,
+          0.78989,
+          0.80302,
+          0.81812,
+          0.81024,
+          0.8155,
+          0.81484,
+          0.81221,
+          0.81484,
+          0.81024,
+          0.76428
+        ],
+        "test_loss": [
+          0.46987,
+          0.4522,
+          0.45993,
+          0.47567,
+          0.47643,
+          0.47458,
+          0.44932,
+          0.44363,
+          0.43316,
+          0.4503,
+          0.4317,
+          0.45017,
+          0.47135,
+          0.44714,
+          0.59282
+        ],
+        "test_accuracy": [
+          0.78946,
+          0.79865,
+          0.78823,
+          0.77996,
+          0.78455,
+          0.78517,
+          0.79436,
+          0.80968,
+          0.80693,
+          0.80601,
+          0.80754,
+          0.80509,
+          0.79865,
+          0.8103,
+          0.74931
+        ]
+      }
+    }
+  },
+  "2020-04-29 22:51:55.872051": {
+    "file": "app_keras.py",
+    "data": {
+      "PREPROCESS_OPTRIONS": {
+        "add_link_flag": true,
+        "add_user_flag": true,
+        "add_hash_flag": true,
+        "add_number_flag": true,
+        "add_keyword_flag": false,
+        "add_location_flag": false,
+        "remove_links": true,
+        "remove_users": true,
+        "remove_hash": true,
+        "unslang": true,
+        "split_words": true,
+        "stem": false,
+        "remove_punctuations": false,
+        "remove_numbers": true,
+        "to_lower_case": true,
+        "remove_stop_words": false,
+        "remove_not_alpha": true,
+        "join": false
+      },
+      "GLOVE_SIZE": 100,
+      "GLOVE": "glove.twitter.27B.100d.txt"
+    },
+    "model": {
+      "BATCH_SIZE": 128,
+      "EPOCHS": 15,
+      "VERBOSE": 1,
+      "OPTIMIZER": "rmsprop",
+      "LEARNING_RATE": 0.001,
+      "SHUFFLE": true,
+      "EMBEDDING_OPTIONS": {
+        "input_dim": 13985,
+        "output_dim": 100,
+        "input_length": 35,
+        "embeddings_initializer": "{\"class_name\": \"Constant\"}",
+        "trainable": false
+      },
+      "VALIDATION_PERCENTAGE": 0.2,
+      "TYPE": "LSTM",
+      "config": {
+        "name": "sequential",
+        "layers": [
+          {
+            "class_name": "Embedding",
+            "config": {
+              "name": "embedding",
+              "trainable": false,
+              "batch_input_shape": [
+                null,
+                35
+              ],
+              "dtype": "float32",
+              "input_dim": 13985,
+              "output_dim": 100,
+              "embeddings_initializer": {
+                "class_name": "Constant",
+                "config": {
+                  "value": "{\"class_name\": \"ndarray\"}"
+                }
+              },
+              "embeddings_regularizer": null,
+              "activity_regularizer": null,
+              "embeddings_constraint": null,
+              "mask_zero": false,
+              "input_length": 35
+            }
+          },
+          {
+            "class_name": "LSTM",
+            "config": {
+              "name": "lstm",
+              "trainable": true,
+              "dtype": "float32",
+              "return_sequences": false,
+              "return_state": false,
+              "go_backwards": false,
+              "stateful": false,
+              "unroll": false,
+              "time_major": false,
+              "units": 50,
+              "activation": "tanh",
+              "recurrent_activation": "sigmoid",
+              "use_bias": true,
+              "kernel_initializer": {
+                "class_name": "GlorotUniform",
+                "config": {
+                  "seed": null
+                }
+              },
+              "recurrent_initializer": {
+                "class_name": "Orthogonal",
+                "config": {
+                  "gain": 1.0,
+                  "seed": null
+                }
+              },
+              "bias_initializer": {
+                "class_name": "Zeros",
+                "config": {}
+              },
+              "unit_forget_bias": true,
+              "kernel_regularizer": null,
+              "recurrent_regularizer": null,
+              "bias_regularizer": null,
+              "activity_regularizer": null,
+              "kernel_constraint": null,
+              "recurrent_constraint": null,
+              "bias_constraint": null,
+              "dropout": 0.0,
+              "recurrent_dropout": 0.0,
+              "implementation": 2
+            }
+          },
+          {
+            "class_name": "Dense",
+            "config": {
+              "name": "dense_4",
+              "trainable": true,
+              "dtype": "float32",
+              "units": 1,
+              "activation": "sigmoid",
+              "use_bias": true,
+              "kernel_initializer": {
+                "class_name": "GlorotUniform",
+                "config": {
+                  "seed": null
+                }
+              },
+              "bias_initializer": {
+                "class_name": "Zeros",
+                "config": {}
+              },
+              "kernel_regularizer": null,
+              "bias_regularizer": null,
+              "activity_regularizer": null,
+              "kernel_constraint": null,
+              "bias_constraint": null
+            }
+          }
+        ]
+      },
+      "history": {
+        "loss": [
+          0.53191,
+          0.45138,
+          0.43149,
+          0.42257,
+          0.414,
+          0.40015,
+          0.39401,
+          0.38721,
+          0.37892,
+          0.37209,
+          0.3608,
+          0.35625,
+          0.35113,
+          0.33939,
+          0.33178
+        ],
+        "accuracy": [
+          0.74286,
+          0.79984,
+          0.81511,
+          0.81691,
+          0.82693,
+          0.83268,
+          0.82874,
+          0.84023,
+          0.84023,
+          0.84499,
+          0.85156,
+          0.85369,
+          0.85846,
+          0.85977,
+          0.86782
+        ],
+        "val_loss": [
+          0.43653,
+          0.43374,
+          0.41852,
+          0.42414,
+          0.41604,
+          0.42288,
+          0.43694,
+          0.4782,
+          0.49517,
+          0.45399,
+          0.44186,
+          0.46018,
+          0.44311,
+          0.5411,
+          0.52967
+        ],
+        "val_accuracy": [
+          0.81024,
+          0.80762,
+          0.80827,
+          0.81353,
+          0.8155,
+          0.81287,
+          0.80433,
+          0.7807,
+          0.79251,
+          0.81484,
+          0.80433,
+          0.8063,
+          0.81221,
+          0.76297,
+          0.81024
+        ],
+        "test_loss": [
+          0.47303,
+          0.46425,
+          0.44526,
+          0.44222,
+          0.43464,
+          0.43409,
+          0.4491,
+          0.505,
+          0.50522,
+          0.44696,
+          0.44844,
+          0.46097,
+          0.44018,
+          0.54795,
+          0.52844
+        ],
+        "test_accuracy": [
+          0.79252,
+          0.79222,
+          0.80478,
+          0.80478,
+          0.80815,
+          0.8103,
+          0.79988,
+          0.78057,
+          0.77352,
+          0.81122,
+          0.80631,
+          0.80539,
+          0.80876,
+          0.74471,
+          0.78793
+        ]
+      }
+    }
+  },
+  "2020-04-29 22:53:27.732130": {
+    "file": "app_keras.py",
+    "data": {
+      "PREPROCESS_OPTRIONS": {
+        "add_link_flag": true,
+        "add_user_flag": true,
+        "add_hash_flag": true,
+        "add_number_flag": true,
+        "add_keyword_flag": false,
+        "add_location_flag": false,
+        "remove_links": true,
+        "remove_users": true,
+        "remove_hash": true,
+        "unslang": true,
+        "split_words": true,
+        "stem": false,
+        "remove_punctuations": false,
+        "remove_numbers": true,
+        "to_lower_case": true,
+        "remove_stop_words": false,
+        "remove_not_alpha": true,
+        "join": false
+      },
+      "GLOVE_SIZE": 100,
+      "GLOVE": "glove.twitter.27B.100d.txt"
+    },
+    "model": {
+      "BATCH_SIZE": 128,
+      "EPOCHS": 15,
+      "VERBOSE": 1,
+      "OPTIMIZER": "rmsprop",
+      "LEARNING_RATE": 0.001,
+      "SHUFFLE": true,
+      "EMBEDDING_OPTIONS": {
+        "input_dim": 13985,
+        "output_dim": 100,
+        "input_length": 35,
+        "embeddings_initializer": "{\"class_name\": \"Constant\"}",
+        "trainable": false
+      },
+      "VALIDATION_PERCENTAGE": 0.2,
+      "TYPE": "LSTM",
+      "config": {
+        "name": "sequential",
+        "layers": [
+          {
+            "class_name": "Embedding",
+            "config": {
+              "name": "embedding",
+              "trainable": false,
+              "batch_input_shape": [
+                null,
+                35
+              ],
+              "dtype": "float32",
+              "input_dim": 13985,
+              "output_dim": 100,
+              "embeddings_initializer": {
+                "class_name": "Constant",
+                "config": {
+                  "value": "{\"class_name\": \"ndarray\"}"
+                }
+              },
+              "embeddings_regularizer": null,
+              "activity_regularizer": null,
+              "embeddings_constraint": null,
+              "mask_zero": false,
+              "input_length": 35
+            }
+          },
+          {
+            "class_name": "LSTM",
+            "config": {
+              "name": "lstm",
+              "trainable": true,
+              "dtype": "float32",
+              "return_sequences": false,
+              "return_state": false,
+              "go_backwards": false,
+              "stateful": false,
+              "unroll": false,
+              "time_major": false,
+              "units": 50,
+              "activation": "tanh",
+              "recurrent_activation": "sigmoid",
+              "use_bias": true,
+              "kernel_initializer": {
+                "class_name": "GlorotUniform",
+                "config": {
+                  "seed": null
+                }
+              },
+              "recurrent_initializer": {
+                "class_name": "Orthogonal",
+                "config": {
+                  "gain": 1.0,
+                  "seed": null
+                }
+              },
+              "bias_initializer": {
+                "class_name": "Zeros",
+                "config": {}
+              },
+              "unit_forget_bias": true,
+              "kernel_regularizer": null,
+              "recurrent_regularizer": null,
+              "bias_regularizer": null,
+              "activity_regularizer": null,
+              "kernel_constraint": null,
+              "recurrent_constraint": null,
+              "bias_constraint": null,
+              "dropout": 0.0,
+              "recurrent_dropout": 0.0,
+              "implementation": 2
+            }
+          },
+          {
+            "class_name": "Dense",
+            "config": {
+              "name": "dense_4",
+              "trainable": true,
+              "dtype": "float32",
+              "units": 1,
+              "activation": "sigmoid",
+              "use_bias": true,
+              "kernel_initializer": {
+                "class_name": "GlorotUniform",
+                "config": {
+                  "seed": null
+                }
+              },
+              "bias_initializer": {
+                "class_name": "Zeros",
+                "config": {}
+              },
+              "kernel_regularizer": null,
+              "bias_regularizer": null,
+              "activity_regularizer": null,
+              "kernel_constraint": null,
+              "bias_constraint": null
+            }
+          }
+        ]
+      },
+      "history": {
+        "loss": [
+          0.53456,
+          0.45114,
+          0.43748,
+          0.42343,
+          0.41356,
+          0.40918,
+          0.39683,
+          0.38835,
+          0.38329,
+          0.37458,
+          0.36645,
+          0.35774,
+          0.3457,
+          0.34673,
+          0.32762
+        ],
+        "accuracy": [
+          0.74319,
+          0.80476,
+          0.81199,
+          0.81691,
+          0.82742,
+          0.82775,
+          0.8358,
+          0.83941,
+          0.8422,
+          0.84433,
+          0.85025,
+          0.85452,
+          0.86158,
+          0.85895,
+          0.87011
+        ],
+        "val_loss": [
+          0.4536,
+          0.43766,
+          0.43133,
+          0.45847,
+          0.42217,
+          0.41653,
+          0.41241,
+          0.42381,
+          0.41624,
+          0.42716,
+          0.42602,
+          0.43871,
+          0.48091,
+          0.43197,
+          0.45458
+        ],
+        "val_accuracy": [
+          0.80171,
+          0.81024,
+          0.80762,
+          0.80893,
+          0.8155,
+          0.81747,
+          0.81484,
+          0.80039,
+          0.80959,
+          0.81615,
+          0.81221,
+          0.81287,
+          0.8063,
+          0.8063,
+          0.81221
+        ],
+        "test_loss": [
+          0.47926,
+          0.46364,
+          0.46146,
+          0.48975,
+          0.44925,
+          0.44055,
+          0.43488,
+          0.44541,
+          0.43423,
+          0.43696,
+          0.43289,
+          0.44094,
+          0.46276,
+          0.43738,
+          0.45583
+        ],
+        "test_accuracy": [
+          0.7913,
+          0.79804,
+          0.80202,
+          0.79375,
+          0.79559,
+          0.80049,
+          0.8008,
+          0.80325,
+          0.80999,
+          0.80754,
+          0.80968,
+          0.81122,
+          0.80662,
+          0.80601,
+          0.80601
+        ]
+      }
+    }
+  },
+  "2020-04-29 22:57:09.554238": {
+    "file": "app_keras.py",
+    "data": {
+      "PREPROCESS_OPTRIONS": {
+        "add_link_flag": true,
+        "add_user_flag": true,
+        "add_hash_flag": true,
+        "add_number_flag": true,
+        "add_keyword_flag": false,
+        "add_location_flag": false,
+        "remove_links": true,
+        "remove_users": true,
+        "remove_hash": true,
+        "unslang": true,
+        "split_words": true,
+        "stem": false,
+        "remove_punctuations": false,
+        "remove_numbers": true,
+        "to_lower_case": true,
+        "remove_stop_words": false,
+        "remove_not_alpha": true,
+        "join": false
+      },
+      "GLOVE_SIZE": 100,
+      "GLOVE": "glove.twitter.27B.100d.txt"
+    },
+    "model": {
+      "BATCH_SIZE": 8,
+      "EPOCHS": 15,
+      "VERBOSE": 1,
+      "OPTIMIZER": "rmsprop",
+      "LEARNING_RATE": 0.0002,
+      "SHUFFLE": true,
+      "EMBEDDING_OPTIONS": {
+        "input_dim": 13985,
+        "output_dim": 100,
+        "input_length": 35,
+        "embeddings_initializer": "{\"class_name\": \"Constant\"}",
+        "trainable": false
+      },
+      "VALIDATION_PERCENTAGE": 0.2,
+      "TYPE": "LSTM",
+      "config": {
+        "name": "sequential",
+        "layers": [
+          {
+            "class_name": "Embedding",
+            "config": {
+              "name": "embedding",
+              "trainable": false,
+              "batch_input_shape": [
+                null,
+                35
+              ],
+              "dtype": "float32",
+              "input_dim": 13985,
+              "output_dim": 100,
+              "embeddings_initializer": {
+                "class_name": "Constant",
+                "config": {
+                  "value": "{\"class_name\": \"ndarray\"}"
+                }
+              },
+              "embeddings_regularizer": null,
+              "activity_regularizer": null,
+              "embeddings_constraint": null,
+              "mask_zero": false,
+              "input_length": 35
+            }
+          },
+          {
+            "class_name": "LSTM",
+            "config": {
+              "name": "lstm",
+              "trainable": true,
+              "dtype": "float32",
+              "return_sequences": false,
+              "return_state": false,
+              "go_backwards": false,
+              "stateful": false,
+              "unroll": false,
+              "time_major": false,
+              "units": 50,
+              "activation": "tanh",
+              "recurrent_activation": "sigmoid",
+              "use_bias": true,
+              "kernel_initializer": {
+                "class_name": "GlorotUniform",
+                "config": {
+                  "seed": null
+                }
+              },
+              "recurrent_initializer": {
+                "class_name": "Orthogonal",
+                "config": {
+                  "gain": 1.0,
+                  "seed": null
+                }
+              },
+              "bias_initializer": {
+                "class_name": "Zeros",
+                "config": {}
+              },
+              "unit_forget_bias": true,
+              "kernel_regularizer": null,
+              "recurrent_regularizer": null,
+              "bias_regularizer": null,
+              "activity_regularizer": null,
+              "kernel_constraint": null,
+              "recurrent_constraint": null,
+              "bias_constraint": null,
+              "dropout": 0.0,
+              "recurrent_dropout": 0.0,
+              "implementation": 2
+            }
+          },
+          {
+            "class_name": "Dense",
+            "config": {
+              "name": "dense_4",
+              "trainable": true,
+              "dtype": "float32",
+              "units": 1,
+              "activation": "sigmoid",
+              "use_bias": true,
+              "kernel_initializer": {
+                "class_name": "GlorotUniform",
+                "config": {
+                  "seed": null
+                }
+              },
+              "bias_initializer": {
+                "class_name": "Zeros",
+                "config": {}
+              },
+              "kernel_regularizer": null,
+              "bias_regularizer": null,
+              "activity_regularizer": null,
+              "kernel_constraint": null,
+              "bias_constraint": null
+            }
+          }
+        ]
+      },
+      "history": {
+        "loss": [
+          0.53107,
+          0.45097,
+          0.43379,
+          0.41979,
+          0.41018,
+          0.40213,
+          0.39097,
+          0.38611,
+          0.37893,
+          0.37215,
+          0.36214,
+          0.35777,
+          0.34837,
+          0.33995,
+          0.33151
+        ],
+        "accuracy": [
+          0.74713,
+          0.80181,
+          0.81018,
+          0.81938,
+          0.82414,
+          0.82644,
+          0.83481,
+          0.83793,
+          0.8422,
+          0.84253,
+          0.85025,
+          0.84614,
+          0.85665,
+          0.85878,
+          0.86273
+        ],
+        "val_loss": [
+          0.44611,
+          0.42858,
+          0.41838,
+          0.406,
+          0.40752,
+          0.40517,
+          0.42395,
+          0.40323,
+          0.41874,
+          0.44018,
+          0.44453,
+          0.4196,
+          0.50797,
+          0.47967,
+          0.46328
+        ],
+        "val_accuracy": [
+          0.80499,
+          0.80696,
+          0.80893,
+          0.8155,
+          0.82075,
+          0.81747,
+          0.80893,
+          0.81615,
+          0.81747,
+          0.81024,
+          0.81878,
+          0.82075,
+          0.7807,
+          0.79908,
+          0.81681
+        ],
+        "test_loss": [
+          0.47246,
+          0.4661,
+          0.45822,
+          0.43994,
+          0.44942,
+          0.44606,
+          0.44675,
+          0.43854,
+          0.45606,
+          0.46229,
+          0.46292,
+          0.45267,
+          0.52168,
+          0.48945,
+          0.49291
+        ],
+        "test_accuracy": [
+          0.79314,
+          0.7962,
+          0.80294,
+          0.80754,
+          0.80539,
+          0.80785,
+          0.80325,
+          0.81397,
+          0.81397,
+          0.79988,
+          0.8103,
+          0.80509,
+          0.76678,
+          0.78884,
+          0.79957
+        ]
+      }
+    }
+  },
+  "2020-04-29 23:01:27.027036": {
+    "file": "app_keras.py",
+    "data": {
+      "PREPROCESS_OPTRIONS": {
+        "add_link_flag": true,
+        "add_user_flag": true,
+        "add_hash_flag": true,
+        "add_number_flag": true,
+        "add_keyword_flag": false,
+        "add_location_flag": false,
+        "remove_links": true,
+        "remove_users": true,
+        "remove_hash": true,
+        "unslang": true,
+        "split_words": true,
+        "stem": false,
+        "remove_punctuations": false,
+        "remove_numbers": true,
+        "to_lower_case": true,
+        "remove_stop_words": false,
+        "remove_not_alpha": true,
+        "join": false
+      },
+      "GLOVE_SIZE": 100,
+      "GLOVE": "glove.twitter.27B.100d.txt"
+    },
+    "model": {
+      "BATCH_SIZE": 8,
+      "EPOCHS": 15,
+      "VERBOSE": 1,
+      "OPTIMIZER": "adam",
+      "LEARNING_RATE": 0.0002,
+      "SHUFFLE": true,
+      "EMBEDDING_OPTIONS": {
+        "input_dim": 13985,
+        "output_dim": 100,
+        "input_length": 35,
+        "embeddings_initializer": "{\"class_name\": \"Constant\"}",
+        "trainable": false
+      },
+      "VALIDATION_PERCENTAGE": 0.2,
+      "TYPE": "LSTM",
+      "config": {
+        "name": "sequential",
+        "layers": [
+          {
+            "class_name": "Embedding",
+            "config": {
+              "name": "embedding",
+              "trainable": false,
+              "batch_input_shape": [
+                null,
+                35
+              ],
+              "dtype": "float32",
+              "input_dim": 13985,
+              "output_dim": 100,
+              "embeddings_initializer": {
+                "class_name": "Constant",
+                "config": {
+                  "value": "{\"class_name\": \"ndarray\"}"
+                }
+              },
+              "embeddings_regularizer": null,
+              "activity_regularizer": null,
+              "embeddings_constraint": null,
+              "mask_zero": false,
+              "input_length": 35
+            }
+          },
+          {
+            "class_name": "LSTM",
+            "config": {
+              "name": "lstm",
+              "trainable": true,
+              "dtype": "float32",
+              "return_sequences": false,
+              "return_state": false,
+              "go_backwards": false,
+              "stateful": false,
+              "unroll": false,
+              "time_major": false,
+              "units": 50,
+              "activation": "tanh",
+              "recurrent_activation": "sigmoid",
+              "use_bias": true,
+              "kernel_initializer": {
+                "class_name": "GlorotUniform",
+                "config": {
+                  "seed": null
+                }
+              },
+              "recurrent_initializer": {
+                "class_name": "Orthogonal",
+                "config": {
+                  "gain": 1.0,
+                  "seed": null
+                }
+              },
+              "bias_initializer": {
+                "class_name": "Zeros",
+                "config": {}
+              },
+              "unit_forget_bias": true,
+              "kernel_regularizer": null,
+              "recurrent_regularizer": null,
+              "bias_regularizer": null,
+              "activity_regularizer": null,
+              "kernel_constraint": null,
+              "recurrent_constraint": null,
+              "bias_constraint": null,
+              "dropout": 0.0,
+              "recurrent_dropout": 0.0,
+              "implementation": 2
+            }
+          },
+          {
+            "class_name": "Dense",
+            "config": {
+              "name": "dense_4",
+              "trainable": true,
+              "dtype": "float32",
+              "units": 1,
+              "activation": "sigmoid",
+              "use_bias": true,
+              "kernel_initializer": {
+                "class_name": "GlorotUniform",
+                "config": {
+                  "seed": null
+                }
+              },
+              "bias_initializer": {
+                "class_name": "Zeros",
+                "config": {}
+              },
+              "kernel_regularizer": null,
+              "bias_regularizer": null,
+              "activity_regularizer": null,
+              "kernel_constraint": null,
+              "bias_constraint": null
+            }
+          }
+        ]
+      },
+      "history": {
+        "loss": [
+          0.52353,
+          0.43959,
+          0.42144,
+          0.40823,
+          0.40178,
+          0.39381,
+          0.38281,
+          0.3756,
+          0.36584,
+          0.35658,
+          0.3478,
+          0.34088,
+          0.33061,
+          0.31884,
+          0.31006
+        ],
+        "accuracy": [
+          0.75041,
+          0.80952,
+          0.82102,
+          0.82709,
+          0.82824,
+          0.82726,
+          0.83695,
+          0.84253,
+          0.85041,
+          0.85255,
+          0.85698,
+          0.86108,
+          0.86634,
+          0.87586,
+          0.87521
+        ],
+        "val_loss": [
+          0.44982,
+          0.42477,
+          0.41133,
+          0.41356,
+          0.41525,
+          0.41005,
+          0.41719,
+          0.41992,
+          0.43296,
+          0.44743,
+          0.4286,
+          0.43909,
+          0.46158,
+          0.46414,
+          0.45907
+        ],
+        "val_accuracy": [
+          0.79908,
+          0.8109,
+          0.81287,
+          0.81221,
+          0.80827,
+          0.81287,
+          0.80959,
+          0.81221,
+          0.80893,
+          0.80762,
+          0.81287,
+          0.81287,
+          0.80827,
+          0.80565,
+          0.81024
+        ],
+        "test_loss": [
+          0.48226,
+          0.45858,
+          0.44025,
+          0.44269,
+          0.43532,
+          0.43137,
+          0.43289,
+          0.43693,
+          0.44056,
+          0.44477,
+          0.44072,
+          0.4464,
+          0.45513,
+          0.46836,
+          0.45743
+        ],
+        "test_accuracy": [
+          0.77659,
+          0.79497,
+          0.80294,
+          0.79957,
+          0.80968,
+          0.81306,
+          0.81306,
+          0.80723,
+          0.8103,
+          0.81122,
+          0.80907,
+          0.81122,
+          0.81091,
+          0.80141,
+          0.80754
+        ]
+      }
+    }
   }
 }
