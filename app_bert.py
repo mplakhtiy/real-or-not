@@ -11,8 +11,8 @@ import os
 MODEL = {
     'BERT': 'bert_en_uncased_L-12_H-768_A-12',
     # 'BERT': 'bert_en_uncased_L-24_H-1024_A-16',
-    'BATCH_SIZE': 32,
-    'EPOCHS': 8,
+    'BATCH_SIZE': 16,
+    'EPOCHS': 4,
     'VERBOSE': 1,
     'OPTIMIZER': 'adam',
     'LEARNING_RATE': 2e-6,
@@ -22,7 +22,7 @@ MODEL = {
 
 Helpers.correct_data(data)
 
-bert_layer = hub.KerasLayer(f'https://tfhub.dev/tensorflow/{MODEL["BERT"]}/1', trainable=True)
+bert_layer = hub.KerasLayer(f'https://tfhub.dev/tensorflow/{MODEL["BERT"]}/2', trainable=True)
 vocab_file = bert_layer.resolved_object.vocab_file.asset_path.numpy()
 do_lower_case = bert_layer.resolved_object.do_lower_case.numpy()
 tokenizer = FullTokenizer(vocab_file, do_lower_case)
@@ -77,5 +77,6 @@ model_history['test_accuracy'] = test_data_callback.accuracy
 log(
     file='app_bert.py',
     model=MODEL,
-    model_history=model_history
+    model_history=model_history,
+    model_config=model.get_config(),
 )
