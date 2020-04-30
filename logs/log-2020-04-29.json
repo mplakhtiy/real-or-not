@@ -71771,5 +71771,507 @@
         ]
       }
     }
+  },
+  "2020-04-29 17:57:25.026301": {
+    "file": "app_bert.py",
+    "model": {
+      "BERT": "bert_en_uncased_L-24_H-1024_A-16",
+      "BATCH_SIZE": 16,
+      "EPOCHS": 4,
+      "VERBOSE": 1,
+      "OPTIMIZER": "adam",
+      "LEARNING_RATE": 2e-06,
+      "SHUFFLE": true,
+      "VALIDATION_PERCENTAGE": 0.2,
+      "config": {
+        "name": "model",
+        "layers": [
+          {
+            "class_name": "InputLayer",
+            "config": {
+              "batch_input_shape": [
+                null,
+                84
+              ],
+              "dtype": "int32",
+              "sparse": false,
+              "ragged": false,
+              "name": "input_word_ids"
+            },
+            "name": "input_word_ids",
+            "inbound_nodes": []
+          },
+          {
+            "class_name": "InputLayer",
+            "config": {
+              "batch_input_shape": [
+                null,
+                84
+              ],
+              "dtype": "int32",
+              "sparse": false,
+              "ragged": false,
+              "name": "input_mask"
+            },
+            "name": "input_mask",
+            "inbound_nodes": []
+          },
+          {
+            "class_name": "InputLayer",
+            "config": {
+              "batch_input_shape": [
+                null,
+                84
+              ],
+              "dtype": "int32",
+              "sparse": false,
+              "ragged": false,
+              "name": "segment_ids"
+            },
+            "name": "segment_ids",
+            "inbound_nodes": []
+          },
+          {
+            "class_name": "KerasLayer",
+            "config": {
+              "name": "keras_layer",
+              "trainable": true,
+              "dtype": "float32",
+              "handle": "https://tfhub.dev/tensorflow/bert_en_uncased_L-24_H-1024_A-16/2"
+            },
+            "name": "keras_layer",
+            "inbound_nodes": [
+              [
+                [
+                  "input_word_ids",
+                  0,
+                  0,
+                  {}
+                ],
+                [
+                  "input_mask",
+                  0,
+                  0,
+                  {}
+                ],
+                [
+                  "segment_ids",
+                  0,
+                  0,
+                  {}
+                ]
+              ]
+            ]
+          },
+          {
+            "class_name": "TensorFlowOpLayer",
+            "config": {
+              "name": "strided_slice",
+              "trainable": true,
+              "dtype": "float32",
+              "node_def": {
+                "name": "strided_slice",
+                "op": "StridedSlice",
+                "input": [
+                  "keras_layer/Identity_1",
+                  "strided_slice/begin",
+                  "strided_slice/end",
+                  "strided_slice/strides"
+                ],
+                "attr": {
+                  "T": {
+                    "type": "DT_FLOAT"
+                  },
+                  "Index": {
+                    "type": "DT_INT32"
+                  },
+                  "shrink_axis_mask": {
+                    "i": "2"
+                  },
+                  "ellipsis_mask": {
+                    "i": "0"
+                  },
+                  "begin_mask": {
+                    "i": "5"
+                  },
+                  "new_axis_mask": {
+                    "i": "0"
+                  },
+                  "end_mask": {
+                    "i": "5"
+                  }
+                }
+              },
+              "constants": {
+                "1": "{\"class_name\": \"ndarray\"}",
+                "2": "{\"class_name\": \"ndarray\"}",
+                "3": "{\"class_name\": \"ndarray\"}"
+              }
+            },
+            "name": "tf_op_layer_strided_slice",
+            "inbound_nodes": [
+              [
+                [
+                  "keras_layer",
+                  0,
+                  1,
+                  {}
+                ]
+              ]
+            ]
+          },
+          {
+            "class_name": "Dense",
+            "config": {
+              "name": "dense",
+              "trainable": true,
+              "dtype": "float32",
+              "units": 1,
+              "activation": "sigmoid",
+              "use_bias": true,
+              "kernel_initializer": {
+                "class_name": "GlorotUniform",
+                "config": {
+                  "seed": null
+                }
+              },
+              "bias_initializer": {
+                "class_name": "Zeros",
+                "config": {}
+              },
+              "kernel_regularizer": null,
+              "bias_regularizer": null,
+              "activity_regularizer": null,
+              "kernel_constraint": null,
+              "bias_constraint": null
+            },
+            "name": "dense",
+            "inbound_nodes": [
+              [
+                [
+                  "tf_op_layer_strided_slice",
+                  0,
+                  0,
+                  {}
+                ]
+              ]
+            ]
+          }
+        ],
+        "input_layers": [
+          [
+            "input_word_ids",
+            0,
+            0
+          ],
+          [
+            "input_mask",
+            0,
+            0
+          ],
+          [
+            "segment_ids",
+            0,
+            0
+          ]
+        ],
+        "output_layers": [
+          [
+            "dense",
+            0,
+            0
+          ]
+        ]
+      },
+      "history": {
+        "loss": [
+          0.49942,
+          0.38593,
+          0.34897,
+          0.32152
+        ],
+        "accuracy": [
+          0.76946,
+          0.83514,
+          0.8555,
+          0.87159
+        ],
+        "val_loss": [
+          0.40302,
+          0.40118,
+          0.39773,
+          0.39688
+        ],
+        "val_accuracy": [
+          0.82206,
+          0.83913,
+          0.83782,
+          0.84373
+        ],
+        "test_loss": [
+          0.42564,
+          0.40534,
+          0.39889,
+          0.40006
+        ],
+        "test_accuracy": [
+          0.80938,
+          0.82348,
+          0.82899,
+          0.83543
+        ]
+      }
+    }
+  },
+  "2020-04-30 03:24:14.962735": {
+    "file": "app_bert.py",
+    "model": {
+      "BERT": "bert_en_uncased_L-24_H-1024_A-16",
+      "BATCH_SIZE": 16,
+      "EPOCHS": 4,
+      "VERBOSE": 1,
+      "OPTIMIZER": "adam",
+      "LEARNING_RATE": 2e-06,
+      "SHUFFLE": true,
+      "VALIDATION_PERCENTAGE": 0.2,
+      "config": {
+        "name": "model",
+        "layers": [
+          {
+            "class_name": "InputLayer",
+            "config": {
+              "batch_input_shape": [
+                null,
+                84
+              ],
+              "dtype": "int32",
+              "sparse": false,
+              "ragged": false,
+              "name": "input_word_ids"
+            },
+            "name": "input_word_ids",
+            "inbound_nodes": []
+          },
+          {
+            "class_name": "InputLayer",
+            "config": {
+              "batch_input_shape": [
+                null,
+                84
+              ],
+              "dtype": "int32",
+              "sparse": false,
+              "ragged": false,
+              "name": "input_mask"
+            },
+            "name": "input_mask",
+            "inbound_nodes": []
+          },
+          {
+            "class_name": "InputLayer",
+            "config": {
+              "batch_input_shape": [
+                null,
+                84
+              ],
+              "dtype": "int32",
+              "sparse": false,
+              "ragged": false,
+              "name": "segment_ids"
+            },
+            "name": "segment_ids",
+            "inbound_nodes": []
+          },
+          {
+            "class_name": "KerasLayer",
+            "config": {
+              "name": "keras_layer",
+              "trainable": true,
+              "dtype": "float32",
+              "handle": "https://tfhub.dev/tensorflow/bert_en_uncased_L-24_H-1024_A-16/2"
+            },
+            "name": "keras_layer",
+            "inbound_nodes": [
+              [
+                [
+                  "input_word_ids",
+                  0,
+                  0,
+                  {}
+                ],
+                [
+                  "input_mask",
+                  0,
+                  0,
+                  {}
+                ],
+                [
+                  "segment_ids",
+                  0,
+                  0,
+                  {}
+                ]
+              ]
+            ]
+          },
+          {
+            "class_name": "TensorFlowOpLayer",
+            "config": {
+              "name": "strided_slice",
+              "trainable": true,
+              "dtype": "float32",
+              "node_def": {
+                "name": "strided_slice",
+                "op": "StridedSlice",
+                "input": [
+                  "keras_layer/Identity_1",
+                  "strided_slice/begin",
+                  "strided_slice/end",
+                  "strided_slice/strides"
+                ],
+                "attr": {
+                  "shrink_axis_mask": {
+                    "i": "2"
+                  },
+                  "ellipsis_mask": {
+                    "i": "0"
+                  },
+                  "begin_mask": {
+                    "i": "5"
+                  },
+                  "new_axis_mask": {
+                    "i": "0"
+                  },
+                  "end_mask": {
+                    "i": "5"
+                  },
+                  "T": {
+                    "type": "DT_FLOAT"
+                  },
+                  "Index": {
+                    "type": "DT_INT32"
+                  }
+                }
+              },
+              "constants": {
+                "1": "{\"class_name\": \"ndarray\"}",
+                "2": "{\"class_name\": \"ndarray\"}",
+                "3": "{\"class_name\": \"ndarray\"}"
+              }
+            },
+            "name": "tf_op_layer_strided_slice",
+            "inbound_nodes": [
+              [
+                [
+                  "keras_layer",
+                  0,
+                  1,
+                  {}
+                ]
+              ]
+            ]
+          },
+          {
+            "class_name": "Dense",
+            "config": {
+              "name": "dense",
+              "trainable": true,
+              "dtype": "float32",
+              "units": 1,
+              "activation": "sigmoid",
+              "use_bias": true,
+              "kernel_initializer": {
+                "class_name": "GlorotUniform",
+                "config": {
+                  "seed": null
+                }
+              },
+              "bias_initializer": {
+                "class_name": "Zeros",
+                "config": {}
+              },
+              "kernel_regularizer": null,
+              "bias_regularizer": null,
+              "activity_regularizer": null,
+              "kernel_constraint": null,
+              "bias_constraint": null
+            },
+            "name": "dense",
+            "inbound_nodes": [
+              [
+                [
+                  "tf_op_layer_strided_slice",
+                  0,
+                  0,
+                  {}
+                ]
+              ]
+            ]
+          }
+        ],
+        "input_layers": [
+          [
+            "input_word_ids",
+            0,
+            0
+          ],
+          [
+            "input_mask",
+            0,
+            0
+          ],
+          [
+            "segment_ids",
+            0,
+            0
+          ]
+        ],
+        "output_layers": [
+          [
+            "dense",
+            0,
+            0
+          ]
+        ]
+      },
+      "history": {
+        "loss": [
+          0.50137,
+          0.38482,
+          0.34779,
+          0.31431
+        ],
+        "accuracy": [
+          0.76289,
+          0.84171,
+          0.85862,
+          0.87537
+        ],
+        "val_loss": [
+          0.4054,
+          0.38397,
+          0.38199,
+          0.3864
+        ],
+        "val_accuracy": [
+          0.82469,
+          0.84045,
+          0.83519,
+          0.83913
+        ],
+        "test_loss": [
+          0.43127,
+          0.39437,
+          0.38991,
+          0.39838
+        ],
+        "test_accuracy": [
+          0.8011,
+          0.82807,
+          0.83052,
+          0.83236
+        ]
+      }
+    }
   }
 }
