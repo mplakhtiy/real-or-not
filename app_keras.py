@@ -1,17 +1,17 @@
 # -*- coding: utf-8 -*-
 from tweets import Helpers, tweets_preprocessor
 from models import Keras, TestDataCallback
-from utils import log, get_glove_embeddings
+from utils import log, get_glove_embeddings, ensure_path_exists
 from tensorflow.keras.callbacks import ModelCheckpoint
-from tensorflow.keras.layers import Dense, Flatten, LSTM, SpatialDropout1D, Dropout, GlobalMaxPooling1D, GRU
+from tensorflow.keras.layers import Dense, LSTM, SpatialDropout1D, Dropout, GlobalMaxPooling1D, GRU
 from tensorflow.keras.layers import Bidirectional, Conv1D, GlobalAveragePooling1D, MaxPooling1D, GlobalMaxPool1D
-from data import train_data as data, test_data_with_target as test_data
 from tensorflow.keras.preprocessing.text import Tokenizer
 from tensorflow.keras.initializers import Constant
 from tensorflow.keras.preprocessing.sequence import pad_sequences
-import os
+from data import train, validation, test
 
 ########################################################################################################################
+
 USE_GLOVE = False
 
 DATA = {
@@ -39,48 +39,52 @@ DATA = {
 
 ########################################################################################################################
 
-data['preprocessed'] = tweets_preprocessor.preprocess(
-    data.text,
+train['preprocessed'] = tweets_preprocessor.preprocess(
+    train.text,
     DATA['PREPROCESS_OPTRIONS'],
-    keywords=data.keyword,
-    locations=data.location
+    keywords=train.keyword,
+    locations=train.location
 )
 
-Helpers.correct_data(data)
-
-test_data['preprocessed'] = tweets_preprocessor.preprocess(
-    test_data.text,
+validation['preprocessed'] = tweets_preprocessor.preprocess(
+    validation.text,
     DATA['PREPROCESS_OPTRIONS'],
-    keywords=test_data.keyword,
-    locations=test_data.location
+    keywords=validation.keyword,
+    locations=validation.location
+)
+
+test['preprocessed'] = tweets_preprocessor.preprocess(
+    test.text,
+    DATA['PREPROCESS_OPTRIONS'],
+    keywords=test.keyword,
+    locations=test.location
 )
 
 ########################################################################################################################
 
 keras_tokenizer = Tokenizer()
-keras_tokenizer.fit_on_texts(data.preprocessed)
+keras_tokenizer.fit_on_texts(train.preprocessed)
 
-sequences = keras_tokenizer.texts_to_sequences(data.preprocessed)
-sequences_test = keras_tokenizer.texts_to_sequences(test_data.preprocessed)
+sequences_train = keras_tokenizer.texts_to_sequences(train.preprocessed)
+sequences_validation = keras_tokenizer.texts_to_sequences(validation.preprocessed)
+sequences_test = keras_tokenizer.texts_to_sequences(test.preprocessed)
 
-MAX_LEN = Helpers.get_max_vector_len(sequences)
+MAX_LEN = Helpers.get_max_vector_len(sequences_train)
 
-sequences_padded = pad_sequences(sequences, maxlen=MAX_LEN, truncating='post', padding='post')
-sequences_test_padded = pad_sequences(sequences_test, maxlen=MAX_LEN, truncating='post', padding='post')
+x_train = pad_sequences(sequences_train, maxlen=MAX_LEN, truncating='post', padding='post')
+y_train = train.target.values
+x_val = pad_sequences(sequences_validation, maxlen=MAX_LEN, truncating='post', padding='post')
+y_val = validation.target.values
+x_test = pad_sequences(sequences_test, maxlen=MAX_LEN, truncating='post', padding='post')
+y_test = test.target.values
 
 WORD_INDEX_SIZE = len(keras_tokenizer.word_index) + 1
-
-x = sequences_padded
-y = data.target_relabeled.values
-
-x_test = sequences_test_padded
-y_test = test_data.target.values
 
 ########################################################################################################################
 
 MODEL = {
-    'BATCH_SIZE': 32,
-    'EPOCHS': 10,
+    'BATCH_SIZE': 16,
+    'EPOCHS': 20,
     'VERBOSE': 1,
     'OPTIMIZER': 'rmsprop',
     'LEARNING_RATE': 1e-4,
@@ -90,8 +94,7 @@ MODEL = {
         'output_dim': 128,
         'input_length': MAX_LEN
     },
-    'VALIDATION_PERCENTAGE': 0.2,
-    'TYPE': 'GRU'
+    'TYPE': 'LSTM'
 }
 
 ########################################################################################################################
@@ -99,8 +102,6 @@ MODEL = {
 if USE_GLOVE:
     DATA['GLOVE_SIZE'] = 100
     DATA['GLOVE'] = f'glove.twitter.27B.{DATA["GLOVE_SIZE"]}d.txt'
-    # DATA['GLOVE'] = f'glove.6b.{DATA["GLOVE_SIZE"]}d.txt'
-    # DATA['GLOVE'] = f'glove.42B.{DATA["GLOVE_SIZE"]}d.txt'
     GLOVE_FILE_PATH = f'./data/glove/{DATA["GLOVE"]}'
     glove_embeddings = get_glove_embeddings(GLOVE_FILE_PATH)
     train_glove_vocab_coverage, train_glove_text_coverage, _ = Helpers.check_embeddings_coverage(
@@ -125,9 +126,6 @@ if USE_GLOVE:
 ########################################################################################################################
 
 MODELS_LAYERS = {
-    'FLATTEN': [
-        Flatten()
-    ],
     'LSTM': [
         LSTM(64)
     ],
@@ -139,9 +137,9 @@ MODELS_LAYERS = {
         Bidirectional(LSTM(64)),
         Dropout(0.2)
     ],
-    'GlobalAveragePooling1D': [
+    'FASTTEXT': [
         GlobalAveragePooling1D(),
-        Dense(32, activation='relu')
+        Dense(64, activation='relu')
     ],
     'RCNN': [
         Dropout(0.25),
@@ -151,9 +149,9 @@ MODELS_LAYERS = {
     ],
     'CNN': [
         Dropout(0.2),
-        Conv1D(filters=64, kernel_size=3, activation='relu', strides=1, padding='valid'),
+        Conv1D(filters=64, kernel_size=5, activation='relu', strides=1, padding='valid'),
         GlobalMaxPooling1D(),
-        Dense(32, activation='relu'),
+        Dense(64, activation='relu'),
     ],
     'RNN': [
         Bidirectional(LSTM(64)),
@@ -168,11 +166,14 @@ MODELS_LAYERS = {
 }
 
 ########################################################################################################################
-MODEL_SAVE_PATH = f'./data/models/keras/{MODEL["TYPE"]}/'
-if not os.path.exists(MODEL_SAVE_PATH):
-    os.makedirs(MODEL_SAVE_PATH)
+
+MODELS_DIR_SAVE_PATH = f'./data/models/keras/{MODEL["TYPE"]}/'
+ensure_path_exists(MODELS_DIR_SAVE_PATH)
+
+MODEL_PREFIX = f'model-{MODEL["OPTIMIZER"]}-bs{MODEL["BATCH_SIZE"]}-lr{MODEL["LEARNING_RATE"]}-len{MODEL["EMBEDDING_OPTIONS"]["output_dim"]}'
+
 checkpoint = ModelCheckpoint(
-    MODEL_SAVE_PATH + 'model-' + f'{MODEL["OPTIMIZER"]}-bs{MODEL["BATCH_SIZE"]}-lr{MODEL["LEARNING_RATE"]}-len{MODEL["EMBEDDING_OPTIONS"]["output_dim"]}' + '-e{epoch:03d}-a{accuracy:03f}-va{val_accuracy:03f}.h5',
+    MODELS_DIR_SAVE_PATH + MODEL_PREFIX + '-e{epoch:03d}-a{accuracy:03f}-va{val_accuracy:03f}-ta.h5',
     verbose=1,
     monitor='val_loss',
     save_best_only=True,
@@ -185,6 +186,7 @@ test_data_callback = TestDataCallback(
 )
 
 ########################################################################################################################
+
 model = Keras.get_model(
     layers=MODELS_LAYERS[MODEL['TYPE']],
     embedding_options=MODEL['EMBEDDING_OPTIONS'],
@@ -193,13 +195,16 @@ model = Keras.get_model(
 )
 
 history = model.fit(
-    x, y,
+    x_train, y_train,
     batch_size=MODEL['BATCH_SIZE'],
     epochs=MODEL['EPOCHS'],
     verbose=MODEL['VERBOSE'],
     shuffle=MODEL['SHUFFLE'],
-    validation_split=MODEL['VALIDATION_PERCENTAGE'],
-    callbacks=[checkpoint, test_data_callback]  # checkpoint
+    validation_data=(
+        x_val,
+        y_val
+    ),
+    callbacks=[checkpoint, test_data_callback]
 )
 
 model_history = history.history.copy()
@@ -209,7 +214,7 @@ model_history['test_accuracy'] = test_data_callback.accuracy
 Keras.draw_graph(model_history)
 
 log(
-    file='app_keras.py',
+    target='keras',
     data=DATA,
     model=MODEL,
     model_history=model_history,

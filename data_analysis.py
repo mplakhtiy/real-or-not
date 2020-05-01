@@ -1,7 +1,7 @@
 import matplotlib.pyplot as plt
 import seaborn as sns
 import numpy as np
-from data import train_data
+from data import original_train_data as d
 from tweets import stop_words
 from collections import defaultdict
 from wordcloud import WordCloud
@@ -192,14 +192,14 @@ def draw_wordcloud(data, target):
     plt.show()
 
 
-draw_class_distribution_graph(train_data)
-draw_number_of_characters_graph(train_data)
-draw_number_of_words_graph(train_data)
-draw_avarage_word_len_graph(train_data)
-draw_location_distribution_graph(train_data)
-draw_keyword_distribution_graph(train_data)
-draw_top_10_stop_words(train_data)
-draw_punctuations_distribution(train_data)
-draw_top_10_hashtags(train_data)
-draw_wordcloud(train_data, 1)
-draw_wordcloud(train_data, 0)
+draw_class_distribution_graph(d)
+draw_number_of_characters_graph(d)
+draw_number_of_words_graph(d)
+draw_avarage_word_len_graph(d)
+draw_location_distribution_graph(d)
+draw_keyword_distribution_graph(d)
+draw_top_10_stop_words(d)
+draw_punctuations_distribution(d)
+draw_top_10_hashtags(d)
+draw_wordcloud(d, 1)
+draw_wordcloud(d, 0)

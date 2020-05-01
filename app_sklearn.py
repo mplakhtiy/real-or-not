@@ -1,16 +1,13 @@
 # -*- coding: utf-8 -*-
-from tweets import tweets_preprocessor, Helpers
+from tweets import tweets_preprocessor
 from models import Sklearn
 from sklearn.model_selection import cross_val_score
-from sklearn.model_selection import train_test_split
-from utils import log
-from data import train_data as data, test_data_with_target as test_data
-import pickle
+from utils import log, save_classifier
+from data import train, validation, test
 
 ########################################################################################################################
 
 DATA = {
-    'VALIDATION_PERCENTAGE': 0.2,
     'PREPROCESS_OPTRIONS': {
         'add_link_flag': False,
         'add_user_flag': False,
@@ -48,32 +45,39 @@ CLASSIFIER = {
 
 ########################################################################################################################
 
-data['preprocessed'] = tweets_preprocessor.preprocess(
-    data.text,
+train['preprocessed'] = tweets_preprocessor.preprocess(
+    train.text,
     DATA['PREPROCESS_OPTRIONS'],
-    keywords=data.keyword,
-    locations=data.location
+    keywords=train.keyword,
+    locations=train.location
 )
 
-Helpers.correct_data(data)
-
-test_data['preprocessed'] = tweets_preprocessor.preprocess(
-    test_data.text,
+validation['preprocessed'] = tweets_preprocessor.preprocess(
+    validation.text,
     DATA['PREPROCESS_OPTRIONS'],
-    keywords=test_data.keyword,
-    locations=test_data.location
+    keywords=validation.keyword,
+    locations=validation.location
 )
+
+test['preprocessed'] = tweets_preprocessor.preprocess(
+    test.text,
+    DATA['PREPROCESS_OPTRIONS'],
+    keywords=test.keyword,
+    locations=test.location
+)
+
+########################################################################################################################
 
 vectorizer = Sklearn.VECTORIZERS[VECTORIZER['TYPE']](**VECTORIZER['OPTIONS'])
 
-x_train, x_val, y_train, y_val = train_test_split(
-    vectorizer.fit_transform(data.preprocessed).todense(),
-    data['target_relabeled'].values,
-    test_size=DATA['VALIDATION_PERCENTAGE']
-)
+x_train = vectorizer.fit_transform(train.preprocessed).todense()
+y_train = train.target.values
 
-x_test = vectorizer.transform(test_data.preprocessed).todense()
-y_test = test_data.target.values
+x_val = vectorizer.transform(validation.preprocessed).todense()
+y_val = validation.target.values
+
+x_test = vectorizer.transform(test.preprocessed).todense()
+y_test = test.target.values
 
 ########################################################################################################################
 
@@ -85,18 +89,21 @@ cross_val_scores = [round(s, 5) for s in cross_val_score(classifier, x_train, y_
 
 classifier.fit(x_train, y_train)
 
-validation_score = round(classifier.score(x_val, y_val), 5)
+train_score = round(classifier.score(x_train, y_train), 5)
+val_score = round(classifier.score(x_val, y_val), 5)
 test_score = round(classifier.score(x_test, y_test), 5)
 
 print(f'Cross Validation Scores: {cross_val_scores}')
-print(f'Mean Score of Validation Set: {validation_score}')
+print(f'Mean Score of Train Set: {train_score}')
+print(f'Mean Score of Validation Set: {val_score}')
 print(f'Mean Score of Test Set: {test_score}')
 
 log(
-    file='app_sklearn.py',
+    target='sklearn',
     classifier={
         'classifier': CLASSIFIER,
-        'val_score': validation_score,
+        'train_score': train_score,
+        'val_score': val_score,
         'test_score': test_score,
         'cross_val_scores': cross_val_scores
     },
@@ -104,5 +111,7 @@ log(
     data=DATA
 )
 
-filename = f'./data/classifiers/{CLASSIFIER["TYPE"]}-{VECTORIZER["TYPE"]}-{validation_score}-{test_score}.pickle'
-pickle.dump(classifier, open(filename, 'wb'))
+save_classifier(
+    f'./data/classifiers/{CLASSIFIER["TYPE"]}-{VECTORIZER["TYPE"]}-{train_score}-{val_score}-{test_score}.pickle',
+    classifier
+)

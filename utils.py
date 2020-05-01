@@ -2,6 +2,7 @@ import json
 from datetime import datetime
 import os
 import numpy as np
+import pickle
 
 
 def json_dumper(obj):
@@ -21,24 +22,35 @@ def get_from_file(file_path):
         return json.load(file)
 
 
+def ensure_path_exists(path):
+    if not os.path.exists(path):
+        os.makedirs(path)
+
+
+def save_classifier(file_path, classifier):
+    pickle.dump(classifier, open(file_path, 'wb'))
+
+
 def log(
-        file=None,
+        target=None,
         data=None,
         model=None,
         model_history=None,
         model_config=None,
         classifier=None,
         vectorizer=None,
-        file_path=f'./logs/log-{datetime.now().date()}.json'
 ):
+    file_path = f'./logs/{target}/log-{datetime.now().date()}.json'
+
     if not os.path.exists(file_path):
         save_to_file(file_path, {})
 
     log_data = get_from_file(file_path)
 
     current_log = {}
-    if file is not None:
-        current_log['file'] = file
+
+    if target is not None:
+        current_log['target'] = target
 
     if data is not None:
         current_log['data'] = data

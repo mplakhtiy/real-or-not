@@ -1,7 +1,13 @@
 import pandas as pd
 
-train_data = pd.read_csv('./data/train.csv')
+original_train_data = pd.read_csv('./data/original/train.csv')
 
-test_data = pd.read_csv('./data/test.csv')
+original_test_data = pd.read_csv('./data/original/test.csv')
 
-test_data_with_target = pd.read_csv('./data/test_with_target.csv')
+original_test_data_with_target = pd.read_csv('./data/original/test_with_target.csv')
+
+train = pd.read_csv('./data/train.csv')
+
+validation = pd.read_csv('./data/validation.csv')
+
+test = pd.read_csv('./data/test.csv')
