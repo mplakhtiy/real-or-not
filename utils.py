@@ -40,7 +40,10 @@ def log(
         classifier=None,
         vectorizer=None,
 ):
-    file_path = f'./logs/{target}/log-{datetime.now().date()}.json'
+    dir_path = f'./logs/{target}/'
+    ensure_path_exists(dir_path)
+    file_name = f'{datetime.now().date()}.json'
+    file_path = dir_path + file_name
 
     if not os.path.exists(file_path):
         save_to_file(file_path, {})
