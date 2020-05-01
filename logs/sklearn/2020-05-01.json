@@ -4788,5 +4788,908 @@
         ]
       }
     }
+  },
+  "2020-05-01 17:00:41.387915": {
+    "target": "sklearn",
+    "data": {
+      "PREPROCESS_OPTIONS": {
+        "add_link_flag": true,
+        "add_user_flag": true,
+        "add_hash_flag": true,
+        "add_number_flag": false,
+        "add_keyword_flag": false,
+        "add_location_flag": false,
+        "remove_links": true,
+        "remove_users": true,
+        "remove_hash": true,
+        "unslang": true,
+        "split_words": true,
+        "stem": false,
+        "remove_punctuations": true,
+        "remove_numbers": true,
+        "to_lower_case": true,
+        "remove_stop_words": true,
+        "remove_not_alpha": true,
+        "join": true
+      }
+    },
+    "classifier": {
+      "classifier": {
+        "TYPE": "LOGISTIC_REGRESSION",
+        "OPTIONS": {}
+      },
+      "val_score": 0.81024,
+      "test_score": 0.80356
+    },
+    "vectorizer": {
+      "TYPE": "COUNT",
+      "OPTIONS": {
+        "binary": true,
+        "ngram_range": [
+          1,
+          3
+        ]
+      }
+    }
+  },
+  "2020-05-01 17:02:03.214171": {
+    "target": "sklearn",
+    "data": {
+      "PREPROCESS_OPTIONS": {
+        "add_link_flag": true,
+        "add_user_flag": true,
+        "add_hash_flag": true,
+        "add_number_flag": true,
+        "add_keyword_flag": false,
+        "add_location_flag": false,
+        "remove_links": true,
+        "remove_users": true,
+        "remove_hash": true,
+        "unslang": true,
+        "split_words": true,
+        "stem": false,
+        "remove_punctuations": true,
+        "remove_numbers": true,
+        "to_lower_case": true,
+        "remove_stop_words": true,
+        "remove_not_alpha": true,
+        "join": true
+      }
+    },
+    "classifier": {
+      "classifier": {
+        "TYPE": "LOGISTIC_REGRESSION",
+        "OPTIONS": {}
+      },
+      "val_score": 0.81156,
+      "test_score": 0.80325
+    },
+    "vectorizer": {
+      "TYPE": "COUNT",
+      "OPTIONS": {
+        "binary": true,
+        "ngram_range": [
+          1,
+          3
+        ]
+      }
+    }
+  },
+  "2020-05-01 17:03:41.983254": {
+    "target": "sklearn",
+    "data": {
+      "PREPROCESS_OPTIONS": {
+        "add_link_flag": true,
+        "add_user_flag": true,
+        "add_hash_flag": true,
+        "add_number_flag": true,
+        "add_keyword_flag": true,
+        "add_location_flag": false,
+        "remove_links": true,
+        "remove_users": true,
+        "remove_hash": true,
+        "unslang": true,
+        "split_words": true,
+        "stem": false,
+        "remove_punctuations": true,
+        "remove_numbers": true,
+        "to_lower_case": true,
+        "remove_stop_words": true,
+        "remove_not_alpha": true,
+        "join": true
+      }
+    },
+    "classifier": {
+      "classifier": {
+        "TYPE": "LOGISTIC_REGRESSION",
+        "OPTIONS": {}
+      },
+      "val_score": 0.8109,
+      "test_score": 0.80325
+    },
+    "vectorizer": {
+      "TYPE": "COUNT",
+      "OPTIONS": {
+        "binary": true,
+        "ngram_range": [
+          1,
+          3
+        ]
+      }
+    }
+  },
+  "2020-05-01 17:05:21.990610": {
+    "target": "sklearn",
+    "data": {
+      "PREPROCESS_OPTIONS": {
+        "add_link_flag": true,
+        "add_user_flag": true,
+        "add_hash_flag": true,
+        "add_number_flag": true,
+        "add_keyword_flag": true,
+        "add_location_flag": true,
+        "remove_links": true,
+        "remove_users": true,
+        "remove_hash": true,
+        "unslang": true,
+        "split_words": true,
+        "stem": false,
+        "remove_punctuations": true,
+        "remove_numbers": true,
+        "to_lower_case": true,
+        "remove_stop_words": true,
+        "remove_not_alpha": true,
+        "join": true
+      }
+    },
+    "classifier": {
+      "classifier": {
+        "TYPE": "LOGISTIC_REGRESSION",
+        "OPTIONS": {}
+      },
+      "val_score": 0.8109,
+      "test_score": 0.80172
+    },
+    "vectorizer": {
+      "TYPE": "COUNT",
+      "OPTIONS": {
+        "binary": true,
+        "ngram_range": [
+          1,
+          3
+        ]
+      }
+    }
+  },
+  "2020-05-01 17:06:21.614630": {
+    "target": "sklearn",
+    "data": {
+      "PREPROCESS_OPTIONS": {
+        "add_link_flag": false,
+        "add_user_flag": true,
+        "add_hash_flag": true,
+        "add_number_flag": false,
+        "add_keyword_flag": false,
+        "add_location_flag": false,
+        "remove_links": true,
+        "remove_users": true,
+        "remove_hash": true,
+        "unslang": true,
+        "split_words": true,
+        "stem": false,
+        "remove_punctuations": true,
+        "remove_numbers": true,
+        "to_lower_case": true,
+        "remove_stop_words": true,
+        "remove_not_alpha": true,
+        "join": true
+      }
+    },
+    "classifier": {
+      "classifier": {
+        "TYPE": "LOGISTIC_REGRESSION",
+        "OPTIONS": {}
+      },
+      "val_score": 0.80433,
+      "test_score": 0.80018
+    },
+    "vectorizer": {
+      "TYPE": "COUNT",
+      "OPTIONS": {
+        "binary": true,
+        "ngram_range": [
+          1,
+          3
+        ]
+      }
+    }
+  },
+  "2020-05-01 17:07:19.371442": {
+    "target": "sklearn",
+    "data": {
+      "PREPROCESS_OPTIONS": {
+        "add_link_flag": true,
+        "add_user_flag": false,
+        "add_hash_flag": true,
+        "add_number_flag": false,
+        "add_keyword_flag": false,
+        "add_location_flag": false,
+        "remove_links": true,
+        "remove_users": true,
+        "remove_hash": true,
+        "unslang": true,
+        "split_words": true,
+        "stem": false,
+        "remove_punctuations": true,
+        "remove_numbers": true,
+        "to_lower_case": true,
+        "remove_stop_words": true,
+        "remove_not_alpha": true,
+        "join": true
+      }
+    },
+    "classifier": {
+      "classifier": {
+        "TYPE": "LOGISTIC_REGRESSION",
+        "OPTIONS": {}
+      },
+      "val_score": 0.80696,
+      "test_score": 0.80417
+    },
+    "vectorizer": {
+      "TYPE": "COUNT",
+      "OPTIONS": {
+        "binary": true,
+        "ngram_range": [
+          1,
+          3
+        ]
+      }
+    }
+  },
+  "2020-05-01 17:08:25.962938": {
+    "target": "sklearn",
+    "data": {
+      "PREPROCESS_OPTIONS": {
+        "add_link_flag": true,
+        "add_user_flag": true,
+        "add_hash_flag": false,
+        "add_number_flag": false,
+        "add_keyword_flag": false,
+        "add_location_flag": false,
+        "remove_links": true,
+        "remove_users": true,
+        "remove_hash": true,
+        "unslang": true,
+        "split_words": true,
+        "stem": false,
+        "remove_punctuations": true,
+        "remove_numbers": true,
+        "to_lower_case": true,
+        "remove_stop_words": true,
+        "remove_not_alpha": true,
+        "join": true
+      }
+    },
+    "classifier": {
+      "classifier": {
+        "TYPE": "LOGISTIC_REGRESSION",
+        "OPTIONS": {}
+      },
+      "val_score": 0.8063,
+      "test_score": 0.80233
+    },
+    "vectorizer": {
+      "TYPE": "COUNT",
+      "OPTIONS": {
+        "binary": true,
+        "ngram_range": [
+          1,
+          3
+        ]
+      }
+    }
+  },
+  "2020-05-01 17:19:21.508942": {
+    "target": "sklearn",
+    "data": {
+      "PREPROCESS_OPTIONS": {
+        "add_link_flag": true,
+        "add_user_flag": false,
+        "add_hash_flag": true,
+        "add_number_flag": true,
+        "add_keyword_flag": false,
+        "add_location_flag": false,
+        "remove_links": true,
+        "remove_users": true,
+        "remove_hash": true,
+        "unslang": true,
+        "split_words": true,
+        "stem": false,
+        "remove_punctuations": true,
+        "remove_numbers": true,
+        "to_lower_case": true,
+        "remove_stop_words": true,
+        "remove_not_alpha": true,
+        "join": true
+      }
+    },
+    "classifier": {
+      "classifier": {
+        "TYPE": "LOGISTIC_REGRESSION",
+        "OPTIONS": {}
+      },
+      "val_score": 0.81353,
+      "test_score": 0.8008
+    },
+    "vectorizer": {
+      "TYPE": "COUNT",
+      "OPTIONS": {
+        "binary": true,
+        "ngram_range": [
+          1,
+          3
+        ]
+      }
+    }
+  },
+  "2020-05-01 17:20:33.987897": {
+    "target": "sklearn",
+    "data": {
+      "PREPROCESS_OPTIONS": {
+        "add_link_flag": false,
+        "add_user_flag": false,
+        "add_hash_flag": true,
+        "add_number_flag": false,
+        "add_keyword_flag": false,
+        "add_location_flag": false,
+        "remove_links": true,
+        "remove_users": true,
+        "remove_hash": true,
+        "unslang": true,
+        "split_words": true,
+        "stem": false,
+        "remove_punctuations": true,
+        "remove_numbers": true,
+        "to_lower_case": true,
+        "remove_stop_words": true,
+        "remove_not_alpha": true,
+        "join": true
+      }
+    },
+    "classifier": {
+      "classifier": {
+        "TYPE": "LOGISTIC_REGRESSION",
+        "OPTIONS": {}
+      },
+      "val_score": 0.80827,
+      "test_score": 0.79988
+    },
+    "vectorizer": {
+      "TYPE": "COUNT",
+      "OPTIONS": {
+        "binary": true,
+        "ngram_range": [
+          1,
+          3
+        ]
+      }
+    }
+  },
+  "2020-05-01 17:21:46.936378": {
+    "target": "sklearn",
+    "data": {
+      "PREPROCESS_OPTIONS": {
+        "add_link_flag": true,
+        "add_user_flag": false,
+        "add_hash_flag": true,
+        "add_number_flag": false,
+        "add_keyword_flag": false,
+        "add_location_flag": false,
+        "remove_links": true,
+        "remove_users": true,
+        "remove_hash": true,
+        "unslang": true,
+        "split_words": true,
+        "stem": false,
+        "remove_punctuations": true,
+        "remove_numbers": true,
+        "to_lower_case": true,
+        "remove_stop_words": true,
+        "remove_not_alpha": true,
+        "join": true
+      }
+    },
+    "classifier": {
+      "classifier": {
+        "TYPE": "LOGISTIC_REGRESSION",
+        "OPTIONS": {}
+      },
+      "val_score": 0.80696,
+      "test_score": 0.80417
+    },
+    "vectorizer": {
+      "TYPE": "COUNT",
+      "OPTIONS": {
+        "binary": true,
+        "ngram_range": [
+          1,
+          3
+        ]
+      }
+    }
+  },
+  "2020-05-01 17:36:27.339265": {
+    "target": "sklearn",
+    "data": {
+      "PREPROCESS_OPTIONS": {
+        "add_link_flag": false,
+        "add_user_flag": false,
+        "add_hash_flag": false,
+        "add_number_flag": false,
+        "add_keyword_flag": false,
+        "add_location_flag": false,
+        "remove_links": true,
+        "remove_users": true,
+        "remove_hash": true,
+        "unslang": true,
+        "split_words": true,
+        "stem": false,
+        "remove_punctuations": true,
+        "remove_numbers": true,
+        "to_lower_case": true,
+        "remove_stop_words": true,
+        "remove_not_alpha": true,
+        "join": true
+      }
+    },
+    "classifier": {
+      "classifier": {
+        "TYPE": "LOGISTIC_REGRESSION",
+        "OPTIONS": {}
+      },
+      "val_score": 0.80433,
+      "test_score": 0.79926
+    },
+    "vectorizer": {
+      "TYPE": "COUNT",
+      "OPTIONS": {
+        "binary": true,
+        "ngram_range": [
+          1,
+          3
+        ]
+      }
+    }
+  },
+  "2020-05-01 17:38:20.087633": {
+    "target": "sklearn",
+    "data": {
+      "PREPROCESS_OPTIONS": {
+        "add_link_flag": true,
+        "add_user_flag": true,
+        "add_hash_flag": true,
+        "add_number_flag": true,
+        "add_keyword_flag": false,
+        "add_location_flag": false,
+        "remove_links": true,
+        "remove_users": true,
+        "remove_hash": true,
+        "unslang": true,
+        "split_words": true,
+        "stem": false,
+        "remove_punctuations": true,
+        "remove_numbers": true,
+        "to_lower_case": true,
+        "remove_stop_words": true,
+        "remove_not_alpha": true,
+        "join": true
+      }
+    },
+    "classifier": {
+      "classifier": {
+        "TYPE": "LOGISTIC_REGRESSION",
+        "OPTIONS": {}
+      },
+      "val_score": 0.81156,
+      "test_score": 0.80325
+    },
+    "vectorizer": {
+      "TYPE": "COUNT",
+      "OPTIONS": {
+        "binary": true,
+        "ngram_range": [
+          1,
+          3
+        ]
+      }
+    }
+  },
+  "2020-05-01 17:39:48.316790": {
+    "target": "sklearn",
+    "data": {
+      "PREPROCESS_OPTIONS": {
+        "add_link_flag": true,
+        "add_user_flag": true,
+        "add_hash_flag": true,
+        "add_number_flag": true,
+        "add_keyword_flag": false,
+        "add_location_flag": false,
+        "remove_links": true,
+        "remove_users": true,
+        "remove_hash": true,
+        "unslang": true,
+        "split_words": true,
+        "stem": true,
+        "remove_punctuations": true,
+        "remove_numbers": true,
+        "to_lower_case": true,
+        "remove_stop_words": true,
+        "remove_not_alpha": true,
+        "join": true
+      }
+    },
+    "classifier": {
+      "classifier": {
+        "TYPE": "LOGISTIC_REGRESSION",
+        "OPTIONS": {}
+      },
+      "val_score": 0.81221,
+      "test_score": 0.80018
+    },
+    "vectorizer": {
+      "TYPE": "COUNT",
+      "OPTIONS": {
+        "binary": true,
+        "ngram_range": [
+          1,
+          3
+        ]
+      }
+    }
+  },
+  "2020-05-01 17:43:14.150442": {
+    "target": "sklearn",
+    "data": {
+      "PREPROCESS_OPTIONS": {
+        "add_link_flag": true,
+        "add_user_flag": true,
+        "add_hash_flag": true,
+        "add_number_flag": true,
+        "add_keyword_flag": true,
+        "add_location_flag": false,
+        "remove_links": true,
+        "remove_users": true,
+        "remove_hash": true,
+        "unslang": true,
+        "split_words": true,
+        "stem": false,
+        "remove_punctuations": true,
+        "remove_numbers": true,
+        "to_lower_case": true,
+        "remove_stop_words": true,
+        "remove_not_alpha": true,
+        "join": true
+      }
+    },
+    "classifier": {
+      "classifier": {
+        "TYPE": "LOGISTIC_REGRESSION",
+        "OPTIONS": {}
+      },
+      "val_score": 0.8109,
+      "test_score": 0.80325
+    },
+    "vectorizer": {
+      "TYPE": "COUNT",
+      "OPTIONS": {
+        "binary": true,
+        "ngram_range": [
+          1,
+          3
+        ]
+      }
+    }
+  },
+  "2020-05-01 17:45:35.811125": {
+    "target": "sklearn",
+    "data": {
+      "PREPROCESS_OPTIONS": {
+        "add_link_flag": true,
+        "add_user_flag": true,
+        "add_hash_flag": true,
+        "add_number_flag": true,
+        "add_keyword_flag": false,
+        "add_location_flag": true,
+        "remove_links": true,
+        "remove_users": true,
+        "remove_hash": true,
+        "unslang": true,
+        "split_words": true,
+        "stem": false,
+        "remove_punctuations": true,
+        "remove_numbers": true,
+        "to_lower_case": true,
+        "remove_stop_words": true,
+        "remove_not_alpha": true,
+        "join": true
+      }
+    },
+    "classifier": {
+      "classifier": {
+        "TYPE": "LOGISTIC_REGRESSION",
+        "OPTIONS": {}
+      },
+      "val_score": 0.81156,
+      "test_score": 0.80172
+    },
+    "vectorizer": {
+      "TYPE": "COUNT",
+      "OPTIONS": {
+        "binary": true,
+        "ngram_range": [
+          1,
+          3
+        ]
+      }
+    }
+  },
+  "2020-05-01 17:47:33.204895": {
+    "target": "sklearn",
+    "data": {
+      "PREPROCESS_OPTIONS": {
+        "add_link_flag": true,
+        "add_user_flag": true,
+        "add_hash_flag": false,
+        "add_number_flag": true,
+        "add_keyword_flag": true,
+        "add_location_flag": true,
+        "remove_links": true,
+        "remove_users": true,
+        "remove_hash": true,
+        "unslang": true,
+        "split_words": true,
+        "stem": false,
+        "remove_punctuations": true,
+        "remove_numbers": true,
+        "to_lower_case": true,
+        "remove_stop_words": true,
+        "remove_not_alpha": true,
+        "join": true
+      }
+    },
+    "classifier": {
+      "classifier": {
+        "TYPE": "LOGISTIC_REGRESSION",
+        "OPTIONS": {}
+      },
+      "val_score": 0.81156,
+      "test_score": 0.80049
+    },
+    "vectorizer": {
+      "TYPE": "COUNT",
+      "OPTIONS": {
+        "binary": true,
+        "ngram_range": [
+          1,
+          3
+        ]
+      }
+    }
+  },
+  "2020-05-01 17:49:19.769603": {
+    "target": "sklearn",
+    "data": {
+      "PREPROCESS_OPTIONS": {
+        "add_link_flag": true,
+        "add_user_flag": true,
+        "add_hash_flag": false,
+        "add_number_flag": true,
+        "add_keyword_flag": true,
+        "add_location_flag": false,
+        "remove_links": true,
+        "remove_users": true,
+        "remove_hash": true,
+        "unslang": true,
+        "split_words": true,
+        "stem": false,
+        "remove_punctuations": true,
+        "remove_numbers": true,
+        "to_lower_case": true,
+        "remove_stop_words": true,
+        "remove_not_alpha": true,
+        "join": true
+      }
+    },
+    "classifier": {
+      "classifier": {
+        "TYPE": "LOGISTIC_REGRESSION",
+        "OPTIONS": {}
+      },
+      "val_score": 0.81221,
+      "test_score": 0.8011
+    },
+    "vectorizer": {
+      "TYPE": "COUNT",
+      "OPTIONS": {
+        "binary": true,
+        "ngram_range": [
+          1,
+          3
+        ]
+      }
+    }
+  },
+  "2020-05-01 17:51:16.578748": {
+    "target": "sklearn",
+    "data": {
+      "PREPROCESS_OPTIONS": {
+        "add_link_flag": true,
+        "add_user_flag": true,
+        "add_hash_flag": false,
+        "add_number_flag": true,
+        "add_keyword_flag": false,
+        "add_location_flag": false,
+        "remove_links": true,
+        "remove_users": true,
+        "remove_hash": false,
+        "unslang": true,
+        "split_words": true,
+        "stem": false,
+        "remove_punctuations": true,
+        "remove_numbers": true,
+        "to_lower_case": true,
+        "remove_stop_words": true,
+        "remove_not_alpha": true,
+        "join": true
+      }
+    },
+    "classifier": {
+      "classifier": {
+        "TYPE": "LOGISTIC_REGRESSION",
+        "OPTIONS": {}
+      },
+      "val_score": 0.81156,
+      "test_score": 0.8008
+    },
+    "vectorizer": {
+      "TYPE": "COUNT",
+      "OPTIONS": {
+        "binary": true,
+        "ngram_range": [
+          1,
+          3
+        ]
+      }
+    }
+  },
+  "2020-05-01 17:53:24.682222": {
+    "target": "sklearn",
+    "data": {
+      "PREPROCESS_OPTIONS": {
+        "add_link_flag": true,
+        "add_user_flag": true,
+        "add_hash_flag": true,
+        "add_number_flag": true,
+        "add_keyword_flag": false,
+        "add_location_flag": false,
+        "remove_links": true,
+        "remove_users": true,
+        "remove_hash": true,
+        "unslang": true,
+        "split_words": true,
+        "stem": false,
+        "remove_punctuations": true,
+        "remove_numbers": true,
+        "to_lower_case": true,
+        "remove_stop_words": false,
+        "remove_not_alpha": true,
+        "join": true
+      }
+    },
+    "classifier": {
+      "classifier": {
+        "TYPE": "LOGISTIC_REGRESSION",
+        "OPTIONS": {}
+      },
+      "val_score": 0.81156,
+      "test_score": 0.79712
+    },
+    "vectorizer": {
+      "TYPE": "COUNT",
+      "OPTIONS": {
+        "binary": true,
+        "ngram_range": [
+          1,
+          3
+        ]
+      }
+    }
+  },
+  "2020-05-01 17:55:23.560639": {
+    "target": "sklearn",
+    "data": {
+      "PREPROCESS_OPTIONS": {
+        "add_link_flag": true,
+        "add_user_flag": true,
+        "add_hash_flag": true,
+        "add_number_flag": true,
+        "add_keyword_flag": false,
+        "add_location_flag": false,
+        "remove_links": true,
+        "remove_users": true,
+        "remove_hash": true,
+        "unslang": true,
+        "split_words": true,
+        "stem": false,
+        "remove_punctuations": false,
+        "remove_numbers": true,
+        "to_lower_case": true,
+        "remove_stop_words": false,
+        "remove_not_alpha": true,
+        "join": true
+      }
+    },
+    "classifier": {
+      "classifier": {
+        "TYPE": "LOGISTIC_REGRESSION",
+        "OPTIONS": {}
+      },
+      "val_score": 0.81156,
+      "test_score": 0.79712
+    },
+    "vectorizer": {
+      "TYPE": "COUNT",
+      "OPTIONS": {
+        "binary": true,
+        "ngram_range": [
+          1,
+          3
+        ]
+      }
+    }
+  },
+  "2020-05-01 17:57:00.119204": {
+    "target": "sklearn",
+    "data": {
+      "PREPROCESS_OPTIONS": {
+        "add_link_flag": true,
+        "add_user_flag": true,
+        "add_hash_flag": true,
+        "add_number_flag": true,
+        "add_keyword_flag": false,
+        "add_location_flag": false,
+        "remove_links": true,
+        "remove_users": true,
+        "remove_hash": true,
+        "unslang": true,
+        "split_words": true,
+        "stem": false,
+        "remove_punctuations": true,
+        "remove_numbers": true,
+        "to_lower_case": true,
+        "remove_stop_words": true,
+        "remove_not_alpha": true,
+        "join": true
+      }
+    },
+    "classifier": {
+      "classifier": {
+        "TYPE": "LOGISTIC_REGRESSION",
+        "OPTIONS": {}
+      },
+      "val_score": 0.81156,
+      "test_score": 0.80325
+    },
+    "vectorizer": {
+      "TYPE": "COUNT",
+      "OPTIONS": {
+        "binary": true,
+        "ngram_range": [
+          1,
+          3
+        ]
+      }
+    }
   }
 }
