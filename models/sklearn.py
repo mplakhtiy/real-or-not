@@ -16,7 +16,7 @@ class Sklearn:
         'LINEAR_REGRESSION': LinearRegression,
         'LOGISTIC_REGRESSION': LogisticRegression,
         'RANDOM_FOREST': RandomForestClassifier,
-        'DECISSION_TREE': DecisionTreeClassifier,
+        'DECISION_TREE': DecisionTreeClassifier,
         'SVM': SVC,
         'SGDClassifier': SGDClassifier
     }

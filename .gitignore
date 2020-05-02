@@ -6,3 +6,4 @@ archive/classifiers/SVM*
 archive/models/bert*
 data/glove
 .DS_Store
+data/classifiers/SVM*

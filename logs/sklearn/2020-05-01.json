@@ -13322,5 +13322,92 @@
         ]
       }
     }
+  },
+  "2020-05-01 23:55:46.405941": {
+    "type": "HIGHEST_DECISION_TREE",
+    "target": "sklearn",
+    "data": {
+      "PREPROCESS_OPTIONS": {
+        "add_link_flag": false,
+        "add_user_flag": false,
+        "add_hash_flag": false,
+        "add_number_flag": false,
+        "add_keyword_flag": false,
+        "add_location_flag": false,
+        "remove_links": true,
+        "remove_users": true,
+        "remove_hash": false,
+        "unslang": true,
+        "split_words": false,
+        "stem": false,
+        "remove_punctuations": true,
+        "remove_numbers": true,
+        "to_lower_case": true,
+        "remove_stop_words": true,
+        "remove_not_alpha": false,
+        "join": true
+      }
+    },
+    "classifier": {
+      "classifier": {
+        "TYPE": "DECISION_TREE",
+        "OPTIONS": {}
+      },
+      "val_score": 0.74918,
+      "test_score": 0.73981
+    },
+    "vectorizer": {
+      "TYPE": "COUNT",
+      "OPTIONS": {
+        "binary": true,
+        "ngram_range": [
+          1,
+          3
+        ]
+      }
+    }
+  },
+  "2020-05-01 23:55:57.421428": {
+    "target": "sklearn",
+    "data": {
+      "PREPROCESS_OPTIONS": {
+        "add_link_flag": false,
+        "add_user_flag": false,
+        "add_hash_flag": false,
+        "add_number_flag": false,
+        "add_keyword_flag": false,
+        "add_location_flag": false,
+        "remove_links": true,
+        "remove_users": true,
+        "remove_hash": false,
+        "unslang": true,
+        "split_words": false,
+        "stem": false,
+        "remove_punctuations": true,
+        "remove_numbers": true,
+        "to_lower_case": true,
+        "remove_stop_words": true,
+        "remove_not_alpha": false,
+        "join": true
+      }
+    },
+    "classifier": {
+      "classifier": {
+        "TYPE": "DECISION_TREE",
+        "OPTIONS": {}
+      },
+      "val_score": 0.72423,
+      "test_score": 0.70518
+    },
+    "vectorizer": {
+      "TYPE": "TFIDF",
+      "OPTIONS": {
+        "binary": true,
+        "ngram_range": [
+          1,
+          3
+        ]
+      }
+    }
   }
 }
