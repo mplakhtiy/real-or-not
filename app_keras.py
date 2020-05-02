@@ -13,28 +13,42 @@ from data import train, validation, test
 ########################################################################################################################
 
 USE_GLOVE = False
+P_A = [
+    {'add_link_flag': True, 'add_user_flag': True, 'add_hash_flag': True, 'add_number_flag': True,
+     'add_keyword_flag': False, 'add_location_flag': False, 'remove_links': True, 'remove_users': True,
+     'remove_hash': True, 'unslang': True, 'split_words': True, 'stem': False, 'remove_punctuations': True,
+     'remove_numbers': True, 'to_lower_case': True, 'remove_stop_words': True, 'remove_not_alpha': True, 'join': False},
+    {'add_link_flag': False, 'add_user_flag': True, 'add_hash_flag': True, 'add_number_flag': False,
+     'add_keyword_flag': False, 'add_location_flag': False, 'remove_links': True, 'remove_users': True,
+     'remove_hash': True, 'unslang': True, 'split_words': True, 'stem': False, 'remove_punctuations': True,
+     'remove_numbers': True, 'to_lower_case': True, 'remove_stop_words': True, 'remove_not_alpha': True, 'join': False},
+    {'add_link_flag': True, 'add_user_flag': True, 'add_hash_flag': True, 'add_number_flag': True,
+     'add_keyword_flag': True, 'add_location_flag': True, 'remove_links': True, 'remove_users': True,
+     'remove_hash': True, 'unslang': True, 'split_words': True, 'stem': False, 'remove_punctuations': True,
+     'remove_numbers': True, 'to_lower_case': True, 'remove_stop_words': True, 'remove_not_alpha': True, 'join': False},
+    {'add_link_flag': True, 'add_user_flag': True, 'add_hash_flag': True, 'add_number_flag': False,
+     'add_keyword_flag': False, 'add_location_flag': False, 'remove_links': True, 'remove_users': True,
+     'remove_hash': True, 'unslang': True, 'split_words': True, 'stem': False, 'remove_punctuations': True,
+     'remove_numbers': True, 'to_lower_case': True, 'remove_stop_words': True, 'remove_not_alpha': True, 'join': False},
+    {'add_link_flag': False, 'add_user_flag': True, 'add_hash_flag': True, 'add_number_flag': False,
+     'add_keyword_flag': False, 'add_location_flag': False, 'remove_links': True, 'remove_users': True,
+     'remove_hash': True, 'unslang': True, 'split_words': True, 'stem': False, 'remove_punctuations': True,
+     'remove_numbers': True, 'to_lower_case': True, 'remove_stop_words': True, 'remove_not_alpha': True, 'join': False},
+    {'add_link_flag': False, 'add_user_flag': False, 'add_hash_flag': False, 'add_number_flag': False,
+     'add_keyword_flag': False, 'add_location_flag': False, 'remove_links': True, 'remove_users': True,
+     'remove_hash': True, 'unslang': True, 'split_words': True, 'stem': False, 'remove_punctuations': True,
+     'remove_numbers': True, 'to_lower_case': True, 'remove_stop_words': True, 'remove_not_alpha': True, 'join': False},
+    {'add_link_flag': True, 'add_user_flag': True, 'add_hash_flag': True, 'add_number_flag': True,
+     'add_keyword_flag': False, 'add_location_flag': False, 'remove_links': True, 'remove_users': True,
+     'remove_hash': True, 'unslang': True, 'split_words': True, 'stem': False, 'remove_punctuations': False,
+     'remove_numbers': True, 'to_lower_case': True, 'remove_stop_words': False, 'remove_not_alpha': False,
+     'join': False}
+]
+
+N = 6
 
 DATA = {
-    'PREPROCESS_OPTRIONS': {
-        'add_link_flag': True,
-        'add_user_flag': True,
-        'add_hash_flag': True,
-        'add_number_flag': True,
-        'add_keyword_flag': False,
-        'add_location_flag': False,
-        'remove_links': True,
-        'remove_users': True,
-        'remove_hash': True,
-        'unslang': True,
-        'split_words': True,
-        'stem': False,
-        'remove_punctuations': True,
-        'remove_numbers': True,
-        'to_lower_case': True,
-        'remove_stop_words': True,
-        'remove_not_alpha': True,
-        'join': False
-    }
+    'PREPROCESS_OPTRIONS': P_A[N]
 }
 
 ########################################################################################################################
@@ -83,8 +97,8 @@ WORD_INDEX_SIZE = len(keras_tokenizer.word_index) + 1
 ########################################################################################################################
 
 MODEL = {
-    'BATCH_SIZE': 64,
-    'EPOCHS': 10,
+    'BATCH_SIZE': 16,
+    'EPOCHS': 8,
     'VERBOSE': 1,
     'OPTIMIZER': 'rmsprop',
     'LEARNING_RATE': 1e-4,
@@ -94,7 +108,7 @@ MODEL = {
         'output_dim': 256,
         'input_length': MAX_LEN
     },
-    'TYPE': 'LSTM'
+    'TYPE': 'GRU'
 }
 
 ########################################################################################################################
@@ -167,7 +181,7 @@ MODELS_LAYERS = {
 
 ########################################################################################################################
 
-MODELS_DIR_SAVE_PATH = f'./data/models/keras/{MODEL["TYPE"]}/0/'
+MODELS_DIR_SAVE_PATH = f'./data/models/keras/{MODEL["TYPE"]}/{N}/'
 ensure_path_exists(MODELS_DIR_SAVE_PATH)
 
 MODEL_PREFIX = f'model-{MODEL["OPTIMIZER"]}-bs{MODEL["BATCH_SIZE"]}-lr{MODEL["LEARNING_RATE"]}-len{MODEL["EMBEDDING_OPTIONS"]["output_dim"]}'
