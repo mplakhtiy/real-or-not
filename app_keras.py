@@ -20,8 +20,8 @@ DATA = {
         'add_user_flag': True,
         'add_hash_flag': True,
         'add_number_flag': True,
-        'add_keyword_flag': True,
-        'add_location_flag': True,
+        'add_keyword_flag': False,
+        'add_location_flag': False,
         'remove_links': True,
         'remove_users': True,
         'remove_hash': True,
@@ -32,7 +32,7 @@ DATA = {
         'remove_numbers': True,
         'to_lower_case': True,
         'remove_stop_words': True,
-        'remove_not_alpha': False,
+        'remove_not_alpha': True,
         'join': False
     }
 }
@@ -83,15 +83,15 @@ WORD_INDEX_SIZE = len(keras_tokenizer.word_index) + 1
 ########################################################################################################################
 
 MODEL = {
-    'BATCH_SIZE': 16,
-    'EPOCHS': 20,
+    'BATCH_SIZE': 64,
+    'EPOCHS': 10,
     'VERBOSE': 1,
     'OPTIMIZER': 'rmsprop',
     'LEARNING_RATE': 1e-4,
     'SHUFFLE': True,
     'EMBEDDING_OPTIONS': {
         'input_dim': WORD_INDEX_SIZE,
-        'output_dim': 128,
+        'output_dim': 256,
         'input_length': MAX_LEN
     },
     'TYPE': 'LSTM'
@@ -143,22 +143,22 @@ MODELS_LAYERS = {
     ],
     'RCNN': [
         Dropout(0.25),
-        Conv1D(filters=64, kernel_size=5, activation='relu', strides=1, padding='valid'),
+        Conv1D(filters=128, kernel_size=5, activation='relu', strides=1, padding='valid'),
         MaxPooling1D(pool_size=4),
-        LSTM(64),
+        LSTM(128),
     ],
     'CNN': [
-        Dropout(0.2),
-        Conv1D(filters=64, kernel_size=5, activation='relu', strides=1, padding='valid'),
+        Dropout(0.25),
+        Conv1D(filters=128, kernel_size=5, activation='relu', strides=1, padding='valid'),
         GlobalMaxPooling1D(),
-        Dense(64, activation='relu'),
+        Dense(128, activation='relu'),
     ],
     'RNN': [
-        Bidirectional(LSTM(64)),
-        Dense(64, activation='relu')
+        Bidirectional(LSTM(128)),
+        Dense(128, activation='relu')
     ],
     'GRU': [
-        Bidirectional(GRU(64, return_sequences=True)),
+        Bidirectional(GRU(128, return_sequences=True)),
         GlobalMaxPool1D(),
         Dense(64, activation="relu"),
         Dropout(0.1)
@@ -167,7 +167,7 @@ MODELS_LAYERS = {
 
 ########################################################################################################################
 
-MODELS_DIR_SAVE_PATH = f'./data/models/keras/{MODEL["TYPE"]}/'
+MODELS_DIR_SAVE_PATH = f'./data/models/keras/{MODEL["TYPE"]}/0/'
 ensure_path_exists(MODELS_DIR_SAVE_PATH)
 
 MODEL_PREFIX = f'model-{MODEL["OPTIMIZER"]}-bs{MODEL["BATCH_SIZE"]}-lr{MODEL["LEARNING_RATE"]}-len{MODEL["EMBEDDING_OPTIONS"]["output_dim"]}'
