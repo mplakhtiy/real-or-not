@@ -1,1 +1,502 @@
-{"2020-05-03 02:16:27.553197": {"target": "bert", "model": {"BERT": "bert_en_uncased_L-12_H-768_A-12", "BERT_VERSION": 2, "BATCH_SIZE": 16, "EPOCHS": 4, "VERBOSE": 1, "OPTIMIZER": "adam", "LEARNING_RATE": 2e-06, "SHUFFLE": true, "VALIDATION_PERCENTAGE": 0.2, "INPUT_LENGTH": 82, "config": {"name": "model", "layers": [{"class_name": "InputLayer", "config": {"batch_input_shape": [null, 82], "dtype": "int32", "sparse": false, "ragged": false, "name": "input_word_ids"}, "name": "input_word_ids", "inbound_nodes": []}, {"class_name": "InputLayer", "config": {"batch_input_shape": [null, 82], "dtype": "int32", "sparse": false, "ragged": false, "name": "input_mask"}, "name": "input_mask", "inbound_nodes": []}, {"class_name": "InputLayer", "config": {"batch_input_shape": [null, 82], "dtype": "int32", "sparse": false, "ragged": false, "name": "segment_ids"}, "name": "segment_ids", "inbound_nodes": []}, {"class_name": "KerasLayer", "config": {"name": "keras_layer", "trainable": true, "dtype": "float32", "handle": "https://tfhub.dev/tensorflow/bert_en_uncased_L-12_H-768_A-12/2"}, "name": "keras_layer", "inbound_nodes": [[["input_word_ids", 0, 0, {}], ["input_mask", 0, 0, {}], ["segment_ids", 0, 0, {}]]]}, {"class_name": "TensorFlowOpLayer", "config": {"name": "strided_slice", "trainable": true, "dtype": "float32", "node_def": {"name": "strided_slice", "op": "StridedSlice", "input": ["keras_layer/Identity_1", "strided_slice/begin", "strided_slice/end", "strided_slice/strides"], "attr": {"Index": {"type": "DT_INT32"}, "T": {"type": "DT_FLOAT"}, "shrink_axis_mask": {"i": "2"}, "begin_mask": {"i": "5"}, "ellipsis_mask": {"i": "0"}, "new_axis_mask": {"i": "0"}, "end_mask": {"i": "5"}}}, "constants": {"1": "{\"class_name\": \"ndarray\"}", "2": "{\"class_name\": \"ndarray\"}", "3": "{\"class_name\": \"ndarray\"}"}}, "name": "tf_op_layer_strided_slice", "inbound_nodes": [[["keras_layer", 0, 1, {}]]]}, {"class_name": "Dense", "config": {"name": "dense", "trainable": true, "dtype": "float32", "units": 1, "activation": "sigmoid", "use_bias": true, "kernel_initializer": {"class_name": "GlorotUniform", "config": {"seed": null}}, "bias_initializer": {"class_name": "Zeros", "config": {}}, "kernel_regularizer": null, "bias_regularizer": null, "activity_regularizer": null, "kernel_constraint": null, "bias_constraint": null}, "name": "dense", "inbound_nodes": [[["tf_op_layer_strided_slice", 0, 0, {}]]]}], "input_layers": [["input_word_ids", 0, 0], ["input_mask", 0, 0], ["segment_ids", 0, 0]], "output_layers": [["dense", 0, 0]]}, "history": {"loss": [0.50638, 0.38061, 0.35235, 0.31748], "accuracy": [0.76026, 0.84138, 0.85714, 0.87028], "val_loss": [0.42038, 0.40044, 0.39429, 0.40168], "val_accuracy": [0.81681, 0.82141, 0.83388, 0.82863], "test_loss": [0.41516, 0.39595, 0.39077, 0.39521], "test_accuracy": [0.81857, 0.82286, 0.83451, 0.83757]}}}}
+{
+  "2020-05-03 02:16:27.553197": {
+    "target": "bert",
+    "model": {
+      "BERT": "bert_en_uncased_L-12_H-768_A-12",
+      "BERT_VERSION": 2,
+      "BATCH_SIZE": 16,
+      "EPOCHS": 4,
+      "VERBOSE": 1,
+      "OPTIMIZER": "adam",
+      "LEARNING_RATE": 2e-06,
+      "SHUFFLE": true,
+      "VALIDATION_PERCENTAGE": 0.2,
+      "INPUT_LENGTH": 82,
+      "config": {
+        "name": "model",
+        "layers": [
+          {
+            "class_name": "InputLayer",
+            "config": {
+              "batch_input_shape": [
+                null,
+                82
+              ],
+              "dtype": "int32",
+              "sparse": false,
+              "ragged": false,
+              "name": "input_word_ids"
+            },
+            "name": "input_word_ids",
+            "inbound_nodes": []
+          },
+          {
+            "class_name": "InputLayer",
+            "config": {
+              "batch_input_shape": [
+                null,
+                82
+              ],
+              "dtype": "int32",
+              "sparse": false,
+              "ragged": false,
+              "name": "input_mask"
+            },
+            "name": "input_mask",
+            "inbound_nodes": []
+          },
+          {
+            "class_name": "InputLayer",
+            "config": {
+              "batch_input_shape": [
+                null,
+                82
+              ],
+              "dtype": "int32",
+              "sparse": false,
+              "ragged": false,
+              "name": "segment_ids"
+            },
+            "name": "segment_ids",
+            "inbound_nodes": []
+          },
+          {
+            "class_name": "KerasLayer",
+            "config": {
+              "name": "keras_layer",
+              "trainable": true,
+              "dtype": "float32",
+              "handle": "https://tfhub.dev/tensorflow/bert_en_uncased_L-12_H-768_A-12/2"
+            },
+            "name": "keras_layer",
+            "inbound_nodes": [
+              [
+                [
+                  "input_word_ids",
+                  0,
+                  0,
+                  {}
+                ],
+                [
+                  "input_mask",
+                  0,
+                  0,
+                  {}
+                ],
+                [
+                  "segment_ids",
+                  0,
+                  0,
+                  {}
+                ]
+              ]
+            ]
+          },
+          {
+            "class_name": "TensorFlowOpLayer",
+            "config": {
+              "name": "strided_slice",
+              "trainable": true,
+              "dtype": "float32",
+              "node_def": {
+                "name": "strided_slice",
+                "op": "StridedSlice",
+                "input": [
+                  "keras_layer/Identity_1",
+                  "strided_slice/begin",
+                  "strided_slice/end",
+                  "strided_slice/strides"
+                ],
+                "attr": {
+                  "Index": {
+                    "type": "DT_INT32"
+                  },
+                  "T": {
+                    "type": "DT_FLOAT"
+                  },
+                  "shrink_axis_mask": {
+                    "i": "2"
+                  },
+                  "begin_mask": {
+                    "i": "5"
+                  },
+                  "ellipsis_mask": {
+                    "i": "0"
+                  },
+                  "new_axis_mask": {
+                    "i": "0"
+                  },
+                  "end_mask": {
+                    "i": "5"
+                  }
+                }
+              },
+              "constants": {
+                "1": "{\"class_name\": \"ndarray\"}",
+                "2": "{\"class_name\": \"ndarray\"}",
+                "3": "{\"class_name\": \"ndarray\"}"
+              }
+            },
+            "name": "tf_op_layer_strided_slice",
+            "inbound_nodes": [
+              [
+                [
+                  "keras_layer",
+                  0,
+                  1,
+                  {}
+                ]
+              ]
+            ]
+          },
+          {
+            "class_name": "Dense",
+            "config": {
+              "name": "dense",
+              "trainable": true,
+              "dtype": "float32",
+              "units": 1,
+              "activation": "sigmoid",
+              "use_bias": true,
+              "kernel_initializer": {
+                "class_name": "GlorotUniform",
+                "config": {
+                  "seed": null
+                }
+              },
+              "bias_initializer": {
+                "class_name": "Zeros",
+                "config": {}
+              },
+              "kernel_regularizer": null,
+              "bias_regularizer": null,
+              "activity_regularizer": null,
+              "kernel_constraint": null,
+              "bias_constraint": null
+            },
+            "name": "dense",
+            "inbound_nodes": [
+              [
+                [
+                  "tf_op_layer_strided_slice",
+                  0,
+                  0,
+                  {}
+                ]
+              ]
+            ]
+          }
+        ],
+        "input_layers": [
+          [
+            "input_word_ids",
+            0,
+            0
+          ],
+          [
+            "input_mask",
+            0,
+            0
+          ],
+          [
+            "segment_ids",
+            0,
+            0
+          ]
+        ],
+        "output_layers": [
+          [
+            "dense",
+            0,
+            0
+          ]
+        ]
+      },
+      "history": {
+        "loss": [
+          0.50638,
+          0.38061,
+          0.35235,
+          0.31748
+        ],
+        "accuracy": [
+          0.76026,
+          0.84138,
+          0.85714,
+          0.87028
+        ],
+        "val_loss": [
+          0.42038,
+          0.40044,
+          0.39429,
+          0.40168
+        ],
+        "val_accuracy": [
+          0.81681,
+          0.82141,
+          0.83388,
+          0.82863
+        ],
+        "test_loss": [
+          0.41516,
+          0.39595,
+          0.39077,
+          0.39521
+        ],
+        "test_accuracy": [
+          0.81857,
+          0.82286,
+          0.83451,
+          0.83757
+        ]
+      }
+    }
+  },
+  "2020-05-03 04:22:57.395270": {
+    "target": "bert",
+    "model": {
+      "BERT": "bert_en_uncased_L-24_H-1024_A-16",
+      "BERT_VERSION": 2,
+      "BATCH_SIZE": 16,
+      "EPOCHS": 3,
+      "VERBOSE": 1,
+      "OPTIMIZER": "adam",
+      "LEARNING_RATE": 2e-06,
+      "SHUFFLE": true,
+      "VALIDATION_PERCENTAGE": 0.2,
+      "INPUT_LENGTH": 82,
+      "config": {
+        "name": "model",
+        "layers": [
+          {
+            "class_name": "InputLayer",
+            "config": {
+              "batch_input_shape": [
+                null,
+                82
+              ],
+              "dtype": "int32",
+              "sparse": false,
+              "ragged": false,
+              "name": "input_word_ids"
+            },
+            "name": "input_word_ids",
+            "inbound_nodes": []
+          },
+          {
+            "class_name": "InputLayer",
+            "config": {
+              "batch_input_shape": [
+                null,
+                82
+              ],
+              "dtype": "int32",
+              "sparse": false,
+              "ragged": false,
+              "name": "input_mask"
+            },
+            "name": "input_mask",
+            "inbound_nodes": []
+          },
+          {
+            "class_name": "InputLayer",
+            "config": {
+              "batch_input_shape": [
+                null,
+                82
+              ],
+              "dtype": "int32",
+              "sparse": false,
+              "ragged": false,
+              "name": "segment_ids"
+            },
+            "name": "segment_ids",
+            "inbound_nodes": []
+          },
+          {
+            "class_name": "KerasLayer",
+            "config": {
+              "name": "keras_layer",
+              "trainable": true,
+              "dtype": "float32",
+              "handle": "https://tfhub.dev/tensorflow/bert_en_uncased_L-24_H-1024_A-16/2"
+            },
+            "name": "keras_layer",
+            "inbound_nodes": [
+              [
+                [
+                  "input_word_ids",
+                  0,
+                  0,
+                  {}
+                ],
+                [
+                  "input_mask",
+                  0,
+                  0,
+                  {}
+                ],
+                [
+                  "segment_ids",
+                  0,
+                  0,
+                  {}
+                ]
+              ]
+            ]
+          },
+          {
+            "class_name": "TensorFlowOpLayer",
+            "config": {
+              "name": "strided_slice",
+              "trainable": true,
+              "dtype": "float32",
+              "node_def": {
+                "name": "strided_slice",
+                "op": "StridedSlice",
+                "input": [
+                  "keras_layer/Identity_1",
+                  "strided_slice/begin",
+                  "strided_slice/end",
+                  "strided_slice/strides"
+                ],
+                "attr": {
+                  "T": {
+                    "type": "DT_FLOAT"
+                  },
+                  "Index": {
+                    "type": "DT_INT32"
+                  },
+                  "shrink_axis_mask": {
+                    "i": "2"
+                  },
+                  "begin_mask": {
+                    "i": "5"
+                  },
+                  "ellipsis_mask": {
+                    "i": "0"
+                  },
+                  "new_axis_mask": {
+                    "i": "0"
+                  },
+                  "end_mask": {
+                    "i": "5"
+                  }
+                }
+              },
+              "constants": {
+                "1": "{\"class_name\": \"ndarray\"}",
+                "2": "{\"class_name\": \"ndarray\"}",
+                "3": "{\"class_name\": \"ndarray\"}"
+              }
+            },
+            "name": "tf_op_layer_strided_slice",
+            "inbound_nodes": [
+              [
+                [
+                  "keras_layer",
+                  0,
+                  1,
+                  {}
+                ]
+              ]
+            ]
+          },
+          {
+            "class_name": "Dense",
+            "config": {
+              "name": "dense",
+              "trainable": true,
+              "dtype": "float32",
+              "units": 1,
+              "activation": "sigmoid",
+              "use_bias": true,
+              "kernel_initializer": {
+                "class_name": "GlorotUniform",
+                "config": {
+                  "seed": null
+                }
+              },
+              "bias_initializer": {
+                "class_name": "Zeros",
+                "config": {}
+              },
+              "kernel_regularizer": null,
+              "bias_regularizer": null,
+              "activity_regularizer": null,
+              "kernel_constraint": null,
+              "bias_constraint": null
+            },
+            "name": "dense",
+            "inbound_nodes": [
+              [
+                [
+                  "tf_op_layer_strided_slice",
+                  0,
+                  0,
+                  {}
+                ]
+              ]
+            ]
+          }
+        ],
+        "input_layers": [
+          [
+            "input_word_ids",
+            0,
+            0
+          ],
+          [
+            "input_mask",
+            0,
+            0
+          ],
+          [
+            "segment_ids",
+            0,
+            0
+          ]
+        ],
+        "output_layers": [
+          [
+            "dense",
+            0,
+            0
+          ]
+        ]
+      },
+      "history": {
+        "loss": [
+          0.50361,
+          0.39064,
+          0.34745
+        ],
+        "accuracy": [
+          0.7578,
+          0.83596,
+          0.85846
+        ],
+        "val_loss": [
+          0.42589,
+          0.39613,
+          0.39209
+        ],
+        "val_accuracy": [
+          0.80827,
+          0.8306,
+          0.83585
+        ],
+        "test_loss": [
+          0.43142,
+          0.40065,
+          0.39633
+        ],
+        "test_accuracy": [
+          0.81275,
+          0.83052,
+          0.83236
+        ]
+      }
+    }
+  }
+}
