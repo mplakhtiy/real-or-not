@@ -9,11 +9,11 @@ from utils import log
 import os
 
 MODEL = {
-    'BERT': 'bert_en_uncased_L-12_H-768_A-12',
-    # 'BERT': 'bert_en_uncased_L-24_H-1024_A-16',
-    'BERT_VERSION': 1,
+    # 'BERT': 'bert_en_uncased_L-12_H-768_A-12',
+    'BERT': 'bert_en_uncased_L-24_H-1024_A-16',
+    'BERT_VERSION': 2,
     'BATCH_SIZE': 16,
-    'EPOCHS': 4,
+    'EPOCHS': 3,
     'VERBOSE': 1,
     'OPTIMIZER': 'adam',
     'LEARNING_RATE': 2e-6,
@@ -79,11 +79,13 @@ model_history = history.history.copy()
 model_history['test_loss'] = test_data_callback.loss
 model_history['test_accuracy'] = test_data_callback.accuracy
 
-# Keras.draw_graph(model_history)
-
 log(
     target='bert',
     model=MODEL,
     model_history=model_history,
     model_config=model.get_config(),
 )
+
+os.system('spd-say "Experiment is finished"')
+
+Keras.draw_graph(model_history)
