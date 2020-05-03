@@ -49,7 +49,6 @@ if USE_GLOVE:
     GLOVE_FILE_PATH = f'./data/glove/{DATA["GLOVE"]}'
     glove_embeddings = get_glove_embeddings(GLOVE_FILE_PATH)
 
-
 for N in range(6):
 
     DATA['PREPROCESS_OPTRIONS'] = P_A[N]
@@ -100,8 +99,8 @@ for N in range(6):
     ########################################################################################################################
 
     MODEL = {
-        'BATCH_SIZE': 8,
-        'EPOCHS': 20,
+        'BATCH_SIZE': 4,
+        'EPOCHS': 25,
         'VERBOSE': 1,
         'OPTIMIZER': 'rmsprop',
         'LEARNING_RATE': 1e-4,
