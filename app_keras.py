@@ -99,8 +99,8 @@ for N in range(6):
     ########################################################################################################################
 
     MODEL = {
-        'BATCH_SIZE': 4,
-        'EPOCHS': 25,
+        'BATCH_SIZE': 16,
+        'EPOCHS': 12,
         'VERBOSE': 1,
         'OPTIMIZER': 'rmsprop',
         'LEARNING_RATE': 1e-4,
@@ -110,7 +110,7 @@ for N in range(6):
             'output_dim': 200,
             'input_length': MAX_LEN
         },
-        'TYPE': 'LSTM_DROPOUT'
+        'TYPE': 'RNN'
     }
 
     ########################################################################################################################
@@ -142,11 +142,11 @@ for N in range(6):
 
     MODELS_LAYERS = {
         'LSTM': [
-            LSTM(50)
+            LSTM(64)
         ],
         'LSTM_DROPOUT': [
             SpatialDropout1D(0.2),
-            LSTM(50, dropout=0.2, recurrent_dropout=0.2)
+            LSTM(64, dropout=0.2, recurrent_dropout=0.2)
         ],
         'BI_LSTM': [
             Bidirectional(LSTM(64)),
@@ -175,7 +175,7 @@ for N in range(6):
         'GRU': [
             Bidirectional(GRU(128, return_sequences=True)),
             GlobalMaxPool1D(),
-            Dense(64, activation="relu"),
+            Dense(50, activation="relu"),
             Dropout(0.1)
         ],
     }
