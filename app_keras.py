@@ -92,7 +92,8 @@ MODEL_CONFIG = {
         'output_dim': 256,
     },
     'LSTM_UNITS': 128,
-    'TYPE': 'LSTM',
+    'TYPE': 'LSTM_DROPOUT',
+    'DROPOUT': 0.2
 }
 
 SEED = 7
@@ -154,6 +155,9 @@ for key, preprocessing_algorithm in PREPROCESSING_ALGORITHMS.items():
         model = Keras.get_model(CONFIG)
 
         history = Keras.fit(model, (x_train, y_train, x_val, y_val, x_test, y_test), CONFIG)
+        history['EMBEDDING_OPTIONS'] = CONFIG['EMBEDDING_OPTIONS'].copy()
+        del CONFIG['EMBEDDING_OPTIONS']['input_dim']
+        del CONFIG['EMBEDDING_OPTIONS']['input_length']
 
         CONFIG['KFOLD_HISTORY'].append(history)
 
