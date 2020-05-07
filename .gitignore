@@ -2,9 +2,9 @@ venv
 app.py
 .idea
 __pycache__
-archive/classifiers/SVM*
-archive/models/bert*
+archive/v1/classifiers/SVM*
+archive/v1/models/bert*
 data/glove
 .DS_Store
-data/models/bert*
-data/classifiers/SVM*
+archive/v2/models/bert*
+archive/v2/classifiers/SVM*

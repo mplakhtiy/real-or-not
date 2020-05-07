@@ -1,237 +1,160 @@
 # -*- coding: utf-8 -*-
+import uuid
 from tweets import Helpers, tweets_preprocessor
-from models import Keras, TestDataCallback
-from utils import log, get_glove_embeddings, ensure_path_exists
-from tensorflow.keras.callbacks import ModelCheckpoint
-from tensorflow.keras.layers import Dense, LSTM, SpatialDropout1D, Dropout, GlobalMaxPooling1D, GRU
-from tensorflow.keras.layers import Bidirectional, Conv1D, GlobalAveragePooling1D, MaxPooling1D, GlobalMaxPool1D
+from models import Keras
+from utils import get_glove_embeddings, log_model
+from data import train_data, test_data
+from sklearn.model_selection import StratifiedKFold
 from tensorflow.keras.preprocessing.text import Tokenizer
-from tensorflow.keras.initializers import Constant
-from tensorflow.keras.preprocessing.sequence import pad_sequences
-from data import train, validation, test
 
-########################################################################################################################
-
-USE_GLOVE = True
-P_A = [
-    {'add_link_flag': True, 'add_user_flag': True, 'add_hash_flag': True, 'add_number_flag': True,
-     'add_keyword_flag': False, 'add_location_flag': False, 'remove_links': True, 'remove_users': True,
-     'remove_hash': True, 'unslang': True, 'split_words': True, 'stem': False, 'remove_punctuations': True,
-     'remove_numbers': True, 'to_lower_case': True, 'remove_stop_words': True, 'remove_not_alpha': True, 'join': False},
-    {'add_link_flag': False, 'add_user_flag': True, 'add_hash_flag': True, 'add_number_flag': False,
-     'add_keyword_flag': False, 'add_location_flag': False, 'remove_links': True, 'remove_users': True,
-     'remove_hash': True, 'unslang': True, 'split_words': True, 'stem': False, 'remove_punctuations': True,
-     'remove_numbers': True, 'to_lower_case': True, 'remove_stop_words': True, 'remove_not_alpha': True, 'join': False},
-    {'add_link_flag': True, 'add_user_flag': True, 'add_hash_flag': True, 'add_number_flag': True,
-     'add_keyword_flag': True, 'add_location_flag': True, 'remove_links': True, 'remove_users': True,
-     'remove_hash': True, 'unslang': True, 'split_words': True, 'stem': False, 'remove_punctuations': True,
-     'remove_numbers': True, 'to_lower_case': True, 'remove_stop_words': True, 'remove_not_alpha': True, 'join': False},
-    {'add_link_flag': True, 'add_user_flag': True, 'add_hash_flag': True, 'add_number_flag': False,
-     'add_keyword_flag': False, 'add_location_flag': False, 'remove_links': True, 'remove_users': True,
-     'remove_hash': True, 'unslang': True, 'split_words': True, 'stem': False, 'remove_punctuations': True,
-     'remove_numbers': True, 'to_lower_case': True, 'remove_stop_words': True, 'remove_not_alpha': True, 'join': False},
-    {'add_link_flag': False, 'add_user_flag': False, 'add_hash_flag': False, 'add_number_flag': False,
-     'add_keyword_flag': False, 'add_location_flag': False, 'remove_links': True, 'remove_users': True,
-     'remove_hash': True, 'unslang': True, 'split_words': True, 'stem': False, 'remove_punctuations': True,
-     'remove_numbers': True, 'to_lower_case': True, 'remove_stop_words': True, 'remove_not_alpha': True, 'join': False},
-    {'add_link_flag': True, 'add_user_flag': True, 'add_hash_flag': True, 'add_number_flag': True,
-     'add_keyword_flag': False, 'add_location_flag': False, 'remove_links': True, 'remove_users': True,
-     'remove_hash': True, 'unslang': True, 'split_words': True, 'stem': False, 'remove_punctuations': False,
-     'remove_numbers': True, 'to_lower_case': True, 'remove_stop_words': False, 'remove_not_alpha': False,
-     'join': False}
-]
-
-DATA = {
+PREPROCESSING_ALGORITHMS = {
+    '1258a9d2-111e-4d4a-acda-852dd7ba3e88': {
+        'add_link_flag': True, 'add_user_flag': True, 'add_hash_flag': True, 'add_number_flag': True,
+        'add_keyword_flag': False, 'add_location_flag': False, 'remove_links': True, 'remove_users': True,
+        'remove_hash': True, 'unslang': True, 'split_words': True, 'stem': False, 'remove_punctuations': True,
+        'remove_numbers': True, 'to_lower_case': True, 'remove_stop_words': True, 'remove_not_alpha': True,
+        'join': False},
+    '60314ef9-271d-4865-a7db-6889b1670f59': {
+        'add_link_flag': False, 'add_user_flag': True, 'add_hash_flag': True, 'add_number_flag': False,
+        'add_keyword_flag': False, 'add_location_flag': False, 'remove_links': True, 'remove_users': True,
+        'remove_hash': True, 'unslang': True, 'split_words': True, 'stem': False, 'remove_punctuations': True,
+        'remove_numbers': True, 'to_lower_case': True, 'remove_stop_words': True, 'remove_not_alpha': True,
+        'join': False},
+    '4c2e484d-5cb8-4e3e-ba7b-679ae7a73fca': {
+        'add_link_flag': True, 'add_user_flag': True, 'add_hash_flag': True, 'add_number_flag': True,
+        'add_keyword_flag': True, 'add_location_flag': True, 'remove_links': True, 'remove_users': True,
+        'remove_hash': True, 'unslang': True, 'split_words': True, 'stem': False, 'remove_punctuations': True,
+        'remove_numbers': True, 'to_lower_case': True, 'remove_stop_words': True, 'remove_not_alpha': True,
+        'join': False},
+    '8b7db91c-c8bf-40f2-986a-83a659b63ba6': {
+        'add_link_flag': True, 'add_user_flag': True, 'add_hash_flag': True, 'add_number_flag': False,
+        'add_keyword_flag': False, 'add_location_flag': False, 'remove_links': True, 'remove_users': True,
+        'remove_hash': True, 'unslang': True, 'split_words': True, 'stem': False, 'remove_punctuations': True,
+        'remove_numbers': True, 'to_lower_case': True, 'remove_stop_words': True, 'remove_not_alpha': True,
+        'join': False},
+    '7bc816a1-25df-4649-8570-0012d0acd72a': {
+        'add_link_flag': False, 'add_user_flag': False, 'add_hash_flag': False, 'add_number_flag': False,
+        'add_keyword_flag': False, 'add_location_flag': False, 'remove_links': True, 'remove_users': True,
+        'remove_hash': True, 'unslang': True, 'split_words': True, 'stem': False, 'remove_punctuations': True,
+        'remove_numbers': True, 'to_lower_case': True, 'remove_stop_words': True, 'remove_not_alpha': True,
+        'join': False},
+    'a85c8435-6f23-4015-9e8c-19547222d6ce': {
+        'add_link_flag': True, 'add_user_flag': True, 'add_hash_flag': True, 'add_number_flag': True,
+        'add_keyword_flag': False, 'add_location_flag': False, 'remove_links': True, 'remove_users': True,
+        'remove_hash': True, 'unslang': True, 'split_words': True, 'stem': False, 'remove_punctuations': False,
+        'remove_numbers': True, 'to_lower_case': True, 'remove_stop_words': False, 'remove_not_alpha': False,
+        'join': False},
+    'b054e509-4f04-44f2-bcf9-14fa8af4eeed': {
+        'add_link_flag': True, 'add_user_flag': True, 'add_hash_flag': True, 'add_number_flag': True,
+        'add_keyword_flag': False, 'add_location_flag': False, 'remove_links': True, 'remove_users': True,
+        'remove_hash': True, 'unslang': True, 'split_words': False, 'stem': False, 'remove_punctuations': False,
+        'remove_numbers': True, 'to_lower_case': True, 'remove_stop_words': False, 'remove_not_alpha': False,
+        'join': False},
+    '2e359f0b-bfb9-4eda-b2a4-cd839c122de6': {
+        'add_link_flag': False, 'add_user_flag': False, 'add_hash_flag': False, 'add_number_flag': False,
+        'add_keyword_flag': False, 'add_location_flag': False, 'remove_links': True, 'remove_users': True,
+        'remove_hash': True, 'unslang': True, 'split_words': False, 'stem': False, 'remove_punctuations': False,
+        'remove_numbers': True, 'to_lower_case': True, 'remove_stop_words': False, 'remove_not_alpha': False,
+        'join': False}
 }
+
+'''
+Example of Model Config
+MODEL = {
+    'ACTIVATION': 'sigmoid',
+    'OPTIMIZER': 'adam',
+    'LEARNING_RATE': 1e-4,
+    'BATCH_SIZE': 16,
+    'EPOCHS': 12,
+    'LSTM_UNITS': 128,
+    'DROPOUT': 0.2,
+    'DENSE_UNITS': 128,
+    'CONV_FILTERS': 128,
+    'CONV_KERNEL_SIZE': 5,
+    'MAX_POOLING_POOL_SIZE': 4,
+    'GRU_UNITS': 128,
+    'EMBEDDING_OPTIONS': {
+        'input_dim': 1000,
+        'output_dim': 256,
+        'input_length': 100
+    },
+    'TYPE': 'CNN'
+}
+'''
+
+MODEL_CONFIG = {
+    'TRAIN_UUID': str(uuid.uuid4()),
+    'BATCH_SIZE': 32,
+    'EPOCHS': 12,
+    'OPTIMIZER': 'rmsprop',
+    'LEARNING_RATE': 1e-4,
+    'EMBEDDING_OPTIONS': {
+        'output_dim': 256,
+    },
+    'LSTM_UNITS': 128,
+    'TYPE': 'LSTM',
+}
+
+SEED = 7
+KFOLD = 10
+
+USE_GLOVE = False
+
 if USE_GLOVE:
-    DATA['GLOVE_SIZE'] = 200
-    DATA['GLOVE'] = f'glove.twitter.27B.{DATA["GLOVE_SIZE"]}d.txt'
-    GLOVE_FILE_PATH = f'./data/glove/{DATA["GLOVE"]}'
-    glove_embeddings = get_glove_embeddings(GLOVE_FILE_PATH)
-
-for N in range(6):
-
-    DATA['PREPROCESS_OPTRIONS'] = P_A[N]
-
-    ########################################################################################################################
-
-    train['preprocessed'] = tweets_preprocessor.preprocess(
-        train.text,
-        DATA['PREPROCESS_OPTRIONS'],
-        keywords=train.keyword,
-        locations=train.location
-    )
-
-    validation['preprocessed'] = tweets_preprocessor.preprocess(
-        validation.text,
-        DATA['PREPROCESS_OPTRIONS'],
-        keywords=validation.keyword,
-        locations=validation.location
-    )
-
-    test['preprocessed'] = tweets_preprocessor.preprocess(
-        test.text,
-        DATA['PREPROCESS_OPTRIONS'],
-        keywords=test.keyword,
-        locations=test.location
-    )
-
-    ########################################################################################################################
-
-    keras_tokenizer = Tokenizer()
-    keras_tokenizer.fit_on_texts(train.preprocessed)
-
-    sequences_train = keras_tokenizer.texts_to_sequences(train.preprocessed)
-    sequences_validation = keras_tokenizer.texts_to_sequences(validation.preprocessed)
-    sequences_test = keras_tokenizer.texts_to_sequences(test.preprocessed)
-
-    MAX_LEN = Helpers.get_max_vector_len(sequences_train)
-
-    x_train = pad_sequences(sequences_train, maxlen=MAX_LEN, truncating='post', padding='post')
-    y_train = train.target.values
-    x_val = pad_sequences(sequences_validation, maxlen=MAX_LEN, truncating='post', padding='post')
-    y_val = validation.target.values
-    x_test = pad_sequences(sequences_test, maxlen=MAX_LEN, truncating='post', padding='post')
-    y_test = test.target.values
-
-    WORD_INDEX_SIZE = len(keras_tokenizer.word_index) + 1
-
-    ########################################################################################################################
-
-    MODEL = {
-        'BATCH_SIZE': 16,
-        'EPOCHS': 12,
-        'VERBOSE': 1,
-        'OPTIMIZER': 'rmsprop',
-        'LEARNING_RATE': 1e-4,
-        'SHUFFLE': True,
-        'EMBEDDING_OPTIONS': {
-            'input_dim': WORD_INDEX_SIZE,
-            'output_dim': 200,
-            'input_length': MAX_LEN
-        },
-        'TYPE': 'RNN'
+    MODEL_CONFIG['GLOVE'] = {
+        'SIZE': 200
     }
+    GLOVE = f'glove.twitter.27B.{MODEL_CONFIG["GLOVE"]["SIZE"]}d.txt'
+    GLOVE_FILE_PATH = f'./data/glove/{GLOVE}'
+    GLOVE_EMBEDDINGS = get_glove_embeddings(GLOVE_FILE_PATH)
 
-    ########################################################################################################################
+for key, preprocessing_algorithm in PREPROCESSING_ALGORITHMS.items():
+    CONFIG = MODEL_CONFIG.copy()
+    CONFIG['UUID'] = str(uuid.uuid4())
+    CONFIG['PREPROCESSING_ALGORITHM'] = preprocessing_algorithm
+    CONFIG['PREPROCESSING_ALGORITHM_UUID'] = key
+    CONFIG['KFOLD_HISTORY'] = []
 
-    if USE_GLOVE:
-        train_glove_vocab_coverage, train_glove_text_coverage, _ = Helpers.check_embeddings_coverage(
-            keras_tokenizer.word_counts,
-            glove_embeddings
+    kfold = StratifiedKFold(n_splits=KFOLD, shuffle=True, random_state=SEED)
+
+    train_data['preprocessed'] = tweets_preprocessor.preprocess(
+        train_data.text,
+        preprocessing_algorithm,
+        keywords=train_data.keyword,
+        locations=train_data.location
+    )
+
+    test_data['preprocessed'] = tweets_preprocessor.preprocess(
+        test_data.text,
+        preprocessing_algorithm,
+        keywords=test_data.keyword,
+        locations=test_data.location
+    )
+
+    inputs = train_data['preprocessed']
+    targets = train_data['target']
+
+    for train, validation in kfold.split(inputs, targets):
+        keras_tokenizer = Tokenizer()
+
+        (x_train, x_val, x_test), input_dim, input_len = Helpers.get_model_inputs(
+            (inputs[train], inputs[validation], test_data.preprocessed),
+            keras_tokenizer
         )
-        print(
-            'GloVe Embeddings cover {:.2%} of vocabulary and {:.2%} of text in Training Set'.format(
-                train_glove_vocab_coverage, train_glove_text_coverage
-            )
-        )
-        MODEL['vocab_coverage'] = round(train_glove_vocab_coverage, 5)
-        MODEL['text_coverage'] = round(train_glove_text_coverage, 5)
+        y_train = targets[train]
+        y_val = targets[validation]
+        y_test = test_data.target.values
 
-        embedding_matrix = Helpers.get_embedding_matrix(
-            word_index=keras_tokenizer.word_index,
-            word_index_size=WORD_INDEX_SIZE,
-            glove_embeddings=glove_embeddings,
-            glove_size=DATA['GLOVE_SIZE'],
-        )
-        MODEL['EMBEDDING_OPTIONS']['output_dim'] = DATA['GLOVE_SIZE']
-        MODEL['EMBEDDING_OPTIONS']['embeddings_initializer'] = Constant(embedding_matrix)
-        MODEL['EMBEDDING_OPTIONS']['trainable'] = False
+        CONFIG['EMBEDDING_OPTIONS']['input_dim'] = input_dim
+        CONFIG['EMBEDDING_OPTIONS']['input_length'] = input_len
 
-    ########################################################################################################################
+        if USE_GLOVE:
+            Helpers.with_glove_embedding_options(CONFIG, keras_tokenizer, GLOVE_EMBEDDINGS)
 
-    MODELS_LAYERS = {
-        'LSTM': [
-            LSTM(64)
-        ],
-        'LSTM_DROPOUT': [
-            SpatialDropout1D(0.2),
-            LSTM(64, dropout=0.2, recurrent_dropout=0.2)
-        ],
-        'BI_LSTM': [
-            Bidirectional(LSTM(64)),
-            Dropout(0.2)
-        ],
-        'FASTTEXT': [
-            GlobalAveragePooling1D(),
-            Dense(64, activation='relu')
-        ],
-        'RCNN': [
-            Dropout(0.25),
-            Conv1D(filters=128, kernel_size=5, activation='relu', strides=1, padding='valid'),
-            MaxPooling1D(pool_size=4),
-            LSTM(128),
-        ],
-        'CNN': [
-            Dropout(0.25),
-            Conv1D(filters=128, kernel_size=5, activation='relu', strides=1, padding='valid'),
-            GlobalMaxPooling1D(),
-            Dense(128, activation='relu'),
-        ],
-        'RNN': [
-            Bidirectional(LSTM(128)),
-            Dense(128, activation='relu')
-        ],
-        'GRU': [
-            Bidirectional(GRU(128, return_sequences=True)),
-            GlobalMaxPool1D(),
-            Dense(50, activation="relu"),
-            Dropout(0.1)
-        ],
-    }
+        model = Keras.get_model(CONFIG)
 
-    ########################################################################################################################
+        history = Keras.fit(model, (x_train, y_train, x_val, y_val, x_test, y_test), CONFIG)
 
-    MODELS_DIR_SAVE_PATH = f'./data/models/keras-glove/{MODEL["TYPE"]}/{N}/'
-    ensure_path_exists(MODELS_DIR_SAVE_PATH)
+        CONFIG['KFOLD_HISTORY'].append(history)
 
-    MODEL_PREFIX = f'model-{MODEL["OPTIMIZER"]}-bs{MODEL["BATCH_SIZE"]}-lr{MODEL["LEARNING_RATE"]}-len{MODEL["EMBEDDING_OPTIONS"]["output_dim"]}'
-
-    checkpoint = ModelCheckpoint(
-        MODELS_DIR_SAVE_PATH + MODEL_PREFIX + '-e{epoch:03d}-a{accuracy:03f}-va{val_accuracy:03f}-ta.h5',
-        verbose=1,
-        monitor='val_loss',
-        save_best_only=True,
-        mode='auto'
-    )
-
-    test_data_callback = TestDataCallback(
-        x_test=x_test,
-        y_test=y_test
-    )
-
-    ########################################################################################################################
-
-    model = Keras.get_model(
-        layers=MODELS_LAYERS[MODEL['TYPE']],
-        embedding_options=MODEL['EMBEDDING_OPTIONS'],
-        optimizer=MODEL['OPTIMIZER'],
-        learning_rate=MODEL['LEARNING_RATE']
-    )
-
-    history = model.fit(
-        x_train, y_train,
-        batch_size=MODEL['BATCH_SIZE'],
-        epochs=MODEL['EPOCHS'],
-        verbose=MODEL['VERBOSE'],
-        shuffle=MODEL['SHUFFLE'],
-        validation_data=(
-            x_val,
-            y_val
-        ),
-        callbacks=[checkpoint, test_data_callback]
-    )
-
-    model_history = history.history.copy()
-    model_history['test_loss'] = test_data_callback.loss
-    model_history['test_accuracy'] = test_data_callback.accuracy
-
-    # Keras.draw_graph(model_history)
-
-    log(
-        target='keras-glove',
-        data=DATA,
-        model=MODEL,
-        model_history=model_history,
-        model_config=model.get_config(),
-    )
+        log_model(CONFIG)

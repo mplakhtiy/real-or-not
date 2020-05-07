@@ -112,6 +112,6 @@ log(
 )
 
 save_classifier(
-    f'./data/classifiers/{CLASSIFIER["TYPE"]}-{VECTORIZER["TYPE"]}-{train_score}-{val_score}-{test_score}.pickle',
+    f'archive/v2/classifiers/{CLASSIFIER["TYPE"]}-{VECTORIZER["TYPE"]}-{train_score}-{val_score}-{test_score}.pickle',
     classifier
 )

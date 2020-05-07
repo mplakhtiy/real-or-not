@@ -1,8 +1,9 @@
 # -*- coding: utf-8 -*-
-from tensorflow.keras.layers import Dense, Input, Embedding
-from tensorflow.keras.callbacks import Callback
+from tensorflow.keras.callbacks import Callback, ModelCheckpoint
 from tensorflow.keras.optimizers import Adam, RMSprop
 from tensorflow.keras.models import Model, Sequential
+from tensorflow.keras.layers import Dense, LSTM, SpatialDropout1D, Dropout, GlobalMaxPooling1D, GRU, Input, Embedding
+from tensorflow.keras.layers import Bidirectional, Conv1D, GlobalAveragePooling1D, MaxPooling1D, GlobalMaxPool1D
 import matplotlib.pyplot as plt
 import tensorflow as tf
 
@@ -27,25 +28,145 @@ class Keras:
         'rmsprop': RMSprop
     }
 
+    DEFAULTS = {
+        'ACTIVATION': 'sigmoid',
+        'OPTIMIZER': 'adam',
+        'LEARNING_RATE': 1e-4,
+    }
+
     @staticmethod
-    def get_model(layers, embedding_options=None, activation='sigmoid', optimizer='rmsprop', learning_rate=0.001):
+    def get_sequential_model(layers, config):
+        if layers is None or config is None:
+            raise ValueError('Layers and config can not be None!')
+
         model = Sequential()
 
-        if embedding_options is not None:
-            model.add(Embedding(**embedding_options))
+        if config['EMBEDDING_OPTIONS'] is not None:
+            model.add(Embedding(**config['EMBEDDING_OPTIONS']))
 
         for layer in layers:
             model.add(layer)
 
-        model.add(Dense(1, activation=activation))
+        model.add(Dense(1, activation=config.get('ACTIVATION', Keras.DEFAULTS['ACTIVATION'])))
 
         model.compile(
-            optimizer=Keras.OPTIMIZERS[optimizer](learning_rate=learning_rate),
+            optimizer=Keras.OPTIMIZERS[config.get('OPTIMIZER', Keras.DEFAULTS['OPTIMIZER'])](
+                learning_rate=config.get('LEARNING_RATE', Keras.DEFAULTS['LEARNING_RATE'])
+            ),
             loss='binary_crossentropy',
             metrics=['accuracy']
         )
 
         return model
+
+    @staticmethod
+    def _get_lstm_model(config):
+        return Keras.get_sequential_model(
+            [LSTM(config['LSTM_UNITS'])],
+            config,
+        )
+
+    @staticmethod
+    def _get_lstm_dropout_model(config):
+        return Keras.get_sequential_model(
+            [
+                SpatialDropout1D(config['DROPOUT']),
+                LSTM(config['LSTM_UNITS'], dropout=config['DROPOUT'], recurrent_dropout=config['DROPOUT'])
+            ],
+            config
+        )
+
+    @staticmethod
+    def _get_bi_lstm_model(config):
+        layers = [Bidirectional(LSTM(config['LSTM_UNITS']))]
+
+        if config.get('DROPOUT'):
+            layers.append(Dropout(config['DROPOUT']))
+
+        return Keras.get_sequential_model(
+            layers,
+            config
+        )
+
+    @staticmethod
+    def _get_fast_text_model(config):
+        return Keras.get_sequential_model(
+            [GlobalAveragePooling1D(), Dense(config['DENSE_UNITS'], activation='relu')],
+            config
+        )
+
+    @staticmethod
+    def _get_rcnn_model(config):
+        layers = [
+            Conv1D(filters=config['CONV_FILTERS'], kernel_size=config['CONV_KERNEL_SIZE'], activation='relu'),
+            MaxPooling1D(pool_size=config['MAX_POOLING_POOL_SIZE']),
+            LSTM(config['LSTM_UNITS']),
+        ]
+
+        if config.get('DROPOUT') is not None:
+            layers = [Dropout(config['DROPOUT'])] + layers
+
+        return Keras.get_sequential_model(
+            layers,
+            config
+        )
+
+    @staticmethod
+    def _get_cnn_model(config):
+        layers = [
+            Conv1D(filters=config['CONV_FILTERS'], kernel_size=config['CONV_KERNEL_SIZE'], activation='relu'),
+            GlobalMaxPooling1D(),
+            Dense(config['DENSE_UNITS'], activation='relu'),
+        ]
+
+        if config.get('DROPOUT') is not None:
+            layers = [Dropout(config['DROPOUT'])] + layers
+
+        return Keras.get_sequential_model(
+            layers,
+            config
+        )
+
+    @staticmethod
+    def _get_rnn_model(config):
+        return Keras.get_sequential_model(
+            [
+                Bidirectional(LSTM(config['LSTM_UNITS'])),
+                Dense(config['DENSE_UNITS'], activation='relu')
+            ],
+            config
+        )
+
+    @staticmethod
+    def _get_gru_model(config):
+        layers = [
+            Bidirectional(GRU(config['GRU_UNITS'], return_sequences=True)),
+            GlobalMaxPool1D(),
+            Dense(config['DENSE_UNITS'], activation='relu'),
+        ]
+
+        if config.get('DROPOUT') is not None:
+            layers = layers + [Dropout(config['DROPOUT'])]
+
+        return Keras.get_sequential_model(
+            layers,
+            config
+        )
+
+    @staticmethod
+    def get_model(config):
+        models = {
+            'LSTM': Keras._get_lstm_model,
+            'LSTM_DROPOUT': Keras._get_lstm_dropout_model,
+            'BI_LSTM': Keras._get_bi_lstm_model,
+            'FASTTEXT': Keras._get_fast_text_model,
+            'RCNN': Keras._get_rcnn_model,
+            'CNN': Keras._get_cnn_model,
+            'RNN': Keras._get_rnn_model,
+            'GRU': Keras._get_gru_model,
+        }
+
+        return models[config['TYPE']](config)
 
     @staticmethod
     def get_bert_model(bert_layer, input_length, optimizer='rmsprop', learning_rate=2e-6):
@@ -80,6 +201,7 @@ class Keras:
             legend.append(val_str)
         if history.get(test_str):
             plt.plot(history[test_str])
+            legend.append(test_str)
 
         plt.xlabel('Epochs')
         plt.legend(legend)
@@ -89,3 +211,42 @@ class Keras:
     def draw_graph(history):
         Keras._plot(history, 'accuracy')
         Keras._plot(history, 'loss')
+
+    @staticmethod
+    def fit(model, data, config):
+        x_train, y_train, x_val, y_val, x_test, y_test = data
+
+        test_data_callback = TestDataCallback(
+            x_test=x_test,
+            y_test=y_test
+        )
+
+        callbacks = [test_data_callback]
+
+        if config.get('DIR') is not None and config.get('PREFIX') is not None:
+            callbacks.append(ModelCheckpoint(
+                config['DIR'] + config['PREFIX'] + '-e{epoch:03d}-a{accuracy:03f}-va{val_accuracy:03f}-ta.h5',
+                verbose=1,
+                monitor='val_loss',
+                save_best_only=True,
+                mode='auto'
+            ))
+
+        history = model.fit(
+            x=x_train, y=y_train,
+            batch_size=config['BATCH_SIZE'],
+            epochs=config['EPOCHS'],
+            verbose=1,
+            validation_data=(
+                x_val,
+                y_val
+            ),
+            callbacks=callbacks
+        )
+
+        model_history = history.history.copy()
+        model_history['test_loss'] = test_data_callback.loss
+        model_history['test_accuracy'] = test_data_callback.accuracy
+        model_history = {k: [round(float(v), 6) for v in data] for k, data in model_history.items()}
+
+        return model_history

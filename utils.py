@@ -88,3 +88,17 @@ def get_glove_embeddings(file_path):
             embeddings_dict[word] = vector.tolist()
 
     return embeddings_dict
+
+
+def log_model(config):
+    dir_path = f'./logs/{"keras-glove" if "GLOVE" in config else "keras"}/'
+    ensure_path_exists(dir_path)
+    file_name = f'{datetime.now().date()}.json'
+    file_path = dir_path + file_name
+
+    if not os.path.exists(file_path):
+        save_to_file(file_path, {})
+
+    log_data = get_from_file(file_path)
+    log_data[config['UUID']] = config
+    save_to_file(file_path, log_data)

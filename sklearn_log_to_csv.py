@@ -5,7 +5,7 @@ from utils import get_from_file
 from os import listdir
 from os.path import isfile, join
 
-LOGS_DIR = './logs/sklearn/'
+LOGS_DIR = 'archive/v2/logs/sklearn/'
 
 logs_files = [f for f in listdir(LOGS_DIR) if isfile(join(LOGS_DIR, f))]
 

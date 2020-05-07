@@ -36,7 +36,7 @@ y_test = test.target.values
 
 MODEL['INPUT_LENGTH'] = INPUT_LENGTH
 
-MODEL_SAVE_PATH = f'./data/models/bert/{MODEL["BERT"]}/{MODEL["BATCH_SIZE"]}-{MODEL["LEARNING_RATE"]}-{INPUT_LENGTH}'
+MODEL_SAVE_PATH = f'archive/v2/models/bert/{MODEL["BERT"]}/{MODEL["BATCH_SIZE"]}-{MODEL["LEARNING_RATE"]}-{INPUT_LENGTH}'
 
 if not os.path.exists(MODEL_SAVE_PATH):
     os.makedirs(MODEL_SAVE_PATH)
