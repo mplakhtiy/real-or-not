@@ -55,6 +55,18 @@ PREPROCESSING_ALGORITHMS = {
         'add_keyword_flag': False, 'add_location_flag': False, 'remove_links': True, 'remove_users': True,
         'remove_hash': True, 'unslang': True, 'split_words': False, 'stem': False, 'remove_punctuations': False,
         'remove_numbers': True, 'to_lower_case': True, 'remove_stop_words': False, 'remove_not_alpha': False,
+        'join': False},
+    '71bd09db-e104-462d-887a-74389438bb49': {
+        'add_link_flag': False, 'add_user_flag': False, 'add_hash_flag': False, 'add_number_flag': False,
+        'add_keyword_flag': False, 'add_location_flag': False, 'remove_links': True, 'remove_users': True,
+        'remove_hash': True, 'unslang': True, 'split_words': False, 'stem': False, 'remove_punctuations': True,
+        'remove_numbers': True, 'to_lower_case': True, 'remove_stop_words': False, 'remove_not_alpha': False,
+        'join': False},
+    'd3cc3c6e-10de-4b27-8712-8017da428e41': {
+        'add_link_flag': True, 'add_user_flag': True, 'add_hash_flag': True, 'add_number_flag': True,
+        'add_keyword_flag': False, 'add_location_flag': False, 'remove_links': True, 'remove_users': True,
+        'remove_hash': True, 'unslang': True, 'split_words': False, 'stem': False, 'remove_punctuations': True,
+        'remove_numbers': True, 'to_lower_case': True, 'remove_stop_words': False, 'remove_not_alpha': False,
         'join': False}
 }
 
@@ -85,15 +97,14 @@ MODEL = {
 MODEL_CONFIG = {
     'TRAIN_UUID': str(uuid.uuid4()),
     'BATCH_SIZE': 32,
-    'EPOCHS': 12,
+    'EPOCHS': 10,
     'OPTIMIZER': 'rmsprop',
     'LEARNING_RATE': 1e-4,
     'EMBEDDING_OPTIONS': {
         'output_dim': 256,
     },
     'LSTM_UNITS': 128,
-    'TYPE': 'LSTM_DROPOUT',
-    'DROPOUT': 0.2
+    'TYPE': 'BI_LSTM',
 }
 
 SEED = 7
@@ -109,56 +120,61 @@ if USE_GLOVE:
     GLOVE_FILE_PATH = f'./data/glove/{GLOVE}'
     GLOVE_EMBEDDINGS = get_glove_embeddings(GLOVE_FILE_PATH)
 
-for key, preprocessing_algorithm in PREPROCESSING_ALGORITHMS.items():
-    CONFIG = MODEL_CONFIG.copy()
-    CONFIG['UUID'] = str(uuid.uuid4())
-    CONFIG['PREPROCESSING_ALGORITHM'] = preprocessing_algorithm
-    CONFIG['PREPROCESSING_ALGORITHM_UUID'] = key
-    CONFIG['KFOLD_HISTORY'] = []
+for network_type in ['LSTM', 'LSTM_DROPOUT', 'BI_LSTM']:
+    MODEL_CONFIG['TYPE'] = network_type
+    if network_type == 'LSTM_DROPOUT' or network_type == 'BI_LSTM':
+        MODEL_CONFIG['DROPOUT'] = 0.2
 
-    kfold = StratifiedKFold(n_splits=KFOLD, shuffle=True, random_state=SEED)
+    for key, preprocessing_algorithm in PREPROCESSING_ALGORITHMS.items():
+        CONFIG = MODEL_CONFIG.copy()
+        CONFIG['UUID'] = str(uuid.uuid4())
+        CONFIG['PREPROCESSING_ALGORITHM'] = preprocessing_algorithm
+        CONFIG['PREPROCESSING_ALGORITHM_UUID'] = key
+        CONFIG['KFOLD_HISTORY'] = []
 
-    train_data['preprocessed'] = tweets_preprocessor.preprocess(
-        train_data.text,
-        preprocessing_algorithm,
-        keywords=train_data.keyword,
-        locations=train_data.location
-    )
+        kfold = StratifiedKFold(n_splits=KFOLD, shuffle=True, random_state=SEED)
 
-    test_data['preprocessed'] = tweets_preprocessor.preprocess(
-        test_data.text,
-        preprocessing_algorithm,
-        keywords=test_data.keyword,
-        locations=test_data.location
-    )
-
-    inputs = train_data['preprocessed']
-    targets = train_data['target']
-
-    for train, validation in kfold.split(inputs, targets):
-        keras_tokenizer = Tokenizer()
-
-        (x_train, x_val, x_test), input_dim, input_len = Helpers.get_model_inputs(
-            (inputs[train], inputs[validation], test_data.preprocessed),
-            keras_tokenizer
+        train_data['preprocessed'] = tweets_preprocessor.preprocess(
+            train_data.text,
+            preprocessing_algorithm,
+            keywords=train_data.keyword,
+            locations=train_data.location
         )
-        y_train = targets[train]
-        y_val = targets[validation]
-        y_test = test_data.target.values
 
-        CONFIG['EMBEDDING_OPTIONS']['input_dim'] = input_dim
-        CONFIG['EMBEDDING_OPTIONS']['input_length'] = input_len
+        test_data['preprocessed'] = tweets_preprocessor.preprocess(
+            test_data.text,
+            preprocessing_algorithm,
+            keywords=test_data.keyword,
+            locations=test_data.location
+        )
 
-        if USE_GLOVE:
-            Helpers.with_glove_embedding_options(CONFIG, keras_tokenizer, GLOVE_EMBEDDINGS)
+        inputs = train_data['preprocessed']
+        targets = train_data['target']
 
-        model = Keras.get_model(CONFIG)
+        for train, validation in kfold.split(inputs, targets):
+            keras_tokenizer = Tokenizer()
 
-        history = Keras.fit(model, (x_train, y_train, x_val, y_val, x_test, y_test), CONFIG)
-        history['EMBEDDING_OPTIONS'] = CONFIG['EMBEDDING_OPTIONS'].copy()
-        del CONFIG['EMBEDDING_OPTIONS']['input_dim']
-        del CONFIG['EMBEDDING_OPTIONS']['input_length']
+            (x_train, x_val, x_test), input_dim, input_len = Helpers.get_model_inputs(
+                (inputs[train], inputs[validation], test_data.preprocessed),
+                keras_tokenizer
+            )
+            y_train = targets[train]
+            y_val = targets[validation]
+            y_test = test_data.target.values
 
-        CONFIG['KFOLD_HISTORY'].append(history)
+            CONFIG['EMBEDDING_OPTIONS']['input_dim'] = input_dim
+            CONFIG['EMBEDDING_OPTIONS']['input_length'] = input_len
 
-        log_model(CONFIG)
+            if USE_GLOVE:
+                Helpers.with_glove_embedding_options(CONFIG, keras_tokenizer, GLOVE_EMBEDDINGS)
+
+            model = Keras.get_model(CONFIG)
+
+            history = Keras.fit(model, (x_train, y_train, x_val, y_val, x_test, y_test), CONFIG)
+            history['EMBEDDING_OPTIONS'] = CONFIG['EMBEDDING_OPTIONS'].copy()
+            del CONFIG['EMBEDDING_OPTIONS']['input_dim']
+            del CONFIG['EMBEDDING_OPTIONS']['input_length']
+
+            CONFIG['KFOLD_HISTORY'].append(history)
+
+            log_model(CONFIG)
