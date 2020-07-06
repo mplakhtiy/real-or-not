@@ -97,7 +97,7 @@ MODEL = {
 MODEL_CONFIG = {
     'TRAIN_UUID': str(uuid.uuid4()),
     'BATCH_SIZE': 32,
-    'EPOCHS': 10,
+    'EPOCHS': 15,
     'OPTIMIZER': 'rmsprop',
     'LEARNING_RATE': 1e-4,
     'EMBEDDING_OPTIONS': {
@@ -110,7 +110,7 @@ MODEL_CONFIG = {
 SEED = 7
 KFOLD = 10
 
-USE_GLOVE = False
+USE_GLOVE = True
 
 if USE_GLOVE:
     MODEL_CONFIG['GLOVE'] = {
@@ -171,9 +171,16 @@ for network_type in ['LSTM', 'LSTM_DROPOUT', 'BI_LSTM']:
             model = Keras.get_model(CONFIG)
 
             history = Keras.fit(model, (x_train, y_train, x_val, y_val, x_test, y_test), CONFIG)
+
+            del CONFIG['EMBEDDING_OPTIONS']['embeddings_initializer']
+
             history['EMBEDDING_OPTIONS'] = CONFIG['EMBEDDING_OPTIONS'].copy()
+            history['GLOVE'] = CONFIG['GLOVE'].copy()
+
             del CONFIG['EMBEDDING_OPTIONS']['input_dim']
             del CONFIG['EMBEDDING_OPTIONS']['input_length']
+            del CONFIG['GLOVE']['VOCAB_COVERAGE']
+            del CONFIG['GLOVE']['TEXT_COVERAGE']
 
             CONFIG['KFOLD_HISTORY'].append(history)
 
