@@ -1,7 +1,7 @@
 import matplotlib.pyplot as plt
 import seaborn as sns
 import numpy as np
-from data import original_train_data as d
+from data import train_data as d, test_data as t
 from tweets import stop_words
 from collections import defaultdict
 from wordcloud import WordCloud
@@ -31,7 +31,7 @@ def draw_number_of_characters_graph(data):
     ax1.set_title('Disaster Tweets')
     ax2.hist(not_disaster_tweet_len, color='#ff7f0e')
     ax2.set_title('Not Disaster Tweets')
-    fig.suptitle('Characters in Tweets')
+    fig.suptitle('Tweets Characters Distribution')
     plt.show()
 
 
@@ -43,7 +43,7 @@ def draw_number_of_words_graph(data):
     tweet_len = data[data['target'] == 0]['text'].str.split().map(lambda x: len(x))
     ax2.hist(tweet_len, color='#ff7f0e')
     ax2.set_title('Not Disaster Tweets')
-    fig.suptitle('Words in Tweets')
+    fig.suptitle('Words Number in Tweets')
     plt.show()
 
 
@@ -69,7 +69,7 @@ def draw_location_distribution_graph(data):
     plt.bar(15, not_disaster_tweets_with_location_count, 3, label="Not Disaster Tweets")
     plt.legend()
     plt.ylabel('Number of Examples')
-    plt.title('Tweets with Location Column Distribution')
+    plt.title('Tweets with the Location Column')
     plt.show()
 
 
@@ -83,14 +83,14 @@ def draw_keyword_distribution_graph(data):
     plt.bar(15, not_disaster_tweets_with_keyword_count, 3, label="Not Disaster Tweets")
     plt.legend()
     plt.ylabel('Number of Examples')
-    plt.title('Tweets with Keyword Column Distribution')
+    plt.title('Tweets with the Keyword Column')
     plt.show()
 
 
 def create_corpus(data, target):
     corpus = []
 
-    for x in data[data['target'] == target]['text'].str.split():
+    for x in data[data['target'] == target]['text'].str.lower().str.split():
         for i in x:
             corpus.append(i)
 
@@ -120,7 +120,7 @@ def draw_top_10_stop_words(data):
     ax1.set_title('Disaster Tweets')
     ax2.bar(x2, y2, color='#ff7f0e')
     ax2.set_title('Not Disaster Tweets')
-    fig.suptitle('Top 10 Stop Words in Tweets')
+    fig.suptitle('Top 10 Stop Words')
     plt.show()
 
 
@@ -192,14 +192,37 @@ def draw_wordcloud(data, target):
     plt.show()
 
 
-draw_class_distribution_graph(d)
-draw_number_of_characters_graph(d)
-draw_number_of_words_graph(d)
-draw_avarage_word_len_graph(d)
-draw_location_distribution_graph(d)
-draw_keyword_distribution_graph(d)
-draw_top_10_stop_words(d)
-draw_punctuations_distribution(d)
-draw_top_10_hashtags(d)
-draw_wordcloud(d, 1)
-draw_wordcloud(d, 0)
+# draw_class_distribution_graph(d)
+# draw_class_distribution_graph(t)
+
+# draw_number_of_characters_graph(d)
+# draw_number_of_characters_graph(t)
+
+# draw_number_of_words_graph(d)
+# draw_number_of_words_graph(t)
+
+# draw_avarage_word_len_graph(d)
+# draw_avarage_word_len_graph(t)
+
+# draw_location_distribution_graph(d)
+# draw_location_distribution_graph(t)
+
+# draw_keyword_distribution_graph(d)
+# draw_keyword_distribution_graph(t)
+
+# draw_top_10_stop_words(d)
+# draw_top_10_stop_words(t)
+
+# draw_punctuations_distribution(d)
+# draw_punctuations_distribution(t)
+
+# draw_top_10_hashtags(d)
+# draw_top_10_hashtags(t)
+#
+# draw_wordcloud(d, 1)
+# draw_wordcloud(d, 0)
+# draw_wordcloud(t, 1)
+# draw_wordcloud(t, 0)
+
+# print(d.text.size)
+# print(test_data.text.size)
