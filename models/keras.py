@@ -194,23 +194,23 @@ class Keras:
         test_str = f'test_{string}'
 
         if history.get(string):
-            plt.plot(history[string])
-            legend.append(string)
+            plt.plot(history[string], color='#1f77b4')
+            legend.append('train')
         if history.get(val_str):
-            plt.plot(history[val_str])
-            legend.append(val_str)
+            plt.plot(history[val_str], color='#ff7f0e')
+            legend.append('validation')
         if history.get(test_str):
-            plt.plot(history[test_str])
-            legend.append(test_str)
+            plt.plot(history[test_str], color='#2ca02c')
+            legend.append('test')
 
         plt.xlabel('Epochs')
         plt.legend(legend)
-        plt.show()
 
     @staticmethod
     def draw_graph(history):
         Keras._plot(history, 'accuracy')
         Keras._plot(history, 'loss')
+        plt.show()
 
     @staticmethod
     def fit(model, data, config):
