@@ -102,3 +102,16 @@ def log_model(config):
     log_data = get_from_file(file_path)
     log_data[config['UUID']] = config
     save_to_file(file_path, log_data)
+
+def log_classifier(config):
+    dir_path = f'./logs/sklearn/'
+    ensure_path_exists(dir_path)
+    file_name = f'svc-{datetime.now().date()}.json'
+    file_path = dir_path + file_name
+
+    if not os.path.exists(file_path):
+        save_to_file(file_path, {})
+
+    log_data = get_from_file(file_path)
+    log_data[config['UUID']] = config
+    save_to_file(file_path, log_data)
