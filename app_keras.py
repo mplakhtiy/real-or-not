@@ -94,17 +94,117 @@ MODEL = {
 }
 '''
 
-MODEL_CONFIG = {
-    'TRAIN_UUID': str(uuid.uuid4()),
-    'BATCH_SIZE': 32,
-    'EPOCHS': 15,
-    'OPTIMIZER': 'rmsprop',
-    'LEARNING_RATE': 1e-4,
-    'EMBEDDING_OPTIONS': {
-        'output_dim': 256,
+TRAIN_UUID = str(uuid.uuid4())
+
+MODEL_CONFIGS = {
+    'LSTM': {
+        'TYPE': 'LSTM',
+        'TRAIN_UUID': TRAIN_UUID,
+        'BATCH_SIZE': 32,
+        'EPOCHS': 10,
+        'OPTIMIZER': 'rmsprop',
+        'LEARNING_RATE': 1e-4,
+        'EMBEDDING_OPTIONS': {
+            'output_dim': 256,
+        },
+        'LSTM_UNITS': 128,
     },
-    'LSTM_UNITS': 128,
-    'TYPE': 'BI_LSTM',
+    'LSTM_DROPOUT': {
+        'TYPE': 'LSTM_DROPOUT',
+        'TRAIN_UUID': TRAIN_UUID,
+        'BATCH_SIZE': 32,
+        'EPOCHS': 10,
+        'OPTIMIZER': 'rmsprop',
+        'LEARNING_RATE': 1e-4,
+        'EMBEDDING_OPTIONS': {
+            'output_dim': 256,
+        },
+        'LSTM_UNITS': 128,
+        'DROPOUT': 0.2,
+    },
+    'BI_LSTM': {
+        'TYPE': 'BI_LSTM',
+        'TRAIN_UUID': TRAIN_UUID,
+        'BATCH_SIZE': 32,
+        'EPOCHS': 10,
+        'OPTIMIZER': 'rmsprop',
+        'LEARNING_RATE': 1e-4,
+        'EMBEDDING_OPTIONS': {
+            'output_dim': 256,
+        },
+        'LSTM_UNITS': 128,
+        'DROPOUT': 0.2,
+    },
+    'FASTTEXT': {
+        'TYPE': 'FASTTEXT',
+        'TRAIN_UUID': TRAIN_UUID,
+        'BATCH_SIZE': 32,
+        'EPOCHS': 25,
+        'OPTIMIZER': 'rmsprop',
+        'LEARNING_RATE': 1e-4,
+        'EMBEDDING_OPTIONS': {
+            'output_dim': 256,
+        },
+        'DENSE_UNITS': 128,
+    },
+    'RCNN': {
+        'TYPE': 'RCNN',
+        'TRAIN_UUID': TRAIN_UUID,
+        'BATCH_SIZE': 32,
+        'EPOCHS': 10,
+        'OPTIMIZER': 'rmsprop',
+        'LEARNING_RATE': 1e-4,
+        'EMBEDDING_OPTIONS': {
+            'output_dim': 256,
+        },
+        'CONV_FILTERS': 128,
+        'CONV_KERNEL_SIZE': 5,
+        'MAX_POOLING_POOL_SIZE': 4,
+        'LSTM_UNITS': 128,
+        'DROPOUT': 0.2,
+    },
+    'CNN': {
+        'TYPE': 'CNN',
+        'TRAIN_UUID': TRAIN_UUID,
+        'BATCH_SIZE': 32,
+        'EPOCHS': 15,
+        'OPTIMIZER': 'rmsprop',
+        'LEARNING_RATE': 1e-4,
+        'EMBEDDING_OPTIONS': {
+            'output_dim': 256,
+        },
+        'CONV_FILTERS': 128,
+        'CONV_KERNEL_SIZE': 5,
+        'DENSE_UNITS': 128,
+        'DROPOUT': 0.2,
+    },
+    'RNN': {
+        'TYPE': 'RNN',
+        'TRAIN_UUID': TRAIN_UUID,
+        'BATCH_SIZE': 32,
+        'EPOCHS': 10,
+        'OPTIMIZER': 'rmsprop',
+        'LEARNING_RATE': 1e-4,
+        'EMBEDDING_OPTIONS': {
+            'output_dim': 256,
+        },
+        'LSTM_UNITS': 128,
+        'DENSE_UNITS': 128,
+    },
+    'GRU': {
+        'TYPE': 'GRU',
+        'TRAIN_UUID': TRAIN_UUID,
+        'BATCH_SIZE': 32,
+        'EPOCHS': 10,
+        'OPTIMIZER': 'rmsprop',
+        'LEARNING_RATE': 1e-4,
+        'EMBEDDING_OPTIONS': {
+            'output_dim': 256,
+        },
+        'GRU_UNITS': 128,
+        'DENSE_UNITS': 128,
+        'DROPOUT': 0.2,
+    },
 }
 
 SEED = 7
@@ -112,18 +212,18 @@ KFOLD = 10
 
 USE_GLOVE = True
 
-if USE_GLOVE:
-    MODEL_CONFIG['GLOVE'] = {
-        'SIZE': 200
-    }
-    GLOVE = f'glove.twitter.27B.{MODEL_CONFIG["GLOVE"]["SIZE"]}d.txt'
-    GLOVE_FILE_PATH = f'./data/glove/{GLOVE}'
-    GLOVE_EMBEDDINGS = get_glove_embeddings(GLOVE_FILE_PATH)
+NETWORKS_KEYS = []
 
-for network_type in ['LSTM', 'LSTM_DROPOUT', 'BI_LSTM']:
-    MODEL_CONFIG['TYPE'] = network_type
-    if network_type == 'LSTM_DROPOUT' or network_type == 'BI_LSTM':
-        MODEL_CONFIG['DROPOUT'] = 0.2
+for key in NETWORKS_KEYS:
+    MODEL_CONFIG = MODEL_CONFIGS[key].copy()
+
+    if USE_GLOVE:
+        MODEL_CONFIG['GLOVE'] = {
+            'SIZE': 200
+        }
+        GLOVE = f'glove.twitter.27B.{MODEL_CONFIG["GLOVE"]["SIZE"]}d.txt'
+        GLOVE_FILE_PATH = f'./data/glove/{GLOVE}'
+        GLOVE_EMBEDDINGS = get_glove_embeddings(GLOVE_FILE_PATH)
 
     for key, preprocessing_algorithm in PREPROCESSING_ALGORITHMS.items():
         CONFIG = MODEL_CONFIG.copy()
@@ -173,6 +273,7 @@ for network_type in ['LSTM', 'LSTM_DROPOUT', 'BI_LSTM']:
             history = Keras.fit(model, (x_train, y_train, x_val, y_val, x_test, y_test), CONFIG)
 
             del CONFIG['EMBEDDING_OPTIONS']['embeddings_initializer']
+            del CONFIG['EMBEDDING_OPTIONS']['trainable']
 
             history['EMBEDDING_OPTIONS'] = CONFIG['EMBEDDING_OPTIONS'].copy()
             history['GLOVE'] = CONFIG['GLOVE'].copy()
