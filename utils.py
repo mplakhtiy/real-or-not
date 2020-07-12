@@ -92,6 +92,10 @@ def get_glove_embeddings(file_path):
 
 def log_model(config):
     dir_path = f'./logs/{"keras-glove" if "GLOVE" in config else "keras"}/'
+
+    if 'BERT' in config:
+        dir_path = f'./logs/bert/'
+
     ensure_path_exists(dir_path)
     file_name = f'{datetime.now().date()}.json'
     file_path = dir_path + file_name
