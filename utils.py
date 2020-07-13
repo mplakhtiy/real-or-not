@@ -28,7 +28,12 @@ def ensure_path_exists(path):
 
 
 def save_classifier(file_path, classifier):
+    ensure_path_exists('/'.join(file_path.split('/')[:-1]))
     pickle.dump(classifier, open(file_path, 'wb'))
+
+
+def load_classifier(file_path):
+    return pickle.load(open(file_path, 'rb'))
 
 
 def log(
@@ -106,6 +111,7 @@ def log_model(config):
     log_data = get_from_file(file_path)
     log_data[config['UUID']] = config
     save_to_file(file_path, log_data)
+
 
 def log_classifier(config):
     dir_path = f'./logs/sklearn/'

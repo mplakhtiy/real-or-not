@@ -41,7 +41,7 @@ class Keras:
 
         model = Sequential()
 
-        if config['EMBEDDING_OPTIONS'] is not None:
+        if config.get('EMBEDDING_OPTIONS') is not None:
             model.add(Embedding(**config['EMBEDDING_OPTIONS']))
 
         for layer in layers:
@@ -214,14 +214,19 @@ class Keras:
 
     @staticmethod
     def fit(model, data, config):
-        x_train, y_train, x_val, y_val, x_test, y_test = data
+        data_len = len(data)
+        if data_len == 6:
+            x_train, y_train, x_val, y_val, x_test, y_test = data
+        else:
+            x_train, y_train, x_val, y_val = data
 
-        test_data_callback = TestDataCallback(
-            x_test=x_test,
-            y_test=y_test
-        )
-
-        callbacks = [test_data_callback]
+        callbacks = []
+        if data_len == 6:
+            test_data_callback = TestDataCallback(
+                x_test=x_test,
+                y_test=y_test
+            )
+            callbacks.append(test_data_callback)
 
         if config.get('DIR') is not None and config.get('PREFIX') is not None:
             callbacks.append(ModelCheckpoint(

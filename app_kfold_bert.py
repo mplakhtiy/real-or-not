@@ -85,7 +85,7 @@ for algorithm_id, preprocessing_algorithm in PREPROCESSING_ALGORITHMS.items():
         'BERT': 'bert_en_uncased_L-24_H-1024_A-16',
         'BERT_VERSION': 2,
         'BATCH_SIZE': 16,
-        'EPOCHS': 5,
+        'EPOCHS': 4,
         'OPTIMIZER': 'adam',
         'LEARNING_RATE': 2e-6,
         'PREPROCESSING_ALGORITHM_UUID': algorithm_id,
