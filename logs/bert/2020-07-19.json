@@ -1,0 +1,6962 @@
+{
+  "37b36740-d594-4985-951a-4de5d9695ff1": {
+    "UUID": "37b36740-d594-4985-951a-4de5d9695ff1",
+    "BERT": "bert_en_uncased_L-24_H-1024_A-16",
+    "BERT_VERSION": 1,
+    "BATCH_SIZE": 16,
+    "EPOCHS": 3,
+    "OPTIMIZER": "adam",
+    "LEARNING_RATE": 2e-06,
+    "PREPROCESSING_ALGORITHM_UUID": "None",
+    "PREPROCESSING_ALGORITHM": {},
+    "KFOLD_HISTORY": [
+      {
+        "loss": [
+          0.4468036,
+          0.3151598,
+          0.23284283
+        ],
+        "accuracy": [
+          0.80192673,
+          0.8706758,
+          0.9118377
+        ],
+        "val_loss": [
+          0.37101343,
+          0.38320254,
+          0.40594096
+        ],
+        "val_accuracy": [
+          0.84514433,
+          0.84645671,
+          0.83858269
+        ],
+        "test_loss": [
+          0.39242535,
+          0.41124375,
+          0.43003843
+        ],
+        "test_accuracy": [
+          0.83481461,
+          0.82286239,
+          0.83450812
+        ],
+        "INPUT_LENGTH": 84
+      }
+    ]
+  },
+  "9770fd47-bc89-4444-9a52-124b3e73f574": {
+    "UUID": "9770fd47-bc89-4444-9a52-124b3e73f574",
+    "BERT": "bert_en_uncased_L-24_H-1024_A-16",
+    "BERT_VERSION": 1,
+    "BATCH_SIZE": 16,
+    "EPOCHS": 3,
+    "OPTIMIZER": "adam",
+    "LEARNING_RATE": 2e-06,
+    "PREPROCESSING_ALGORITHM_UUID": "None",
+    "PREPROCESSING_ALGORITHM": {},
+    "KFOLD_HISTORY": [
+      {
+        "loss": [
+          0.45940653,
+          0.32654521,
+          0.25395007
+        ],
+        "accuracy": [
+          0.79608816,
+          0.86775655,
+          0.90264195
+        ],
+        "val_loss": [
+          0.39982127,
+          0.40168315,
+          0.41038121
+        ],
+        "val_accuracy": [
+          0.82808399,
+          0.82677168,
+          0.83464569
+        ],
+        "test_loss": [
+          0.40277762,
+          0.40577403,
+          0.40962294
+        ],
+        "test_accuracy": [
+          0.82623351,
+          0.82868528,
+          0.8253141
+        ],
+        "INPUT_LENGTH": 84
+      }
+    ]
+  },
+  "b41cd9f9-72d3-4e20-8f31-093a2edc6ca7": {
+    "UUID": "b41cd9f9-72d3-4e20-8f31-093a2edc6ca7",
+    "BERT": "bert_en_uncased_L-24_H-1024_A-16",
+    "BERT_VERSION": 1,
+    "BATCH_SIZE": 16,
+    "EPOCHS": 3,
+    "OPTIMIZER": "adam",
+    "LEARNING_RATE": 2e-06,
+    "PREPROCESSING_ALGORITHM_UUID": "None",
+    "PREPROCESSING_ALGORITHM": {},
+    "KFOLD_HISTORY": [
+      {
+        "loss": [
+          0.46043104,
+          0.3249806,
+          0.23931914
+        ],
+        "accuracy": [
+          0.78966576,
+          0.86366951,
+          0.90395564
+        ],
+        "val_loss": [
+          0.41696836,
+          0.41225495,
+          0.44474746
+        ],
+        "val_accuracy": [
+          0.82020998,
+          0.83727032,
+          0.83464569
+        ],
+        "test_loss": [
+          0.40130363,
+          0.40417201,
+          0.41942135
+        ],
+        "test_accuracy": [
+          0.82562059,
+          0.8302176,
+          0.83144343
+        ],
+        "INPUT_LENGTH": 84
+      }
+    ]
+  },
+  "e38a8cbb-b0a3-4ae2-a553-ac9bb1ec41ea": {
+    "UUID": "e38a8cbb-b0a3-4ae2-a553-ac9bb1ec41ea",
+    "BERT": "bert_en_uncased_L-24_H-1024_A-16",
+    "BERT_VERSION": 1,
+    "BATCH_SIZE": 16,
+    "EPOCHS": 3,
+    "OPTIMIZER": "adam",
+    "LEARNING_RATE": 2e-06,
+    "PREPROCESSING_ALGORITHM_UUID": "None",
+    "PREPROCESSING_ALGORITHM": {},
+    "KFOLD_HISTORY": [
+      {
+        "loss": [
+          0.4587749,
+          0.32794342,
+          0.2519851
+        ],
+        "accuracy": [
+          0.78794515,
+          0.86704612,
+          0.90002918
+        ],
+        "val_loss": [
+          0.37862751,
+          0.38724062,
+          0.39620681
+        ],
+        "val_accuracy": [
+          0.83574247,
+          0.83574247,
+          0.83311433
+        ],
+        "test_loss": [
+          0.40095562,
+          0.39906953,
+          0.41224103
+        ],
+        "test_accuracy": [
+          0.83542752,
+          0.8329758,
+          0.83512104
+        ],
+        "INPUT_LENGTH": 84
+      }
+    ]
+  },
+  "ad08cef8-a91f-4589-8752-0003708f789c": {
+    "UUID": "ad08cef8-a91f-4589-8752-0003708f789c",
+    "BERT": "bert_en_uncased_L-24_H-1024_A-16",
+    "BERT_VERSION": 1,
+    "BATCH_SIZE": 16,
+    "EPOCHS": 3,
+    "OPTIMIZER": "adam",
+    "LEARNING_RATE": 2e-06,
+    "PREPROCESSING_ALGORITHM_UUID": "None",
+    "PREPROCESSING_ALGORITHM": {},
+    "KFOLD_HISTORY": [
+      {
+        "loss": [
+          0.45551417,
+          0.33072853,
+          0.25602605
+        ],
+        "accuracy": [
+          0.7990368,
+          0.86952716,
+          0.90236425
+        ],
+        "val_loss": [
+          0.39069122,
+          0.37983767,
+          0.4093754
+        ],
+        "val_accuracy": [
+          0.83180028,
+          0.84099871,
+          0.83837056
+        ],
+        "test_loss": [
+          0.40079361,
+          0.39014294,
+          0.41596807
+        ],
+        "test_accuracy": [
+          0.82592708,
+          0.83236283,
+          0.83174992
+        ],
+        "INPUT_LENGTH": 84
+      }
+    ]
+  },
+  "c9b55fea-072a-40f2-b929-5b6c5d07aab0": {
+    "UUID": "c9b55fea-072a-40f2-b929-5b6c5d07aab0",
+    "BERT": "bert_en_uncased_L-24_H-1024_A-16",
+    "BERT_VERSION": 1,
+    "BATCH_SIZE": 16,
+    "EPOCHS": 3,
+    "OPTIMIZER": "adam",
+    "LEARNING_RATE": 2e-06,
+    "PREPROCESSING_ALGORITHM_UUID": "None",
+    "PREPROCESSING_ALGORITHM": {},
+    "KFOLD_HISTORY": [
+      {
+        "loss": [
+          0.453322,
+          0.3256394,
+          0.24858978
+        ],
+        "accuracy": [
+          0.7943666,
+          0.86617047,
+          0.90323991
+        ],
+        "val_loss": [
+          0.37151991,
+          0.35971553,
+          0.38216793
+        ],
+        "val_accuracy": [
+          0.85019714,
+          0.85282522,
+          0.84494084
+        ],
+        "test_loss": [
+          0.41160018,
+          0.4040283,
+          0.41152558
+        ],
+        "test_accuracy": [
+          0.82807231,
+          0.83420163,
+          0.82745939
+        ],
+        "INPUT_LENGTH": 84
+      }
+    ]
+  },
+  "9b96ffe6-dee3-4162-907d-f2c57dbbf5b1": {
+    "UUID": "9b96ffe6-dee3-4162-907d-f2c57dbbf5b1",
+    "BERT": "bert_en_uncased_L-24_H-1024_A-16",
+    "BERT_VERSION": 1,
+    "BATCH_SIZE": 16,
+    "EPOCHS": 3,
+    "OPTIMIZER": "adam",
+    "LEARNING_RATE": 2e-06,
+    "PREPROCESSING_ALGORITHM_UUID": "None",
+    "PREPROCESSING_ALGORITHM": {},
+    "KFOLD_HISTORY": [
+      {
+        "loss": [
+          0.45138573,
+          0.32531212,
+          0.25164222
+        ],
+        "accuracy": [
+          0.79568011,
+          0.86675423,
+          0.90251023
+        ],
+        "val_loss": [
+          0.42518023,
+          0.42881661,
+          0.44072796
+        ],
+        "val_accuracy": [
+          0.81734562,
+          0.82260185,
+          0.81734562
+        ],
+        "test_loss": [
+          0.40189243,
+          0.39802037,
+          0.40827339
+        ],
+        "test_accuracy": [
+          0.8283788,
+          0.8320564,
+          0.83420163
+        ],
+        "INPUT_LENGTH": 84
+      }
+    ]
+  },
+  "57211d8d-bc15-4009-a189-8144fbf2c9ac": {
+    "UUID": "57211d8d-bc15-4009-a189-8144fbf2c9ac",
+    "BERT": "bert_en_uncased_L-24_H-1024_A-16",
+    "BERT_VERSION": 1,
+    "BATCH_SIZE": 16,
+    "EPOCHS": 3,
+    "OPTIMIZER": "adam",
+    "LEARNING_RATE": 2e-06,
+    "PREPROCESSING_ALGORITHM_UUID": "None",
+    "PREPROCESSING_ALGORITHM": {},
+    "KFOLD_HISTORY": [
+      {
+        "loss": [
+          0.47143161,
+          0.33791445,
+          0.25288116
+        ],
+        "accuracy": [
+          0.78035611,
+          0.86237597,
+          0.90178049
+        ],
+        "val_loss": [
+          0.42094872,
+          0.40457876,
+          0.45635444
+        ],
+        "val_accuracy": [
+          0.80683309,
+          0.82128775,
+          0.80814719
+        ],
+        "test_loss": [
+          0.40916449,
+          0.39279087,
+          0.42245204
+        ],
+        "test_accuracy": [
+          0.81734598,
+          0.83879864,
+          0.83174992
+        ],
+        "INPUT_LENGTH": 84
+      }
+    ]
+  },
+  "25ec2d48-6f6f-49ad-a6a2-fa4c9465a511": {
+    "UUID": "25ec2d48-6f6f-49ad-a6a2-fa4c9465a511",
+    "BERT": "bert_en_uncased_L-24_H-1024_A-16",
+    "BERT_VERSION": 1,
+    "BATCH_SIZE": 16,
+    "EPOCHS": 3,
+    "OPTIMIZER": "adam",
+    "LEARNING_RATE": 2e-06,
+    "PREPROCESSING_ALGORITHM_UUID": "None",
+    "PREPROCESSING_ALGORITHM": {},
+    "KFOLD_HISTORY": [
+      {
+        "loss": [
+          0.44160456,
+          0.31540328,
+          0.23007541
+        ],
+        "accuracy": [
+          0.80443668,
+          0.87230003,
+          0.90849388
+        ],
+        "val_loss": [
+          0.37510651,
+          0.37864094,
+          0.3783826
+        ],
+        "val_accuracy": [
+          0.84888303,
+          0.85282522,
+          0.86727989
+        ],
+        "test_loss": [
+          0.39859192,
+          0.40277226,
+          0.41407344
+        ],
+        "test_accuracy": [
+          0.83481461,
+          0.82500768,
+          0.83634692
+        ],
+        "INPUT_LENGTH": 84
+      }
+    ]
+  },
+  "90bf09f2-49a5-4d5d-b5c1-25d171973a09": {
+    "UUID": "90bf09f2-49a5-4d5d-b5c1-25d171973a09",
+    "BERT": "bert_en_uncased_L-24_H-1024_A-16",
+    "BERT_VERSION": 1,
+    "BATCH_SIZE": 16,
+    "EPOCHS": 3,
+    "OPTIMIZER": "adam",
+    "LEARNING_RATE": 2e-06,
+    "PREPROCESSING_ALGORITHM_UUID": "None",
+    "PREPROCESSING_ALGORITHM": {},
+    "KFOLD_HISTORY": [
+      {
+        "loss": [
+          0.47548986,
+          0.33160305,
+          0.24164553
+        ],
+        "accuracy": [
+          0.7837128,
+          0.86208409,
+          0.90265614
+        ],
+        "val_loss": [
+          0.3816116,
+          0.382265,
+          0.38950326
+        ],
+        "val_accuracy": [
+          0.84756899,
+          0.83837056,
+          0.85413927
+        ],
+        "test_loss": [
+          0.41282003,
+          0.4084514,
+          0.42454708
+        ],
+        "test_accuracy": [
+          0.82807231,
+          0.82194299,
+          0.82776588
+        ],
+        "INPUT_LENGTH": 82
+      }
+    ]
+  },
+  "57cc4346-2c86-4497-987e-59700154962d": {
+    "UUID": "57cc4346-2c86-4497-987e-59700154962d",
+    "BERT": "bert_en_uncased_L-24_H-1024_A-16",
+    "BERT_VERSION": 1,
+    "BATCH_SIZE": 16,
+    "EPOCHS": 3,
+    "OPTIMIZER": "adam",
+    "LEARNING_RATE": 2e-06,
+    "PREPROCESSING_ALGORITHM_UUID": "1258a9d2-111e-4d4a-acda-852dd7ba3e88",
+    "PREPROCESSING_ALGORITHM": {
+      "add_link_flag": true,
+      "add_user_flag": true,
+      "add_hash_flag": true,
+      "add_number_flag": true,
+      "add_keyword_flag": false,
+      "add_location_flag": false,
+      "remove_links": true,
+      "remove_users": true,
+      "remove_hash": true,
+      "unslang": true,
+      "split_words": true,
+      "stem": false,
+      "remove_punctuations": true,
+      "remove_numbers": true,
+      "to_lower_case": true,
+      "remove_stop_words": true,
+      "remove_not_alpha": true,
+      "join": true
+    },
+    "KFOLD_HISTORY": [
+      {
+        "loss": [
+          0.46957511,
+          0.34946243,
+          0.26775383
+        ],
+        "accuracy": [
+          0.7832433,
+          0.85476571,
+          0.88950521
+        ],
+        "val_loss": [
+          0.39620491,
+          0.38634728,
+          0.39988925
+        ],
+        "val_accuracy": [
+          0.83727032,
+          0.84514433,
+          0.84514433
+        ],
+        "test_loss": [
+          0.42752047,
+          0.41017318,
+          0.43286867
+        ],
+        "test_accuracy": [
+          0.81244254,
+          0.82684648,
+          0.82378179
+        ],
+        "INPUT_LENGTH": 44
+      }
+    ]
+  },
+  "3e0f0424-5cbb-4c13-9298-0b900c605ab2": {
+    "UUID": "3e0f0424-5cbb-4c13-9298-0b900c605ab2",
+    "BERT": "bert_en_uncased_L-24_H-1024_A-16",
+    "BERT_VERSION": 1,
+    "BATCH_SIZE": 16,
+    "EPOCHS": 3,
+    "OPTIMIZER": "adam",
+    "LEARNING_RATE": 2e-06,
+    "PREPROCESSING_ALGORITHM_UUID": "1258a9d2-111e-4d4a-acda-852dd7ba3e88",
+    "PREPROCESSING_ALGORITHM": {
+      "add_link_flag": true,
+      "add_user_flag": true,
+      "add_hash_flag": true,
+      "add_number_flag": true,
+      "add_keyword_flag": false,
+      "add_location_flag": false,
+      "remove_links": true,
+      "remove_users": true,
+      "remove_hash": true,
+      "unslang": true,
+      "split_words": true,
+      "stem": false,
+      "remove_punctuations": true,
+      "remove_numbers": true,
+      "to_lower_case": true,
+      "remove_stop_words": true,
+      "remove_not_alpha": true,
+      "join": true
+    },
+    "KFOLD_HISTORY": [
+      {
+        "loss": [
+          0.45418285,
+          0.34710381,
+          0.28071339
+        ],
+        "accuracy": [
+          0.79900742,
+          0.86002046,
+          0.88848341
+        ],
+        "val_loss": [
+          0.40478502,
+          0.41120718,
+          0.42666806
+        ],
+        "val_accuracy": [
+          0.83070868,
+          0.832021,
+          0.84514433
+        ],
+        "test_loss": [
+          0.41986083,
+          0.42243283,
+          0.42648154
+        ],
+        "test_accuracy": [
+          0.81336194,
+          0.81826538,
+          0.82224947
+        ],
+        "INPUT_LENGTH": 44
+      }
+    ]
+  },
+  "bd1b0d85-372e-4932-bcd3-df59eb02b205": {
+    "UUID": "bd1b0d85-372e-4932-bcd3-df59eb02b205",
+    "BERT": "bert_en_uncased_L-24_H-1024_A-16",
+    "BERT_VERSION": 1,
+    "BATCH_SIZE": 16,
+    "EPOCHS": 3,
+    "OPTIMIZER": "adam",
+    "LEARNING_RATE": 2e-06,
+    "PREPROCESSING_ALGORITHM_UUID": "1258a9d2-111e-4d4a-acda-852dd7ba3e88",
+    "PREPROCESSING_ALGORITHM": {
+      "add_link_flag": true,
+      "add_user_flag": true,
+      "add_hash_flag": true,
+      "add_number_flag": true,
+      "add_keyword_flag": false,
+      "add_location_flag": false,
+      "remove_links": true,
+      "remove_users": true,
+      "remove_hash": true,
+      "unslang": true,
+      "split_words": true,
+      "stem": false,
+      "remove_punctuations": true,
+      "remove_numbers": true,
+      "to_lower_case": true,
+      "remove_stop_words": true,
+      "remove_not_alpha": true,
+      "join": true
+    },
+    "KFOLD_HISTORY": [
+      {
+        "loss": [
+          0.46348039,
+          0.34507926,
+          0.27927771
+        ],
+        "accuracy": [
+          0.79331487,
+          0.85564148,
+          0.88804555
+        ],
+        "val_loss": [
+          0.44956759,
+          0.45964896,
+          0.49808846
+        ],
+        "val_accuracy": [
+          0.80577427,
+          0.81233597,
+          0.80314958
+        ],
+        "test_loss": [
+          0.42245878,
+          0.42657244,
+          0.4583653
+        ],
+        "test_accuracy": [
+          0.81274903,
+          0.81857187,
+          0.81244254
+        ],
+        "INPUT_LENGTH": 44
+      }
+    ]
+  },
+  "c73dfbe9-3ddc-462a-8a8f-c300d2e6d0c4": {
+    "UUID": "c73dfbe9-3ddc-462a-8a8f-c300d2e6d0c4",
+    "BERT": "bert_en_uncased_L-24_H-1024_A-16",
+    "BERT_VERSION": 1,
+    "BATCH_SIZE": 16,
+    "EPOCHS": 3,
+    "OPTIMIZER": "adam",
+    "LEARNING_RATE": 2e-06,
+    "PREPROCESSING_ALGORITHM_UUID": "1258a9d2-111e-4d4a-acda-852dd7ba3e88",
+    "PREPROCESSING_ALGORITHM": {
+      "add_link_flag": true,
+      "add_user_flag": true,
+      "add_hash_flag": true,
+      "add_number_flag": true,
+      "add_keyword_flag": false,
+      "add_location_flag": false,
+      "remove_links": true,
+      "remove_users": true,
+      "remove_hash": true,
+      "unslang": true,
+      "split_words": true,
+      "stem": false,
+      "remove_punctuations": true,
+      "remove_numbers": true,
+      "to_lower_case": true,
+      "remove_stop_words": true,
+      "remove_not_alpha": true,
+      "join": true
+    },
+    "KFOLD_HISTORY": [
+      {
+        "loss": [
+          0.46223951,
+          0.34795086,
+          0.26077254
+        ],
+        "accuracy": [
+          0.79217744,
+          0.85668421,
+          0.89871567
+        ],
+        "val_loss": [
+          0.37571349,
+          0.36352985,
+          0.39481701
+        ],
+        "val_accuracy": [
+          0.8593955,
+          0.8646518,
+          0.84888303
+        ],
+        "test_loss": [
+          0.42326711,
+          0.40583641,
+          0.43594124
+        ],
+        "test_accuracy": [
+          0.82071716,
+          0.82653999,
+          0.81887835
+        ],
+        "INPUT_LENGTH": 44
+      }
+    ]
+  },
+  "111f269a-a0b8-4dab-9293-29ce5a0fe40e": {
+    "UUID": "111f269a-a0b8-4dab-9293-29ce5a0fe40e",
+    "BERT": "bert_en_uncased_L-24_H-1024_A-16",
+    "BERT_VERSION": 1,
+    "BATCH_SIZE": 16,
+    "EPOCHS": 3,
+    "OPTIMIZER": "adam",
+    "LEARNING_RATE": 2e-06,
+    "PREPROCESSING_ALGORITHM_UUID": "1258a9d2-111e-4d4a-acda-852dd7ba3e88",
+    "PREPROCESSING_ALGORITHM": {
+      "add_link_flag": true,
+      "add_user_flag": true,
+      "add_hash_flag": true,
+      "add_number_flag": true,
+      "add_keyword_flag": false,
+      "add_location_flag": false,
+      "remove_links": true,
+      "remove_users": true,
+      "remove_hash": true,
+      "unslang": true,
+      "split_words": true,
+      "stem": false,
+      "remove_punctuations": true,
+      "remove_numbers": true,
+      "to_lower_case": true,
+      "remove_stop_words": true,
+      "remove_not_alpha": true,
+      "join": true
+    },
+    "KFOLD_HISTORY": [
+      {
+        "loss": [
+          0.44595837,
+          0.33346069,
+          0.24097197
+        ],
+        "accuracy": [
+          0.80399883,
+          0.86573261,
+          0.90922356
+        ],
+        "val_loss": [
+          0.39068987,
+          0.37191202,
+          0.39284582
+        ],
+        "val_accuracy": [
+          0.84494084,
+          0.85019714,
+          0.84625494
+        ],
+        "test_loss": [
+          0.41753304,
+          0.40501764,
+          0.44069422
+        ],
+        "test_accuracy": [
+          0.8234753,
+          0.82745939,
+          0.8253141
+        ],
+        "INPUT_LENGTH": 44
+      }
+    ]
+  },
+  "befea6a4-ec29-45f4-8b5b-26cda9805260": {
+    "UUID": "befea6a4-ec29-45f4-8b5b-26cda9805260",
+    "BERT": "bert_en_uncased_L-24_H-1024_A-16",
+    "BERT_VERSION": 1,
+    "BATCH_SIZE": 16,
+    "EPOCHS": 3,
+    "OPTIMIZER": "adam",
+    "LEARNING_RATE": 2e-06,
+    "PREPROCESSING_ALGORITHM_UUID": "1258a9d2-111e-4d4a-acda-852dd7ba3e88",
+    "PREPROCESSING_ALGORITHM": {
+      "add_link_flag": true,
+      "add_user_flag": true,
+      "add_hash_flag": true,
+      "add_number_flag": true,
+      "add_keyword_flag": false,
+      "add_location_flag": false,
+      "remove_links": true,
+      "remove_users": true,
+      "remove_hash": true,
+      "unslang": true,
+      "split_words": true,
+      "stem": false,
+      "remove_punctuations": true,
+      "remove_numbers": true,
+      "to_lower_case": true,
+      "remove_stop_words": true,
+      "remove_not_alpha": true,
+      "join": true
+    },
+    "KFOLD_HISTORY": [
+      {
+        "loss": [
+          0.46045292,
+          0.3615492,
+          0.30458216
+        ],
+        "accuracy": [
+          0.79918271,
+          0.85332751,
+          0.87653238
+        ],
+        "val_loss": [
+          0.38254327,
+          0.35337664,
+          0.34063483
+        ],
+        "val_accuracy": [
+          0.83574247,
+          0.84099871,
+          0.84494084
+        ],
+        "test_loss": [
+          0.43049862,
+          0.41565163,
+          0.41942265
+        ],
+        "test_accuracy": [
+          0.80355501,
+          0.81550717,
+          0.82745939
+        ],
+        "INPUT_LENGTH": 44
+      }
+    ]
+  },
+  "5f6cb9ab-a500-4b57-8065-0276b8683f61": {
+    "UUID": "5f6cb9ab-a500-4b57-8065-0276b8683f61",
+    "BERT": "bert_en_uncased_L-24_H-1024_A-16",
+    "BERT_VERSION": 1,
+    "BATCH_SIZE": 16,
+    "EPOCHS": 3,
+    "OPTIMIZER": "adam",
+    "LEARNING_RATE": 2e-06,
+    "PREPROCESSING_ALGORITHM_UUID": "1258a9d2-111e-4d4a-acda-852dd7ba3e88",
+    "PREPROCESSING_ALGORITHM": {
+      "add_link_flag": true,
+      "add_user_flag": true,
+      "add_hash_flag": true,
+      "add_number_flag": true,
+      "add_keyword_flag": false,
+      "add_location_flag": false,
+      "remove_links": true,
+      "remove_users": true,
+      "remove_hash": true,
+      "unslang": true,
+      "split_words": true,
+      "stem": false,
+      "remove_punctuations": true,
+      "remove_numbers": true,
+      "to_lower_case": true,
+      "remove_stop_words": true,
+      "remove_not_alpha": true,
+      "join": true
+    },
+    "KFOLD_HISTORY": [
+      {
+        "loss": [
+          0.44383694,
+          0.331981,
+          0.24740576
+        ],
+        "accuracy": [
+          0.80516636,
+          0.86237597,
+          0.90294802
+        ],
+        "val_loss": [
+          0.43733656,
+          0.43918598,
+          0.45073661
+        ],
+        "val_accuracy": [
+          0.81734562,
+          0.8239159,
+          0.82128775
+        ],
+        "test_loss": [
+          0.43244004,
+          0.41504744,
+          0.42540844
+        ],
+        "test_accuracy": [
+          0.82194299,
+          0.8283788,
+          0.8253141
+        ],
+        "INPUT_LENGTH": 44
+      }
+    ]
+  },
+  "6157ea32-3bfa-4ed5-a3e4-e881638849ee": {
+    "UUID": "6157ea32-3bfa-4ed5-a3e4-e881638849ee",
+    "BERT": "bert_en_uncased_L-24_H-1024_A-16",
+    "BERT_VERSION": 1,
+    "BATCH_SIZE": 16,
+    "EPOCHS": 3,
+    "OPTIMIZER": "adam",
+    "LEARNING_RATE": 2e-06,
+    "PREPROCESSING_ALGORITHM_UUID": "1258a9d2-111e-4d4a-acda-852dd7ba3e88",
+    "PREPROCESSING_ALGORITHM": {
+      "add_link_flag": true,
+      "add_user_flag": true,
+      "add_hash_flag": true,
+      "add_number_flag": true,
+      "add_keyword_flag": false,
+      "add_location_flag": false,
+      "remove_links": true,
+      "remove_users": true,
+      "remove_hash": true,
+      "unslang": true,
+      "split_words": true,
+      "stem": false,
+      "remove_punctuations": true,
+      "remove_numbers": true,
+      "to_lower_case": true,
+      "remove_stop_words": true,
+      "remove_not_alpha": true,
+      "join": true
+    },
+    "KFOLD_HISTORY": [
+      {
+        "loss": [
+          0.47014072,
+          0.35186726,
+          0.28496863
+        ],
+        "accuracy": [
+          0.78619379,
+          0.85420316,
+          0.88660246
+        ],
+        "val_loss": [
+          0.42810957,
+          0.41420138,
+          0.41917927
+        ],
+        "val_accuracy": [
+          0.79106438,
+          0.80814719,
+          0.81471747
+        ],
+        "test_loss": [
+          0.42907431,
+          0.4150311,
+          0.41955352
+        ],
+        "test_accuracy": [
+          0.80631322,
+          0.81949127,
+          0.82408828
+        ],
+        "INPUT_LENGTH": 44
+      }
+    ]
+  },
+  "b5e5dd76-41f6-4ae9-8acf-26c78033d543": {
+    "UUID": "b5e5dd76-41f6-4ae9-8acf-26c78033d543",
+    "BERT": "bert_en_uncased_L-24_H-1024_A-16",
+    "BERT_VERSION": 1,
+    "BATCH_SIZE": 16,
+    "EPOCHS": 3,
+    "OPTIMIZER": "adam",
+    "LEARNING_RATE": 2e-06,
+    "PREPROCESSING_ALGORITHM_UUID": "1258a9d2-111e-4d4a-acda-852dd7ba3e88",
+    "PREPROCESSING_ALGORITHM": {
+      "add_link_flag": true,
+      "add_user_flag": true,
+      "add_hash_flag": true,
+      "add_number_flag": true,
+      "add_keyword_flag": false,
+      "add_location_flag": false,
+      "remove_links": true,
+      "remove_users": true,
+      "remove_hash": true,
+      "unslang": true,
+      "split_words": true,
+      "stem": false,
+      "remove_punctuations": true,
+      "remove_numbers": true,
+      "to_lower_case": true,
+      "remove_stop_words": true,
+      "remove_not_alpha": true,
+      "join": true
+    },
+    "KFOLD_HISTORY": [
+      {
+        "loss": [
+          0.45543029,
+          0.34803789,
+          0.27383679
+        ],
+        "accuracy": [
+          0.79786921,
+          0.8587274,
+          0.89389962
+        ],
+        "val_loss": [
+          0.40703658,
+          0.39608019,
+          0.40146042
+        ],
+        "val_accuracy": [
+          0.8239159,
+          0.83311433,
+          0.84494084
+        ],
+        "test_loss": [
+          0.41939977,
+          0.41602266,
+          0.42033672
+        ],
+        "test_accuracy": [
+          0.81366843,
+          0.81703955,
+          0.82378179
+        ],
+        "INPUT_LENGTH": 44
+      }
+    ]
+  },
+  "ab0d924a-f0e4-455e-a876-57fc0ca02e70": {
+    "UUID": "ab0d924a-f0e4-455e-a876-57fc0ca02e70",
+    "BERT": "bert_en_uncased_L-24_H-1024_A-16",
+    "BERT_VERSION": 1,
+    "BATCH_SIZE": 16,
+    "EPOCHS": 3,
+    "OPTIMIZER": "adam",
+    "LEARNING_RATE": 2e-06,
+    "PREPROCESSING_ALGORITHM_UUID": "1258a9d2-111e-4d4a-acda-852dd7ba3e88",
+    "PREPROCESSING_ALGORITHM": {
+      "add_link_flag": true,
+      "add_user_flag": true,
+      "add_hash_flag": true,
+      "add_number_flag": true,
+      "add_keyword_flag": false,
+      "add_location_flag": false,
+      "remove_links": true,
+      "remove_users": true,
+      "remove_hash": true,
+      "unslang": true,
+      "split_words": true,
+      "stem": false,
+      "remove_punctuations": true,
+      "remove_numbers": true,
+      "to_lower_case": true,
+      "remove_stop_words": true,
+      "remove_not_alpha": true,
+      "join": true
+    },
+    "KFOLD_HISTORY": [
+      {
+        "loss": [
+          0.46384591,
+          0.34516572,
+          0.26937544
+        ],
+        "accuracy": [
+          0.78984237,
+          0.85449505,
+          0.88966727
+        ],
+        "val_loss": [
+          0.39964332,
+          0.41111161,
+          0.42104801
+        ],
+        "val_accuracy": [
+          0.82917213,
+          0.82785809,
+          0.82917213
+        ],
+        "test_loss": [
+          0.41726286,
+          0.41817431,
+          0.4236066
+        ],
+        "test_accuracy": [
+          0.81612015,
+          0.81274903,
+          0.82071716
+        ],
+        "INPUT_LENGTH": 44
+      }
+    ]
+  },
+  "942beb87-0512-4e7a-89f3-efa088d5d496": {
+    "UUID": "942beb87-0512-4e7a-89f3-efa088d5d496",
+    "BERT": "bert_en_uncased_L-24_H-1024_A-16",
+    "BERT_VERSION": 1,
+    "BATCH_SIZE": 16,
+    "EPOCHS": 3,
+    "OPTIMIZER": "adam",
+    "LEARNING_RATE": 2e-06,
+    "PREPROCESSING_ALGORITHM_UUID": "60314ef9-271d-4865-a7db-6889b1670f59",
+    "PREPROCESSING_ALGORITHM": {
+      "add_link_flag": false,
+      "add_user_flag": true,
+      "add_hash_flag": true,
+      "add_number_flag": false,
+      "add_keyword_flag": false,
+      "add_location_flag": false,
+      "remove_links": true,
+      "remove_users": true,
+      "remove_hash": true,
+      "unslang": true,
+      "split_words": true,
+      "stem": false,
+      "remove_punctuations": true,
+      "remove_numbers": true,
+      "to_lower_case": true,
+      "remove_stop_words": true,
+      "remove_not_alpha": true,
+      "join": true
+    },
+    "KFOLD_HISTORY": [
+      {
+        "loss": [
+          0.46598161,
+          0.33951669,
+          0.25113628
+        ],
+        "accuracy": [
+          0.78776819,
+          0.86118817,
+          0.90103632
+        ],
+        "val_loss": [
+          0.3981717,
+          0.38634165,
+          0.41668918
+        ],
+        "val_accuracy": [
+          0.83464569,
+          0.84383202,
+          0.83333331
+        ],
+        "test_loss": [
+          0.42304031,
+          0.41711979,
+          0.45215154
+        ],
+        "test_accuracy": [
+          0.81918478,
+          0.82500768,
+          0.81673306
+        ],
+        "INPUT_LENGTH": 38
+      }
+    ]
+  },
+  "9dec24f9-8bb7-4749-a622-b0a84d507212": {
+    "UUID": "9dec24f9-8bb7-4749-a622-b0a84d507212",
+    "BERT": "bert_en_uncased_L-24_H-1024_A-16",
+    "BERT_VERSION": 1,
+    "BATCH_SIZE": 16,
+    "EPOCHS": 3,
+    "OPTIMIZER": "adam",
+    "LEARNING_RATE": 2e-06,
+    "PREPROCESSING_ALGORITHM_UUID": "60314ef9-271d-4865-a7db-6889b1670f59",
+    "PREPROCESSING_ALGORITHM": {
+      "add_link_flag": false,
+      "add_user_flag": true,
+      "add_hash_flag": true,
+      "add_number_flag": false,
+      "add_keyword_flag": false,
+      "add_location_flag": false,
+      "remove_links": true,
+      "remove_users": true,
+      "remove_hash": true,
+      "unslang": true,
+      "split_words": true,
+      "stem": false,
+      "remove_punctuations": true,
+      "remove_numbers": true,
+      "to_lower_case": true,
+      "remove_stop_words": true,
+      "remove_not_alpha": true,
+      "join": true
+    },
+    "KFOLD_HISTORY": [
+      {
+        "loss": [
+          0.4600208,
+          0.33832155,
+          0.26126825
+        ],
+        "accuracy": [
+          0.79331487,
+          0.86148006,
+          0.89519781
+        ],
+        "val_loss": [
+          0.39445702,
+          0.41158751,
+          0.45404973
+        ],
+        "val_accuracy": [
+          0.83070868,
+          0.8254593,
+          0.83727032
+        ],
+        "test_loss": [
+          0.41272352,
+          0.41946238,
+          0.45868451
+        ],
+        "test_accuracy": [
+          0.82255596,
+          0.82470119,
+          0.81397486
+        ],
+        "INPUT_LENGTH": 38
+      }
+    ]
+  },
+  "cd9f59b9-8fca-4aff-94d7-4ed09931f802": {
+    "UUID": "cd9f59b9-8fca-4aff-94d7-4ed09931f802",
+    "BERT": "bert_en_uncased_L-24_H-1024_A-16",
+    "BERT_VERSION": 1,
+    "BATCH_SIZE": 16,
+    "EPOCHS": 3,
+    "OPTIMIZER": "adam",
+    "LEARNING_RATE": 2e-06,
+    "PREPROCESSING_ALGORITHM_UUID": "60314ef9-271d-4865-a7db-6889b1670f59",
+    "PREPROCESSING_ALGORITHM": {
+      "add_link_flag": false,
+      "add_user_flag": true,
+      "add_hash_flag": true,
+      "add_number_flag": false,
+      "add_keyword_flag": false,
+      "add_location_flag": false,
+      "remove_links": true,
+      "remove_users": true,
+      "remove_hash": true,
+      "unslang": true,
+      "split_words": true,
+      "stem": false,
+      "remove_punctuations": true,
+      "remove_numbers": true,
+      "to_lower_case": true,
+      "remove_stop_words": true,
+      "remove_not_alpha": true,
+      "join": true
+    },
+    "KFOLD_HISTORY": [
+      {
+        "loss": [
+          0.45230562,
+          0.32248427,
+          0.22418798
+        ],
+        "accuracy": [
+          0.79433662,
+          0.86571306,
+          0.91388118
+        ],
+        "val_loss": [
+          0.45525653,
+          0.44242383,
+          0.48644385
+        ],
+        "val_accuracy": [
+          0.79396325,
+          0.81102359,
+          0.80446196
+        ],
+        "test_loss": [
+          0.43146802,
+          0.42257734,
+          0.45435243
+        ],
+        "test_accuracy": [
+          0.8038615,
+          0.81918478,
+          0.81520075
+        ],
+        "INPUT_LENGTH": 38
+      }
+    ]
+  },
+  "10b90726-362b-4889-9125-2e06de1791d8": {
+    "UUID": "10b90726-362b-4889-9125-2e06de1791d8",
+    "BERT": "bert_en_uncased_L-24_H-1024_A-16",
+    "BERT_VERSION": 1,
+    "BATCH_SIZE": 16,
+    "EPOCHS": 3,
+    "OPTIMIZER": "adam",
+    "LEARNING_RATE": 2e-06,
+    "PREPROCESSING_ALGORITHM_UUID": "60314ef9-271d-4865-a7db-6889b1670f59",
+    "PREPROCESSING_ALGORITHM": {
+      "add_link_flag": false,
+      "add_user_flag": true,
+      "add_hash_flag": true,
+      "add_number_flag": false,
+      "add_keyword_flag": false,
+      "add_location_flag": false,
+      "remove_links": true,
+      "remove_users": true,
+      "remove_hash": true,
+      "unslang": true,
+      "split_words": true,
+      "stem": false,
+      "remove_punctuations": true,
+      "remove_numbers": true,
+      "to_lower_case": true,
+      "remove_stop_words": true,
+      "remove_not_alpha": true,
+      "join": true
+    },
+    "KFOLD_HISTORY": [
+      {
+        "loss": [
+          0.46997389,
+          0.34198811,
+          0.26958433
+        ],
+        "accuracy": [
+          0.78619379,
+          0.85683012,
+          0.88995916
+        ],
+        "val_loss": [
+          0.39386488,
+          0.37622758,
+          0.38970408
+        ],
+        "val_accuracy": [
+          0.84494084,
+          0.84494084,
+          0.85019714
+        ],
+        "test_loss": [
+          0.42691907,
+          0.42622965,
+          0.44093043
+        ],
+        "test_accuracy": [
+          0.80845845,
+          0.81581366,
+          0.82255596
+        ],
+        "INPUT_LENGTH": 38
+      }
+    ]
+  },
+  "b5df853c-81dd-4fb8-bbc0-bf208d75443b": {
+    "UUID": "b5df853c-81dd-4fb8-bbc0-bf208d75443b",
+    "BERT": "bert_en_uncased_L-24_H-1024_A-16",
+    "BERT_VERSION": 1,
+    "BATCH_SIZE": 16,
+    "EPOCHS": 3,
+    "OPTIMIZER": "adam",
+    "LEARNING_RATE": 2e-06,
+    "PREPROCESSING_ALGORITHM_UUID": "60314ef9-271d-4865-a7db-6889b1670f59",
+    "PREPROCESSING_ALGORITHM": {
+      "add_link_flag": false,
+      "add_user_flag": true,
+      "add_hash_flag": true,
+      "add_number_flag": false,
+      "add_keyword_flag": false,
+      "add_location_flag": false,
+      "remove_links": true,
+      "remove_users": true,
+      "remove_hash": true,
+      "unslang": true,
+      "split_words": true,
+      "stem": false,
+      "remove_punctuations": true,
+      "remove_numbers": true,
+      "to_lower_case": true,
+      "remove_stop_words": true,
+      "remove_not_alpha": true,
+      "join": true
+    },
+    "KFOLD_HISTORY": [
+      {
+        "loss": [
+          0.47565081,
+          0.3572719,
+          0.28577161
+        ],
+        "accuracy": [
+          0.77743727,
+          0.84792763,
+          0.88777
+        ],
+        "val_loss": [
+          0.40725176,
+          0.40028147,
+          0.41305019
+        ],
+        "val_accuracy": [
+          0.82654405,
+          0.82917213,
+          0.81997371
+        ],
+        "test_loss": [
+          0.41667124,
+          0.40983607,
+          0.42194333
+        ],
+        "test_accuracy": [
+          0.81857187,
+          0.82623351,
+          0.82562059
+        ],
+        "INPUT_LENGTH": 38
+      }
+    ]
+  },
+  "d97e8ee0-faba-4827-9bff-193cd78601de": {
+    "UUID": "d97e8ee0-faba-4827-9bff-193cd78601de",
+    "BERT": "bert_en_uncased_L-24_H-1024_A-16",
+    "BERT_VERSION": 1,
+    "BATCH_SIZE": 16,
+    "EPOCHS": 3,
+    "OPTIMIZER": "adam",
+    "LEARNING_RATE": 2e-06,
+    "PREPROCESSING_ALGORITHM_UUID": "60314ef9-271d-4865-a7db-6889b1670f59",
+    "PREPROCESSING_ALGORITHM": {
+      "add_link_flag": false,
+      "add_user_flag": true,
+      "add_hash_flag": true,
+      "add_number_flag": false,
+      "add_keyword_flag": false,
+      "add_location_flag": false,
+      "remove_links": true,
+      "remove_users": true,
+      "remove_hash": true,
+      "unslang": true,
+      "split_words": true,
+      "stem": false,
+      "remove_punctuations": true,
+      "remove_numbers": true,
+      "to_lower_case": true,
+      "remove_stop_words": true,
+      "remove_not_alpha": true,
+      "join": true
+    },
+    "KFOLD_HISTORY": [
+      {
+        "loss": [
+          0.46956337,
+          0.34916276,
+          0.26426885
+        ],
+        "accuracy": [
+          0.78998834,
+          0.85799766,
+          0.89083481
+        ],
+        "val_loss": [
+          0.38541825,
+          0.35366607,
+          0.38558269
+        ],
+        "val_accuracy": [
+          0.83705652,
+          0.84099871,
+          0.82917213
+        ],
+        "test_loss": [
+          0.41895484,
+          0.41583133,
+          0.44626066
+        ],
+        "test_accuracy": [
+          0.81703955,
+          0.82224947,
+          0.81121665
+        ],
+        "INPUT_LENGTH": 38
+      }
+    ]
+  },
+  "3eda77cb-1b90-406d-b34a-d1bc700018a0": {
+    "UUID": "3eda77cb-1b90-406d-b34a-d1bc700018a0",
+    "BERT": "bert_en_uncased_L-24_H-1024_A-16",
+    "BERT_VERSION": 1,
+    "BATCH_SIZE": 16,
+    "EPOCHS": 3,
+    "OPTIMIZER": "adam",
+    "LEARNING_RATE": 2e-06,
+    "PREPROCESSING_ALGORITHM_UUID": "60314ef9-271d-4865-a7db-6889b1670f59",
+    "PREPROCESSING_ALGORITHM": {
+      "add_link_flag": false,
+      "add_user_flag": true,
+      "add_hash_flag": true,
+      "add_number_flag": false,
+      "add_keyword_flag": false,
+      "add_location_flag": false,
+      "remove_links": true,
+      "remove_users": true,
+      "remove_hash": true,
+      "unslang": true,
+      "split_words": true,
+      "stem": false,
+      "remove_punctuations": true,
+      "remove_numbers": true,
+      "to_lower_case": true,
+      "remove_stop_words": true,
+      "remove_not_alpha": true,
+      "join": true
+    },
+    "KFOLD_HISTORY": [
+      {
+        "loss": [
+          0.46203568,
+          0.34144041,
+          0.2546501
+        ],
+        "accuracy": [
+          0.79261529,
+          0.85668421,
+          0.8992995
+        ],
+        "val_loss": [
+          0.43613494,
+          0.43355026,
+          0.48239112
+        ],
+        "val_accuracy": [
+          0.81077528,
+          0.81340343,
+          0.80683309
+        ],
+        "test_loss": [
+          0.41487606,
+          0.40739509,
+          0.44253367
+        ],
+        "test_accuracy": [
+          0.81795895,
+          0.8253141,
+          0.81581366
+        ],
+        "INPUT_LENGTH": 38
+      }
+    ]
+  },
+  "38617fe1-898d-4a5c-88d9-a9f4c8c90782": {
+    "UUID": "38617fe1-898d-4a5c-88d9-a9f4c8c90782",
+    "BERT": "bert_en_uncased_L-24_H-1024_A-16",
+    "BERT_VERSION": 1,
+    "BATCH_SIZE": 16,
+    "EPOCHS": 3,
+    "OPTIMIZER": "adam",
+    "LEARNING_RATE": 2e-06,
+    "PREPROCESSING_ALGORITHM_UUID": "60314ef9-271d-4865-a7db-6889b1670f59",
+    "PREPROCESSING_ALGORITHM": {
+      "add_link_flag": false,
+      "add_user_flag": true,
+      "add_hash_flag": true,
+      "add_number_flag": false,
+      "add_keyword_flag": false,
+      "add_location_flag": false,
+      "remove_links": true,
+      "remove_users": true,
+      "remove_hash": true,
+      "unslang": true,
+      "split_words": true,
+      "stem": false,
+      "remove_punctuations": true,
+      "remove_numbers": true,
+      "to_lower_case": true,
+      "remove_stop_words": true,
+      "remove_not_alpha": true,
+      "join": true
+    },
+    "KFOLD_HISTORY": [
+      {
+        "loss": [
+          0.46075471,
+          0.33825083,
+          0.26755295
+        ],
+        "accuracy": [
+          0.78955048,
+          0.86106247,
+          0.89068884
+        ],
+        "val_loss": [
+          0.41280761,
+          0.40879724,
+          0.45246295
+        ],
+        "val_accuracy": [
+          0.82128775,
+          0.82785809,
+          0.83048618
+        ],
+        "test_loss": [
+          0.41319257,
+          0.41087328,
+          0.44647834
+        ],
+        "test_accuracy": [
+          0.82286239,
+          0.82378179,
+          0.81765246
+        ],
+        "INPUT_LENGTH": 38
+      }
+    ]
+  },
+  "492c28e2-dfef-42bf-a231-a4e856e9b173": {
+    "UUID": "492c28e2-dfef-42bf-a231-a4e856e9b173",
+    "BERT": "bert_en_uncased_L-24_H-1024_A-16",
+    "BERT_VERSION": 1,
+    "BATCH_SIZE": 16,
+    "EPOCHS": 3,
+    "OPTIMIZER": "adam",
+    "LEARNING_RATE": 2e-06,
+    "PREPROCESSING_ALGORITHM_UUID": "60314ef9-271d-4865-a7db-6889b1670f59",
+    "PREPROCESSING_ALGORITHM": {
+      "add_link_flag": false,
+      "add_user_flag": true,
+      "add_hash_flag": true,
+      "add_number_flag": false,
+      "add_keyword_flag": false,
+      "add_location_flag": false,
+      "remove_links": true,
+      "remove_users": true,
+      "remove_hash": true,
+      "unslang": true,
+      "split_words": true,
+      "stem": false,
+      "remove_punctuations": true,
+      "remove_numbers": true,
+      "to_lower_case": true,
+      "remove_stop_words": true,
+      "remove_not_alpha": true,
+      "join": true
+    },
+    "KFOLD_HISTORY": [
+      {
+        "loss": [
+          0.46845822,
+          0.3520447,
+          0.28571348
+        ],
+        "accuracy": [
+          0.78969646,
+          0.85259777,
+          0.88704026
+        ],
+        "val_loss": [
+          0.42729921,
+          0.41086524,
+          0.40901352
+        ],
+        "val_accuracy": [
+          0.81997371,
+          0.82522994,
+          0.83180028
+        ],
+        "test_loss": [
+          0.45667195,
+          0.42514444,
+          0.42744648
+        ],
+        "test_accuracy": [
+          0.81060374,
+          0.82224947,
+          0.81826538
+        ],
+        "INPUT_LENGTH": 38
+      }
+    ]
+  },
+  "49c3f64b-41da-4adf-9de0-222a382cc400": {
+    "UUID": "49c3f64b-41da-4adf-9de0-222a382cc400",
+    "BERT": "bert_en_uncased_L-24_H-1024_A-16",
+    "BERT_VERSION": 1,
+    "BATCH_SIZE": 16,
+    "EPOCHS": 3,
+    "OPTIMIZER": "adam",
+    "LEARNING_RATE": 2e-06,
+    "PREPROCESSING_ALGORITHM_UUID": "60314ef9-271d-4865-a7db-6889b1670f59",
+    "PREPROCESSING_ALGORITHM": {
+      "add_link_flag": false,
+      "add_user_flag": true,
+      "add_hash_flag": true,
+      "add_number_flag": false,
+      "add_keyword_flag": false,
+      "add_location_flag": false,
+      "remove_links": true,
+      "remove_users": true,
+      "remove_hash": true,
+      "unslang": true,
+      "split_words": true,
+      "stem": false,
+      "remove_punctuations": true,
+      "remove_numbers": true,
+      "to_lower_case": true,
+      "remove_stop_words": true,
+      "remove_not_alpha": true,
+      "join": true
+    },
+    "KFOLD_HISTORY": [
+      {
+        "loss": [
+          0.46033373,
+          0.3421614,
+          0.265736
+        ],
+        "accuracy": [
+          0.79130179,
+          0.85858142,
+          0.89389962
+        ],
+        "val_loss": [
+          0.43538509,
+          0.42291759,
+          0.44118784
+        ],
+        "val_accuracy": [
+          0.81077528,
+          0.83048618,
+          0.83180028
+        ],
+        "test_loss": [
+          0.4314258,
+          0.4196902,
+          0.43351984
+        ],
+        "test_accuracy": [
+          0.80110329,
+          0.81703955,
+          0.82163656
+        ],
+        "INPUT_LENGTH": 38
+      }
+    ]
+  },
+  "51d06aab-0862-4cb1-b709-ccfc879e760e": {
+    "UUID": "51d06aab-0862-4cb1-b709-ccfc879e760e",
+    "BERT": "bert_en_uncased_L-24_H-1024_A-16",
+    "BERT_VERSION": 1,
+    "BATCH_SIZE": 16,
+    "EPOCHS": 3,
+    "OPTIMIZER": "adam",
+    "LEARNING_RATE": 2e-06,
+    "PREPROCESSING_ALGORITHM_UUID": "4c2e484d-5cb8-4e3e-ba7b-679ae7a73fca",
+    "PREPROCESSING_ALGORITHM": {
+      "add_link_flag": true,
+      "add_user_flag": true,
+      "add_hash_flag": true,
+      "add_number_flag": true,
+      "add_keyword_flag": true,
+      "add_location_flag": true,
+      "remove_links": true,
+      "remove_users": true,
+      "remove_hash": true,
+      "unslang": true,
+      "split_words": true,
+      "stem": false,
+      "remove_punctuations": true,
+      "remove_numbers": true,
+      "to_lower_case": true,
+      "remove_stop_words": true,
+      "remove_not_alpha": true,
+      "join": true
+    },
+    "KFOLD_HISTORY": [
+      {
+        "loss": [
+          0.44988581,
+          0.33567493,
+          0.24228292
+        ],
+        "accuracy": [
+          0.80251056,
+          0.86220992,
+          0.90483141
+        ],
+        "val_loss": [
+          0.39265357,
+          0.38530028,
+          0.42459573
+        ],
+        "val_accuracy": [
+          0.84120733,
+          0.85170603,
+          0.8425197
+        ],
+        "test_loss": [
+          0.4191896,
+          0.40962677,
+          0.45355979
+        ],
+        "test_accuracy": [
+          0.81887835,
+          0.82500768,
+          0.82102358
+        ],
+        "INPUT_LENGTH": 51
+      }
+    ]
+  },
+  "aa2f6727-2cf2-43ac-848b-872319d6c9a3": {
+    "UUID": "aa2f6727-2cf2-43ac-848b-872319d6c9a3",
+    "BERT": "bert_en_uncased_L-24_H-1024_A-16",
+    "BERT_VERSION": 1,
+    "BATCH_SIZE": 16,
+    "EPOCHS": 3,
+    "OPTIMIZER": "adam",
+    "LEARNING_RATE": 2e-06,
+    "PREPROCESSING_ALGORITHM_UUID": "4c2e484d-5cb8-4e3e-ba7b-679ae7a73fca",
+    "PREPROCESSING_ALGORITHM": {
+      "add_link_flag": true,
+      "add_user_flag": true,
+      "add_hash_flag": true,
+      "add_number_flag": true,
+      "add_keyword_flag": true,
+      "add_location_flag": true,
+      "remove_links": true,
+      "remove_users": true,
+      "remove_hash": true,
+      "unslang": true,
+      "split_words": true,
+      "stem": false,
+      "remove_punctuations": true,
+      "remove_numbers": true,
+      "to_lower_case": true,
+      "remove_stop_words": true,
+      "remove_not_alpha": true,
+      "join": true
+    },
+    "KFOLD_HISTORY": [
+      {
+        "loss": [
+          0.45432136,
+          0.35234169,
+          0.27260966
+        ],
+        "accuracy": [
+          0.80075902,
+          0.85403591,
+          0.89038098
+        ],
+        "val_loss": [
+          0.40104397,
+          0.40021241,
+          0.40875768
+        ],
+        "val_accuracy": [
+          0.83858269,
+          0.835958,
+          0.84776902
+        ],
+        "test_loss": [
+          0.41906468,
+          0.41862313,
+          0.43442195
+        ],
+        "test_accuracy": [
+          0.81397486,
+          0.82010418,
+          0.82071716
+        ],
+        "INPUT_LENGTH": 51
+      }
+    ]
+  },
+  "2bd79bd8-eefe-4708-a047-30e884a64870": {
+    "UUID": "2bd79bd8-eefe-4708-a047-30e884a64870",
+    "BERT": "bert_en_uncased_L-24_H-1024_A-16",
+    "BERT_VERSION": 1,
+    "BATCH_SIZE": 16,
+    "EPOCHS": 3,
+    "OPTIMIZER": "adam",
+    "LEARNING_RATE": 2e-06,
+    "PREPROCESSING_ALGORITHM_UUID": "4c2e484d-5cb8-4e3e-ba7b-679ae7a73fca",
+    "PREPROCESSING_ALGORITHM": {
+      "add_link_flag": true,
+      "add_user_flag": true,
+      "add_hash_flag": true,
+      "add_number_flag": true,
+      "add_keyword_flag": true,
+      "add_location_flag": true,
+      "remove_links": true,
+      "remove_users": true,
+      "remove_hash": true,
+      "unslang": true,
+      "split_words": true,
+      "stem": false,
+      "remove_punctuations": true,
+      "remove_numbers": true,
+      "to_lower_case": true,
+      "remove_stop_words": true,
+      "remove_not_alpha": true,
+      "join": true
+    },
+    "KFOLD_HISTORY": [
+      {
+        "loss": [
+          0.46473088,
+          0.36643515,
+          0.31248354
+        ],
+        "accuracy": [
+          0.78528684,
+          0.84878123,
+          0.87622243
+        ],
+        "val_loss": [
+          0.44517642,
+          0.43443474,
+          0.43550843
+        ],
+        "val_accuracy": [
+          0.80708659,
+          0.81364828,
+          0.81627297
+        ],
+        "test_loss": [
+          0.42178671,
+          0.41385806,
+          0.41731502
+        ],
+        "test_accuracy": [
+          0.81152314,
+          0.8234753,
+          0.8234753
+        ],
+        "INPUT_LENGTH": 51
+      }
+    ]
+  },
+  "b7aba80d-edca-447f-99a3-9cbc124ea9cf": {
+    "UUID": "b7aba80d-edca-447f-99a3-9cbc124ea9cf",
+    "BERT": "bert_en_uncased_L-24_H-1024_A-16",
+    "BERT_VERSION": 1,
+    "BATCH_SIZE": 16,
+    "EPOCHS": 3,
+    "OPTIMIZER": "adam",
+    "LEARNING_RATE": 2e-06,
+    "PREPROCESSING_ALGORITHM_UUID": "4c2e484d-5cb8-4e3e-ba7b-679ae7a73fca",
+    "PREPROCESSING_ALGORITHM": {
+      "add_link_flag": true,
+      "add_user_flag": true,
+      "add_hash_flag": true,
+      "add_number_flag": true,
+      "add_keyword_flag": true,
+      "add_location_flag": true,
+      "remove_links": true,
+      "remove_users": true,
+      "remove_hash": true,
+      "unslang": true,
+      "split_words": true,
+      "stem": false,
+      "remove_punctuations": true,
+      "remove_numbers": true,
+      "to_lower_case": true,
+      "remove_stop_words": true,
+      "remove_not_alpha": true,
+      "join": true
+    },
+    "KFOLD_HISTORY": [
+      {
+        "loss": [
+          0.44453917,
+          0.34645294,
+          0.26093238
+        ],
+        "accuracy": [
+          0.80341506,
+          0.85901928,
+          0.8963806
+        ],
+        "val_loss": [
+          0.36733327,
+          0.36828319,
+          0.3767532
+        ],
+        "val_accuracy": [
+          0.84756899,
+          0.85413927,
+          0.85282522
+        ],
+        "test_loss": [
+          0.40572395,
+          0.4112893,
+          0.42397664
+        ],
+        "test_accuracy": [
+          0.82010418,
+          0.82408828,
+          0.82102358
+        ],
+        "INPUT_LENGTH": 51
+      }
+    ]
+  },
+  "eee218f9-01c3-4cda-9477-1b5f94a5fe24": {
+    "UUID": "eee218f9-01c3-4cda-9477-1b5f94a5fe24",
+    "BERT": "bert_en_uncased_L-24_H-1024_A-16",
+    "BERT_VERSION": 1,
+    "BATCH_SIZE": 16,
+    "EPOCHS": 3,
+    "OPTIMIZER": "adam",
+    "LEARNING_RATE": 2e-06,
+    "PREPROCESSING_ALGORITHM_UUID": "4c2e484d-5cb8-4e3e-ba7b-679ae7a73fca",
+    "PREPROCESSING_ALGORITHM": {
+      "add_link_flag": true,
+      "add_user_flag": true,
+      "add_hash_flag": true,
+      "add_number_flag": true,
+      "add_keyword_flag": true,
+      "add_location_flag": true,
+      "remove_links": true,
+      "remove_users": true,
+      "remove_hash": true,
+      "unslang": true,
+      "split_words": true,
+      "stem": false,
+      "remove_punctuations": true,
+      "remove_numbers": true,
+      "to_lower_case": true,
+      "remove_stop_words": true,
+      "remove_not_alpha": true,
+      "join": true
+    },
+    "KFOLD_HISTORY": [
+      {
+        "loss": [
+          0.45784634,
+          0.35277007,
+          0.28322307
+        ],
+        "accuracy": [
+          0.79203153,
+          0.85347342,
+          0.89054292
+        ],
+        "val_loss": [
+          0.39220215,
+          0.39189621,
+          0.40316498
+        ],
+        "val_accuracy": [
+          0.83837056,
+          0.82654405,
+          0.82917213
+        ],
+        "test_loss": [
+          0.41629833,
+          0.4068057,
+          0.42098675
+        ],
+        "test_accuracy": [
+          0.81489426,
+          0.82378179,
+          0.82684648
+        ],
+        "INPUT_LENGTH": 51
+      }
+    ]
+  },
+  "9713c878-5cea-42ff-bc68-8448fc28c4d9": {
+    "UUID": "9713c878-5cea-42ff-bc68-8448fc28c4d9",
+    "BERT": "bert_en_uncased_L-24_H-1024_A-16",
+    "BERT_VERSION": 1,
+    "BATCH_SIZE": 16,
+    "EPOCHS": 3,
+    "OPTIMIZER": "adam",
+    "LEARNING_RATE": 2e-06,
+    "PREPROCESSING_ALGORITHM_UUID": "4c2e484d-5cb8-4e3e-ba7b-679ae7a73fca",
+    "PREPROCESSING_ALGORITHM": {
+      "add_link_flag": true,
+      "add_user_flag": true,
+      "add_hash_flag": true,
+      "add_number_flag": true,
+      "add_keyword_flag": true,
+      "add_location_flag": true,
+      "remove_links": true,
+      "remove_users": true,
+      "remove_hash": true,
+      "unslang": true,
+      "split_words": true,
+      "stem": false,
+      "remove_punctuations": true,
+      "remove_numbers": true,
+      "to_lower_case": true,
+      "remove_stop_words": true,
+      "remove_not_alpha": true,
+      "join": true
+    },
+    "KFOLD_HISTORY": [
+      {
+        "loss": [
+          0.44997053,
+          0.34064901,
+          0.25472434
+        ],
+        "accuracy": [
+          0.79962057,
+          0.86500293,
+          0.90017515
+        ],
+        "val_loss": [
+          0.36242504,
+          0.35868232,
+          0.38646431
+        ],
+        "val_accuracy": [
+          0.84099871,
+          0.8436268,
+          0.83837056
+        ],
+        "test_loss": [
+          0.41228451,
+          0.42089563,
+          0.44708746
+        ],
+        "test_accuracy": [
+          0.81550717,
+          0.82041067,
+          0.81060374
+        ],
+        "INPUT_LENGTH": 51
+      }
+    ]
+  },
+  "966bd4ce-453c-46e8-bc27-162c6293dd52": {
+    "UUID": "966bd4ce-453c-46e8-bc27-162c6293dd52",
+    "BERT": "bert_en_uncased_L-24_H-1024_A-16",
+    "BERT_VERSION": 1,
+    "BATCH_SIZE": 16,
+    "EPOCHS": 3,
+    "OPTIMIZER": "adam",
+    "LEARNING_RATE": 2e-06,
+    "PREPROCESSING_ALGORITHM_UUID": "4c2e484d-5cb8-4e3e-ba7b-679ae7a73fca",
+    "PREPROCESSING_ALGORITHM": {
+      "add_link_flag": true,
+      "add_user_flag": true,
+      "add_hash_flag": true,
+      "add_number_flag": true,
+      "add_keyword_flag": true,
+      "add_location_flag": true,
+      "remove_links": true,
+      "remove_users": true,
+      "remove_hash": true,
+      "unslang": true,
+      "split_words": true,
+      "stem": false,
+      "remove_punctuations": true,
+      "remove_numbers": true,
+      "to_lower_case": true,
+      "remove_stop_words": true,
+      "remove_not_alpha": true,
+      "join": true
+    },
+    "KFOLD_HISTORY": [
+      {
+        "loss": [
+          0.45247746,
+          0.33723379,
+          0.25313286
+        ],
+        "accuracy": [
+          0.79509634,
+          0.86135435,
+          0.90017515
+        ],
+        "val_loss": [
+          0.45651326,
+          0.44193356,
+          0.49531954
+        ],
+        "val_accuracy": [
+          0.80026281,
+          0.83311433,
+          0.81340343
+        ],
+        "test_loss": [
+          0.43115235,
+          0.42692498,
+          0.46247962
+        ],
+        "test_accuracy": [
+          0.80784553,
+          0.81795895,
+          0.81795895
+        ],
+        "INPUT_LENGTH": 49
+      }
+    ]
+  },
+  "8b590e00-a804-4e4f-bb1c-6331f17f0222": {
+    "UUID": "8b590e00-a804-4e4f-bb1c-6331f17f0222",
+    "BERT": "bert_en_uncased_L-24_H-1024_A-16",
+    "BERT_VERSION": 1,
+    "BATCH_SIZE": 16,
+    "EPOCHS": 3,
+    "OPTIMIZER": "adam",
+    "LEARNING_RATE": 2e-06,
+    "PREPROCESSING_ALGORITHM_UUID": "4c2e484d-5cb8-4e3e-ba7b-679ae7a73fca",
+    "PREPROCESSING_ALGORITHM": {
+      "add_link_flag": true,
+      "add_user_flag": true,
+      "add_hash_flag": true,
+      "add_number_flag": true,
+      "add_keyword_flag": true,
+      "add_location_flag": true,
+      "remove_links": true,
+      "remove_users": true,
+      "remove_hash": true,
+      "unslang": true,
+      "split_words": true,
+      "stem": false,
+      "remove_punctuations": true,
+      "remove_numbers": true,
+      "to_lower_case": true,
+      "remove_stop_words": true,
+      "remove_not_alpha": true,
+      "join": true
+    },
+    "KFOLD_HISTORY": [
+      {
+        "loss": [
+          0.45301683,
+          0.3406865,
+          0.24705484
+        ],
+        "accuracy": [
+          0.79495037,
+          0.86033273,
+          0.90105081
+        ],
+        "val_loss": [
+          0.43252281,
+          0.42006419,
+          0.47951041
+        ],
+        "val_accuracy": [
+          0.80551904,
+          0.8239159,
+          0.79763472
+        ],
+        "test_loss": [
+          0.42284609,
+          0.41176378,
+          0.45557093
+        ],
+        "test_accuracy": [
+          0.81397486,
+          0.82010418,
+          0.81121665
+        ],
+        "INPUT_LENGTH": 51
+      }
+    ]
+  },
+  "362b86d0-b0d0-4c52-a862-df88e52248ac": {
+    "UUID": "362b86d0-b0d0-4c52-a862-df88e52248ac",
+    "BERT": "bert_en_uncased_L-24_H-1024_A-16",
+    "BERT_VERSION": 1,
+    "BATCH_SIZE": 16,
+    "EPOCHS": 3,
+    "OPTIMIZER": "adam",
+    "LEARNING_RATE": 2e-06,
+    "PREPROCESSING_ALGORITHM_UUID": "4c2e484d-5cb8-4e3e-ba7b-679ae7a73fca",
+    "PREPROCESSING_ALGORITHM": {
+      "add_link_flag": true,
+      "add_user_flag": true,
+      "add_hash_flag": true,
+      "add_number_flag": true,
+      "add_keyword_flag": true,
+      "add_location_flag": true,
+      "remove_links": true,
+      "remove_users": true,
+      "remove_hash": true,
+      "unslang": true,
+      "split_words": true,
+      "stem": false,
+      "remove_punctuations": true,
+      "remove_numbers": true,
+      "to_lower_case": true,
+      "remove_stop_words": true,
+      "remove_not_alpha": true,
+      "join": true
+    },
+    "KFOLD_HISTORY": [
+      {
+        "loss": [
+          0.46145876,
+          0.34841701,
+          0.27123373
+        ],
+        "accuracy": [
+          0.79130179,
+          0.85931116,
+          0.89273202
+        ],
+        "val_loss": [
+          0.43191204,
+          0.39856286,
+          0.41788965
+        ],
+        "val_accuracy": [
+          0.79894876,
+          0.83837056,
+          0.83311433
+        ],
+        "test_loss": [
+          0.42687871,
+          0.42070795,
+          0.43701825
+        ],
+        "test_accuracy": [
+          0.80600673,
+          0.82163656,
+          0.82102358
+        ],
+        "INPUT_LENGTH": 51
+      }
+    ]
+  },
+  "0da014d7-65f6-4d84-b659-0e1e773db7d5": {
+    "UUID": "0da014d7-65f6-4d84-b659-0e1e773db7d5",
+    "BERT": "bert_en_uncased_L-24_H-1024_A-16",
+    "BERT_VERSION": 1,
+    "BATCH_SIZE": 16,
+    "EPOCHS": 3,
+    "OPTIMIZER": "adam",
+    "LEARNING_RATE": 2e-06,
+    "PREPROCESSING_ALGORITHM_UUID": "4c2e484d-5cb8-4e3e-ba7b-679ae7a73fca",
+    "PREPROCESSING_ALGORITHM": {
+      "add_link_flag": true,
+      "add_user_flag": true,
+      "add_hash_flag": true,
+      "add_number_flag": true,
+      "add_keyword_flag": true,
+      "add_location_flag": true,
+      "remove_links": true,
+      "remove_users": true,
+      "remove_hash": true,
+      "unslang": true,
+      "split_words": true,
+      "stem": false,
+      "remove_punctuations": true,
+      "remove_numbers": true,
+      "to_lower_case": true,
+      "remove_stop_words": true,
+      "remove_not_alpha": true,
+      "join": true
+    },
+    "KFOLD_HISTORY": [
+      {
+        "loss": [
+          0.450917,
+          0.36051161,
+          0.31210268
+        ],
+        "accuracy": [
+          0.79991245,
+          0.84938705,
+          0.87288386
+        ],
+        "val_loss": [
+          0.39911231,
+          0.39255394,
+          0.39243959
+        ],
+        "val_accuracy": [
+          0.83180028,
+          0.83705652,
+          0.84494084
+        ],
+        "test_loss": [
+          0.41558392,
+          0.40652846,
+          0.41356566
+        ],
+        "test_accuracy": [
+          0.82041067,
+          0.82163656,
+          0.82133007
+        ],
+        "INPUT_LENGTH": 51
+      }
+    ]
+  },
+  "46b80ce7-e359-4e35-b513-8ead55a38466": {
+    "UUID": "46b80ce7-e359-4e35-b513-8ead55a38466",
+    "BERT": "bert_en_uncased_L-24_H-1024_A-16",
+    "BERT_VERSION": 1,
+    "BATCH_SIZE": 16,
+    "EPOCHS": 3,
+    "OPTIMIZER": "adam",
+    "LEARNING_RATE": 2e-06,
+    "PREPROCESSING_ALGORITHM_UUID": "8b7db91c-c8bf-40f2-986a-83a659b63ba6",
+    "PREPROCESSING_ALGORITHM": {
+      "add_link_flag": true,
+      "add_user_flag": true,
+      "add_hash_flag": true,
+      "add_number_flag": false,
+      "add_keyword_flag": false,
+      "add_location_flag": false,
+      "remove_links": true,
+      "remove_users": true,
+      "remove_hash": true,
+      "unslang": true,
+      "split_words": true,
+      "stem": false,
+      "remove_punctuations": true,
+      "remove_numbers": true,
+      "to_lower_case": true,
+      "remove_stop_words": true,
+      "remove_not_alpha": true,
+      "join": true
+    },
+    "KFOLD_HISTORY": [
+      {
+        "loss": [
+          0.46516873,
+          0.35053183,
+          0.27246332
+        ],
+        "accuracy": [
+          0.79346079,
+          0.85651731,
+          0.89184064
+        ],
+        "val_loss": [
+          0.41696653,
+          0.38323579,
+          0.41059632
+        ],
+        "val_accuracy": [
+          0.82414699,
+          0.83989501,
+          0.83989501
+        ],
+        "test_loss": [
+          0.45050037,
+          0.41783573,
+          0.43017355
+        ],
+        "test_accuracy": [
+          0.81366843,
+          0.82102358,
+          0.81979775
+        ],
+        "INPUT_LENGTH": 41
+      }
+    ]
+  },
+  "31bea2f2-64cf-4ec8-ac5b-21151a44551f": {
+    "UUID": "31bea2f2-64cf-4ec8-ac5b-21151a44551f",
+    "BERT": "bert_en_uncased_L-24_H-1024_A-16",
+    "BERT_VERSION": 1,
+    "BATCH_SIZE": 16,
+    "EPOCHS": 3,
+    "OPTIMIZER": "adam",
+    "LEARNING_RATE": 2e-06,
+    "PREPROCESSING_ALGORITHM_UUID": "8b7db91c-c8bf-40f2-986a-83a659b63ba6",
+    "PREPROCESSING_ALGORITHM": {
+      "add_link_flag": true,
+      "add_user_flag": true,
+      "add_hash_flag": true,
+      "add_number_flag": false,
+      "add_keyword_flag": false,
+      "add_location_flag": false,
+      "remove_links": true,
+      "remove_users": true,
+      "remove_hash": true,
+      "unslang": true,
+      "split_words": true,
+      "stem": false,
+      "remove_punctuations": true,
+      "remove_numbers": true,
+      "to_lower_case": true,
+      "remove_stop_words": true,
+      "remove_not_alpha": true,
+      "join": true
+    },
+    "KFOLD_HISTORY": [
+      {
+        "loss": [
+          0.46763408,
+          0.34766089,
+          0.27501059
+        ],
+        "accuracy": [
+          0.78922784,
+          0.85753906,
+          0.88921326
+        ],
+        "val_loss": [
+          0.40694193,
+          0.39922472,
+          0.43494189
+        ],
+        "val_accuracy": [
+          0.83333331,
+          0.83333331,
+          0.82677168
+        ],
+        "test_loss": [
+          0.42954192,
+          0.41535778,
+          0.45013914
+        ],
+        "test_accuracy": [
+          0.81182963,
+          0.82041067,
+          0.81121665
+        ],
+        "INPUT_LENGTH": 41
+      }
+    ]
+  },
+  "a5f6cf87-13b4-4ee5-919a-dae90c2bb8bf": {
+    "UUID": "a5f6cf87-13b4-4ee5-919a-dae90c2bb8bf",
+    "BERT": "bert_en_uncased_L-24_H-1024_A-16",
+    "BERT_VERSION": 1,
+    "BATCH_SIZE": 16,
+    "EPOCHS": 3,
+    "OPTIMIZER": "adam",
+    "LEARNING_RATE": 2e-06,
+    "PREPROCESSING_ALGORITHM_UUID": "8b7db91c-c8bf-40f2-986a-83a659b63ba6",
+    "PREPROCESSING_ALGORITHM": {
+      "add_link_flag": true,
+      "add_user_flag": true,
+      "add_hash_flag": true,
+      "add_number_flag": false,
+      "add_keyword_flag": false,
+      "add_location_flag": false,
+      "remove_links": true,
+      "remove_users": true,
+      "remove_hash": true,
+      "unslang": true,
+      "split_words": true,
+      "stem": false,
+      "remove_punctuations": true,
+      "remove_numbers": true,
+      "to_lower_case": true,
+      "remove_stop_words": true,
+      "remove_not_alpha": true,
+      "join": true
+    },
+    "KFOLD_HISTORY": [
+      {
+        "loss": [
+          0.45502768,
+          0.34145085,
+          0.27146559
+        ],
+        "accuracy": [
+          0.79419065,
+          0.85812289,
+          0.89344621
+        ],
+        "val_loss": [
+          0.44220567,
+          0.43993471,
+          0.47097349
+        ],
+        "val_accuracy": [
+          0.80708659,
+          0.81102359,
+          0.80446196
+        ],
+        "test_loss": [
+          0.41883169,
+          0.41610794,
+          0.43479705
+        ],
+        "test_accuracy": [
+          0.81366843,
+          0.82102358,
+          0.82745939
+        ],
+        "INPUT_LENGTH": 41
+      }
+    ]
+  },
+  "0cada551-cff5-47d5-a5d7-04312d6b174b": {
+    "UUID": "0cada551-cff5-47d5-a5d7-04312d6b174b",
+    "BERT": "bert_en_uncased_L-24_H-1024_A-16",
+    "BERT_VERSION": 1,
+    "BATCH_SIZE": 16,
+    "EPOCHS": 3,
+    "OPTIMIZER": "adam",
+    "LEARNING_RATE": 2e-06,
+    "PREPROCESSING_ALGORITHM_UUID": "8b7db91c-c8bf-40f2-986a-83a659b63ba6",
+    "PREPROCESSING_ALGORITHM": {
+      "add_link_flag": true,
+      "add_user_flag": true,
+      "add_hash_flag": true,
+      "add_number_flag": false,
+      "add_keyword_flag": false,
+      "add_location_flag": false,
+      "remove_links": true,
+      "remove_users": true,
+      "remove_hash": true,
+      "unslang": true,
+      "split_words": true,
+      "stem": false,
+      "remove_punctuations": true,
+      "remove_numbers": true,
+      "to_lower_case": true,
+      "remove_stop_words": true,
+      "remove_not_alpha": true,
+      "join": true
+    },
+    "KFOLD_HISTORY": [
+      {
+        "loss": [
+          0.47294879,
+          0.35775776,
+          0.28254074
+        ],
+        "accuracy": [
+          0.78385872,
+          0.84894919,
+          0.88689435
+        ],
+        "val_loss": [
+          0.36951373,
+          0.35520579,
+          0.37083354
+        ],
+        "val_accuracy": [
+          0.86202365,
+          0.85808146,
+          0.8633377
+        ],
+        "test_loss": [
+          0.41954723,
+          0.40710267,
+          0.42529109
+        ],
+        "test_accuracy": [
+          0.81795895,
+          0.82745939,
+          0.83083051
+        ],
+        "INPUT_LENGTH": 41
+      }
+    ]
+  },
+  "2d0b690d-5a93-46f1-a706-8fa4cbed2646": {
+    "UUID": "2d0b690d-5a93-46f1-a706-8fa4cbed2646",
+    "BERT": "bert_en_uncased_L-24_H-1024_A-16",
+    "BERT_VERSION": 1,
+    "BATCH_SIZE": 16,
+    "EPOCHS": 3,
+    "OPTIMIZER": "adam",
+    "LEARNING_RATE": 2e-06,
+    "PREPROCESSING_ALGORITHM_UUID": "8b7db91c-c8bf-40f2-986a-83a659b63ba6",
+    "PREPROCESSING_ALGORITHM": {
+      "add_link_flag": true,
+      "add_user_flag": true,
+      "add_hash_flag": true,
+      "add_number_flag": false,
+      "add_keyword_flag": false,
+      "add_location_flag": false,
+      "remove_links": true,
+      "remove_users": true,
+      "remove_hash": true,
+      "unslang": true,
+      "split_words": true,
+      "stem": false,
+      "remove_punctuations": true,
+      "remove_numbers": true,
+      "to_lower_case": true,
+      "remove_stop_words": true,
+      "remove_not_alpha": true,
+      "join": true
+    },
+    "KFOLD_HISTORY": [
+      {
+        "loss": [
+          0.44771016,
+          0.33264117,
+          0.23951682
+        ],
+        "accuracy": [
+          0.80064213,
+          0.86617047,
+          0.90878576
+        ],
+        "val_loss": [
+          0.38582641,
+          0.3829522,
+          0.40466033
+        ],
+        "val_accuracy": [
+          0.84231275,
+          0.83442837,
+          0.83968461
+        ],
+        "test_loss": [
+          0.4104326,
+          0.4034122,
+          0.44045739
+        ],
+        "test_accuracy": [
+          0.81857187,
+          0.82592708,
+          0.82163656
+        ],
+        "INPUT_LENGTH": 41
+      }
+    ]
+  },
+  "de2846da-ad63-4e64-a2a9-edfd395428a8": {
+    "UUID": "de2846da-ad63-4e64-a2a9-edfd395428a8",
+    "BERT": "bert_en_uncased_L-24_H-1024_A-16",
+    "BERT_VERSION": 1,
+    "BATCH_SIZE": 16,
+    "EPOCHS": 3,
+    "OPTIMIZER": "adam",
+    "LEARNING_RATE": 2e-06,
+    "PREPROCESSING_ALGORITHM_UUID": "8b7db91c-c8bf-40f2-986a-83a659b63ba6",
+    "PREPROCESSING_ALGORITHM": {
+      "add_link_flag": true,
+      "add_user_flag": true,
+      "add_hash_flag": true,
+      "add_number_flag": false,
+      "add_keyword_flag": false,
+      "add_location_flag": false,
+      "remove_links": true,
+      "remove_users": true,
+      "remove_hash": true,
+      "unslang": true,
+      "split_words": true,
+      "stem": false,
+      "remove_punctuations": true,
+      "remove_numbers": true,
+      "to_lower_case": true,
+      "remove_stop_words": true,
+      "remove_not_alpha": true,
+      "join": true
+    },
+    "KFOLD_HISTORY": [
+      {
+        "loss": [
+          0.45821696,
+          0.3379561,
+          0.25931941
+        ],
+        "accuracy": [
+          0.79830706,
+          0.86033273,
+          0.8997373
+        ],
+        "val_loss": [
+          0.3759006,
+          0.3496157,
+          0.34974179
+        ],
+        "val_accuracy": [
+          0.8436268,
+          0.8436268,
+          0.86202365
+        ],
+        "test_loss": [
+          0.42511586,
+          0.42743938,
+          0.44367942
+        ],
+        "test_accuracy": [
+          0.81305546,
+          0.82224947,
+          0.82592708
+        ],
+        "INPUT_LENGTH": 41
+      }
+    ]
+  },
+  "ac9bfb18-e474-49ad-a4ba-84f823a289d9": {
+    "UUID": "ac9bfb18-e474-49ad-a4ba-84f823a289d9",
+    "BERT": "bert_en_uncased_L-24_H-1024_A-16",
+    "BERT_VERSION": 1,
+    "BATCH_SIZE": 16,
+    "EPOCHS": 3,
+    "OPTIMIZER": "adam",
+    "LEARNING_RATE": 2e-06,
+    "PREPROCESSING_ALGORITHM_UUID": "8b7db91c-c8bf-40f2-986a-83a659b63ba6",
+    "PREPROCESSING_ALGORITHM": {
+      "add_link_flag": true,
+      "add_user_flag": true,
+      "add_hash_flag": true,
+      "add_number_flag": false,
+      "add_keyword_flag": false,
+      "add_location_flag": false,
+      "remove_links": true,
+      "remove_users": true,
+      "remove_hash": true,
+      "unslang": true,
+      "split_words": true,
+      "stem": false,
+      "remove_punctuations": true,
+      "remove_numbers": true,
+      "to_lower_case": true,
+      "remove_stop_words": true,
+      "remove_not_alpha": true,
+      "join": true
+    },
+    "KFOLD_HISTORY": [
+      {
+        "loss": [
+          0.46312318,
+          0.34889263,
+          0.26967722
+        ],
+        "accuracy": [
+          0.79203153,
+          0.85595447,
+          0.89316988
+        ],
+        "val_loss": [
+          0.43355579,
+          0.44796957,
+          0.4769041
+        ],
+        "val_accuracy": [
+          0.81865966,
+          0.80814719,
+          0.81208938
+        ],
+        "test_loss": [
+          0.42040654,
+          0.41592111,
+          0.45182943
+        ],
+        "test_accuracy": [
+          0.81795895,
+          0.82102358,
+          0.82684648
+        ],
+        "INPUT_LENGTH": 41
+      }
+    ]
+  },
+  "306f2bef-ecf9-4165-9ad5-79443f7b1a90": {
+    "UUID": "306f2bef-ecf9-4165-9ad5-79443f7b1a90",
+    "BERT": "bert_en_uncased_L-24_H-1024_A-16",
+    "BERT_VERSION": 1,
+    "BATCH_SIZE": 16,
+    "EPOCHS": 3,
+    "OPTIMIZER": "adam",
+    "LEARNING_RATE": 2e-06,
+    "PREPROCESSING_ALGORITHM_UUID": "8b7db91c-c8bf-40f2-986a-83a659b63ba6",
+    "PREPROCESSING_ALGORITHM": {
+      "add_link_flag": true,
+      "add_user_flag": true,
+      "add_hash_flag": true,
+      "add_number_flag": false,
+      "add_keyword_flag": false,
+      "add_location_flag": false,
+      "remove_links": true,
+      "remove_users": true,
+      "remove_hash": true,
+      "unslang": true,
+      "split_words": true,
+      "stem": false,
+      "remove_punctuations": true,
+      "remove_numbers": true,
+      "to_lower_case": true,
+      "remove_stop_words": true,
+      "remove_not_alpha": true,
+      "join": true
+    },
+    "KFOLD_HISTORY": [
+      {
+        "loss": [
+          0.46103839,
+          0.34669852,
+          0.26609413
+        ],
+        "accuracy": [
+          0.79655576,
+          0.85566258,
+          0.89681846
+        ],
+        "val_loss": [
+          0.42866734,
+          0.42015764,
+          0.43897748
+        ],
+        "val_accuracy": [
+          0.80289096,
+          0.81734562,
+          0.82128775
+        ],
+        "test_loss": [
+          0.42890776,
+          0.4169819,
+          0.43622871
+        ],
+        "test_accuracy": [
+          0.81060374,
+          0.82500768,
+          0.82224947
+        ],
+        "INPUT_LENGTH": 41
+      }
+    ]
+  },
+  "003fe99a-4017-4d8e-8b87-ca78d96a85b3": {
+    "UUID": "003fe99a-4017-4d8e-8b87-ca78d96a85b3",
+    "BERT": "bert_en_uncased_L-24_H-1024_A-16",
+    "BERT_VERSION": 1,
+    "BATCH_SIZE": 16,
+    "EPOCHS": 3,
+    "OPTIMIZER": "adam",
+    "LEARNING_RATE": 2e-06,
+    "PREPROCESSING_ALGORITHM_UUID": "8b7db91c-c8bf-40f2-986a-83a659b63ba6",
+    "PREPROCESSING_ALGORITHM": {
+      "add_link_flag": true,
+      "add_user_flag": true,
+      "add_hash_flag": true,
+      "add_number_flag": false,
+      "add_keyword_flag": false,
+      "add_location_flag": false,
+      "remove_links": true,
+      "remove_users": true,
+      "remove_hash": true,
+      "unslang": true,
+      "split_words": true,
+      "stem": false,
+      "remove_punctuations": true,
+      "remove_numbers": true,
+      "to_lower_case": true,
+      "remove_stop_words": true,
+      "remove_not_alpha": true,
+      "join": true
+    },
+    "KFOLD_HISTORY": [
+      {
+        "loss": [
+          0.44940777,
+          0.33936228,
+          0.24562795
+        ],
+        "accuracy": [
+          0.80210155,
+          0.85901928,
+          0.90294802
+        ],
+        "val_loss": [
+          0.39833878,
+          0.39338225,
+          0.42434765
+        ],
+        "val_accuracy": [
+          0.83574247,
+          0.83048618,
+          0.83180028
+        ],
+        "test_loss": [
+          0.41569925,
+          0.41622896,
+          0.4480607
+        ],
+        "test_accuracy": [
+          0.82041067,
+          0.81703955,
+          0.81274903
+        ],
+        "INPUT_LENGTH": 41
+      }
+    ]
+  },
+  "6a88256f-99d7-4c5d-8f52-ad97369de85f": {
+    "UUID": "6a88256f-99d7-4c5d-8f52-ad97369de85f",
+    "BERT": "bert_en_uncased_L-24_H-1024_A-16",
+    "BERT_VERSION": 1,
+    "BATCH_SIZE": 16,
+    "EPOCHS": 3,
+    "OPTIMIZER": "adam",
+    "LEARNING_RATE": 2e-06,
+    "PREPROCESSING_ALGORITHM_UUID": "8b7db91c-c8bf-40f2-986a-83a659b63ba6",
+    "PREPROCESSING_ALGORITHM": {
+      "add_link_flag": true,
+      "add_user_flag": true,
+      "add_hash_flag": true,
+      "add_number_flag": false,
+      "add_keyword_flag": false,
+      "add_location_flag": false,
+      "remove_links": true,
+      "remove_users": true,
+      "remove_hash": true,
+      "unslang": true,
+      "split_words": true,
+      "stem": false,
+      "remove_punctuations": true,
+      "remove_numbers": true,
+      "to_lower_case": true,
+      "remove_stop_words": true,
+      "remove_not_alpha": true,
+      "join": true
+    },
+    "KFOLD_HISTORY": [
+      {
+        "loss": [
+          0.46808675,
+          0.37136904,
+          0.33488954
+        ],
+        "accuracy": [
+          0.78648567,
+          0.84252775,
+          0.85887331
+        ],
+        "val_loss": [
+          0.44467477,
+          0.44152433,
+          0.43060963
+        ],
+        "val_accuracy": [
+          0.80289096,
+          0.81734562,
+          0.83311433
+        ],
+        "test_loss": [
+          0.43822852,
+          0.42956323,
+          0.41893249
+        ],
+        "test_accuracy": [
+          0.80110329,
+          0.81428134,
+          0.82224947
+        ],
+        "INPUT_LENGTH": 41
+      }
+    ]
+  },
+  "b3742922-8222-46a9-b6f2-7582214a2cd8": {
+    "UUID": "b3742922-8222-46a9-b6f2-7582214a2cd8",
+    "BERT": "bert_en_uncased_L-24_H-1024_A-16",
+    "BERT_VERSION": 1,
+    "BATCH_SIZE": 16,
+    "EPOCHS": 3,
+    "OPTIMIZER": "adam",
+    "LEARNING_RATE": 2e-06,
+    "PREPROCESSING_ALGORITHM_UUID": "7bc816a1-25df-4649-8570-0012d0acd72a",
+    "PREPROCESSING_ALGORITHM": {
+      "add_link_flag": false,
+      "add_user_flag": false,
+      "add_hash_flag": false,
+      "add_number_flag": false,
+      "add_keyword_flag": false,
+      "add_location_flag": false,
+      "remove_links": true,
+      "remove_users": true,
+      "remove_hash": true,
+      "unslang": true,
+      "split_words": true,
+      "stem": false,
+      "remove_punctuations": true,
+      "remove_numbers": true,
+      "to_lower_case": true,
+      "remove_stop_words": true,
+      "remove_not_alpha": true,
+      "join": true
+    },
+    "KFOLD_HISTORY": [
+      {
+        "loss": [
+          0.4635806,
+          0.32373557,
+          0.21471646
+        ],
+        "accuracy": [
+          0.79331487,
+          0.86527514,
+          0.91782224
+        ],
+        "val_loss": [
+          0.39634804,
+          0.40732682,
+          0.45825602
+        ],
+        "val_accuracy": [
+          0.83333331,
+          0.832021,
+          0.82020998
+        ],
+        "test_loss": [
+          0.41600338,
+          0.42384338,
+          0.46543423
+        ],
+        "test_accuracy": [
+          0.82408828,
+          0.8243947,
+          0.81489426
+        ],
+        "INPUT_LENGTH": 38
+      }
+    ]
+  },
+  "3469a273-92c7-4a0e-b924-9ee1897e7288": {
+    "UUID": "3469a273-92c7-4a0e-b924-9ee1897e7288",
+    "BERT": "bert_en_uncased_L-24_H-1024_A-16",
+    "BERT_VERSION": 1,
+    "BATCH_SIZE": 16,
+    "EPOCHS": 3,
+    "OPTIMIZER": "adam",
+    "LEARNING_RATE": 2e-06,
+    "PREPROCESSING_ALGORITHM_UUID": "7bc816a1-25df-4649-8570-0012d0acd72a",
+    "PREPROCESSING_ALGORITHM": {
+      "add_link_flag": false,
+      "add_user_flag": false,
+      "add_hash_flag": false,
+      "add_number_flag": false,
+      "add_keyword_flag": false,
+      "add_location_flag": false,
+      "remove_links": true,
+      "remove_users": true,
+      "remove_hash": true,
+      "unslang": true,
+      "split_words": true,
+      "stem": false,
+      "remove_punctuations": true,
+      "remove_numbers": true,
+      "to_lower_case": true,
+      "remove_stop_words": true,
+      "remove_not_alpha": true,
+      "join": true
+    },
+    "KFOLD_HISTORY": [
+      {
+        "loss": [
+          0.45951854,
+          0.33527112,
+          0.23735042
+        ],
+        "accuracy": [
+          0.79419065,
+          0.85841483,
+          0.90162021
+        ],
+        "val_loss": [
+          0.39463453,
+          0.40264433,
+          0.43983987
+        ],
+        "val_accuracy": [
+          0.82808399,
+          0.83727032,
+          0.84120733
+        ],
+        "test_loss": [
+          0.42447703,
+          0.41806594,
+          0.45286074
+        ],
+        "test_accuracy": [
+          0.81826538,
+          0.82163656,
+          0.82163656
+        ],
+        "INPUT_LENGTH": 38
+      }
+    ]
+  },
+  "e94f3e5b-48a7-4e66-b5eb-c3032f143e25": {
+    "UUID": "e94f3e5b-48a7-4e66-b5eb-c3032f143e25",
+    "BERT": "bert_en_uncased_L-24_H-1024_A-16",
+    "BERT_VERSION": 1,
+    "BATCH_SIZE": 16,
+    "EPOCHS": 3,
+    "OPTIMIZER": "adam",
+    "LEARNING_RATE": 2e-06,
+    "PREPROCESSING_ALGORITHM_UUID": "7bc816a1-25df-4649-8570-0012d0acd72a",
+    "PREPROCESSING_ALGORITHM": {
+      "add_link_flag": false,
+      "add_user_flag": false,
+      "add_hash_flag": false,
+      "add_number_flag": false,
+      "add_keyword_flag": false,
+      "add_location_flag": false,
+      "remove_links": true,
+      "remove_users": true,
+      "remove_hash": true,
+      "unslang": true,
+      "split_words": true,
+      "stem": false,
+      "remove_punctuations": true,
+      "remove_numbers": true,
+      "to_lower_case": true,
+      "remove_stop_words": true,
+      "remove_not_alpha": true,
+      "join": true
+    },
+    "KFOLD_HISTORY": [
+      {
+        "loss": [
+          0.46416773,
+          0.35551471,
+          0.28022482
+        ],
+        "accuracy": [
+          0.78776819,
+          0.849657,
+          0.88614804
+        ],
+        "val_loss": [
+          0.43710865,
+          0.42577629,
+          0.43854799
+        ],
+        "val_accuracy": [
+          0.80446196,
+          0.80971128,
+          0.81627297
+        ],
+        "test_loss": [
+          0.42591913,
+          0.41579991,
+          0.43415303
+        ],
+        "test_accuracy": [
+          0.80876493,
+          0.81918478,
+          0.81765246
+        ],
+        "INPUT_LENGTH": 38
+      }
+    ]
+  },
+  "33781267-02d3-4574-a094-892a8365348f": {
+    "UUID": "33781267-02d3-4574-a094-892a8365348f",
+    "BERT": "bert_en_uncased_L-24_H-1024_A-16",
+    "BERT_VERSION": 1,
+    "BATCH_SIZE": 16,
+    "EPOCHS": 3,
+    "OPTIMIZER": "adam",
+    "LEARNING_RATE": 2e-06,
+    "PREPROCESSING_ALGORITHM_UUID": "7bc816a1-25df-4649-8570-0012d0acd72a",
+    "PREPROCESSING_ALGORITHM": {
+      "add_link_flag": false,
+      "add_user_flag": false,
+      "add_hash_flag": false,
+      "add_number_flag": false,
+      "add_keyword_flag": false,
+      "add_location_flag": false,
+      "remove_links": true,
+      "remove_users": true,
+      "remove_hash": true,
+      "unslang": true,
+      "split_words": true,
+      "stem": false,
+      "remove_punctuations": true,
+      "remove_numbers": true,
+      "to_lower_case": true,
+      "remove_stop_words": true,
+      "remove_not_alpha": true,
+      "join": true
+    },
+    "KFOLD_HISTORY": [
+      {
+        "loss": [
+          0.47459099,
+          0.35959992,
+          0.28540914
+        ],
+        "accuracy": [
+          0.78342092,
+          0.84734386,
+          0.88091069
+        ],
+        "val_loss": [
+          0.38875141,
+          0.39790284,
+          0.39900702
+        ],
+        "val_accuracy": [
+          0.84231275,
+          0.83837056,
+          0.83180028
+        ],
+        "test_loss": [
+          0.4388521,
+          0.45083024,
+          0.44379358
+        ],
+        "test_accuracy": [
+          0.80937785,
+          0.80723262,
+          0.80753905
+        ],
+        "INPUT_LENGTH": 38
+      }
+    ]
+  },
+  "6d4dc02a-72be-48b1-9d9d-d95a54fcba18": {
+    "UUID": "6d4dc02a-72be-48b1-9d9d-d95a54fcba18",
+    "BERT": "bert_en_uncased_L-24_H-1024_A-16",
+    "BERT_VERSION": 1,
+    "BATCH_SIZE": 16,
+    "EPOCHS": 3,
+    "OPTIMIZER": "adam",
+    "LEARNING_RATE": 2e-06,
+    "PREPROCESSING_ALGORITHM_UUID": "7bc816a1-25df-4649-8570-0012d0acd72a",
+    "PREPROCESSING_ALGORITHM": {
+      "add_link_flag": false,
+      "add_user_flag": false,
+      "add_hash_flag": false,
+      "add_number_flag": false,
+      "add_keyword_flag": false,
+      "add_location_flag": false,
+      "remove_links": true,
+      "remove_users": true,
+      "remove_hash": true,
+      "unslang": true,
+      "split_words": true,
+      "stem": false,
+      "remove_punctuations": true,
+      "remove_numbers": true,
+      "to_lower_case": true,
+      "remove_stop_words": true,
+      "remove_not_alpha": true,
+      "join": true
+    },
+    "KFOLD_HISTORY": [
+      {
+        "loss": [
+          0.46389946,
+          0.33672359,
+          0.25861872
+        ],
+        "accuracy": [
+          0.79130179,
+          0.85901928,
+          0.89171046
+        ],
+        "val_loss": [
+          0.40350384,
+          0.42676049,
+          0.42181919
+        ],
+        "val_accuracy": [
+          0.83180028,
+          0.80946124,
+          0.82260185
+        ],
+        "test_loss": [
+          0.41628686,
+          0.44379144,
+          0.43659675
+        ],
+        "test_accuracy": [
+          0.81489426,
+          0.81550717,
+          0.81826538
+        ],
+        "INPUT_LENGTH": 38
+      }
+    ]
+  },
+  "a836a6ea-451f-4925-828e-1fae58f6537b": {
+    "UUID": "a836a6ea-451f-4925-828e-1fae58f6537b",
+    "BERT": "bert_en_uncased_L-24_H-1024_A-16",
+    "BERT_VERSION": 1,
+    "BATCH_SIZE": 16,
+    "EPOCHS": 3,
+    "OPTIMIZER": "adam",
+    "LEARNING_RATE": 2e-06,
+    "PREPROCESSING_ALGORITHM_UUID": "7bc816a1-25df-4649-8570-0012d0acd72a",
+    "PREPROCESSING_ALGORITHM": {
+      "add_link_flag": false,
+      "add_user_flag": false,
+      "add_hash_flag": false,
+      "add_number_flag": false,
+      "add_keyword_flag": false,
+      "add_location_flag": false,
+      "remove_links": true,
+      "remove_users": true,
+      "remove_hash": true,
+      "unslang": true,
+      "split_words": true,
+      "stem": false,
+      "remove_punctuations": true,
+      "remove_numbers": true,
+      "to_lower_case": true,
+      "remove_stop_words": true,
+      "remove_not_alpha": true,
+      "join": true
+    },
+    "KFOLD_HISTORY": [
+      {
+        "loss": [
+          0.48432179,
+          0.35047946,
+          0.26010743
+        ],
+        "accuracy": [
+          0.77291304,
+          0.85653824,
+          0.89477527
+        ],
+        "val_loss": [
+          0.41858247,
+          0.37459328,
+          0.43945277
+        ],
+        "val_accuracy": [
+          0.81734562,
+          0.82654405,
+          0.81997371
+        ],
+        "test_loss": [
+          0.43680653,
+          0.41420205,
+          0.45858646
+        ],
+        "test_accuracy": [
+          0.79589337,
+          0.81826538,
+          0.8038615
+        ],
+        "INPUT_LENGTH": 38
+      }
+    ]
+  },
+  "4fbf50d9-7849-42cb-b2f5-0e567a6288a2": {
+    "UUID": "4fbf50d9-7849-42cb-b2f5-0e567a6288a2",
+    "BERT": "bert_en_uncased_L-24_H-1024_A-16",
+    "BERT_VERSION": 1,
+    "BATCH_SIZE": 16,
+    "EPOCHS": 3,
+    "OPTIMIZER": "adam",
+    "LEARNING_RATE": 2e-06,
+    "PREPROCESSING_ALGORITHM_UUID": "7bc816a1-25df-4649-8570-0012d0acd72a",
+    "PREPROCESSING_ALGORITHM": {
+      "add_link_flag": false,
+      "add_user_flag": false,
+      "add_hash_flag": false,
+      "add_number_flag": false,
+      "add_keyword_flag": false,
+      "add_location_flag": false,
+      "remove_links": true,
+      "remove_users": true,
+      "remove_hash": true,
+      "unslang": true,
+      "split_words": true,
+      "stem": false,
+      "remove_punctuations": true,
+      "remove_numbers": true,
+      "to_lower_case": true,
+      "remove_stop_words": true,
+      "remove_not_alpha": true,
+      "join": true
+    },
+    "KFOLD_HISTORY": [
+      {
+        "loss": [
+          0.45609097,
+          0.35011411,
+          0.28762359
+        ],
+        "accuracy": [
+          0.79290718,
+          0.84924108,
+          0.87565672
+        ],
+        "val_loss": [
+          0.44050227,
+          0.44793743,
+          0.46030712
+        ],
+        "val_accuracy": [
+          0.81734562,
+          0.81603152,
+          0.81471747
+        ],
+        "test_loss": [
+          0.43191263,
+          0.43152815,
+          0.44004616
+        ],
+        "test_accuracy": [
+          0.81121665,
+          0.81091022,
+          0.81060374
+        ],
+        "INPUT_LENGTH": 38
+      }
+    ]
+  },
+  "c12769e4-5c26-4f38-bcfa-d760ac552fc4": {
+    "UUID": "c12769e4-5c26-4f38-bcfa-d760ac552fc4",
+    "BERT": "bert_en_uncased_L-24_H-1024_A-16",
+    "BERT_VERSION": 1,
+    "BATCH_SIZE": 16,
+    "EPOCHS": 3,
+    "OPTIMIZER": "adam",
+    "LEARNING_RATE": 2e-06,
+    "PREPROCESSING_ALGORITHM_UUID": "7bc816a1-25df-4649-8570-0012d0acd72a",
+    "PREPROCESSING_ALGORITHM": {
+      "add_link_flag": false,
+      "add_user_flag": false,
+      "add_hash_flag": false,
+      "add_number_flag": false,
+      "add_keyword_flag": false,
+      "add_location_flag": false,
+      "remove_links": true,
+      "remove_users": true,
+      "remove_hash": true,
+      "unslang": true,
+      "split_words": true,
+      "stem": false,
+      "remove_punctuations": true,
+      "remove_numbers": true,
+      "to_lower_case": true,
+      "remove_stop_words": true,
+      "remove_not_alpha": true,
+      "join": true
+    },
+    "KFOLD_HISTORY": [
+      {
+        "loss": [
+          0.48062604,
+          0.35591275,
+          0.26907493
+        ],
+        "accuracy": [
+          0.77539402,
+          0.84967893,
+          0.89171046
+        ],
+        "val_loss": [
+          0.43918428,
+          0.41730356,
+          0.45112979
+        ],
+        "val_accuracy": [
+          0.80683309,
+          0.82260185,
+          0.82522994
+        ],
+        "test_loss": [
+          0.43968639,
+          0.42415909,
+          0.46376065
+        ],
+        "test_accuracy": [
+          0.79742569,
+          0.81152314,
+          0.81305546
+        ],
+        "INPUT_LENGTH": 38
+      }
+    ]
+  },
+  "0878da72-41f7-4bf0-862c-d110ff21163c": {
+    "UUID": "0878da72-41f7-4bf0-862c-d110ff21163c",
+    "BERT": "bert_en_uncased_L-24_H-1024_A-16",
+    "BERT_VERSION": 1,
+    "BATCH_SIZE": 16,
+    "EPOCHS": 3,
+    "OPTIMIZER": "adam",
+    "LEARNING_RATE": 2e-06,
+    "PREPROCESSING_ALGORITHM_UUID": "7bc816a1-25df-4649-8570-0012d0acd72a",
+    "PREPROCESSING_ALGORITHM": {
+      "add_link_flag": false,
+      "add_user_flag": false,
+      "add_hash_flag": false,
+      "add_number_flag": false,
+      "add_keyword_flag": false,
+      "add_location_flag": false,
+      "remove_links": true,
+      "remove_users": true,
+      "remove_hash": true,
+      "unslang": true,
+      "split_words": true,
+      "stem": false,
+      "remove_punctuations": true,
+      "remove_numbers": true,
+      "to_lower_case": true,
+      "remove_stop_words": true,
+      "remove_not_alpha": true,
+      "join": true
+    },
+    "KFOLD_HISTORY": [
+      {
+        "loss": [
+          0.46943967,
+          0.33249141,
+          0.23057941
+        ],
+        "accuracy": [
+          0.78604788,
+          0.85653824,
+          0.90907764
+        ],
+        "val_loss": [
+          0.41365791,
+          0.4213201,
+          0.45302365
+        ],
+        "val_accuracy": [
+          0.81865966,
+          0.82260185,
+          0.83048618
+        ],
+        "test_loss": [
+          0.42419101,
+          0.43009119,
+          0.48012126
+        ],
+        "test_accuracy": [
+          0.81458783,
+          0.82194299,
+          0.80999082
+        ],
+        "INPUT_LENGTH": 38
+      }
+    ]
+  },
+  "279d7a2c-2c6c-4862-9a30-b1005620161e": {
+    "UUID": "279d7a2c-2c6c-4862-9a30-b1005620161e",
+    "BERT": "bert_en_uncased_L-24_H-1024_A-16",
+    "BERT_VERSION": 1,
+    "BATCH_SIZE": 16,
+    "EPOCHS": 3,
+    "OPTIMIZER": "adam",
+    "LEARNING_RATE": 2e-06,
+    "PREPROCESSING_ALGORITHM_UUID": "7bc816a1-25df-4649-8570-0012d0acd72a",
+    "PREPROCESSING_ALGORITHM": {
+      "add_link_flag": false,
+      "add_user_flag": false,
+      "add_hash_flag": false,
+      "add_number_flag": false,
+      "add_keyword_flag": false,
+      "add_location_flag": false,
+      "remove_links": true,
+      "remove_users": true,
+      "remove_hash": true,
+      "unslang": true,
+      "split_words": true,
+      "stem": false,
+      "remove_punctuations": true,
+      "remove_numbers": true,
+      "to_lower_case": true,
+      "remove_stop_words": true,
+      "remove_not_alpha": true,
+      "join": true
+    },
+    "KFOLD_HISTORY": [
+      {
+        "loss": [
+          0.47180458,
+          0.35479884,
+          0.27916141
+        ],
+        "accuracy": [
+          0.78123176,
+          0.85172212,
+          0.88587272
+        ],
+        "val_loss": [
+          0.42575946,
+          0.41945521,
+          0.45046161
+        ],
+        "val_accuracy": [
+          0.81077528,
+          0.83705652,
+          0.83968461
+        ],
+        "test_loss": [
+          0.43255,
+          0.42103081,
+          0.45061234
+        ],
+        "test_accuracy": [
+          0.8066197,
+          0.81428134,
+          0.81826538
+        ],
+        "INPUT_LENGTH": 38
+      }
+    ]
+  },
+  "7dc5edc4-b5c4-4166-8a72-c11c583401f7": {
+    "UUID": "7dc5edc4-b5c4-4166-8a72-c11c583401f7",
+    "BERT": "bert_en_uncased_L-24_H-1024_A-16",
+    "BERT_VERSION": 1,
+    "BATCH_SIZE": 16,
+    "EPOCHS": 3,
+    "OPTIMIZER": "adam",
+    "LEARNING_RATE": 2e-06,
+    "PREPROCESSING_ALGORITHM_UUID": "a85c8435-6f23-4015-9e8c-19547222d6ce",
+    "PREPROCESSING_ALGORITHM": {
+      "add_link_flag": true,
+      "add_user_flag": true,
+      "add_hash_flag": true,
+      "add_number_flag": true,
+      "add_keyword_flag": false,
+      "add_location_flag": false,
+      "remove_links": true,
+      "remove_users": true,
+      "remove_hash": true,
+      "unslang": true,
+      "split_words": true,
+      "stem": false,
+      "remove_punctuations": false,
+      "remove_numbers": true,
+      "to_lower_case": true,
+      "remove_stop_words": false,
+      "remove_not_alpha": false,
+      "join": true
+    },
+    "KFOLD_HISTORY": [
+      {
+        "loss": [
+          0.45581592,
+          0.34063536,
+          0.27206149
+        ],
+        "accuracy": [
+          0.79419065,
+          0.85958254,
+          0.89578164
+        ],
+        "val_loss": [
+          0.39213495,
+          0.37146395,
+          0.39186182
+        ],
+        "val_accuracy": [
+          0.83727032,
+          0.84383202,
+          0.84908134
+        ],
+        "test_loss": [
+          0.40941481,
+          0.39111807,
+          0.42261209
+        ],
+        "test_accuracy": [
+          0.82071716,
+          0.8329758,
+          0.8253141
+        ],
+        "INPUT_LENGTH": 60
+      }
+    ]
+  },
+  "84156f1e-a6b2-4bd3-afb0-67416290cffe": {
+    "UUID": "84156f1e-a6b2-4bd3-afb0-67416290cffe",
+    "BERT": "bert_en_uncased_L-24_H-1024_A-16",
+    "BERT_VERSION": 1,
+    "BATCH_SIZE": 16,
+    "EPOCHS": 3,
+    "OPTIMIZER": "adam",
+    "LEARNING_RATE": 2e-06,
+    "PREPROCESSING_ALGORITHM_UUID": "a85c8435-6f23-4015-9e8c-19547222d6ce",
+    "PREPROCESSING_ALGORITHM": {
+      "add_link_flag": true,
+      "add_user_flag": true,
+      "add_hash_flag": true,
+      "add_number_flag": true,
+      "add_keyword_flag": false,
+      "add_location_flag": false,
+      "remove_links": true,
+      "remove_users": true,
+      "remove_hash": true,
+      "unslang": true,
+      "split_words": true,
+      "stem": false,
+      "remove_punctuations": false,
+      "remove_numbers": true,
+      "to_lower_case": true,
+      "remove_stop_words": false,
+      "remove_not_alpha": false,
+      "join": true
+    },
+    "KFOLD_HISTORY": [
+      {
+        "loss": [
+          0.47170595,
+          0.34642377,
+          0.27293522
+        ],
+        "accuracy": [
+          0.78397316,
+          0.85958254,
+          0.89111078
+        ],
+        "val_loss": [
+          0.41583176,
+          0.39910023,
+          0.43940633
+        ],
+        "val_accuracy": [
+          0.82283467,
+          0.835958,
+          0.83464569
+        ],
+        "test_loss": [
+          0.41477172,
+          0.38988438,
+          0.42802145
+        ],
+        "test_accuracy": [
+          0.81244254,
+          0.83695984,
+          0.82623351
+        ],
+        "INPUT_LENGTH": 60
+      }
+    ]
+  },
+  "bcfa0116-c3c9-4d65-868f-f65de00fddae": {
+    "UUID": "bcfa0116-c3c9-4d65-868f-f65de00fddae",
+    "BERT": "bert_en_uncased_L-24_H-1024_A-16",
+    "BERT_VERSION": 1,
+    "BATCH_SIZE": 16,
+    "EPOCHS": 3,
+    "OPTIMIZER": "adam",
+    "LEARNING_RATE": 2e-06,
+    "PREPROCESSING_ALGORITHM_UUID": "a85c8435-6f23-4015-9e8c-19547222d6ce",
+    "PREPROCESSING_ALGORITHM": {
+      "add_link_flag": true,
+      "add_user_flag": true,
+      "add_hash_flag": true,
+      "add_number_flag": true,
+      "add_keyword_flag": false,
+      "add_location_flag": false,
+      "remove_links": true,
+      "remove_users": true,
+      "remove_hash": true,
+      "unslang": true,
+      "split_words": true,
+      "stem": false,
+      "remove_punctuations": false,
+      "remove_numbers": true,
+      "to_lower_case": true,
+      "remove_stop_words": false,
+      "remove_not_alpha": false,
+      "join": true
+    },
+    "KFOLD_HISTORY": [
+      {
+        "loss": [
+          0.46011661,
+          0.33580482,
+          0.2640201
+        ],
+        "accuracy": [
+          0.79302293,
+          0.861772,
+          0.89388412
+        ],
+        "val_loss": [
+          0.43933087,
+          0.43654765,
+          0.44474876
+        ],
+        "val_accuracy": [
+          0.80839896,
+          0.81889766,
+          0.81758529
+        ],
+        "test_loss": [
+          0.41118611,
+          0.3999375,
+          0.41590207
+        ],
+        "test_accuracy": [
+          0.82133007,
+          0.82684648,
+          0.82991111
+        ],
+        "INPUT_LENGTH": 60
+      }
+    ]
+  },
+  "e8854dfa-6111-48d9-b98f-64207e139c80": {
+    "UUID": "e8854dfa-6111-48d9-b98f-64207e139c80",
+    "BERT": "bert_en_uncased_L-24_H-1024_A-16",
+    "BERT_VERSION": 1,
+    "BATCH_SIZE": 16,
+    "EPOCHS": 3,
+    "OPTIMIZER": "adam",
+    "LEARNING_RATE": 2e-06,
+    "PREPROCESSING_ALGORITHM_UUID": "a85c8435-6f23-4015-9e8c-19547222d6ce",
+    "PREPROCESSING_ALGORITHM": {
+      "add_link_flag": true,
+      "add_user_flag": true,
+      "add_hash_flag": true,
+      "add_number_flag": true,
+      "add_keyword_flag": false,
+      "add_location_flag": false,
+      "remove_links": true,
+      "remove_users": true,
+      "remove_hash": true,
+      "unslang": true,
+      "split_words": true,
+      "stem": false,
+      "remove_punctuations": false,
+      "remove_numbers": true,
+      "to_lower_case": true,
+      "remove_stop_words": false,
+      "remove_not_alpha": false,
+      "join": true
+    },
+    "KFOLD_HISTORY": [
+      {
+        "loss": [
+          0.45587493,
+          0.33361067,
+          0.25533629
+        ],
+        "accuracy": [
+          0.79086399,
+          0.86514884,
+          0.90075892
+        ],
+        "val_loss": [
+          0.38021543,
+          0.36381935,
+          0.39232774
+        ],
+        "val_accuracy": [
+          0.84231275,
+          0.85545337,
+          0.84099871
+        ],
+        "test_loss": [
+          0.40427627,
+          0.3887872,
+          0.40780806
+        ],
+        "test_accuracy": [
+          0.82807231,
+          0.83236283,
+          0.83052409
+        ],
+        "INPUT_LENGTH": 60
+      }
+    ]
+  },
+  "f42116ed-f92c-4d1d-a673-e3b5a8850c40": {
+    "UUID": "f42116ed-f92c-4d1d-a673-e3b5a8850c40",
+    "BERT": "bert_en_uncased_L-24_H-1024_A-16",
+    "BERT_VERSION": 1,
+    "BATCH_SIZE": 16,
+    "EPOCHS": 3,
+    "OPTIMIZER": "adam",
+    "LEARNING_RATE": 2e-06,
+    "PREPROCESSING_ALGORITHM_UUID": "a85c8435-6f23-4015-9e8c-19547222d6ce",
+    "PREPROCESSING_ALGORITHM": {
+      "add_link_flag": true,
+      "add_user_flag": true,
+      "add_hash_flag": true,
+      "add_number_flag": true,
+      "add_keyword_flag": false,
+      "add_location_flag": false,
+      "remove_links": true,
+      "remove_users": true,
+      "remove_hash": true,
+      "unslang": true,
+      "split_words": true,
+      "stem": false,
+      "remove_punctuations": false,
+      "remove_numbers": true,
+      "to_lower_case": true,
+      "remove_stop_words": false,
+      "remove_not_alpha": false,
+      "join": true
+    },
+    "KFOLD_HISTORY": [
+      {
+        "loss": [
+          0.4671805,
+          0.35068651,
+          0.28037002
+        ],
+        "accuracy": [
+          0.78385872,
+          0.85449505,
+          0.89229423
+        ],
+        "val_loss": [
+          0.41129426,
+          0.39781267,
+          0.38130997
+        ],
+        "val_accuracy": [
+          0.8239159,
+          0.83048618,
+          0.82522994
+        ],
+        "test_loss": [
+          0.41778875,
+          0.41006961,
+          0.40442718
+        ],
+        "test_accuracy": [
+          0.81826538,
+          0.82684648,
+          0.82684648
+        ],
+        "INPUT_LENGTH": 60
+      }
+    ]
+  },
+  "2592eb98-3a00-4235-b019-45f996b03db4": {
+    "UUID": "2592eb98-3a00-4235-b019-45f996b03db4",
+    "BERT": "bert_en_uncased_L-24_H-1024_A-16",
+    "BERT_VERSION": 1,
+    "BATCH_SIZE": 16,
+    "EPOCHS": 3,
+    "OPTIMIZER": "adam",
+    "LEARNING_RATE": 2e-06,
+    "PREPROCESSING_ALGORITHM_UUID": "a85c8435-6f23-4015-9e8c-19547222d6ce",
+    "PREPROCESSING_ALGORITHM": {
+      "add_link_flag": true,
+      "add_user_flag": true,
+      "add_hash_flag": true,
+      "add_number_flag": true,
+      "add_keyword_flag": false,
+      "add_location_flag": false,
+      "remove_links": true,
+      "remove_users": true,
+      "remove_hash": true,
+      "unslang": true,
+      "split_words": true,
+      "stem": false,
+      "remove_punctuations": false,
+      "remove_numbers": true,
+      "to_lower_case": true,
+      "remove_stop_words": false,
+      "remove_not_alpha": false,
+      "join": true
+    },
+    "KFOLD_HISTORY": [
+      {
+        "loss": [
+          0.44418985,
+          0.33016311,
+          0.24578672
+        ],
+        "accuracy": [
+          0.79845303,
+          0.86368942,
+          0.90251023
+        ],
+        "val_loss": [
+          0.36323389,
+          0.34651479,
+          0.36391467
+        ],
+        "val_accuracy": [
+          0.84756899,
+          0.85676742,
+          0.86596584
+        ],
+        "test_loss": [
+          0.39923158,
+          0.40572757,
+          0.42464551
+        ],
+        "test_accuracy": [
+          0.82745939,
+          0.83573401,
+          0.8320564
+        ],
+        "INPUT_LENGTH": 60
+      }
+    ]
+  },
+  "42efc27f-8cc4-4881-895c-d43b9a786db4": {
+    "UUID": "42efc27f-8cc4-4881-895c-d43b9a786db4",
+    "BERT": "bert_en_uncased_L-24_H-1024_A-16",
+    "BERT_VERSION": 1,
+    "BATCH_SIZE": 16,
+    "EPOCHS": 3,
+    "OPTIMIZER": "adam",
+    "LEARNING_RATE": 2e-06,
+    "PREPROCESSING_ALGORITHM_UUID": "a85c8435-6f23-4015-9e8c-19547222d6ce",
+    "PREPROCESSING_ALGORITHM": {
+      "add_link_flag": true,
+      "add_user_flag": true,
+      "add_hash_flag": true,
+      "add_number_flag": true,
+      "add_keyword_flag": false,
+      "add_location_flag": false,
+      "remove_links": true,
+      "remove_users": true,
+      "remove_hash": true,
+      "unslang": true,
+      "split_words": true,
+      "stem": false,
+      "remove_punctuations": false,
+      "remove_numbers": true,
+      "to_lower_case": true,
+      "remove_stop_words": false,
+      "remove_not_alpha": false,
+      "join": true
+    },
+    "KFOLD_HISTORY": [
+      {
+        "loss": [
+          0.45228535,
+          0.3330509,
+          0.25770014
+        ],
+        "accuracy": [
+          0.79626387,
+          0.86690015,
+          0.90221834
+        ],
+        "val_loss": [
+          0.42173714,
+          0.43365831,
+          0.46607552
+        ],
+        "val_accuracy": [
+          0.82128775,
+          0.82654405,
+          0.82654405
+        ],
+        "test_loss": [
+          0.41079053,
+          0.39830802,
+          0.41624789
+        ],
+        "test_accuracy": [
+          0.82102358,
+          0.82899171,
+          0.82684648
+        ],
+        "INPUT_LENGTH": 60
+      }
+    ]
+  },
+  "dcabc608-7607-4121-a5a0-63b277a0747d": {
+    "UUID": "dcabc608-7607-4121-a5a0-63b277a0747d",
+    "BERT": "bert_en_uncased_L-24_H-1024_A-16",
+    "BERT_VERSION": 1,
+    "BATCH_SIZE": 16,
+    "EPOCHS": 3,
+    "OPTIMIZER": "adam",
+    "LEARNING_RATE": 2e-06,
+    "PREPROCESSING_ALGORITHM_UUID": "a85c8435-6f23-4015-9e8c-19547222d6ce",
+    "PREPROCESSING_ALGORITHM": {
+      "add_link_flag": true,
+      "add_user_flag": true,
+      "add_hash_flag": true,
+      "add_number_flag": true,
+      "add_keyword_flag": false,
+      "add_location_flag": false,
+      "remove_links": true,
+      "remove_users": true,
+      "remove_hash": true,
+      "unslang": true,
+      "split_words": true,
+      "stem": false,
+      "remove_punctuations": false,
+      "remove_numbers": true,
+      "to_lower_case": true,
+      "remove_stop_words": false,
+      "remove_not_alpha": false,
+      "join": true
+    },
+    "KFOLD_HISTORY": [
+      {
+        "loss": [
+          0.45929233,
+          0.333727,
+          0.25849597
+        ],
+        "accuracy": [
+          0.79582602,
+          0.86806774,
+          0.90119672
+        ],
+        "val_loss": [
+          0.40355478,
+          0.398463,
+          0.41802509
+        ],
+        "val_accuracy": [
+          0.80946124,
+          0.82785809,
+          0.82128775
+        ],
+        "test_loss": [
+          0.4029183,
+          0.3957927,
+          0.40590213
+        ],
+        "test_accuracy": [
+          0.82807231,
+          0.83542752,
+          0.83052409
+        ],
+        "INPUT_LENGTH": 60
+      }
+    ]
+  },
+  "28e12925-ada0-4ab4-ad05-dedfb1372a80": {
+    "UUID": "28e12925-ada0-4ab4-ad05-dedfb1372a80",
+    "BERT": "bert_en_uncased_L-24_H-1024_A-16",
+    "BERT_VERSION": 1,
+    "BATCH_SIZE": 16,
+    "EPOCHS": 3,
+    "OPTIMIZER": "adam",
+    "LEARNING_RATE": 2e-06,
+    "PREPROCESSING_ALGORITHM_UUID": "a85c8435-6f23-4015-9e8c-19547222d6ce",
+    "PREPROCESSING_ALGORITHM": {
+      "add_link_flag": true,
+      "add_user_flag": true,
+      "add_hash_flag": true,
+      "add_number_flag": true,
+      "add_keyword_flag": false,
+      "add_location_flag": false,
+      "remove_links": true,
+      "remove_users": true,
+      "remove_hash": true,
+      "unslang": true,
+      "split_words": true,
+      "stem": false,
+      "remove_punctuations": false,
+      "remove_numbers": true,
+      "to_lower_case": true,
+      "remove_stop_words": false,
+      "remove_not_alpha": false,
+      "join": true
+    },
+    "KFOLD_HISTORY": [
+      {
+        "loss": [
+          0.47924864,
+          0.34862235,
+          0.27312666
+        ],
+        "accuracy": [
+          0.77641565,
+          0.85522473,
+          0.89200234
+        ],
+        "val_loss": [
+          0.38393221,
+          0.36681897,
+          0.36997214
+        ],
+        "val_accuracy": [
+          0.84756899,
+          0.84756899,
+          0.85808146
+        ],
+        "test_loss": [
+          0.41510719,
+          0.40385852,
+          0.41367126
+        ],
+        "test_accuracy": [
+          0.81887835,
+          0.82807231,
+          0.82653999
+        ],
+        "INPUT_LENGTH": 60
+      }
+    ]
+  },
+  "e79e006d-6c90-4af5-95cd-38385adad979": {
+    "UUID": "e79e006d-6c90-4af5-95cd-38385adad979",
+    "BERT": "bert_en_uncased_L-24_H-1024_A-16",
+    "BERT_VERSION": 1,
+    "BATCH_SIZE": 16,
+    "EPOCHS": 3,
+    "OPTIMIZER": "adam",
+    "LEARNING_RATE": 2e-06,
+    "PREPROCESSING_ALGORITHM_UUID": "a85c8435-6f23-4015-9e8c-19547222d6ce",
+    "PREPROCESSING_ALGORITHM": {
+      "add_link_flag": true,
+      "add_user_flag": true,
+      "add_hash_flag": true,
+      "add_number_flag": true,
+      "add_keyword_flag": false,
+      "add_location_flag": false,
+      "remove_links": true,
+      "remove_users": true,
+      "remove_hash": true,
+      "unslang": true,
+      "split_words": true,
+      "stem": false,
+      "remove_punctuations": false,
+      "remove_numbers": true,
+      "to_lower_case": true,
+      "remove_stop_words": false,
+      "remove_not_alpha": false,
+      "join": true
+    },
+    "KFOLD_HISTORY": [
+      {
+        "loss": [
+          0.46368525,
+          0.333703,
+          0.26065414
+        ],
+        "accuracy": [
+          0.78794515,
+          0.86573261,
+          0.89900762
+        ],
+        "val_loss": [
+          0.39994409,
+          0.39092844,
+          0.41557444
+        ],
+        "val_accuracy": [
+          0.82654405,
+          0.83968461,
+          0.83968461
+        ],
+        "test_loss": [
+          0.41143808,
+          0.39403451,
+          0.41729335
+        ],
+        "test_accuracy": [
+          0.82378179,
+          0.831137,
+          0.83481461
+        ],
+        "INPUT_LENGTH": 54
+      }
+    ]
+  },
+  "5b9aabc4-a0ef-41f2-b223-53feb6f43b93": {
+    "UUID": "5b9aabc4-a0ef-41f2-b223-53feb6f43b93",
+    "BERT": "bert_en_uncased_L-24_H-1024_A-16",
+    "BERT_VERSION": 1,
+    "BATCH_SIZE": 16,
+    "EPOCHS": 3,
+    "OPTIMIZER": "adam",
+    "LEARNING_RATE": 2e-06,
+    "PREPROCESSING_ALGORITHM_UUID": "b054e509-4f04-44f2-bcf9-14fa8af4eeed",
+    "PREPROCESSING_ALGORITHM": {
+      "add_link_flag": true,
+      "add_user_flag": true,
+      "add_hash_flag": true,
+      "add_number_flag": true,
+      "add_keyword_flag": false,
+      "add_location_flag": false,
+      "remove_links": true,
+      "remove_users": true,
+      "remove_hash": true,
+      "unslang": true,
+      "split_words": false,
+      "stem": false,
+      "remove_punctuations": false,
+      "remove_numbers": true,
+      "to_lower_case": true,
+      "remove_stop_words": false,
+      "remove_not_alpha": false,
+      "join": true
+    },
+    "KFOLD_HISTORY": [
+      {
+        "loss": [
+          0.46587648,
+          0.3439677,
+          0.27603001
+        ],
+        "accuracy": [
+          0.7931689,
+          0.86031234,
+          0.89111078
+        ],
+        "val_loss": [
+          0.39118474,
+          0.3762515,
+          0.38789074
+        ],
+        "val_accuracy": [
+          0.83464569,
+          0.84908134,
+          0.8425197
+        ],
+        "test_loss": [
+          0.41337807,
+          0.38800604,
+          0.3972597
+        ],
+        "test_accuracy": [
+          0.82378179,
+          0.83481461,
+          0.83604044
+        ],
+        "INPUT_LENGTH": 77
+      }
+    ]
+  },
+  "11647810-d7e2-43d3-b4c5-58dc1d01c585": {
+    "UUID": "11647810-d7e2-43d3-b4c5-58dc1d01c585",
+    "BERT": "bert_en_uncased_L-24_H-1024_A-16",
+    "BERT_VERSION": 1,
+    "BATCH_SIZE": 16,
+    "EPOCHS": 3,
+    "OPTIMIZER": "adam",
+    "LEARNING_RATE": 2e-06,
+    "PREPROCESSING_ALGORITHM_UUID": "b054e509-4f04-44f2-bcf9-14fa8af4eeed",
+    "PREPROCESSING_ALGORITHM": {
+      "add_link_flag": true,
+      "add_user_flag": true,
+      "add_hash_flag": true,
+      "add_number_flag": true,
+      "add_keyword_flag": false,
+      "add_location_flag": false,
+      "remove_links": true,
+      "remove_users": true,
+      "remove_hash": true,
+      "unslang": true,
+      "split_words": false,
+      "stem": false,
+      "remove_punctuations": false,
+      "remove_numbers": true,
+      "to_lower_case": true,
+      "remove_stop_words": false,
+      "remove_not_alpha": false,
+      "join": true
+    },
+    "KFOLD_HISTORY": [
+      {
+        "loss": [
+          0.47797479,
+          0.34737178,
+          0.27888163
+        ],
+        "accuracy": [
+          0.78192967,
+          0.8553496,
+          0.88877535
+        ],
+        "val_loss": [
+          0.41836954,
+          0.40650363,
+          0.42459449
+        ],
+        "val_accuracy": [
+          0.82808399,
+          0.83333331,
+          0.82939631
+        ],
+        "test_loss": [
+          0.41069884,
+          0.39780509,
+          0.4171436
+        ],
+        "test_accuracy": [
+          0.82592708,
+          0.83634692,
+          0.82071716
+        ],
+        "INPUT_LENGTH": 77
+      }
+    ]
+  },
+  "287d9432-1451-43af-8734-e68b81488996": {
+    "UUID": "287d9432-1451-43af-8734-e68b81488996",
+    "BERT": "bert_en_uncased_L-24_H-1024_A-16",
+    "BERT_VERSION": 1,
+    "BATCH_SIZE": 16,
+    "EPOCHS": 3,
+    "OPTIMIZER": "adam",
+    "LEARNING_RATE": 2e-06,
+    "PREPROCESSING_ALGORITHM_UUID": "b054e509-4f04-44f2-bcf9-14fa8af4eeed",
+    "PREPROCESSING_ALGORITHM": {
+      "add_link_flag": true,
+      "add_user_flag": true,
+      "add_hash_flag": true,
+      "add_number_flag": true,
+      "add_keyword_flag": false,
+      "add_location_flag": false,
+      "remove_links": true,
+      "remove_users": true,
+      "remove_hash": true,
+      "unslang": true,
+      "split_words": false,
+      "stem": false,
+      "remove_punctuations": false,
+      "remove_numbers": true,
+      "to_lower_case": true,
+      "remove_stop_words": false,
+      "remove_not_alpha": false,
+      "join": true
+    },
+    "KFOLD_HISTORY": [
+      {
+        "loss": [
+          0.46079917,
+          0.34092245,
+          0.27474025
+        ],
+        "accuracy": [
+          0.79623413,
+          0.86381549,
+          0.89213252
+        ],
+        "val_loss": [
+          0.44123637,
+          0.42738455,
+          0.44709799
+        ],
+        "val_accuracy": [
+          0.81496066,
+          0.82677168,
+          0.81102359
+        ],
+        "test_loss": [
+          0.4070902,
+          0.39595271,
+          0.41001575
+        ],
+        "test_accuracy": [
+          0.82715291,
+          0.83083051,
+          0.82745939
+        ],
+        "INPUT_LENGTH": 77
+      }
+    ]
+  },
+  "9f40fdda-cfa5-4244-84bc-eedcc7595ba5": {
+    "UUID": "9f40fdda-cfa5-4244-84bc-eedcc7595ba5",
+    "BERT": "bert_en_uncased_L-24_H-1024_A-16",
+    "BERT_VERSION": 1,
+    "BATCH_SIZE": 16,
+    "EPOCHS": 3,
+    "OPTIMIZER": "adam",
+    "LEARNING_RATE": 2e-06,
+    "PREPROCESSING_ALGORITHM_UUID": "b054e509-4f04-44f2-bcf9-14fa8af4eeed",
+    "PREPROCESSING_ALGORITHM": {
+      "add_link_flag": true,
+      "add_user_flag": true,
+      "add_hash_flag": true,
+      "add_number_flag": true,
+      "add_keyword_flag": false,
+      "add_location_flag": false,
+      "remove_links": true,
+      "remove_users": true,
+      "remove_hash": true,
+      "unslang": true,
+      "split_words": false,
+      "stem": false,
+      "remove_punctuations": false,
+      "remove_numbers": true,
+      "to_lower_case": true,
+      "remove_stop_words": false,
+      "remove_not_alpha": false,
+      "join": true
+    },
+    "KFOLD_HISTORY": [
+      {
+        "loss": [
+          0.45752616,
+          0.33997391,
+          0.26421317
+        ],
+        "accuracy": [
+          0.79203153,
+          0.85887331,
+          0.8992995
+        ],
+        "val_loss": [
+          0.37309344,
+          0.35321262,
+          0.37620976
+        ],
+        "val_accuracy": [
+          0.85545337,
+          0.85808146,
+          0.84888303
+        ],
+        "test_loss": [
+          0.40850778,
+          0.38683158,
+          0.39590796
+        ],
+        "test_accuracy": [
+          0.82071716,
+          0.83420163,
+          0.83358872
+        ],
+        "INPUT_LENGTH": 65
+      }
+    ]
+  },
+  "2589125d-7fbf-4610-90ff-b069c4458f51": {
+    "UUID": "2589125d-7fbf-4610-90ff-b069c4458f51",
+    "BERT": "bert_en_uncased_L-24_H-1024_A-16",
+    "BERT_VERSION": 1,
+    "BATCH_SIZE": 16,
+    "EPOCHS": 3,
+    "OPTIMIZER": "adam",
+    "LEARNING_RATE": 2e-06,
+    "PREPROCESSING_ALGORITHM_UUID": "b054e509-4f04-44f2-bcf9-14fa8af4eeed",
+    "PREPROCESSING_ALGORITHM": {
+      "add_link_flag": true,
+      "add_user_flag": true,
+      "add_hash_flag": true,
+      "add_number_flag": true,
+      "add_keyword_flag": false,
+      "add_location_flag": false,
+      "remove_links": true,
+      "remove_users": true,
+      "remove_hash": true,
+      "unslang": true,
+      "split_words": false,
+      "stem": false,
+      "remove_punctuations": false,
+      "remove_numbers": true,
+      "to_lower_case": true,
+      "remove_stop_words": false,
+      "remove_not_alpha": false,
+      "join": true
+    },
+    "KFOLD_HISTORY": [
+      {
+        "loss": [
+          0.4547707,
+          0.33333825,
+          0.25695272
+        ],
+        "accuracy": [
+          0.79261529,
+          0.86456507,
+          0.90032107
+        ],
+        "val_loss": [
+          0.3872563,
+          0.38003534,
+          0.41099161
+        ],
+        "val_accuracy": [
+          0.83968461,
+          0.83442837,
+          0.82654405
+        ],
+        "test_loss": [
+          0.39575525,
+          0.38554665,
+          0.41911924
+        ],
+        "test_accuracy": [
+          0.8302176,
+          0.83879864,
+          0.83083051
+        ],
+        "INPUT_LENGTH": 77
+      }
+    ]
+  },
+  "548384e0-c8b2-444c-9b1d-6e0ad746f3de": {
+    "UUID": "548384e0-c8b2-444c-9b1d-6e0ad746f3de",
+    "BERT": "bert_en_uncased_L-24_H-1024_A-16",
+    "BERT_VERSION": 1,
+    "BATCH_SIZE": 16,
+    "EPOCHS": 3,
+    "OPTIMIZER": "adam",
+    "LEARNING_RATE": 2e-06,
+    "PREPROCESSING_ALGORITHM_UUID": "b054e509-4f04-44f2-bcf9-14fa8af4eeed",
+    "PREPROCESSING_ALGORITHM": {
+      "add_link_flag": true,
+      "add_user_flag": true,
+      "add_hash_flag": true,
+      "add_number_flag": true,
+      "add_keyword_flag": false,
+      "add_location_flag": false,
+      "remove_links": true,
+      "remove_users": true,
+      "remove_hash": true,
+      "unslang": true,
+      "split_words": false,
+      "stem": false,
+      "remove_punctuations": false,
+      "remove_numbers": true,
+      "to_lower_case": true,
+      "remove_stop_words": false,
+      "remove_not_alpha": false,
+      "join": true
+    },
+    "KFOLD_HISTORY": [
+      {
+        "loss": [
+          0.44991669,
+          0.34068395,
+          0.27920877
+        ],
+        "accuracy": [
+          0.79757732,
+          0.86179221,
+          0.88718623
+        ],
+        "val_loss": [
+          0.36083872,
+          0.35986405,
+          0.36892904
+        ],
+        "val_accuracy": [
+          0.8593955,
+          0.8593955,
+          0.85413927
+        ],
+        "test_loss": [
+          0.40110757,
+          0.39865623,
+          0.40304007
+        ],
+        "test_accuracy": [
+          0.82868528,
+          0.83052409,
+          0.82899171
+        ],
+        "INPUT_LENGTH": 77
+      }
+    ]
+  },
+  "b50be629-44fb-4205-83fe-f0399245f38e": {
+    "UUID": "b50be629-44fb-4205-83fe-f0399245f38e",
+    "BERT": "bert_en_uncased_L-24_H-1024_A-16",
+    "BERT_VERSION": 1,
+    "BATCH_SIZE": 16,
+    "EPOCHS": 3,
+    "OPTIMIZER": "adam",
+    "LEARNING_RATE": 2e-06,
+    "PREPROCESSING_ALGORITHM_UUID": "b054e509-4f04-44f2-bcf9-14fa8af4eeed",
+    "PREPROCESSING_ALGORITHM": {
+      "add_link_flag": true,
+      "add_user_flag": true,
+      "add_hash_flag": true,
+      "add_number_flag": true,
+      "add_keyword_flag": false,
+      "add_location_flag": false,
+      "remove_links": true,
+      "remove_users": true,
+      "remove_hash": true,
+      "unslang": true,
+      "split_words": false,
+      "stem": false,
+      "remove_punctuations": false,
+      "remove_numbers": true,
+      "to_lower_case": true,
+      "remove_stop_words": false,
+      "remove_not_alpha": false,
+      "join": true
+    },
+    "KFOLD_HISTORY": [
+      {
+        "loss": [
+          0.48291131,
+          0.34160231,
+          0.27398012
+        ],
+        "accuracy": [
+          0.77889669,
+          0.85974896,
+          0.89200234
+        ],
+        "val_loss": [
+          0.44084748,
+          0.45255845,
+          0.44336763
+        ],
+        "val_accuracy": [
+          0.82128775,
+          0.81077528,
+          0.83180028
+        ],
+        "test_loss": [
+          0.41523889,
+          0.413525,
+          0.40534014
+        ],
+        "test_accuracy": [
+          0.82316887,
+          0.81642658,
+          0.82868528
+        ],
+        "INPUT_LENGTH": 77
+      }
+    ]
+  },
+  "8ed0ea5f-7fa6-44de-835f-e6f8dd8eb4ba": {
+    "UUID": "8ed0ea5f-7fa6-44de-835f-e6f8dd8eb4ba",
+    "BERT": "bert_en_uncased_L-24_H-1024_A-16",
+    "BERT_VERSION": 1,
+    "BATCH_SIZE": 16,
+    "EPOCHS": 3,
+    "OPTIMIZER": "adam",
+    "LEARNING_RATE": 2e-06,
+    "PREPROCESSING_ALGORITHM_UUID": "b054e509-4f04-44f2-bcf9-14fa8af4eeed",
+    "PREPROCESSING_ALGORITHM": {
+      "add_link_flag": true,
+      "add_user_flag": true,
+      "add_hash_flag": true,
+      "add_number_flag": true,
+      "add_keyword_flag": false,
+      "add_location_flag": false,
+      "remove_links": true,
+      "remove_users": true,
+      "remove_hash": true,
+      "unslang": true,
+      "split_words": false,
+      "stem": false,
+      "remove_punctuations": false,
+      "remove_numbers": true,
+      "to_lower_case": true,
+      "remove_stop_words": false,
+      "remove_not_alpha": false,
+      "join": true
+    },
+    "KFOLD_HISTORY": [
+      {
+        "loss": [
+          0.47618556,
+          0.35099344,
+          0.29094912
+        ],
+        "accuracy": [
+          0.78677756,
+          0.85493284,
+          0.88528895
+        ],
+        "val_loss": [
+          0.41191792,
+          0.40542808,
+          0.4160339
+        ],
+        "val_accuracy": [
+          0.80946124,
+          0.82654405,
+          0.82917213
+        ],
+        "test_loss": [
+          0.40539357,
+          0.38761454,
+          0.38874552
+        ],
+        "test_accuracy": [
+          0.831137,
+          0.83634692,
+          0.83634692
+        ],
+        "INPUT_LENGTH": 77
+      }
+    ]
+  },
+  "a965fff4-ae82-4a08-a41f-54a08d927dc9": {
+    "UUID": "a965fff4-ae82-4a08-a41f-54a08d927dc9",
+    "BERT": "bert_en_uncased_L-24_H-1024_A-16",
+    "BERT_VERSION": 1,
+    "BATCH_SIZE": 16,
+    "EPOCHS": 3,
+    "OPTIMIZER": "adam",
+    "LEARNING_RATE": 2e-06,
+    "PREPROCESSING_ALGORITHM_UUID": "b054e509-4f04-44f2-bcf9-14fa8af4eeed",
+    "PREPROCESSING_ALGORITHM": {
+      "add_link_flag": true,
+      "add_user_flag": true,
+      "add_hash_flag": true,
+      "add_number_flag": true,
+      "add_keyword_flag": false,
+      "add_location_flag": false,
+      "remove_links": true,
+      "remove_users": true,
+      "remove_hash": true,
+      "unslang": true,
+      "split_words": false,
+      "stem": false,
+      "remove_punctuations": false,
+      "remove_numbers": true,
+      "to_lower_case": true,
+      "remove_stop_words": false,
+      "remove_not_alpha": false,
+      "join": true
+    },
+    "KFOLD_HISTORY": [
+      {
+        "loss": [
+          0.46355303,
+          0.33742998,
+          0.26910236
+        ],
+        "accuracy": [
+          0.78692353,
+          0.86120838,
+          0.89258611
+        ],
+        "val_loss": [
+          0.38499797,
+          0.38712781,
+          0.3973409
+        ],
+        "val_accuracy": [
+          0.83311433,
+          0.84099871,
+          0.83705652
+        ],
+        "test_loss": [
+          0.39897438,
+          0.3929031,
+          0.39882992
+        ],
+        "test_accuracy": [
+          0.8234753,
+          0.83083051,
+          0.8302176
+        ],
+        "INPUT_LENGTH": 77
+      }
+    ]
+  },
+  "bf73dc03-f430-41d6-a7d8-6dc58707b9c9": {
+    "UUID": "bf73dc03-f430-41d6-a7d8-6dc58707b9c9",
+    "BERT": "bert_en_uncased_L-24_H-1024_A-16",
+    "BERT_VERSION": 1,
+    "BATCH_SIZE": 16,
+    "EPOCHS": 3,
+    "OPTIMIZER": "adam",
+    "LEARNING_RATE": 2e-06,
+    "PREPROCESSING_ALGORITHM_UUID": "b054e509-4f04-44f2-bcf9-14fa8af4eeed",
+    "PREPROCESSING_ALGORITHM": {
+      "add_link_flag": true,
+      "add_user_flag": true,
+      "add_hash_flag": true,
+      "add_number_flag": true,
+      "add_keyword_flag": false,
+      "add_location_flag": false,
+      "remove_links": true,
+      "remove_users": true,
+      "remove_hash": true,
+      "unslang": true,
+      "split_words": false,
+      "stem": false,
+      "remove_punctuations": false,
+      "remove_numbers": true,
+      "to_lower_case": true,
+      "remove_stop_words": false,
+      "remove_not_alpha": false,
+      "join": true
+    },
+    "KFOLD_HISTORY": [
+      {
+        "loss": [
+          0.47500091,
+          0.34592357,
+          0.27557654
+        ],
+        "accuracy": [
+          0.77918857,
+          0.85668421,
+          0.8890835
+        ],
+        "val_loss": [
+          0.38425737,
+          0.36693369,
+          0.37065841
+        ],
+        "val_accuracy": [
+          0.85019714,
+          0.85413927,
+          0.85808146
+        ],
+        "test_loss": [
+          0.40996881,
+          0.38636152,
+          0.39849751
+        ],
+        "test_accuracy": [
+          0.81612015,
+          0.83604044,
+          0.83512104
+        ],
+        "INPUT_LENGTH": 77
+      }
+    ]
+  },
+  "e1f96ffb-e7fc-4dfc-b440-a98ad3e8915d": {
+    "UUID": "e1f96ffb-e7fc-4dfc-b440-a98ad3e8915d",
+    "BERT": "bert_en_uncased_L-24_H-1024_A-16",
+    "BERT_VERSION": 1,
+    "BATCH_SIZE": 16,
+    "EPOCHS": 3,
+    "OPTIMIZER": "adam",
+    "LEARNING_RATE": 2e-06,
+    "PREPROCESSING_ALGORITHM_UUID": "2e359f0b-bfb9-4eda-b2a4-cd839c122de6",
+    "PREPROCESSING_ALGORITHM": {
+      "add_link_flag": false,
+      "add_user_flag": false,
+      "add_hash_flag": false,
+      "add_number_flag": false,
+      "add_keyword_flag": false,
+      "add_location_flag": false,
+      "remove_links": true,
+      "remove_users": true,
+      "remove_hash": true,
+      "unslang": true,
+      "split_words": false,
+      "stem": false,
+      "remove_punctuations": false,
+      "remove_numbers": true,
+      "to_lower_case": true,
+      "remove_stop_words": false,
+      "remove_not_alpha": false,
+      "join": true
+    },
+    "KFOLD_HISTORY": [
+      {
+        "loss": [
+          0.48419281,
+          0.34427579,
+          0.26851639
+        ],
+        "accuracy": [
+          0.77652895,
+          0.8568092,
+          0.89213252
+        ],
+        "val_loss": [
+          0.38620963,
+          0.39452211,
+          0.39364734
+        ],
+        "val_accuracy": [
+          0.83464569,
+          0.83070868,
+          0.8425197
+        ],
+        "test_loss": [
+          0.4063783,
+          0.40444728,
+          0.41220177
+        ],
+        "test_accuracy": [
+          0.82562059,
+          0.83604044,
+          0.82470119
+        ],
+        "INPUT_LENGTH": 66
+      }
+    ]
+  },
+  "4c33baa9-8a0c-44e5-89ac-afd668d27f91": {
+    "UUID": "4c33baa9-8a0c-44e5-89ac-afd668d27f91",
+    "BERT": "bert_en_uncased_L-24_H-1024_A-16",
+    "BERT_VERSION": 1,
+    "BATCH_SIZE": 16,
+    "EPOCHS": 3,
+    "OPTIMIZER": "adam",
+    "LEARNING_RATE": 2e-06,
+    "PREPROCESSING_ALGORITHM_UUID": "2e359f0b-bfb9-4eda-b2a4-cd839c122de6",
+    "PREPROCESSING_ALGORITHM": {
+      "add_link_flag": false,
+      "add_user_flag": false,
+      "add_hash_flag": false,
+      "add_number_flag": false,
+      "add_keyword_flag": false,
+      "add_location_flag": false,
+      "remove_links": true,
+      "remove_users": true,
+      "remove_hash": true,
+      "unslang": true,
+      "split_words": false,
+      "stem": false,
+      "remove_punctuations": false,
+      "remove_numbers": true,
+      "to_lower_case": true,
+      "remove_stop_words": false,
+      "remove_not_alpha": false,
+      "join": true
+    },
+    "KFOLD_HISTORY": [
+      {
+        "loss": [
+          0.48590878,
+          0.3577794,
+          0.28428154
+        ],
+        "accuracy": [
+          0.76893884,
+          0.849657,
+          0.88643992
+        ],
+        "val_loss": [
+          0.42871651,
+          0.41145031,
+          0.42047509
+        ],
+        "val_accuracy": [
+          0.82414699,
+          0.8254593,
+          0.832021
+        ],
+        "test_loss": [
+          0.42140156,
+          0.39863094,
+          0.39971044
+        ],
+        "test_accuracy": [
+          0.81520075,
+          0.8243947,
+          0.82715291
+        ],
+        "INPUT_LENGTH": 66
+      }
+    ]
+  },
+  "c2ef7acc-6b39-423b-a0d7-b0c4465b20b4": {
+    "UUID": "c2ef7acc-6b39-423b-a0d7-b0c4465b20b4",
+    "BERT": "bert_en_uncased_L-24_H-1024_A-16",
+    "BERT_VERSION": 1,
+    "BATCH_SIZE": 16,
+    "EPOCHS": 3,
+    "OPTIMIZER": "adam",
+    "LEARNING_RATE": 2e-06,
+    "PREPROCESSING_ALGORITHM_UUID": "2e359f0b-bfb9-4eda-b2a4-cd839c122de6",
+    "PREPROCESSING_ALGORITHM": {
+      "add_link_flag": false,
+      "add_user_flag": false,
+      "add_hash_flag": false,
+      "add_number_flag": false,
+      "add_keyword_flag": false,
+      "add_location_flag": false,
+      "remove_links": true,
+      "remove_users": true,
+      "remove_hash": true,
+      "unslang": true,
+      "split_words": false,
+      "stem": false,
+      "remove_punctuations": false,
+      "remove_numbers": true,
+      "to_lower_case": true,
+      "remove_stop_words": false,
+      "remove_not_alpha": false,
+      "join": true
+    },
+    "KFOLD_HISTORY": [
+      {
+        "loss": [
+          0.47229587,
+          0.32928525,
+          0.25225648
+        ],
+        "accuracy": [
+          0.78689241,
+          0.86556709,
+          0.90278792
+        ],
+        "val_loss": [
+          0.41387703,
+          0.4047067,
+          0.4184666
+        ],
+        "val_accuracy": [
+          0.8215223,
+          0.82939631,
+          0.82808399
+        ],
+        "test_loss": [
+          0.39898581,
+          0.39278001,
+          0.40562203
+        ],
+        "test_accuracy": [
+          0.82592708,
+          0.83604044,
+          0.83358872
+        ],
+        "INPUT_LENGTH": 66
+      }
+    ]
+  },
+  "1c22dd81-8859-4adb-accf-7bd241b33519": {
+    "UUID": "1c22dd81-8859-4adb-accf-7bd241b33519",
+    "BERT": "bert_en_uncased_L-24_H-1024_A-16",
+    "BERT_VERSION": 1,
+    "BATCH_SIZE": 16,
+    "EPOCHS": 3,
+    "OPTIMIZER": "adam",
+    "LEARNING_RATE": 2e-06,
+    "PREPROCESSING_ALGORITHM_UUID": "2e359f0b-bfb9-4eda-b2a4-cd839c122de6",
+    "PREPROCESSING_ALGORITHM": {
+      "add_link_flag": false,
+      "add_user_flag": false,
+      "add_hash_flag": false,
+      "add_number_flag": false,
+      "add_keyword_flag": false,
+      "add_location_flag": false,
+      "remove_links": true,
+      "remove_users": true,
+      "remove_hash": true,
+      "unslang": true,
+      "split_words": false,
+      "stem": false,
+      "remove_punctuations": false,
+      "remove_numbers": true,
+      "to_lower_case": true,
+      "remove_stop_words": false,
+      "remove_not_alpha": false,
+      "join": true
+    },
+    "KFOLD_HISTORY": [
+      {
+        "loss": [
+          0.48225265,
+          0.34047798,
+          0.25987548
+        ],
+        "accuracy": [
+          0.77422649,
+          0.86033273,
+          0.89711034
+        ],
+        "val_loss": [
+          0.39636416,
+          0.38016605,
+          0.39593571
+        ],
+        "val_accuracy": [
+          0.83968461,
+          0.8436268,
+          0.84625494
+        ],
+        "test_loss": [
+          0.41246579,
+          0.39803723,
+          0.41230605
+        ],
+        "test_accuracy": [
+          0.82163656,
+          0.83481461,
+          0.83604044
+        ],
+        "INPUT_LENGTH": 57
+      }
+    ]
+  },
+  "f3b5dc2a-c8ba-488e-8e17-eadad00ea6e3": {
+    "UUID": "f3b5dc2a-c8ba-488e-8e17-eadad00ea6e3",
+    "BERT": "bert_en_uncased_L-24_H-1024_A-16",
+    "BERT_VERSION": 1,
+    "BATCH_SIZE": 16,
+    "EPOCHS": 3,
+    "OPTIMIZER": "adam",
+    "LEARNING_RATE": 2e-06,
+    "PREPROCESSING_ALGORITHM_UUID": "2e359f0b-bfb9-4eda-b2a4-cd839c122de6",
+    "PREPROCESSING_ALGORITHM": {
+      "add_link_flag": false,
+      "add_user_flag": false,
+      "add_hash_flag": false,
+      "add_number_flag": false,
+      "add_keyword_flag": false,
+      "add_location_flag": false,
+      "remove_links": true,
+      "remove_users": true,
+      "remove_hash": true,
+      "unslang": true,
+      "split_words": false,
+      "stem": false,
+      "remove_punctuations": false,
+      "remove_numbers": true,
+      "to_lower_case": true,
+      "remove_stop_words": false,
+      "remove_not_alpha": false,
+      "join": true
+    },
+    "KFOLD_HISTORY": [
+      {
+        "loss": [
+          0.48220565,
+          0.32004663,
+          0.22971342
+        ],
+        "accuracy": [
+          0.77568591,
+          0.86952716,
+          0.91112083
+        ],
+        "val_loss": [
+          0.41411031,
+          0.3930993,
+          0.40856339
+        ],
+        "val_accuracy": [
+          0.81340343,
+          0.83705652,
+          0.84625494
+        ],
+        "test_loss": [
+          0.41072992,
+          0.39221515,
+          0.41251013
+        ],
+        "test_accuracy": [
+          0.82899171,
+          0.83665341,
+          0.8320564
+        ],
+        "INPUT_LENGTH": 66
+      }
+    ]
+  },
+  "eed7dbfa-7ead-4625-b784-20dd2f10ace6": {
+    "UUID": "eed7dbfa-7ead-4625-b784-20dd2f10ace6",
+    "BERT": "bert_en_uncased_L-24_H-1024_A-16",
+    "BERT_VERSION": 1,
+    "BATCH_SIZE": 16,
+    "EPOCHS": 3,
+    "OPTIMIZER": "adam",
+    "LEARNING_RATE": 2e-06,
+    "PREPROCESSING_ALGORITHM_UUID": "2e359f0b-bfb9-4eda-b2a4-cd839c122de6",
+    "PREPROCESSING_ALGORITHM": {
+      "add_link_flag": false,
+      "add_user_flag": false,
+      "add_hash_flag": false,
+      "add_number_flag": false,
+      "add_keyword_flag": false,
+      "add_location_flag": false,
+      "remove_links": true,
+      "remove_users": true,
+      "remove_hash": true,
+      "unslang": true,
+      "split_words": false,
+      "stem": false,
+      "remove_punctuations": false,
+      "remove_numbers": true,
+      "to_lower_case": true,
+      "remove_stop_words": false,
+      "remove_not_alpha": false,
+      "join": true
+    },
+    "KFOLD_HISTORY": [
+      {
+        "loss": [
+          0.47328817,
+          0.34272528,
+          0.26648975
+        ],
+        "accuracy": [
+          0.78604788,
+          0.85858142,
+          0.8912726
+        ],
+        "val_loss": [
+          0.36932584,
+          0.35348126,
+          0.35685628
+        ],
+        "val_accuracy": [
+          0.85019714,
+          0.85676742,
+          0.85676742
+        ],
+        "test_loss": [
+          0.39758834,
+          0.38227138,
+          0.38909925
+        ],
+        "test_accuracy": [
+          0.8283788,
+          0.84063745,
+          0.83604044
+        ],
+        "INPUT_LENGTH": 66
+      }
+    ]
+  },
+  "25225947-e8de-448f-a1a5-16d8a98eb7e1": {
+    "UUID": "25225947-e8de-448f-a1a5-16d8a98eb7e1",
+    "BERT": "bert_en_uncased_L-24_H-1024_A-16",
+    "BERT_VERSION": 1,
+    "BATCH_SIZE": 16,
+    "EPOCHS": 3,
+    "OPTIMIZER": "adam",
+    "LEARNING_RATE": 2e-06,
+    "PREPROCESSING_ALGORITHM_UUID": "2e359f0b-bfb9-4eda-b2a4-cd839c122de6",
+    "PREPROCESSING_ALGORITHM": {
+      "add_link_flag": false,
+      "add_user_flag": false,
+      "add_hash_flag": false,
+      "add_number_flag": false,
+      "add_keyword_flag": false,
+      "add_location_flag": false,
+      "remove_links": true,
+      "remove_users": true,
+      "remove_hash": true,
+      "unslang": true,
+      "split_words": false,
+      "stem": false,
+      "remove_punctuations": false,
+      "remove_numbers": true,
+      "to_lower_case": true,
+      "remove_stop_words": false,
+      "remove_not_alpha": false,
+      "join": true
+    },
+    "KFOLD_HISTORY": [
+      {
+        "loss": [
+          0.46586241,
+          0.33802275,
+          0.25966888
+        ],
+        "accuracy": [
+          0.78663164,
+          0.8587274,
+          0.89375365
+        ],
+        "val_loss": [
+          0.43710908,
+          0.43988733,
+          0.46256188
+        ],
+        "val_accuracy": [
+          0.81734562,
+          0.82128775,
+          0.80551904
+        ],
+        "test_loss": [
+          0.40594728,
+          0.39966715,
+          0.41021365
+        ],
+        "test_accuracy": [
+          0.83083051,
+          0.83879864,
+          0.8329758
+        ],
+        "INPUT_LENGTH": 66
+      }
+    ]
+  },
+  "fa210266-240a-4e2b-a249-fe23ff467fee": {
+    "UUID": "fa210266-240a-4e2b-a249-fe23ff467fee",
+    "BERT": "bert_en_uncased_L-24_H-1024_A-16",
+    "BERT_VERSION": 1,
+    "BATCH_SIZE": 16,
+    "EPOCHS": 3,
+    "OPTIMIZER": "adam",
+    "LEARNING_RATE": 2e-06,
+    "PREPROCESSING_ALGORITHM_UUID": "2e359f0b-bfb9-4eda-b2a4-cd839c122de6",
+    "PREPROCESSING_ALGORITHM": {
+      "add_link_flag": false,
+      "add_user_flag": false,
+      "add_hash_flag": false,
+      "add_number_flag": false,
+      "add_keyword_flag": false,
+      "add_location_flag": false,
+      "remove_links": true,
+      "remove_users": true,
+      "remove_hash": true,
+      "unslang": true,
+      "split_words": false,
+      "stem": false,
+      "remove_punctuations": false,
+      "remove_numbers": true,
+      "to_lower_case": true,
+      "remove_stop_words": false,
+      "remove_not_alpha": false,
+      "join": true
+    },
+    "KFOLD_HISTORY": [
+      {
+        "loss": [
+          0.47479452,
+          0.32735472,
+          0.25137045
+        ],
+        "accuracy": [
+          0.7837128,
+          0.86266786,
+          0.90221834
+        ],
+        "val_loss": [
+          0.4058707,
+          0.41694081,
+          0.4244158
+        ],
+        "val_accuracy": [
+          0.81603152,
+          0.81734562,
+          0.82260185
+        ],
+        "test_loss": [
+          0.39631208,
+          0.3881792,
+          0.3913075
+        ],
+        "test_accuracy": [
+          0.83083051,
+          0.83481461,
+          0.83481461
+        ],
+        "INPUT_LENGTH": 66
+      }
+    ]
+  },
+  "8b8c6b2c-b46c-4a58-910b-6c144e4380be": {
+    "UUID": "8b8c6b2c-b46c-4a58-910b-6c144e4380be",
+    "BERT": "bert_en_uncased_L-24_H-1024_A-16",
+    "BERT_VERSION": 1,
+    "BATCH_SIZE": 16,
+    "EPOCHS": 3,
+    "OPTIMIZER": "adam",
+    "LEARNING_RATE": 2e-06,
+    "PREPROCESSING_ALGORITHM_UUID": "2e359f0b-bfb9-4eda-b2a4-cd839c122de6",
+    "PREPROCESSING_ALGORITHM": {
+      "add_link_flag": false,
+      "add_user_flag": false,
+      "add_hash_flag": false,
+      "add_number_flag": false,
+      "add_keyword_flag": false,
+      "add_location_flag": false,
+      "remove_links": true,
+      "remove_users": true,
+      "remove_hash": true,
+      "unslang": true,
+      "split_words": false,
+      "stem": false,
+      "remove_punctuations": false,
+      "remove_numbers": true,
+      "to_lower_case": true,
+      "remove_stop_words": false,
+      "remove_not_alpha": false,
+      "join": true
+    },
+    "KFOLD_HISTORY": [
+      {
+        "loss": [
+          0.48228286,
+          0.34021598,
+          0.26509939
+        ],
+        "accuracy": [
+          0.77247518,
+          0.85683012,
+          0.89244014
+        ],
+        "val_loss": [
+          0.39335677,
+          0.38320346,
+          0.39602028
+        ],
+        "val_accuracy": [
+          0.83311433,
+          0.82917213,
+          0.82522994
+        ],
+        "test_loss": [
+          0.41313646,
+          0.39244294,
+          0.40480755
+        ],
+        "test_accuracy": [
+          0.81887835,
+          0.82684648,
+          0.82408828
+        ],
+        "INPUT_LENGTH": 66
+      }
+    ]
+  },
+  "1ce542c5-4e71-446c-9b68-c8f2c7154660": {
+    "UUID": "1ce542c5-4e71-446c-9b68-c8f2c7154660",
+    "BERT": "bert_en_uncased_L-24_H-1024_A-16",
+    "BERT_VERSION": 1,
+    "BATCH_SIZE": 16,
+    "EPOCHS": 3,
+    "OPTIMIZER": "adam",
+    "LEARNING_RATE": 2e-06,
+    "PREPROCESSING_ALGORITHM_UUID": "2e359f0b-bfb9-4eda-b2a4-cd839c122de6",
+    "PREPROCESSING_ALGORITHM": {
+      "add_link_flag": false,
+      "add_user_flag": false,
+      "add_hash_flag": false,
+      "add_number_flag": false,
+      "add_keyword_flag": false,
+      "add_location_flag": false,
+      "remove_links": true,
+      "remove_users": true,
+      "remove_hash": true,
+      "unslang": true,
+      "split_words": false,
+      "stem": false,
+      "remove_punctuations": false,
+      "remove_numbers": true,
+      "to_lower_case": true,
+      "remove_stop_words": false,
+      "remove_not_alpha": false,
+      "join": true
+    },
+    "KFOLD_HISTORY": [
+      {
+        "loss": [
+          0.45825291,
+          0.33300976,
+          0.25642301
+        ],
+        "accuracy": [
+          0.79363692,
+          0.86252189,
+          0.89871567
+        ],
+        "val_loss": [
+          0.40728971,
+          0.3971129,
+          0.42425955
+        ],
+        "val_accuracy": [
+          0.83180028,
+          0.83442837,
+          0.82917213
+        ],
+        "test_loss": [
+          0.40607911,
+          0.38747223,
+          0.40446797
+        ],
+        "test_accuracy": [
+          0.82807231,
+          0.83787924,
+          0.8320564
+        ],
+        "INPUT_LENGTH": 66
+      }
+    ]
+  },
+  "eca50f65-1ea8-40de-a827-015e724b8be1": {
+    "UUID": "eca50f65-1ea8-40de-a827-015e724b8be1",
+    "BERT": "bert_en_uncased_L-24_H-1024_A-16",
+    "BERT_VERSION": 1,
+    "BATCH_SIZE": 16,
+    "EPOCHS": 3,
+    "OPTIMIZER": "adam",
+    "LEARNING_RATE": 2e-06,
+    "PREPROCESSING_ALGORITHM_UUID": "71bd09db-e104-462d-887a-74389438bb49",
+    "PREPROCESSING_ALGORITHM": {
+      "add_link_flag": false,
+      "add_user_flag": false,
+      "add_hash_flag": false,
+      "add_number_flag": false,
+      "add_keyword_flag": false,
+      "add_location_flag": false,
+      "remove_links": true,
+      "remove_users": true,
+      "remove_hash": true,
+      "unslang": true,
+      "split_words": false,
+      "stem": false,
+      "remove_punctuations": true,
+      "remove_numbers": true,
+      "to_lower_case": true,
+      "remove_stop_words": false,
+      "remove_not_alpha": false,
+      "join": true
+    },
+    "KFOLD_HISTORY": [
+      {
+        "loss": [
+          0.47240365,
+          0.33904509,
+          0.264535
+        ],
+        "accuracy": [
+          0.78076196,
+          0.85914463,
+          0.89563566
+        ],
+        "val_loss": [
+          0.39073715,
+          0.38568412,
+          0.43465508
+        ],
+        "val_accuracy": [
+          0.832021,
+          0.84120733,
+          0.84383202
+        ],
+        "test_loss": [
+          0.41228802,
+          0.40573097,
+          0.44217676
+        ],
+        "test_accuracy": [
+          0.82010418,
+          0.82653999,
+          0.82868528
+        ],
+        "INPUT_LENGTH": 45
+      }
+    ]
+  },
+  "b81c022e-923d-49c6-85a3-11cd8af5ce9f": {
+    "UUID": "b81c022e-923d-49c6-85a3-11cd8af5ce9f",
+    "BERT": "bert_en_uncased_L-24_H-1024_A-16",
+    "BERT_VERSION": 1,
+    "BATCH_SIZE": 16,
+    "EPOCHS": 3,
+    "OPTIMIZER": "adam",
+    "LEARNING_RATE": 2e-06,
+    "PREPROCESSING_ALGORITHM_UUID": "71bd09db-e104-462d-887a-74389438bb49",
+    "PREPROCESSING_ALGORITHM": {
+      "add_link_flag": false,
+      "add_user_flag": false,
+      "add_hash_flag": false,
+      "add_number_flag": false,
+      "add_keyword_flag": false,
+      "add_location_flag": false,
+      "remove_links": true,
+      "remove_users": true,
+      "remove_hash": true,
+      "unslang": true,
+      "split_words": false,
+      "stem": false,
+      "remove_punctuations": true,
+      "remove_numbers": true,
+      "to_lower_case": true,
+      "remove_stop_words": false,
+      "remove_not_alpha": false,
+      "join": true
+    },
+    "KFOLD_HISTORY": [
+      {
+        "loss": [
+          0.46362164,
+          0.34513958,
+          0.28309378
+        ],
+        "accuracy": [
+          0.78966576,
+          0.85637134,
+          0.88512623
+        ],
+        "val_loss": [
+          0.41395705,
+          0.40050573,
+          0.41024465
+        ],
+        "val_accuracy": [
+          0.832021,
+          0.835958,
+          0.83070868
+        ],
+        "test_loss": [
+          0.4155163,
+          0.39659404,
+          0.41036386
+        ],
+        "test_accuracy": [
+          0.82194299,
+          0.8253141,
+          0.82684648
+        ],
+        "INPUT_LENGTH": 45
+      }
+    ]
+  },
+  "cafea635-01d9-46f1-b182-4f9b5b487d7a": {
+    "UUID": "cafea635-01d9-46f1-b182-4f9b5b487d7a",
+    "BERT": "bert_en_uncased_L-24_H-1024_A-16",
+    "BERT_VERSION": 1,
+    "BATCH_SIZE": 16,
+    "EPOCHS": 3,
+    "OPTIMIZER": "adam",
+    "LEARNING_RATE": 2e-06,
+    "PREPROCESSING_ALGORITHM_UUID": "71bd09db-e104-462d-887a-74389438bb49",
+    "PREPROCESSING_ALGORITHM": {
+      "add_link_flag": false,
+      "add_user_flag": false,
+      "add_hash_flag": false,
+      "add_number_flag": false,
+      "add_keyword_flag": false,
+      "add_location_flag": false,
+      "remove_links": true,
+      "remove_users": true,
+      "remove_hash": true,
+      "unslang": true,
+      "split_words": false,
+      "stem": false,
+      "remove_punctuations": true,
+      "remove_numbers": true,
+      "to_lower_case": true,
+      "remove_stop_words": false,
+      "remove_not_alpha": false,
+      "join": true
+    },
+    "KFOLD_HISTORY": [
+      {
+        "loss": [
+          0.47156162,
+          0.34026964,
+          0.26639712
+        ],
+        "accuracy": [
+          0.78309739,
+          0.86118817,
+          0.89505184
+        ],
+        "val_loss": [
+          0.43967061,
+          0.42274805,
+          0.43615536
+        ],
+        "val_accuracy": [
+          0.81889766,
+          0.81496066,
+          0.81889766
+        ],
+        "test_loss": [
+          0.42590163,
+          0.40447417,
+          0.41284455
+        ],
+        "test_accuracy": [
+          0.81918478,
+          0.82991111,
+          0.8243947
+        ],
+        "INPUT_LENGTH": 45
+      }
+    ]
+  },
+  "6688db2b-9ee8-4ab5-8218-5d53c608b25e": {
+    "UUID": "6688db2b-9ee8-4ab5-8218-5d53c608b25e",
+    "BERT": "bert_en_uncased_L-24_H-1024_A-16",
+    "BERT_VERSION": 1,
+    "BATCH_SIZE": 16,
+    "EPOCHS": 3,
+    "OPTIMIZER": "adam",
+    "LEARNING_RATE": 2e-06,
+    "PREPROCESSING_ALGORITHM_UUID": "71bd09db-e104-462d-887a-74389438bb49",
+    "PREPROCESSING_ALGORITHM": {
+      "add_link_flag": false,
+      "add_user_flag": false,
+      "add_hash_flag": false,
+      "add_number_flag": false,
+      "add_keyword_flag": false,
+      "add_location_flag": false,
+      "remove_links": true,
+      "remove_users": true,
+      "remove_hash": true,
+      "unslang": true,
+      "split_words": false,
+      "stem": false,
+      "remove_punctuations": true,
+      "remove_numbers": true,
+      "to_lower_case": true,
+      "remove_stop_words": false,
+      "remove_not_alpha": false,
+      "join": true
+    },
+    "KFOLD_HISTORY": [
+      {
+        "loss": [
+          0.47609079,
+          0.33176552,
+          0.247255
+        ],
+        "accuracy": [
+          0.78064799,
+          0.86164623,
+          0.90119672
+        ],
+        "val_loss": [
+          0.37500874,
+          0.36624447,
+          0.38237464
+        ],
+        "val_accuracy": [
+          0.84099871,
+          0.84625494,
+          0.84625494
+        ],
+        "test_loss": [
+          0.40572048,
+          0.39520786,
+          0.41241057
+        ],
+        "test_accuracy": [
+          0.82500768,
+          0.82500768,
+          0.82163656
+        ],
+        "INPUT_LENGTH": 45
+      }
+    ]
+  },
+  "1fe3b6bd-0d49-4074-a4bd-4ab64b8ad180": {
+    "UUID": "1fe3b6bd-0d49-4074-a4bd-4ab64b8ad180",
+    "BERT": "bert_en_uncased_L-24_H-1024_A-16",
+    "BERT_VERSION": 1,
+    "BATCH_SIZE": 16,
+    "EPOCHS": 3,
+    "OPTIMIZER": "adam",
+    "LEARNING_RATE": 2e-06,
+    "PREPROCESSING_ALGORITHM_UUID": "71bd09db-e104-462d-887a-74389438bb49",
+    "PREPROCESSING_ALGORITHM": {
+      "add_link_flag": false,
+      "add_user_flag": false,
+      "add_hash_flag": false,
+      "add_number_flag": false,
+      "add_keyword_flag": false,
+      "add_location_flag": false,
+      "remove_links": true,
+      "remove_users": true,
+      "remove_hash": true,
+      "unslang": true,
+      "split_words": false,
+      "stem": false,
+      "remove_punctuations": true,
+      "remove_numbers": true,
+      "to_lower_case": true,
+      "remove_stop_words": false,
+      "remove_not_alpha": false,
+      "join": true
+    },
+    "KFOLD_HISTORY": [
+      {
+        "loss": [
+          0.47145279,
+          0.32976575,
+          0.24491605
+        ],
+        "accuracy": [
+          0.7790426,
+          0.86602449,
+          0.90280211
+        ],
+        "val_loss": [
+          0.40030402,
+          0.38714125,
+          0.40383887
+        ],
+        "val_accuracy": [
+          0.81603152,
+          0.83048618,
+          0.82522994
+        ],
+        "test_loss": [
+          0.40430117,
+          0.39558808,
+          0.41686892
+        ],
+        "test_accuracy": [
+          0.82776588,
+          0.83174992,
+          0.82991111
+        ],
+        "INPUT_LENGTH": 45
+      }
+    ]
+  },
+  "27a0e949-7a61-462c-99d5-7fcf3fd32645": {
+    "UUID": "27a0e949-7a61-462c-99d5-7fcf3fd32645",
+    "BERT": "bert_en_uncased_L-24_H-1024_A-16",
+    "BERT_VERSION": 1,
+    "BATCH_SIZE": 16,
+    "EPOCHS": 3,
+    "OPTIMIZER": "adam",
+    "LEARNING_RATE": 2e-06,
+    "PREPROCESSING_ALGORITHM_UUID": "71bd09db-e104-462d-887a-74389438bb49",
+    "PREPROCESSING_ALGORITHM": {
+      "add_link_flag": false,
+      "add_user_flag": false,
+      "add_hash_flag": false,
+      "add_number_flag": false,
+      "add_keyword_flag": false,
+      "add_location_flag": false,
+      "remove_links": true,
+      "remove_users": true,
+      "remove_hash": true,
+      "unslang": true,
+      "split_words": false,
+      "stem": false,
+      "remove_punctuations": true,
+      "remove_numbers": true,
+      "to_lower_case": true,
+      "remove_stop_words": false,
+      "remove_not_alpha": false,
+      "join": true
+    },
+    "KFOLD_HISTORY": [
+      {
+        "loss": [
+          0.48133924,
+          0.35272558,
+          0.27952049
+        ],
+        "accuracy": [
+          0.77816695,
+          0.85274374,
+          0.88674837
+        ],
+        "val_loss": [
+          0.380207,
+          0.35706025,
+          0.35698608
+        ],
+        "val_accuracy": [
+          0.83574247,
+          0.84494084,
+          0.85019714
+        ],
+        "test_loss": [
+          0.41012019,
+          0.39572532,
+          0.41052425
+        ],
+        "test_accuracy": [
+          0.81795895,
+          0.83174992,
+          0.82776588
+        ],
+        "INPUT_LENGTH": 45
+      }
+    ]
+  },
+  "85749284-452f-4db3-8657-9306fcaa034b": {
+    "UUID": "85749284-452f-4db3-8657-9306fcaa034b",
+    "BERT": "bert_en_uncased_L-24_H-1024_A-16",
+    "BERT_VERSION": 1,
+    "BATCH_SIZE": 16,
+    "EPOCHS": 3,
+    "OPTIMIZER": "adam",
+    "LEARNING_RATE": 2e-06,
+    "PREPROCESSING_ALGORITHM_UUID": "71bd09db-e104-462d-887a-74389438bb49",
+    "PREPROCESSING_ALGORITHM": {
+      "add_link_flag": false,
+      "add_user_flag": false,
+      "add_hash_flag": false,
+      "add_number_flag": false,
+      "add_keyword_flag": false,
+      "add_location_flag": false,
+      "remove_links": true,
+      "remove_users": true,
+      "remove_hash": true,
+      "unslang": true,
+      "split_words": false,
+      "stem": false,
+      "remove_punctuations": true,
+      "remove_numbers": true,
+      "to_lower_case": true,
+      "remove_stop_words": false,
+      "remove_not_alpha": false,
+      "join": true
+    },
+    "KFOLD_HISTORY": [
+      {
+        "loss": [
+          0.46528176,
+          0.33414495,
+          0.25224495
+        ],
+        "accuracy": [
+          0.7892586,
+          0.86456507,
+          0.9014886
+        ],
+        "val_loss": [
+          0.44363863,
+          0.4487501,
+          0.46978047
+        ],
+        "val_accuracy": [
+          0.80946124,
+          0.81734562,
+          0.82128775
+        ],
+        "test_loss": [
+          0.4116072,
+          0.40829763,
+          0.42233635
+        ],
+        "test_accuracy": [
+          0.82102358,
+          0.83328223,
+          0.82010418
+        ],
+        "INPUT_LENGTH": 45
+      }
+    ]
+  },
+  "6af408a9-bebc-4769-802c-8b4b93a5e7eb": {
+    "UUID": "6af408a9-bebc-4769-802c-8b4b93a5e7eb",
+    "BERT": "bert_en_uncased_L-24_H-1024_A-16",
+    "BERT_VERSION": 1,
+    "BATCH_SIZE": 16,
+    "EPOCHS": 3,
+    "OPTIMIZER": "adam",
+    "LEARNING_RATE": 2e-06,
+    "PREPROCESSING_ALGORITHM_UUID": "71bd09db-e104-462d-887a-74389438bb49",
+    "PREPROCESSING_ALGORITHM": {
+      "add_link_flag": false,
+      "add_user_flag": false,
+      "add_hash_flag": false,
+      "add_number_flag": false,
+      "add_keyword_flag": false,
+      "add_location_flag": false,
+      "remove_links": true,
+      "remove_users": true,
+      "remove_hash": true,
+      "unslang": true,
+      "split_words": false,
+      "stem": false,
+      "remove_punctuations": true,
+      "remove_numbers": true,
+      "to_lower_case": true,
+      "remove_stop_words": false,
+      "remove_not_alpha": false,
+      "join": true
+    },
+    "KFOLD_HISTORY": [
+      {
+        "loss": [
+          0.46670215,
+          0.33064274,
+          0.24193279
+        ],
+        "accuracy": [
+          0.77875072,
+          0.86617047,
+          0.90703446
+        ],
+        "val_loss": [
+          0.42002623,
+          0.41587009,
+          0.43386359
+        ],
+        "val_accuracy": [
+          0.82260185,
+          0.82654405,
+          0.82260185
+        ],
+        "test_loss": [
+          0.41519858,
+          0.39988328,
+          0.4074232
+        ],
+        "test_accuracy": [
+          0.82133007,
+          0.82316887,
+          0.83083051
+        ],
+        "INPUT_LENGTH": 45
+      }
+    ]
+  },
+  "f199dceb-aaa3-4ed3-95d3-261b915cb5f4": {
+    "UUID": "f199dceb-aaa3-4ed3-95d3-261b915cb5f4",
+    "BERT": "bert_en_uncased_L-24_H-1024_A-16",
+    "BERT_VERSION": 1,
+    "BATCH_SIZE": 16,
+    "EPOCHS": 3,
+    "OPTIMIZER": "adam",
+    "LEARNING_RATE": 2e-06,
+    "PREPROCESSING_ALGORITHM_UUID": "71bd09db-e104-462d-887a-74389438bb49",
+    "PREPROCESSING_ALGORITHM": {
+      "add_link_flag": false,
+      "add_user_flag": false,
+      "add_hash_flag": false,
+      "add_number_flag": false,
+      "add_keyword_flag": false,
+      "add_location_flag": false,
+      "remove_links": true,
+      "remove_users": true,
+      "remove_hash": true,
+      "unslang": true,
+      "split_words": false,
+      "stem": false,
+      "remove_punctuations": true,
+      "remove_numbers": true,
+      "to_lower_case": true,
+      "remove_stop_words": false,
+      "remove_not_alpha": false,
+      "join": true
+    },
+    "KFOLD_HISTORY": [
+      {
+        "loss": [
+          0.4792643,
+          0.34315888,
+          0.27002642
+        ],
+        "accuracy": [
+          0.78137767,
+          0.85843551,
+          0.89025104
+        ],
+        "val_loss": [
+          0.3900637,
+          0.36411922,
+          0.36324736
+        ],
+        "val_accuracy": [
+          0.83180028,
+          0.84888303,
+          0.85545337
+        ],
+        "test_loss": [
+          0.41641171,
+          0.39416632,
+          0.40669103
+        ],
+        "test_accuracy": [
+          0.81520075,
+          0.831137,
+          0.83236283
+        ],
+        "INPUT_LENGTH": 45
+      }
+    ]
+  },
+  "dd909e78-a2ec-4fd8-94e1-0511b9cd5ae5": {
+    "UUID": "dd909e78-a2ec-4fd8-94e1-0511b9cd5ae5",
+    "BERT": "bert_en_uncased_L-24_H-1024_A-16",
+    "BERT_VERSION": 1,
+    "BATCH_SIZE": 16,
+    "EPOCHS": 3,
+    "OPTIMIZER": "adam",
+    "LEARNING_RATE": 2e-06,
+    "PREPROCESSING_ALGORITHM_UUID": "71bd09db-e104-462d-887a-74389438bb49",
+    "PREPROCESSING_ALGORITHM": {
+      "add_link_flag": false,
+      "add_user_flag": false,
+      "add_hash_flag": false,
+      "add_number_flag": false,
+      "add_keyword_flag": false,
+      "add_location_flag": false,
+      "remove_links": true,
+      "remove_users": true,
+      "remove_hash": true,
+      "unslang": true,
+      "split_words": false,
+      "stem": false,
+      "remove_punctuations": true,
+      "remove_numbers": true,
+      "to_lower_case": true,
+      "remove_stop_words": false,
+      "remove_not_alpha": false,
+      "join": true
+    },
+    "KFOLD_HISTORY": [
+      {
+        "loss": [
+          0.47768548,
+          0.35340786,
+          0.28761121
+        ],
+        "accuracy": [
+          0.77568591,
+          0.84807354,
+          0.88251603
+        ],
+        "val_loss": [
+          0.41148132,
+          0.39458749,
+          0.40994058
+        ],
+        "val_accuracy": [
+          0.84625494,
+          0.84494084,
+          0.83311433
+        ],
+        "test_loss": [
+          0.42630509,
+          0.40325628,
+          0.41160204
+        ],
+        "test_accuracy": [
+          0.81152314,
+          0.8253141,
+          0.83144343
+        ],
+        "INPUT_LENGTH": 45
+      }
+    ]
+  },
+  "1ff43e02-3926-40cd-8c6f-588370ad9eb5": {
+    "UUID": "1ff43e02-3926-40cd-8c6f-588370ad9eb5",
+    "BERT": "bert_en_uncased_L-24_H-1024_A-16",
+    "BERT_VERSION": 1,
+    "BATCH_SIZE": 16,
+    "EPOCHS": 3,
+    "OPTIMIZER": "adam",
+    "LEARNING_RATE": 2e-06,
+    "PREPROCESSING_ALGORITHM_UUID": "d3cc3c6e-10de-4b27-8712-8017da428e41",
+    "PREPROCESSING_ALGORITHM": {
+      "add_link_flag": true,
+      "add_user_flag": true,
+      "add_hash_flag": true,
+      "add_number_flag": true,
+      "add_keyword_flag": false,
+      "add_location_flag": false,
+      "remove_links": true,
+      "remove_users": true,
+      "remove_hash": true,
+      "unslang": true,
+      "split_words": false,
+      "stem": false,
+      "remove_punctuations": true,
+      "remove_numbers": true,
+      "to_lower_case": true,
+      "remove_stop_words": false,
+      "remove_not_alpha": false,
+      "join": true
+    },
+    "KFOLD_HISTORY": [
+      {
+        "loss": [
+          0.45387814,
+          0.35398271,
+          0.290362
+        ],
+        "accuracy": [
+          0.79769379,
+          0.8560794,
+          0.88571012
+        ],
+        "val_loss": [
+          0.3822571,
+          0.38074532,
+          0.3906086
+        ],
+        "val_accuracy": [
+          0.83333331,
+          0.8425197,
+          0.83989501
+        ],
+        "test_loss": [
+          0.40785414,
+          0.39888769,
+          0.40452551
+        ],
+        "test_accuracy": [
+          0.82408828,
+          0.8283788,
+          0.83328223
+        ],
+        "INPUT_LENGTH": 51
+      }
+    ]
+  },
+  "f5ba8104-097a-4443-b1a2-363d8a65942e": {
+    "UUID": "f5ba8104-097a-4443-b1a2-363d8a65942e",
+    "BERT": "bert_en_uncased_L-24_H-1024_A-16",
+    "BERT_VERSION": 1,
+    "BATCH_SIZE": 16,
+    "EPOCHS": 3,
+    "OPTIMIZER": "adam",
+    "LEARNING_RATE": 2e-06,
+    "PREPROCESSING_ALGORITHM_UUID": "d3cc3c6e-10de-4b27-8712-8017da428e41",
+    "PREPROCESSING_ALGORITHM": {
+      "add_link_flag": true,
+      "add_user_flag": true,
+      "add_hash_flag": true,
+      "add_number_flag": true,
+      "add_keyword_flag": false,
+      "add_location_flag": false,
+      "remove_links": true,
+      "remove_users": true,
+      "remove_hash": true,
+      "unslang": true,
+      "split_words": false,
+      "stem": false,
+      "remove_punctuations": true,
+      "remove_numbers": true,
+      "to_lower_case": true,
+      "remove_stop_words": false,
+      "remove_not_alpha": false,
+      "join": true
+    },
+    "KFOLD_HISTORY": [
+      {
+        "loss": [
+          0.46367591,
+          0.33337422,
+          0.25118914
+        ],
+        "accuracy": [
+          0.7914173,
+          0.861772,
+          0.90205806
+        ],
+        "val_loss": [
+          0.42006967,
+          0.38987745,
+          0.40293522
+        ],
+        "val_accuracy": [
+          0.82939631,
+          0.8425197,
+          0.835958
+        ],
+        "test_loss": [
+          0.4311987,
+          0.39713736,
+          0.42004169
+        ],
+        "test_accuracy": [
+          0.81673306,
+          0.83174992,
+          0.8234753
+        ],
+        "INPUT_LENGTH": 51
+      }
+    ]
+  },
+  "c20986bb-ec54-4cc0-812f-32707a4c82fc": {
+    "UUID": "c20986bb-ec54-4cc0-812f-32707a4c82fc",
+    "BERT": "bert_en_uncased_L-24_H-1024_A-16",
+    "BERT_VERSION": 1,
+    "BATCH_SIZE": 16,
+    "EPOCHS": 3,
+    "OPTIMIZER": "adam",
+    "LEARNING_RATE": 2e-06,
+    "PREPROCESSING_ALGORITHM_UUID": "d3cc3c6e-10de-4b27-8712-8017da428e41",
+    "PREPROCESSING_ALGORITHM": {
+      "add_link_flag": true,
+      "add_user_flag": true,
+      "add_hash_flag": true,
+      "add_number_flag": true,
+      "add_keyword_flag": false,
+      "add_location_flag": false,
+      "remove_links": true,
+      "remove_users": true,
+      "remove_hash": true,
+      "unslang": true,
+      "split_words": false,
+      "stem": false,
+      "remove_punctuations": true,
+      "remove_numbers": true,
+      "to_lower_case": true,
+      "remove_stop_words": false,
+      "remove_not_alpha": false,
+      "join": true
+    },
+    "KFOLD_HISTORY": [
+      {
+        "loss": [
+          0.4888971,
+          0.34859371,
+          0.27760788
+        ],
+        "accuracy": [
+          0.77229601,
+          0.85972852,
+          0.89286238
+        ],
+        "val_loss": [
+          0.43151051,
+          0.42253981,
+          0.4472957
+        ],
+        "val_accuracy": [
+          0.81364828,
+          0.81758529,
+          0.81627297
+        ],
+        "test_loss": [
+          0.42020414,
+          0.40530931,
+          0.42127009
+        ],
+        "test_accuracy": [
+          0.81428134,
+          0.82316887,
+          0.82255596
+        ],
+        "INPUT_LENGTH": 51
+      }
+    ]
+  },
+  "f3ed62a0-44b0-4c23-b9ef-0d71ef08500a": {
+    "UUID": "f3ed62a0-44b0-4c23-b9ef-0d71ef08500a",
+    "BERT": "bert_en_uncased_L-24_H-1024_A-16",
+    "BERT_VERSION": 1,
+    "BATCH_SIZE": 16,
+    "EPOCHS": 3,
+    "OPTIMIZER": "adam",
+    "LEARNING_RATE": 2e-06,
+    "PREPROCESSING_ALGORITHM_UUID": "d3cc3c6e-10de-4b27-8712-8017da428e41",
+    "PREPROCESSING_ALGORITHM": {
+      "add_link_flag": true,
+      "add_user_flag": true,
+      "add_hash_flag": true,
+      "add_number_flag": true,
+      "add_keyword_flag": false,
+      "add_location_flag": false,
+      "remove_links": true,
+      "remove_users": true,
+      "remove_hash": true,
+      "unslang": true,
+      "split_words": false,
+      "stem": false,
+      "remove_punctuations": true,
+      "remove_numbers": true,
+      "to_lower_case": true,
+      "remove_stop_words": false,
+      "remove_not_alpha": false,
+      "join": true
+    },
+    "KFOLD_HISTORY": [
+      {
+        "loss": [
+          0.46690483,
+          0.33871246,
+          0.26139882
+        ],
+        "accuracy": [
+          0.78736138,
+          0.86398131,
+          0.89959139
+        ],
+        "val_loss": [
+          0.37267467,
+          0.36210422,
+          0.38170328
+        ],
+        "val_accuracy": [
+          0.85282522,
+          0.84625494,
+          0.84888303
+        ],
+        "test_loss": [
+          0.40828006,
+          0.40137073,
+          0.42510973
+        ],
+        "test_accuracy": [
+          0.82102358,
+          0.82960469,
+          0.82500768
+        ],
+        "INPUT_LENGTH": 51
+      }
+    ]
+  },
+  "3b0c435d-5bdf-4ae7-b6e3-3354ebc85613": {
+    "UUID": "3b0c435d-5bdf-4ae7-b6e3-3354ebc85613",
+    "BERT": "bert_en_uncased_L-24_H-1024_A-16",
+    "BERT_VERSION": 1,
+    "BATCH_SIZE": 16,
+    "EPOCHS": 3,
+    "OPTIMIZER": "adam",
+    "LEARNING_RATE": 2e-06,
+    "PREPROCESSING_ALGORITHM_UUID": "d3cc3c6e-10de-4b27-8712-8017da428e41",
+    "PREPROCESSING_ALGORITHM": {
+      "add_link_flag": true,
+      "add_user_flag": true,
+      "add_hash_flag": true,
+      "add_number_flag": true,
+      "add_keyword_flag": false,
+      "add_location_flag": false,
+      "remove_links": true,
+      "remove_users": true,
+      "remove_hash": true,
+      "unslang": true,
+      "split_words": false,
+      "stem": false,
+      "remove_punctuations": true,
+      "remove_numbers": true,
+      "to_lower_case": true,
+      "remove_stop_words": false,
+      "remove_not_alpha": false,
+      "join": true
+    },
+    "KFOLD_HISTORY": [
+      {
+        "loss": [
+          0.4462193,
+          0.33270404,
+          0.25602983
+        ],
+        "accuracy": [
+          0.80341506,
+          0.86602449,
+          0.8997373
+        ],
+        "val_loss": [
+          0.38989621,
+          0.37751633,
+          0.39561792
+        ],
+        "val_accuracy": [
+          0.84625494,
+          0.84625494,
+          0.83837056
+        ],
+        "test_loss": [
+          0.40023162,
+          0.39655451,
+          0.42410485
+        ],
+        "test_accuracy": [
+          0.82224947,
+          0.82776588,
+          0.82255596
+        ],
+        "INPUT_LENGTH": 51
+      }
+    ]
+  },
+  "084f9940-ce97-476c-a86e-17b905332106": {
+    "UUID": "084f9940-ce97-476c-a86e-17b905332106",
+    "BERT": "bert_en_uncased_L-24_H-1024_A-16",
+    "BERT_VERSION": 1,
+    "BATCH_SIZE": 16,
+    "EPOCHS": 3,
+    "OPTIMIZER": "adam",
+    "LEARNING_RATE": 2e-06,
+    "PREPROCESSING_ALGORITHM_UUID": "d3cc3c6e-10de-4b27-8712-8017da428e41",
+    "PREPROCESSING_ALGORITHM": {
+      "add_link_flag": true,
+      "add_user_flag": true,
+      "add_hash_flag": true,
+      "add_number_flag": true,
+      "add_keyword_flag": false,
+      "add_location_flag": false,
+      "remove_links": true,
+      "remove_users": true,
+      "remove_hash": true,
+      "unslang": true,
+      "split_words": false,
+      "stem": false,
+      "remove_punctuations": true,
+      "remove_numbers": true,
+      "to_lower_case": true,
+      "remove_stop_words": false,
+      "remove_not_alpha": false,
+      "join": true
+    },
+    "KFOLD_HISTORY": [
+      {
+        "loss": [
+          0.47654082,
+          0.34683096,
+          0.27496686
+        ],
+        "accuracy": [
+          0.77991825,
+          0.85741389,
+          0.89652658
+        ],
+        "val_loss": [
+          0.37183977,
+          0.35330335,
+          0.35610051
+        ],
+        "val_accuracy": [
+          0.84494084,
+          0.85676742,
+          0.8593955
+        ],
+        "test_loss": [
+          0.4163755,
+          0.41254814,
+          0.40928232
+        ],
+        "test_accuracy": [
+          0.81550717,
+          0.82316887,
+          0.8243947
+        ],
+        "INPUT_LENGTH": 51
+      }
+    ]
+  },
+  "feefce93-c4fc-43b0-aef6-c128f543afde": {
+    "UUID": "feefce93-c4fc-43b0-aef6-c128f543afde",
+    "BERT": "bert_en_uncased_L-24_H-1024_A-16",
+    "BERT_VERSION": 1,
+    "BATCH_SIZE": 16,
+    "EPOCHS": 3,
+    "OPTIMIZER": "adam",
+    "LEARNING_RATE": 2e-06,
+    "PREPROCESSING_ALGORITHM_UUID": "d3cc3c6e-10de-4b27-8712-8017da428e41",
+    "PREPROCESSING_ALGORITHM": {
+      "add_link_flag": true,
+      "add_user_flag": true,
+      "add_hash_flag": true,
+      "add_number_flag": true,
+      "add_keyword_flag": false,
+      "add_location_flag": false,
+      "remove_links": true,
+      "remove_users": true,
+      "remove_hash": true,
+      "unslang": true,
+      "split_words": false,
+      "stem": false,
+      "remove_punctuations": true,
+      "remove_numbers": true,
+      "to_lower_case": true,
+      "remove_stop_words": false,
+      "remove_not_alpha": false,
+      "join": true
+    },
+    "KFOLD_HISTORY": [
+      {
+        "loss": [
+          0.46963408,
+          0.33757765,
+          0.2647537
+        ],
+        "accuracy": [
+          0.78765327,
+          0.86354351,
+          0.89404553
+        ],
+        "val_loss": [
+          0.42796456,
+          0.44270917,
+          0.45306492
+        ],
+        "val_accuracy": [
+          0.81997371,
+          0.81208938,
+          0.82260185
+        ],
+        "test_loss": [
+          0.41293593,
+          0.40150474,
+          0.41953187
+        ],
+        "test_accuracy": [
+          0.82102358,
+          0.82807231,
+          0.8302176
+        ],
+        "INPUT_LENGTH": 51
+      }
+    ]
+  },
+  "78a2bfd0-3f01-4640-b096-25bc56736c8b": {
+    "UUID": "78a2bfd0-3f01-4640-b096-25bc56736c8b",
+    "BERT": "bert_en_uncased_L-24_H-1024_A-16",
+    "BERT_VERSION": 1,
+    "BATCH_SIZE": 16,
+    "EPOCHS": 3,
+    "OPTIMIZER": "adam",
+    "LEARNING_RATE": 2e-06,
+    "PREPROCESSING_ALGORITHM_UUID": "d3cc3c6e-10de-4b27-8712-8017da428e41",
+    "PREPROCESSING_ALGORITHM": {
+      "add_link_flag": true,
+      "add_user_flag": true,
+      "add_hash_flag": true,
+      "add_number_flag": true,
+      "add_keyword_flag": false,
+      "add_location_flag": false,
+      "remove_links": true,
+      "remove_users": true,
+      "remove_hash": true,
+      "unslang": true,
+      "split_words": false,
+      "stem": false,
+      "remove_punctuations": true,
+      "remove_numbers": true,
+      "to_lower_case": true,
+      "remove_stop_words": false,
+      "remove_not_alpha": false,
+      "join": true
+    },
+    "KFOLD_HISTORY": [
+      {
+        "loss": [
+          0.47654385,
+          0.34636271,
+          0.26918581
+        ],
+        "accuracy": [
+          0.78677756,
+          0.86179221,
+          0.89900762
+        ],
+        "val_loss": [
+          0.43424179,
+          0.41443479,
+          0.44560068
+        ],
+        "val_accuracy": [
+          0.80157685,
+          0.8239159,
+          0.81340343
+        ],
+        "test_loss": [
+          0.42671576,
+          0.39985594,
+          0.41606013
+        ],
+        "test_accuracy": [
+          0.80171621,
+          0.8292982,
+          0.82745939
+        ],
+        "INPUT_LENGTH": 50
+      }
+    ]
+  },
+  "1f5612e3-cc6b-4a00-a543-dd1c45b1a7e4": {
+    "UUID": "1f5612e3-cc6b-4a00-a543-dd1c45b1a7e4",
+    "BERT": "bert_en_uncased_L-24_H-1024_A-16",
+    "BERT_VERSION": 1,
+    "BATCH_SIZE": 16,
+    "EPOCHS": 3,
+    "OPTIMIZER": "adam",
+    "LEARNING_RATE": 2e-06,
+    "PREPROCESSING_ALGORITHM_UUID": "d3cc3c6e-10de-4b27-8712-8017da428e41",
+    "PREPROCESSING_ALGORITHM": {
+      "add_link_flag": true,
+      "add_user_flag": true,
+      "add_hash_flag": true,
+      "add_number_flag": true,
+      "add_keyword_flag": false,
+      "add_location_flag": false,
+      "remove_links": true,
+      "remove_users": true,
+      "remove_hash": true,
+      "unslang": true,
+      "split_words": false,
+      "stem": false,
+      "remove_punctuations": true,
+      "remove_numbers": true,
+      "to_lower_case": true,
+      "remove_stop_words": false,
+      "remove_not_alpha": false,
+      "join": true
+    },
+    "KFOLD_HISTORY": [
+      {
+        "loss": [
+          0.46624373,
+          0.34806375,
+          0.27808499
+        ],
+        "accuracy": [
+          0.7888208,
+          0.85332751,
+          0.88864565
+        ],
+        "val_loss": [
+          0.42465699,
+          0.3681962,
+          0.38193746
+        ],
+        "val_accuracy": [
+          0.83574247,
+          0.85808146,
+          0.84494084
+        ],
+        "test_loss": [
+          0.45641752,
+          0.39261476,
+          0.40348849
+        ],
+        "test_accuracy": [
+          0.81029725,
+          0.83052409,
+          0.8292982
+        ],
+        "INPUT_LENGTH": 51
+      }
+    ]
+  },
+  "d3ff9294-b34b-43d3-ac93-1dc97f218cb4": {
+    "UUID": "d3ff9294-b34b-43d3-ac93-1dc97f218cb4",
+    "BERT": "bert_en_uncased_L-24_H-1024_A-16",
+    "BERT_VERSION": 1,
+    "BATCH_SIZE": 16,
+    "EPOCHS": 3,
+    "OPTIMIZER": "adam",
+    "LEARNING_RATE": 2e-06,
+    "PREPROCESSING_ALGORITHM_UUID": "d3cc3c6e-10de-4b27-8712-8017da428e41",
+    "PREPROCESSING_ALGORITHM": {
+      "add_link_flag": true,
+      "add_user_flag": true,
+      "add_hash_flag": true,
+      "add_number_flag": true,
+      "add_keyword_flag": false,
+      "add_location_flag": false,
+      "remove_links": true,
+      "remove_users": true,
+      "remove_hash": true,
+      "unslang": true,
+      "split_words": false,
+      "stem": false,
+      "remove_punctuations": true,
+      "remove_numbers": true,
+      "to_lower_case": true,
+      "remove_stop_words": false,
+      "remove_not_alpha": false,
+      "join": true
+    },
+    "KFOLD_HISTORY": [
+      {
+        "loss": [
+          0.45187862,
+          0.33154945,
+          0.26121048
+        ],
+        "accuracy": [
+          0.79713953,
+          0.86646235,
+          0.89784002
+        ],
+        "val_loss": [
+          0.39768884,
+          0.43909351,
+          0.41145784
+        ],
+        "val_accuracy": [
+          0.83442837,
+          0.82260185,
+          0.84756899
+        ],
+        "test_loss": [
+          0.39992307,
+          0.44167561,
+          0.40128879
+        ],
+        "test_accuracy": [
+          0.82163656,
+          0.80631322,
+          0.83358872
+        ],
+        "INPUT_LENGTH": 51
+      }
+    ]
+  }
+}
