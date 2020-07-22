@@ -124,24 +124,24 @@ class Helpers:
 
     @staticmethod
     def get_model_inputs(data, tokenizer, input_len=None):
-        train, validation, test = data
+        tokenizer.fit_on_texts(data[0])
 
-        tokenizer.fit_on_texts(train)
+        sequences = []
 
-        sequences_train = tokenizer.texts_to_sequences(train)
-        sequences_validation = tokenizer.texts_to_sequences(validation)
-        sequences_test = tokenizer.texts_to_sequences(test)
+        for data_set in data:
+            sequences.append(tokenizer.texts_to_sequences(data_set))
 
         if input_len is None:
-            input_len = Helpers.get_max_vector_len(sequences_train)
+            input_len = Helpers.get_max_vector_len(sequences[0])
 
-        x_train = pad_sequences(sequences_train, maxlen=input_len, truncating='post', padding='post')
-        x_val = pad_sequences(sequences_validation, maxlen=input_len, truncating='post', padding='post')
-        x_test = pad_sequences(sequences_test, maxlen=input_len, truncating='post', padding='post')
+        inputs = []
+
+        for sequence in sequences:
+            inputs.append(pad_sequences(sequence, maxlen=input_len, truncating='post', padding='post'))
 
         input_dim = len(tokenizer.word_index) + 1
 
-        return (x_train, x_val, x_test), input_dim, input_len
+        return inputs, input_dim, input_len
 
     @staticmethod
     def with_glove_embedding_options(config, tokenizer, glove_embeddings):

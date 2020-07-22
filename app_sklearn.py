@@ -10,6 +10,7 @@ from sklearn.model_selection import train_test_split
 import uuid
 
 SEED = 42
+SEED_PREDICTIONS = 256
 
 PREPROCESSING_ALGORITHM_IDS = [
     '1258a9d2',
@@ -24,19 +25,19 @@ PREPROCESSING_ALGORITHM_IDS = [
     'd3cc3c6e',
 ]
 
-PREPROCESSING_ALGORITHM_ID = PREPROCESSING_ALGORITHM_IDS[2]
+PREPROCESSING_ALGORITHM_ID = PREPROCESSING_ALGORITHM_IDS[7]
 PREPROCESSING_ALGORITHM = get_preprocessing_algorithm(PREPROCESSING_ALGORITHM_ID, join=True)
 
 VECTORIZER = {
-    'TYPE': 'COUNT',
+    'TYPE': 'TFIDF',
     'OPTIONS': {
         'binary': True,
-        'ngram_range': (1, 1)
+        'ngram_range': (1, 3)
     }
 }
 
 CLASSIFIER = {
-    'TYPE': 'SVC',
+    'TYPE': 'SGD',
     'OPTIONS': {}
 }
 
@@ -62,11 +63,18 @@ test_data['preprocessed'] = tweets_preprocessor.preprocess(
     locations=test_data.location
 )
 
-train_inputs, val_inputs, train_targets, val_targets = train_test_split(
+all_train_inputs, val_inputs, all_train_targets, val_targets = train_test_split(
     train_data['preprocessed'],
     train_data['target'],
     test_size=0.3,
     random_state=SEED
+)
+
+train_inputs, predictions_train_inputs, train_targets, predictions_train_targets = train_test_split(
+    all_train_inputs,
+    all_train_targets,
+    test_size=0.3,
+    random_state=SEED_PREDICTIONS
 )
 
 vectorizer = Sklearn.VECTORIZERS[VECTORIZER['TYPE']](**VECTORIZER['OPTIONS'])
@@ -98,6 +106,6 @@ LOG_DICT['HISTORY'] = history
 
 log_classifier(LOG_DICT)
 save_classifier(
-    f'./data-saved-models/classifiers/{CLASSIFIER["TYPE"]}/{CLASSIFIER["TYPE"]}-{PREPROCESSING_ALGORITHM_ID}-{VECTORIZER["TYPE"]}-{train_score}-{val_score}-{test_score}.pickle',
+    f'./data-saved-models/classifiers/{CLASSIFIER["TYPE"]}/{CLASSIFIER["TYPE"]}-{PREPROCESSING_ALGORITHM_ID}-{VECTORIZER["TYPE"]}-{VECTORIZER["OPTIONS"]["ngram_range"][0]}-{VECTORIZER["OPTIONS"]["ngram_range"][1]}-{train_score}-{val_score}-{test_score}.pickle',
     classifier
 )

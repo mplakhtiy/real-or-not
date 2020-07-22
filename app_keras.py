@@ -9,6 +9,7 @@ from tensorflow.keras.preprocessing.text import Tokenizer
 from configs import get_preprocessing_algorithm, get_model_config
 
 SEED = 42
+SEED_PREDICTIONS = 256
 USE_GLOVE = False
 
 NETWORKS_KEYS = ['LSTM', 'LSTM_DROPOUT', 'BI_LSTM', 'FASTTEXT', 'RCNN', 'CNN', 'RNN', 'GRU']
@@ -25,8 +26,29 @@ PREPROCESSING_ALGORITHM_IDS = [
     'd3cc3c6e',
 ]
 
-NETWORK_KEY = NETWORKS_KEYS[0]
-PREPROCESSING_ALGORITHM_ID = PREPROCESSING_ALGORITHM_IDS[8]
+pairs = [
+    [7, 6],
+    [3, 4],
+    [1, 2],
+    [0, 3],
+    [2, 3],
+    [6, 3],
+    [4, 8],
+    [5, 7],  # 7
+    [5, 5],
+    [3, 6],
+    [7, 8],
+    [1, 8],
+    [6, 0],
+    [2, 3],
+    [4, 4],
+    [0, 8]
+]
+
+pair = pairs[15]
+
+NETWORK_KEY = NETWORKS_KEYS[pair[0]]
+PREPROCESSING_ALGORITHM_ID = PREPROCESSING_ALGORITHM_IDS[pair[1]]
 
 MODEL = get_model_config(NETWORK_KEY, glove=USE_GLOVE)
 PREPROCESSING_ALGORITHM = get_preprocessing_algorithm(PREPROCESSING_ALGORITHM_ID)
@@ -60,13 +82,19 @@ test_data['preprocessed'] = tweets_preprocessor.preprocess(
     locations=test_data.location
 )
 
-train_inputs, val_inputs, train_targets, val_targets = train_test_split(
+all_train_inputs, val_inputs, all_train_targets, val_targets = train_test_split(
     train_data['preprocessed'],
     train_data['target'],
     test_size=0.3,
     random_state=SEED
 )
-print(train_inputs[:10])
+
+train_inputs, predictions_train_inputs, train_targets, predictions_train_targets = train_test_split(
+    all_train_inputs,
+    all_train_targets,
+    test_size=0.3,
+    random_state=SEED_PREDICTIONS
+)
 
 keras_tokenizer = Tokenizer()
 

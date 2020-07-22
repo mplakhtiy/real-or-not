@@ -98,21 +98,22 @@ def draw_comparison(history_dict, title):
     fig.show()
 
 
-def get_highest_history(kfold_history):
+def get_highest_history(kfold_history, key='val_accuracy'):
     highest_history = {
         'fold': None,
         'epoch': None,
-        'test_score': 0,
-        'val_score': None,
+        'test_accuracy': 0,
+        'val_accuracy': 0,
     }
 
     for fold, fold_history in enumerate(kfold_history):
-        for epoch, test_score in enumerate(fold_history['test_accuracy']):
-            if test_score > highest_history['test_score']:
-                highest_history['fold'] = fold
-                highest_history['epoch'] = epoch
-                highest_history['test_score'] = test_score
-                highest_history['val_score'] = fold_history['val_accuracy'][epoch]
+        lowest_epoch = fold_history['val_loss'].index(min(fold_history['val_loss']))
+
+        if fold_history[key][lowest_epoch] > highest_history[key]:
+            highest_history['fold'] = fold
+            highest_history['epoch'] = lowest_epoch
+            highest_history['val_accuracy'] = fold_history['val_accuracy'][lowest_epoch]
+            highest_history['test_accuracy'] = fold_history['test_accuracy'][lowest_epoch]
 
     return highest_history
 
@@ -120,32 +121,38 @@ def get_highest_history(kfold_history):
 # logs = get_from_file('./logs/keras/2020-05-12.json')
 logs = get_from_file('./logs/keras-glove/2020-07-12.json')
 result = {
-    'model': [],
-    'glove': [],
-    'optimizer': [],
-    'algorithm': [],
-    'fold': [],
-    'epoch': [],
-    'val_score': [],
-    'test_score': [],
+    'Model': [],
+    'GloVe': [],
+    'Optimizer': [],
+    'Algorithm Id': [],
+    'Fold': [],
+    'Epoch': [],
+    'Val Score': [],
+    'Test Score': [],
 }
 
-for log_path in ['./logs/keras/2020-05-07.json','./logs/keras/2020-05-12.json', './logs/keras/2020-07-11.json', './logs/keras-glove/2020-07-06.json', './logs/keras-glove/2020-07-09.json',
-                 './logs/keras-glove/2020-07-10.json', './logs/keras-glove/2020-07-11.json',
-                 './logs/keras-glove/2020-07-12.json']:
+kerases_logs = ['./logs/keras/2020-05-07.json','./logs/keras/2020-05-12.json', './logs/keras/2020-07-11.json']
+kerases_glove_logs = [
+    './logs/keras-glove/2020-07-06.json', './logs/keras-glove/2020-07-09.json',
+    './logs/keras-glove/2020-07-10.json', './logs/keras-glove/2020-07-11.json',
+    './logs/keras-glove/2020-07-12.json'
+]
+bert_logs = ['./logs/bert/2020-07-20.json']
+
+for log_path in bert_logs:
     for log_id, log in get_from_file(log_path).items():
-        result['model'].append(log["TYPE"])
-        result['algorithm'].append(log["PREPROCESSING_ALGORITHM_UUID"][:8])
+        result['Model'].append(log["TYPE"])
+        result['Algorithm Id'].append(log["PREPROCESSING_ALGORITHM_UUID"][:8])
         if 'GLOVE' in log:
-            result['glove'].append(True)
+            result['GloVe'].append(True)
         else:
-            result['glove'].append(False)
-        result['optimizer'].append(log['OPTIMIZER'])
-        h = get_highest_history(log['KFOLD_HISTORY'])
-        result['fold'].append(h['fold'])
-        result['epoch'].append(h['epoch'])
-        result['val_score'].append(h['val_score'])
-        result['test_score'].append(h['test_score'])
+            result['GloVe'].append(False)
+        result['Optimizer'].append(log['OPTIMIZER'])
+        h = get_highest_history(log['KFOLD_HISTORY'], 'test_accuracy')
+        result['Fold'].append(h['fold'])
+        result['Epoch'].append(h['epoch'])
+        result['Val Score'].append(h['val_accuracy'])
+        result['Test Score'].append(h['test_accuracy'])
 
 
 

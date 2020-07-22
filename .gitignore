@@ -8,3 +8,4 @@ data/glove
 .DS_Store
 archive/v2/models/bert*
 archive/v2/classifiers/SVM*
+archive**/

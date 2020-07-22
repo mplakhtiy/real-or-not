@@ -137,7 +137,7 @@ CONFIGS = {
     },
     'LSTM_DROPOUT': {
         'TYPE': 'LSTM_DROPOUT',
-        'BATCH_SIZE': 32,
+        'BATCH_SIZE': 64,
         'EPOCHS': 15,
         'OPTIMIZER': 'adam',
         'LEARNING_RATE': 1e-4,
@@ -149,7 +149,7 @@ CONFIGS = {
     },
     'BI_LSTM': {
         'TYPE': 'BI_LSTM',
-        'BATCH_SIZE': 64,
+        'BATCH_SIZE': 128,
         'EPOCHS': 10,
         'OPTIMIZER': 'adam',
         'LEARNING_RATE': 1e-4,
@@ -161,8 +161,8 @@ CONFIGS = {
     },
     'FASTTEXT': {
         'TYPE': 'FASTTEXT',
-        'BATCH_SIZE': 32,
-        'EPOCHS': 20,
+        'BATCH_SIZE': 64,
+        'EPOCHS': 30,
         'OPTIMIZER': 'adam',
         'LEARNING_RATE': 1e-4,
         'EMBEDDING_OPTIONS': {
@@ -172,8 +172,8 @@ CONFIGS = {
     },
     'RCNN': {
         'TYPE': 'RCNN',
-        'BATCH_SIZE': 32,
-        'EPOCHS': 10,
+        'BATCH_SIZE': 128,
+        'EPOCHS': 15,
         'OPTIMIZER': 'adam',
         'LEARNING_RATE': 1e-4,
         'EMBEDDING_OPTIONS': {
@@ -187,8 +187,8 @@ CONFIGS = {
     },
     'CNN': {
         'TYPE': 'CNN',
-        'BATCH_SIZE': 32,
-        'EPOCHS': 10,
+        'BATCH_SIZE': 64,
+        'EPOCHS': 15,
         'OPTIMIZER': 'adam',
         'LEARNING_RATE': 1e-4,
         'EMBEDDING_OPTIONS': {
@@ -201,8 +201,8 @@ CONFIGS = {
     },
     'RNN': {
         'TYPE': 'RNN',
-        'BATCH_SIZE': 32,
-        'EPOCHS': 10,
+        'BATCH_SIZE': 64,
+        'EPOCHS': 15,
         'OPTIMIZER': 'adam',
         'LEARNING_RATE': 1e-4,
         'EMBEDDING_OPTIONS': {
@@ -213,8 +213,8 @@ CONFIGS = {
     },
     'GRU': {
         'TYPE': 'GRU',
-        'BATCH_SIZE': 32,
-        'EPOCHS': 10,
+        'BATCH_SIZE': 128,
+        'EPOCHS': 15,
         'OPTIMIZER': 'adam',
         'LEARNING_RATE': 1e-4,
         'EMBEDDING_OPTIONS': {
