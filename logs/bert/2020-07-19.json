@@ -1,5 +1,5 @@
 {
-  "37b36740-d594-4985-951a-4de5d9695ff1": {
+  "None": {
     "UUID": "37b36740-d594-4985-951a-4de5d9695ff1",
     "BERT": "bert_en_uncased_L-24_H-1024_A-16",
     "BERT_VERSION": 1,
@@ -42,20 +42,7 @@
           0.83450812
         ],
         "INPUT_LENGTH": 84
-      }
-    ]
-  },
-  "9770fd47-bc89-4444-9a52-124b3e73f574": {
-    "UUID": "9770fd47-bc89-4444-9a52-124b3e73f574",
-    "BERT": "bert_en_uncased_L-24_H-1024_A-16",
-    "BERT_VERSION": 1,
-    "BATCH_SIZE": 16,
-    "EPOCHS": 3,
-    "OPTIMIZER": "adam",
-    "LEARNING_RATE": 2e-06,
-    "PREPROCESSING_ALGORITHM_UUID": "None",
-    "PREPROCESSING_ALGORITHM": {},
-    "KFOLD_HISTORY": [
+      },
       {
         "loss": [
           0.45940653,
@@ -88,20 +75,7 @@
           0.8253141
         ],
         "INPUT_LENGTH": 84
-      }
-    ]
-  },
-  "b41cd9f9-72d3-4e20-8f31-093a2edc6ca7": {
-    "UUID": "b41cd9f9-72d3-4e20-8f31-093a2edc6ca7",
-    "BERT": "bert_en_uncased_L-24_H-1024_A-16",
-    "BERT_VERSION": 1,
-    "BATCH_SIZE": 16,
-    "EPOCHS": 3,
-    "OPTIMIZER": "adam",
-    "LEARNING_RATE": 2e-06,
-    "PREPROCESSING_ALGORITHM_UUID": "None",
-    "PREPROCESSING_ALGORITHM": {},
-    "KFOLD_HISTORY": [
+      },
       {
         "loss": [
           0.46043104,
@@ -134,20 +108,7 @@
           0.83144343
         ],
         "INPUT_LENGTH": 84
-      }
-    ]
-  },
-  "e38a8cbb-b0a3-4ae2-a553-ac9bb1ec41ea": {
-    "UUID": "e38a8cbb-b0a3-4ae2-a553-ac9bb1ec41ea",
-    "BERT": "bert_en_uncased_L-24_H-1024_A-16",
-    "BERT_VERSION": 1,
-    "BATCH_SIZE": 16,
-    "EPOCHS": 3,
-    "OPTIMIZER": "adam",
-    "LEARNING_RATE": 2e-06,
-    "PREPROCESSING_ALGORITHM_UUID": "None",
-    "PREPROCESSING_ALGORITHM": {},
-    "KFOLD_HISTORY": [
+      },
       {
         "loss": [
           0.4587749,
@@ -180,20 +141,7 @@
           0.83512104
         ],
         "INPUT_LENGTH": 84
-      }
-    ]
-  },
-  "ad08cef8-a91f-4589-8752-0003708f789c": {
-    "UUID": "ad08cef8-a91f-4589-8752-0003708f789c",
-    "BERT": "bert_en_uncased_L-24_H-1024_A-16",
-    "BERT_VERSION": 1,
-    "BATCH_SIZE": 16,
-    "EPOCHS": 3,
-    "OPTIMIZER": "adam",
-    "LEARNING_RATE": 2e-06,
-    "PREPROCESSING_ALGORITHM_UUID": "None",
-    "PREPROCESSING_ALGORITHM": {},
-    "KFOLD_HISTORY": [
+      },
       {
         "loss": [
           0.45551417,
@@ -226,20 +174,7 @@
           0.83174992
         ],
         "INPUT_LENGTH": 84
-      }
-    ]
-  },
-  "c9b55fea-072a-40f2-b929-5b6c5d07aab0": {
-    "UUID": "c9b55fea-072a-40f2-b929-5b6c5d07aab0",
-    "BERT": "bert_en_uncased_L-24_H-1024_A-16",
-    "BERT_VERSION": 1,
-    "BATCH_SIZE": 16,
-    "EPOCHS": 3,
-    "OPTIMIZER": "adam",
-    "LEARNING_RATE": 2e-06,
-    "PREPROCESSING_ALGORITHM_UUID": "None",
-    "PREPROCESSING_ALGORITHM": {},
-    "KFOLD_HISTORY": [
+      },
       {
         "loss": [
           0.453322,
@@ -272,20 +207,7 @@
           0.82745939
         ],
         "INPUT_LENGTH": 84
-      }
-    ]
-  },
-  "9b96ffe6-dee3-4162-907d-f2c57dbbf5b1": {
-    "UUID": "9b96ffe6-dee3-4162-907d-f2c57dbbf5b1",
-    "BERT": "bert_en_uncased_L-24_H-1024_A-16",
-    "BERT_VERSION": 1,
-    "BATCH_SIZE": 16,
-    "EPOCHS": 3,
-    "OPTIMIZER": "adam",
-    "LEARNING_RATE": 2e-06,
-    "PREPROCESSING_ALGORITHM_UUID": "None",
-    "PREPROCESSING_ALGORITHM": {},
-    "KFOLD_HISTORY": [
+      },
       {
         "loss": [
           0.45138573,
@@ -318,20 +240,7 @@
           0.83420163
         ],
         "INPUT_LENGTH": 84
-      }
-    ]
-  },
-  "57211d8d-bc15-4009-a189-8144fbf2c9ac": {
-    "UUID": "57211d8d-bc15-4009-a189-8144fbf2c9ac",
-    "BERT": "bert_en_uncased_L-24_H-1024_A-16",
-    "BERT_VERSION": 1,
-    "BATCH_SIZE": 16,
-    "EPOCHS": 3,
-    "OPTIMIZER": "adam",
-    "LEARNING_RATE": 2e-06,
-    "PREPROCESSING_ALGORITHM_UUID": "None",
-    "PREPROCESSING_ALGORITHM": {},
-    "KFOLD_HISTORY": [
+      },
       {
         "loss": [
           0.47143161,
@@ -364,20 +273,7 @@
           0.83174992
         ],
         "INPUT_LENGTH": 84
-      }
-    ]
-  },
-  "25ec2d48-6f6f-49ad-a6a2-fa4c9465a511": {
-    "UUID": "25ec2d48-6f6f-49ad-a6a2-fa4c9465a511",
-    "BERT": "bert_en_uncased_L-24_H-1024_A-16",
-    "BERT_VERSION": 1,
-    "BATCH_SIZE": 16,
-    "EPOCHS": 3,
-    "OPTIMIZER": "adam",
-    "LEARNING_RATE": 2e-06,
-    "PREPROCESSING_ALGORITHM_UUID": "None",
-    "PREPROCESSING_ALGORITHM": {},
-    "KFOLD_HISTORY": [
+      },
       {
         "loss": [
           0.44160456,
@@ -410,20 +306,7 @@
           0.83634692
         ],
         "INPUT_LENGTH": 84
-      }
-    ]
-  },
-  "90bf09f2-49a5-4d5d-b5c1-25d171973a09": {
-    "UUID": "90bf09f2-49a5-4d5d-b5c1-25d171973a09",
-    "BERT": "bert_en_uncased_L-24_H-1024_A-16",
-    "BERT_VERSION": 1,
-    "BATCH_SIZE": 16,
-    "EPOCHS": 3,
-    "OPTIMIZER": "adam",
-    "LEARNING_RATE": 2e-06,
-    "PREPROCESSING_ALGORITHM_UUID": "None",
-    "PREPROCESSING_ALGORITHM": {},
-    "KFOLD_HISTORY": [
+      },
       {
         "loss": [
           0.47548986,
@@ -457,9 +340,10 @@
         ],
         "INPUT_LENGTH": 82
       }
-    ]
+    ],
+    "TYPE": "BERT"
   },
-  "57cc4346-2c86-4497-987e-59700154962d": {
+  "1258a9d2-111e-4d4a-acda-852dd7ba3e88": {
     "UUID": "57cc4346-2c86-4497-987e-59700154962d",
     "BERT": "bert_en_uncased_L-24_H-1024_A-16",
     "BERT_VERSION": 1,
@@ -521,39 +405,7 @@
           0.82378179
         ],
         "INPUT_LENGTH": 44
-      }
-    ]
-  },
-  "3e0f0424-5cbb-4c13-9298-0b900c605ab2": {
-    "UUID": "3e0f0424-5cbb-4c13-9298-0b900c605ab2",
-    "BERT": "bert_en_uncased_L-24_H-1024_A-16",
-    "BERT_VERSION": 1,
-    "BATCH_SIZE": 16,
-    "EPOCHS": 3,
-    "OPTIMIZER": "adam",
-    "LEARNING_RATE": 2e-06,
-    "PREPROCESSING_ALGORITHM_UUID": "1258a9d2-111e-4d4a-acda-852dd7ba3e88",
-    "PREPROCESSING_ALGORITHM": {
-      "add_link_flag": true,
-      "add_user_flag": true,
-      "add_hash_flag": true,
-      "add_number_flag": true,
-      "add_keyword_flag": false,
-      "add_location_flag": false,
-      "remove_links": true,
-      "remove_users": true,
-      "remove_hash": true,
-      "unslang": true,
-      "split_words": true,
-      "stem": false,
-      "remove_punctuations": true,
-      "remove_numbers": true,
-      "to_lower_case": true,
-      "remove_stop_words": true,
-      "remove_not_alpha": true,
-      "join": true
-    },
-    "KFOLD_HISTORY": [
+      },
       {
         "loss": [
           0.45418285,
@@ -586,39 +438,7 @@
           0.82224947
         ],
         "INPUT_LENGTH": 44
-      }
-    ]
-  },
-  "bd1b0d85-372e-4932-bcd3-df59eb02b205": {
-    "UUID": "bd1b0d85-372e-4932-bcd3-df59eb02b205",
-    "BERT": "bert_en_uncased_L-24_H-1024_A-16",
-    "BERT_VERSION": 1,
-    "BATCH_SIZE": 16,
-    "EPOCHS": 3,
-    "OPTIMIZER": "adam",
-    "LEARNING_RATE": 2e-06,
-    "PREPROCESSING_ALGORITHM_UUID": "1258a9d2-111e-4d4a-acda-852dd7ba3e88",
-    "PREPROCESSING_ALGORITHM": {
-      "add_link_flag": true,
-      "add_user_flag": true,
-      "add_hash_flag": true,
-      "add_number_flag": true,
-      "add_keyword_flag": false,
-      "add_location_flag": false,
-      "remove_links": true,
-      "remove_users": true,
-      "remove_hash": true,
-      "unslang": true,
-      "split_words": true,
-      "stem": false,
-      "remove_punctuations": true,
-      "remove_numbers": true,
-      "to_lower_case": true,
-      "remove_stop_words": true,
-      "remove_not_alpha": true,
-      "join": true
-    },
-    "KFOLD_HISTORY": [
+      },
       {
         "loss": [
           0.46348039,
@@ -651,39 +471,7 @@
           0.81244254
         ],
         "INPUT_LENGTH": 44
-      }
-    ]
-  },
-  "c73dfbe9-3ddc-462a-8a8f-c300d2e6d0c4": {
-    "UUID": "c73dfbe9-3ddc-462a-8a8f-c300d2e6d0c4",
-    "BERT": "bert_en_uncased_L-24_H-1024_A-16",
-    "BERT_VERSION": 1,
-    "BATCH_SIZE": 16,
-    "EPOCHS": 3,
-    "OPTIMIZER": "adam",
-    "LEARNING_RATE": 2e-06,
-    "PREPROCESSING_ALGORITHM_UUID": "1258a9d2-111e-4d4a-acda-852dd7ba3e88",
-    "PREPROCESSING_ALGORITHM": {
-      "add_link_flag": true,
-      "add_user_flag": true,
-      "add_hash_flag": true,
-      "add_number_flag": true,
-      "add_keyword_flag": false,
-      "add_location_flag": false,
-      "remove_links": true,
-      "remove_users": true,
-      "remove_hash": true,
-      "unslang": true,
-      "split_words": true,
-      "stem": false,
-      "remove_punctuations": true,
-      "remove_numbers": true,
-      "to_lower_case": true,
-      "remove_stop_words": true,
-      "remove_not_alpha": true,
-      "join": true
-    },
-    "KFOLD_HISTORY": [
+      },
       {
         "loss": [
           0.46223951,
@@ -716,39 +504,7 @@
           0.81887835
         ],
         "INPUT_LENGTH": 44
-      }
-    ]
-  },
-  "111f269a-a0b8-4dab-9293-29ce5a0fe40e": {
-    "UUID": "111f269a-a0b8-4dab-9293-29ce5a0fe40e",
-    "BERT": "bert_en_uncased_L-24_H-1024_A-16",
-    "BERT_VERSION": 1,
-    "BATCH_SIZE": 16,
-    "EPOCHS": 3,
-    "OPTIMIZER": "adam",
-    "LEARNING_RATE": 2e-06,
-    "PREPROCESSING_ALGORITHM_UUID": "1258a9d2-111e-4d4a-acda-852dd7ba3e88",
-    "PREPROCESSING_ALGORITHM": {
-      "add_link_flag": true,
-      "add_user_flag": true,
-      "add_hash_flag": true,
-      "add_number_flag": true,
-      "add_keyword_flag": false,
-      "add_location_flag": false,
-      "remove_links": true,
-      "remove_users": true,
-      "remove_hash": true,
-      "unslang": true,
-      "split_words": true,
-      "stem": false,
-      "remove_punctuations": true,
-      "remove_numbers": true,
-      "to_lower_case": true,
-      "remove_stop_words": true,
-      "remove_not_alpha": true,
-      "join": true
-    },
-    "KFOLD_HISTORY": [
+      },
       {
         "loss": [
           0.44595837,
@@ -781,39 +537,7 @@
           0.8253141
         ],
         "INPUT_LENGTH": 44
-      }
-    ]
-  },
-  "befea6a4-ec29-45f4-8b5b-26cda9805260": {
-    "UUID": "befea6a4-ec29-45f4-8b5b-26cda9805260",
-    "BERT": "bert_en_uncased_L-24_H-1024_A-16",
-    "BERT_VERSION": 1,
-    "BATCH_SIZE": 16,
-    "EPOCHS": 3,
-    "OPTIMIZER": "adam",
-    "LEARNING_RATE": 2e-06,
-    "PREPROCESSING_ALGORITHM_UUID": "1258a9d2-111e-4d4a-acda-852dd7ba3e88",
-    "PREPROCESSING_ALGORITHM": {
-      "add_link_flag": true,
-      "add_user_flag": true,
-      "add_hash_flag": true,
-      "add_number_flag": true,
-      "add_keyword_flag": false,
-      "add_location_flag": false,
-      "remove_links": true,
-      "remove_users": true,
-      "remove_hash": true,
-      "unslang": true,
-      "split_words": true,
-      "stem": false,
-      "remove_punctuations": true,
-      "remove_numbers": true,
-      "to_lower_case": true,
-      "remove_stop_words": true,
-      "remove_not_alpha": true,
-      "join": true
-    },
-    "KFOLD_HISTORY": [
+      },
       {
         "loss": [
           0.46045292,
@@ -846,39 +570,7 @@
           0.82745939
         ],
         "INPUT_LENGTH": 44
-      }
-    ]
-  },
-  "5f6cb9ab-a500-4b57-8065-0276b8683f61": {
-    "UUID": "5f6cb9ab-a500-4b57-8065-0276b8683f61",
-    "BERT": "bert_en_uncased_L-24_H-1024_A-16",
-    "BERT_VERSION": 1,
-    "BATCH_SIZE": 16,
-    "EPOCHS": 3,
-    "OPTIMIZER": "adam",
-    "LEARNING_RATE": 2e-06,
-    "PREPROCESSING_ALGORITHM_UUID": "1258a9d2-111e-4d4a-acda-852dd7ba3e88",
-    "PREPROCESSING_ALGORITHM": {
-      "add_link_flag": true,
-      "add_user_flag": true,
-      "add_hash_flag": true,
-      "add_number_flag": true,
-      "add_keyword_flag": false,
-      "add_location_flag": false,
-      "remove_links": true,
-      "remove_users": true,
-      "remove_hash": true,
-      "unslang": true,
-      "split_words": true,
-      "stem": false,
-      "remove_punctuations": true,
-      "remove_numbers": true,
-      "to_lower_case": true,
-      "remove_stop_words": true,
-      "remove_not_alpha": true,
-      "join": true
-    },
-    "KFOLD_HISTORY": [
+      },
       {
         "loss": [
           0.44383694,
@@ -911,39 +603,7 @@
           0.8253141
         ],
         "INPUT_LENGTH": 44
-      }
-    ]
-  },
-  "6157ea32-3bfa-4ed5-a3e4-e881638849ee": {
-    "UUID": "6157ea32-3bfa-4ed5-a3e4-e881638849ee",
-    "BERT": "bert_en_uncased_L-24_H-1024_A-16",
-    "BERT_VERSION": 1,
-    "BATCH_SIZE": 16,
-    "EPOCHS": 3,
-    "OPTIMIZER": "adam",
-    "LEARNING_RATE": 2e-06,
-    "PREPROCESSING_ALGORITHM_UUID": "1258a9d2-111e-4d4a-acda-852dd7ba3e88",
-    "PREPROCESSING_ALGORITHM": {
-      "add_link_flag": true,
-      "add_user_flag": true,
-      "add_hash_flag": true,
-      "add_number_flag": true,
-      "add_keyword_flag": false,
-      "add_location_flag": false,
-      "remove_links": true,
-      "remove_users": true,
-      "remove_hash": true,
-      "unslang": true,
-      "split_words": true,
-      "stem": false,
-      "remove_punctuations": true,
-      "remove_numbers": true,
-      "to_lower_case": true,
-      "remove_stop_words": true,
-      "remove_not_alpha": true,
-      "join": true
-    },
-    "KFOLD_HISTORY": [
+      },
       {
         "loss": [
           0.47014072,
@@ -976,39 +636,7 @@
           0.82408828
         ],
         "INPUT_LENGTH": 44
-      }
-    ]
-  },
-  "b5e5dd76-41f6-4ae9-8acf-26c78033d543": {
-    "UUID": "b5e5dd76-41f6-4ae9-8acf-26c78033d543",
-    "BERT": "bert_en_uncased_L-24_H-1024_A-16",
-    "BERT_VERSION": 1,
-    "BATCH_SIZE": 16,
-    "EPOCHS": 3,
-    "OPTIMIZER": "adam",
-    "LEARNING_RATE": 2e-06,
-    "PREPROCESSING_ALGORITHM_UUID": "1258a9d2-111e-4d4a-acda-852dd7ba3e88",
-    "PREPROCESSING_ALGORITHM": {
-      "add_link_flag": true,
-      "add_user_flag": true,
-      "add_hash_flag": true,
-      "add_number_flag": true,
-      "add_keyword_flag": false,
-      "add_location_flag": false,
-      "remove_links": true,
-      "remove_users": true,
-      "remove_hash": true,
-      "unslang": true,
-      "split_words": true,
-      "stem": false,
-      "remove_punctuations": true,
-      "remove_numbers": true,
-      "to_lower_case": true,
-      "remove_stop_words": true,
-      "remove_not_alpha": true,
-      "join": true
-    },
-    "KFOLD_HISTORY": [
+      },
       {
         "loss": [
           0.45543029,
@@ -1041,39 +669,7 @@
           0.82378179
         ],
         "INPUT_LENGTH": 44
-      }
-    ]
-  },
-  "ab0d924a-f0e4-455e-a876-57fc0ca02e70": {
-    "UUID": "ab0d924a-f0e4-455e-a876-57fc0ca02e70",
-    "BERT": "bert_en_uncased_L-24_H-1024_A-16",
-    "BERT_VERSION": 1,
-    "BATCH_SIZE": 16,
-    "EPOCHS": 3,
-    "OPTIMIZER": "adam",
-    "LEARNING_RATE": 2e-06,
-    "PREPROCESSING_ALGORITHM_UUID": "1258a9d2-111e-4d4a-acda-852dd7ba3e88",
-    "PREPROCESSING_ALGORITHM": {
-      "add_link_flag": true,
-      "add_user_flag": true,
-      "add_hash_flag": true,
-      "add_number_flag": true,
-      "add_keyword_flag": false,
-      "add_location_flag": false,
-      "remove_links": true,
-      "remove_users": true,
-      "remove_hash": true,
-      "unslang": true,
-      "split_words": true,
-      "stem": false,
-      "remove_punctuations": true,
-      "remove_numbers": true,
-      "to_lower_case": true,
-      "remove_stop_words": true,
-      "remove_not_alpha": true,
-      "join": true
-    },
-    "KFOLD_HISTORY": [
+      },
       {
         "loss": [
           0.46384591,
@@ -1107,9 +703,10 @@
         ],
         "INPUT_LENGTH": 44
       }
-    ]
+    ],
+    "TYPE": "BERT"
   },
-  "942beb87-0512-4e7a-89f3-efa088d5d496": {
+  "60314ef9-271d-4865-a7db-6889b1670f59": {
     "UUID": "942beb87-0512-4e7a-89f3-efa088d5d496",
     "BERT": "bert_en_uncased_L-24_H-1024_A-16",
     "BERT_VERSION": 1,
@@ -1171,39 +768,7 @@
           0.81673306
         ],
         "INPUT_LENGTH": 38
-      }
-    ]
-  },
-  "9dec24f9-8bb7-4749-a622-b0a84d507212": {
-    "UUID": "9dec24f9-8bb7-4749-a622-b0a84d507212",
-    "BERT": "bert_en_uncased_L-24_H-1024_A-16",
-    "BERT_VERSION": 1,
-    "BATCH_SIZE": 16,
-    "EPOCHS": 3,
-    "OPTIMIZER": "adam",
-    "LEARNING_RATE": 2e-06,
-    "PREPROCESSING_ALGORITHM_UUID": "60314ef9-271d-4865-a7db-6889b1670f59",
-    "PREPROCESSING_ALGORITHM": {
-      "add_link_flag": false,
-      "add_user_flag": true,
-      "add_hash_flag": true,
-      "add_number_flag": false,
-      "add_keyword_flag": false,
-      "add_location_flag": false,
-      "remove_links": true,
-      "remove_users": true,
-      "remove_hash": true,
-      "unslang": true,
-      "split_words": true,
-      "stem": false,
-      "remove_punctuations": true,
-      "remove_numbers": true,
-      "to_lower_case": true,
-      "remove_stop_words": true,
-      "remove_not_alpha": true,
-      "join": true
-    },
-    "KFOLD_HISTORY": [
+      },
       {
         "loss": [
           0.4600208,
@@ -1236,39 +801,7 @@
           0.81397486
         ],
         "INPUT_LENGTH": 38
-      }
-    ]
-  },
-  "cd9f59b9-8fca-4aff-94d7-4ed09931f802": {
-    "UUID": "cd9f59b9-8fca-4aff-94d7-4ed09931f802",
-    "BERT": "bert_en_uncased_L-24_H-1024_A-16",
-    "BERT_VERSION": 1,
-    "BATCH_SIZE": 16,
-    "EPOCHS": 3,
-    "OPTIMIZER": "adam",
-    "LEARNING_RATE": 2e-06,
-    "PREPROCESSING_ALGORITHM_UUID": "60314ef9-271d-4865-a7db-6889b1670f59",
-    "PREPROCESSING_ALGORITHM": {
-      "add_link_flag": false,
-      "add_user_flag": true,
-      "add_hash_flag": true,
-      "add_number_flag": false,
-      "add_keyword_flag": false,
-      "add_location_flag": false,
-      "remove_links": true,
-      "remove_users": true,
-      "remove_hash": true,
-      "unslang": true,
-      "split_words": true,
-      "stem": false,
-      "remove_punctuations": true,
-      "remove_numbers": true,
-      "to_lower_case": true,
-      "remove_stop_words": true,
-      "remove_not_alpha": true,
-      "join": true
-    },
-    "KFOLD_HISTORY": [
+      },
       {
         "loss": [
           0.45230562,
@@ -1301,39 +834,7 @@
           0.81520075
         ],
         "INPUT_LENGTH": 38
-      }
-    ]
-  },
-  "10b90726-362b-4889-9125-2e06de1791d8": {
-    "UUID": "10b90726-362b-4889-9125-2e06de1791d8",
-    "BERT": "bert_en_uncased_L-24_H-1024_A-16",
-    "BERT_VERSION": 1,
-    "BATCH_SIZE": 16,
-    "EPOCHS": 3,
-    "OPTIMIZER": "adam",
-    "LEARNING_RATE": 2e-06,
-    "PREPROCESSING_ALGORITHM_UUID": "60314ef9-271d-4865-a7db-6889b1670f59",
-    "PREPROCESSING_ALGORITHM": {
-      "add_link_flag": false,
-      "add_user_flag": true,
-      "add_hash_flag": true,
-      "add_number_flag": false,
-      "add_keyword_flag": false,
-      "add_location_flag": false,
-      "remove_links": true,
-      "remove_users": true,
-      "remove_hash": true,
-      "unslang": true,
-      "split_words": true,
-      "stem": false,
-      "remove_punctuations": true,
-      "remove_numbers": true,
-      "to_lower_case": true,
-      "remove_stop_words": true,
-      "remove_not_alpha": true,
-      "join": true
-    },
-    "KFOLD_HISTORY": [
+      },
       {
         "loss": [
           0.46997389,
@@ -1366,39 +867,7 @@
           0.82255596
         ],
         "INPUT_LENGTH": 38
-      }
-    ]
-  },
-  "b5df853c-81dd-4fb8-bbc0-bf208d75443b": {
-    "UUID": "b5df853c-81dd-4fb8-bbc0-bf208d75443b",
-    "BERT": "bert_en_uncased_L-24_H-1024_A-16",
-    "BERT_VERSION": 1,
-    "BATCH_SIZE": 16,
-    "EPOCHS": 3,
-    "OPTIMIZER": "adam",
-    "LEARNING_RATE": 2e-06,
-    "PREPROCESSING_ALGORITHM_UUID": "60314ef9-271d-4865-a7db-6889b1670f59",
-    "PREPROCESSING_ALGORITHM": {
-      "add_link_flag": false,
-      "add_user_flag": true,
-      "add_hash_flag": true,
-      "add_number_flag": false,
-      "add_keyword_flag": false,
-      "add_location_flag": false,
-      "remove_links": true,
-      "remove_users": true,
-      "remove_hash": true,
-      "unslang": true,
-      "split_words": true,
-      "stem": false,
-      "remove_punctuations": true,
-      "remove_numbers": true,
-      "to_lower_case": true,
-      "remove_stop_words": true,
-      "remove_not_alpha": true,
-      "join": true
-    },
-    "KFOLD_HISTORY": [
+      },
       {
         "loss": [
           0.47565081,
@@ -1431,39 +900,7 @@
           0.82562059
         ],
         "INPUT_LENGTH": 38
-      }
-    ]
-  },
-  "d97e8ee0-faba-4827-9bff-193cd78601de": {
-    "UUID": "d97e8ee0-faba-4827-9bff-193cd78601de",
-    "BERT": "bert_en_uncased_L-24_H-1024_A-16",
-    "BERT_VERSION": 1,
-    "BATCH_SIZE": 16,
-    "EPOCHS": 3,
-    "OPTIMIZER": "adam",
-    "LEARNING_RATE": 2e-06,
-    "PREPROCESSING_ALGORITHM_UUID": "60314ef9-271d-4865-a7db-6889b1670f59",
-    "PREPROCESSING_ALGORITHM": {
-      "add_link_flag": false,
-      "add_user_flag": true,
-      "add_hash_flag": true,
-      "add_number_flag": false,
-      "add_keyword_flag": false,
-      "add_location_flag": false,
-      "remove_links": true,
-      "remove_users": true,
-      "remove_hash": true,
-      "unslang": true,
-      "split_words": true,
-      "stem": false,
-      "remove_punctuations": true,
-      "remove_numbers": true,
-      "to_lower_case": true,
-      "remove_stop_words": true,
-      "remove_not_alpha": true,
-      "join": true
-    },
-    "KFOLD_HISTORY": [
+      },
       {
         "loss": [
           0.46956337,
@@ -1496,39 +933,7 @@
           0.81121665
         ],
         "INPUT_LENGTH": 38
-      }
-    ]
-  },
-  "3eda77cb-1b90-406d-b34a-d1bc700018a0": {
-    "UUID": "3eda77cb-1b90-406d-b34a-d1bc700018a0",
-    "BERT": "bert_en_uncased_L-24_H-1024_A-16",
-    "BERT_VERSION": 1,
-    "BATCH_SIZE": 16,
-    "EPOCHS": 3,
-    "OPTIMIZER": "adam",
-    "LEARNING_RATE": 2e-06,
-    "PREPROCESSING_ALGORITHM_UUID": "60314ef9-271d-4865-a7db-6889b1670f59",
-    "PREPROCESSING_ALGORITHM": {
-      "add_link_flag": false,
-      "add_user_flag": true,
-      "add_hash_flag": true,
-      "add_number_flag": false,
-      "add_keyword_flag": false,
-      "add_location_flag": false,
-      "remove_links": true,
-      "remove_users": true,
-      "remove_hash": true,
-      "unslang": true,
-      "split_words": true,
-      "stem": false,
-      "remove_punctuations": true,
-      "remove_numbers": true,
-      "to_lower_case": true,
-      "remove_stop_words": true,
-      "remove_not_alpha": true,
-      "join": true
-    },
-    "KFOLD_HISTORY": [
+      },
       {
         "loss": [
           0.46203568,
@@ -1561,39 +966,7 @@
           0.81581366
         ],
         "INPUT_LENGTH": 38
-      }
-    ]
-  },
-  "38617fe1-898d-4a5c-88d9-a9f4c8c90782": {
-    "UUID": "38617fe1-898d-4a5c-88d9-a9f4c8c90782",
-    "BERT": "bert_en_uncased_L-24_H-1024_A-16",
-    "BERT_VERSION": 1,
-    "BATCH_SIZE": 16,
-    "EPOCHS": 3,
-    "OPTIMIZER": "adam",
-    "LEARNING_RATE": 2e-06,
-    "PREPROCESSING_ALGORITHM_UUID": "60314ef9-271d-4865-a7db-6889b1670f59",
-    "PREPROCESSING_ALGORITHM": {
-      "add_link_flag": false,
-      "add_user_flag": true,
-      "add_hash_flag": true,
-      "add_number_flag": false,
-      "add_keyword_flag": false,
-      "add_location_flag": false,
-      "remove_links": true,
-      "remove_users": true,
-      "remove_hash": true,
-      "unslang": true,
-      "split_words": true,
-      "stem": false,
-      "remove_punctuations": true,
-      "remove_numbers": true,
-      "to_lower_case": true,
-      "remove_stop_words": true,
-      "remove_not_alpha": true,
-      "join": true
-    },
-    "KFOLD_HISTORY": [
+      },
       {
         "loss": [
           0.46075471,
@@ -1626,39 +999,7 @@
           0.81765246
         ],
         "INPUT_LENGTH": 38
-      }
-    ]
-  },
-  "492c28e2-dfef-42bf-a231-a4e856e9b173": {
-    "UUID": "492c28e2-dfef-42bf-a231-a4e856e9b173",
-    "BERT": "bert_en_uncased_L-24_H-1024_A-16",
-    "BERT_VERSION": 1,
-    "BATCH_SIZE": 16,
-    "EPOCHS": 3,
-    "OPTIMIZER": "adam",
-    "LEARNING_RATE": 2e-06,
-    "PREPROCESSING_ALGORITHM_UUID": "60314ef9-271d-4865-a7db-6889b1670f59",
-    "PREPROCESSING_ALGORITHM": {
-      "add_link_flag": false,
-      "add_user_flag": true,
-      "add_hash_flag": true,
-      "add_number_flag": false,
-      "add_keyword_flag": false,
-      "add_location_flag": false,
-      "remove_links": true,
-      "remove_users": true,
-      "remove_hash": true,
-      "unslang": true,
-      "split_words": true,
-      "stem": false,
-      "remove_punctuations": true,
-      "remove_numbers": true,
-      "to_lower_case": true,
-      "remove_stop_words": true,
-      "remove_not_alpha": true,
-      "join": true
-    },
-    "KFOLD_HISTORY": [
+      },
       {
         "loss": [
           0.46845822,
@@ -1691,39 +1032,7 @@
           0.81826538
         ],
         "INPUT_LENGTH": 38
-      }
-    ]
-  },
-  "49c3f64b-41da-4adf-9de0-222a382cc400": {
-    "UUID": "49c3f64b-41da-4adf-9de0-222a382cc400",
-    "BERT": "bert_en_uncased_L-24_H-1024_A-16",
-    "BERT_VERSION": 1,
-    "BATCH_SIZE": 16,
-    "EPOCHS": 3,
-    "OPTIMIZER": "adam",
-    "LEARNING_RATE": 2e-06,
-    "PREPROCESSING_ALGORITHM_UUID": "60314ef9-271d-4865-a7db-6889b1670f59",
-    "PREPROCESSING_ALGORITHM": {
-      "add_link_flag": false,
-      "add_user_flag": true,
-      "add_hash_flag": true,
-      "add_number_flag": false,
-      "add_keyword_flag": false,
-      "add_location_flag": false,
-      "remove_links": true,
-      "remove_users": true,
-      "remove_hash": true,
-      "unslang": true,
-      "split_words": true,
-      "stem": false,
-      "remove_punctuations": true,
-      "remove_numbers": true,
-      "to_lower_case": true,
-      "remove_stop_words": true,
-      "remove_not_alpha": true,
-      "join": true
-    },
-    "KFOLD_HISTORY": [
+      },
       {
         "loss": [
           0.46033373,
@@ -1757,9 +1066,10 @@
         ],
         "INPUT_LENGTH": 38
       }
-    ]
+    ],
+    "TYPE": "BERT"
   },
-  "51d06aab-0862-4cb1-b709-ccfc879e760e": {
+  "4c2e484d-5cb8-4e3e-ba7b-679ae7a73fca": {
     "UUID": "51d06aab-0862-4cb1-b709-ccfc879e760e",
     "BERT": "bert_en_uncased_L-24_H-1024_A-16",
     "BERT_VERSION": 1,
@@ -1821,39 +1131,7 @@
           0.82102358
         ],
         "INPUT_LENGTH": 51
-      }
-    ]
-  },
-  "aa2f6727-2cf2-43ac-848b-872319d6c9a3": {
-    "UUID": "aa2f6727-2cf2-43ac-848b-872319d6c9a3",
-    "BERT": "bert_en_uncased_L-24_H-1024_A-16",
-    "BERT_VERSION": 1,
-    "BATCH_SIZE": 16,
-    "EPOCHS": 3,
-    "OPTIMIZER": "adam",
-    "LEARNING_RATE": 2e-06,
-    "PREPROCESSING_ALGORITHM_UUID": "4c2e484d-5cb8-4e3e-ba7b-679ae7a73fca",
-    "PREPROCESSING_ALGORITHM": {
-      "add_link_flag": true,
-      "add_user_flag": true,
-      "add_hash_flag": true,
-      "add_number_flag": true,
-      "add_keyword_flag": true,
-      "add_location_flag": true,
-      "remove_links": true,
-      "remove_users": true,
-      "remove_hash": true,
-      "unslang": true,
-      "split_words": true,
-      "stem": false,
-      "remove_punctuations": true,
-      "remove_numbers": true,
-      "to_lower_case": true,
-      "remove_stop_words": true,
-      "remove_not_alpha": true,
-      "join": true
-    },
-    "KFOLD_HISTORY": [
+      },
       {
         "loss": [
           0.45432136,
@@ -1886,39 +1164,7 @@
           0.82071716
         ],
         "INPUT_LENGTH": 51
-      }
-    ]
-  },
-  "2bd79bd8-eefe-4708-a047-30e884a64870": {
-    "UUID": "2bd79bd8-eefe-4708-a047-30e884a64870",
-    "BERT": "bert_en_uncased_L-24_H-1024_A-16",
-    "BERT_VERSION": 1,
-    "BATCH_SIZE": 16,
-    "EPOCHS": 3,
-    "OPTIMIZER": "adam",
-    "LEARNING_RATE": 2e-06,
-    "PREPROCESSING_ALGORITHM_UUID": "4c2e484d-5cb8-4e3e-ba7b-679ae7a73fca",
-    "PREPROCESSING_ALGORITHM": {
-      "add_link_flag": true,
-      "add_user_flag": true,
-      "add_hash_flag": true,
-      "add_number_flag": true,
-      "add_keyword_flag": true,
-      "add_location_flag": true,
-      "remove_links": true,
-      "remove_users": true,
-      "remove_hash": true,
-      "unslang": true,
-      "split_words": true,
-      "stem": false,
-      "remove_punctuations": true,
-      "remove_numbers": true,
-      "to_lower_case": true,
-      "remove_stop_words": true,
-      "remove_not_alpha": true,
-      "join": true
-    },
-    "KFOLD_HISTORY": [
+      },
       {
         "loss": [
           0.46473088,
@@ -1951,39 +1197,7 @@
           0.8234753
         ],
         "INPUT_LENGTH": 51
-      }
-    ]
-  },
-  "b7aba80d-edca-447f-99a3-9cbc124ea9cf": {
-    "UUID": "b7aba80d-edca-447f-99a3-9cbc124ea9cf",
-    "BERT": "bert_en_uncased_L-24_H-1024_A-16",
-    "BERT_VERSION": 1,
-    "BATCH_SIZE": 16,
-    "EPOCHS": 3,
-    "OPTIMIZER": "adam",
-    "LEARNING_RATE": 2e-06,
-    "PREPROCESSING_ALGORITHM_UUID": "4c2e484d-5cb8-4e3e-ba7b-679ae7a73fca",
-    "PREPROCESSING_ALGORITHM": {
-      "add_link_flag": true,
-      "add_user_flag": true,
-      "add_hash_flag": true,
-      "add_number_flag": true,
-      "add_keyword_flag": true,
-      "add_location_flag": true,
-      "remove_links": true,
-      "remove_users": true,
-      "remove_hash": true,
-      "unslang": true,
-      "split_words": true,
-      "stem": false,
-      "remove_punctuations": true,
-      "remove_numbers": true,
-      "to_lower_case": true,
-      "remove_stop_words": true,
-      "remove_not_alpha": true,
-      "join": true
-    },
-    "KFOLD_HISTORY": [
+      },
       {
         "loss": [
           0.44453917,
@@ -2016,39 +1230,7 @@
           0.82102358
         ],
         "INPUT_LENGTH": 51
-      }
-    ]
-  },
-  "eee218f9-01c3-4cda-9477-1b5f94a5fe24": {
-    "UUID": "eee218f9-01c3-4cda-9477-1b5f94a5fe24",
-    "BERT": "bert_en_uncased_L-24_H-1024_A-16",
-    "BERT_VERSION": 1,
-    "BATCH_SIZE": 16,
-    "EPOCHS": 3,
-    "OPTIMIZER": "adam",
-    "LEARNING_RATE": 2e-06,
-    "PREPROCESSING_ALGORITHM_UUID": "4c2e484d-5cb8-4e3e-ba7b-679ae7a73fca",
-    "PREPROCESSING_ALGORITHM": {
-      "add_link_flag": true,
-      "add_user_flag": true,
-      "add_hash_flag": true,
-      "add_number_flag": true,
-      "add_keyword_flag": true,
-      "add_location_flag": true,
-      "remove_links": true,
-      "remove_users": true,
-      "remove_hash": true,
-      "unslang": true,
-      "split_words": true,
-      "stem": false,
-      "remove_punctuations": true,
-      "remove_numbers": true,
-      "to_lower_case": true,
-      "remove_stop_words": true,
-      "remove_not_alpha": true,
-      "join": true
-    },
-    "KFOLD_HISTORY": [
+      },
       {
         "loss": [
           0.45784634,
@@ -2081,39 +1263,7 @@
           0.82684648
         ],
         "INPUT_LENGTH": 51
-      }
-    ]
-  },
-  "9713c878-5cea-42ff-bc68-8448fc28c4d9": {
-    "UUID": "9713c878-5cea-42ff-bc68-8448fc28c4d9",
-    "BERT": "bert_en_uncased_L-24_H-1024_A-16",
-    "BERT_VERSION": 1,
-    "BATCH_SIZE": 16,
-    "EPOCHS": 3,
-    "OPTIMIZER": "adam",
-    "LEARNING_RATE": 2e-06,
-    "PREPROCESSING_ALGORITHM_UUID": "4c2e484d-5cb8-4e3e-ba7b-679ae7a73fca",
-    "PREPROCESSING_ALGORITHM": {
-      "add_link_flag": true,
-      "add_user_flag": true,
-      "add_hash_flag": true,
-      "add_number_flag": true,
-      "add_keyword_flag": true,
-      "add_location_flag": true,
-      "remove_links": true,
-      "remove_users": true,
-      "remove_hash": true,
-      "unslang": true,
-      "split_words": true,
-      "stem": false,
-      "remove_punctuations": true,
-      "remove_numbers": true,
-      "to_lower_case": true,
-      "remove_stop_words": true,
-      "remove_not_alpha": true,
-      "join": true
-    },
-    "KFOLD_HISTORY": [
+      },
       {
         "loss": [
           0.44997053,
@@ -2146,39 +1296,7 @@
           0.81060374
         ],
         "INPUT_LENGTH": 51
-      }
-    ]
-  },
-  "966bd4ce-453c-46e8-bc27-162c6293dd52": {
-    "UUID": "966bd4ce-453c-46e8-bc27-162c6293dd52",
-    "BERT": "bert_en_uncased_L-24_H-1024_A-16",
-    "BERT_VERSION": 1,
-    "BATCH_SIZE": 16,
-    "EPOCHS": 3,
-    "OPTIMIZER": "adam",
-    "LEARNING_RATE": 2e-06,
-    "PREPROCESSING_ALGORITHM_UUID": "4c2e484d-5cb8-4e3e-ba7b-679ae7a73fca",
-    "PREPROCESSING_ALGORITHM": {
-      "add_link_flag": true,
-      "add_user_flag": true,
-      "add_hash_flag": true,
-      "add_number_flag": true,
-      "add_keyword_flag": true,
-      "add_location_flag": true,
-      "remove_links": true,
-      "remove_users": true,
-      "remove_hash": true,
-      "unslang": true,
-      "split_words": true,
-      "stem": false,
-      "remove_punctuations": true,
-      "remove_numbers": true,
-      "to_lower_case": true,
-      "remove_stop_words": true,
-      "remove_not_alpha": true,
-      "join": true
-    },
-    "KFOLD_HISTORY": [
+      },
       {
         "loss": [
           0.45247746,
@@ -2211,39 +1329,7 @@
           0.81795895
         ],
         "INPUT_LENGTH": 49
-      }
-    ]
-  },
-  "8b590e00-a804-4e4f-bb1c-6331f17f0222": {
-    "UUID": "8b590e00-a804-4e4f-bb1c-6331f17f0222",
-    "BERT": "bert_en_uncased_L-24_H-1024_A-16",
-    "BERT_VERSION": 1,
-    "BATCH_SIZE": 16,
-    "EPOCHS": 3,
-    "OPTIMIZER": "adam",
-    "LEARNING_RATE": 2e-06,
-    "PREPROCESSING_ALGORITHM_UUID": "4c2e484d-5cb8-4e3e-ba7b-679ae7a73fca",
-    "PREPROCESSING_ALGORITHM": {
-      "add_link_flag": true,
-      "add_user_flag": true,
-      "add_hash_flag": true,
-      "add_number_flag": true,
-      "add_keyword_flag": true,
-      "add_location_flag": true,
-      "remove_links": true,
-      "remove_users": true,
-      "remove_hash": true,
-      "unslang": true,
-      "split_words": true,
-      "stem": false,
-      "remove_punctuations": true,
-      "remove_numbers": true,
-      "to_lower_case": true,
-      "remove_stop_words": true,
-      "remove_not_alpha": true,
-      "join": true
-    },
-    "KFOLD_HISTORY": [
+      },
       {
         "loss": [
           0.45301683,
@@ -2276,39 +1362,7 @@
           0.81121665
         ],
         "INPUT_LENGTH": 51
-      }
-    ]
-  },
-  "362b86d0-b0d0-4c52-a862-df88e52248ac": {
-    "UUID": "362b86d0-b0d0-4c52-a862-df88e52248ac",
-    "BERT": "bert_en_uncased_L-24_H-1024_A-16",
-    "BERT_VERSION": 1,
-    "BATCH_SIZE": 16,
-    "EPOCHS": 3,
-    "OPTIMIZER": "adam",
-    "LEARNING_RATE": 2e-06,
-    "PREPROCESSING_ALGORITHM_UUID": "4c2e484d-5cb8-4e3e-ba7b-679ae7a73fca",
-    "PREPROCESSING_ALGORITHM": {
-      "add_link_flag": true,
-      "add_user_flag": true,
-      "add_hash_flag": true,
-      "add_number_flag": true,
-      "add_keyword_flag": true,
-      "add_location_flag": true,
-      "remove_links": true,
-      "remove_users": true,
-      "remove_hash": true,
-      "unslang": true,
-      "split_words": true,
-      "stem": false,
-      "remove_punctuations": true,
-      "remove_numbers": true,
-      "to_lower_case": true,
-      "remove_stop_words": true,
-      "remove_not_alpha": true,
-      "join": true
-    },
-    "KFOLD_HISTORY": [
+      },
       {
         "loss": [
           0.46145876,
@@ -2341,39 +1395,7 @@
           0.82102358
         ],
         "INPUT_LENGTH": 51
-      }
-    ]
-  },
-  "0da014d7-65f6-4d84-b659-0e1e773db7d5": {
-    "UUID": "0da014d7-65f6-4d84-b659-0e1e773db7d5",
-    "BERT": "bert_en_uncased_L-24_H-1024_A-16",
-    "BERT_VERSION": 1,
-    "BATCH_SIZE": 16,
-    "EPOCHS": 3,
-    "OPTIMIZER": "adam",
-    "LEARNING_RATE": 2e-06,
-    "PREPROCESSING_ALGORITHM_UUID": "4c2e484d-5cb8-4e3e-ba7b-679ae7a73fca",
-    "PREPROCESSING_ALGORITHM": {
-      "add_link_flag": true,
-      "add_user_flag": true,
-      "add_hash_flag": true,
-      "add_number_flag": true,
-      "add_keyword_flag": true,
-      "add_location_flag": true,
-      "remove_links": true,
-      "remove_users": true,
-      "remove_hash": true,
-      "unslang": true,
-      "split_words": true,
-      "stem": false,
-      "remove_punctuations": true,
-      "remove_numbers": true,
-      "to_lower_case": true,
-      "remove_stop_words": true,
-      "remove_not_alpha": true,
-      "join": true
-    },
-    "KFOLD_HISTORY": [
+      },
       {
         "loss": [
           0.450917,
@@ -2407,9 +1429,10 @@
         ],
         "INPUT_LENGTH": 51
       }
-    ]
+    ],
+    "TYPE": "BERT"
   },
-  "46b80ce7-e359-4e35-b513-8ead55a38466": {
+  "8b7db91c-c8bf-40f2-986a-83a659b63ba6": {
     "UUID": "46b80ce7-e359-4e35-b513-8ead55a38466",
     "BERT": "bert_en_uncased_L-24_H-1024_A-16",
     "BERT_VERSION": 1,
@@ -2471,39 +1494,7 @@
           0.81979775
         ],
         "INPUT_LENGTH": 41
-      }
-    ]
-  },
-  "31bea2f2-64cf-4ec8-ac5b-21151a44551f": {
-    "UUID": "31bea2f2-64cf-4ec8-ac5b-21151a44551f",
-    "BERT": "bert_en_uncased_L-24_H-1024_A-16",
-    "BERT_VERSION": 1,
-    "BATCH_SIZE": 16,
-    "EPOCHS": 3,
-    "OPTIMIZER": "adam",
-    "LEARNING_RATE": 2e-06,
-    "PREPROCESSING_ALGORITHM_UUID": "8b7db91c-c8bf-40f2-986a-83a659b63ba6",
-    "PREPROCESSING_ALGORITHM": {
-      "add_link_flag": true,
-      "add_user_flag": true,
-      "add_hash_flag": true,
-      "add_number_flag": false,
-      "add_keyword_flag": false,
-      "add_location_flag": false,
-      "remove_links": true,
-      "remove_users": true,
-      "remove_hash": true,
-      "unslang": true,
-      "split_words": true,
-      "stem": false,
-      "remove_punctuations": true,
-      "remove_numbers": true,
-      "to_lower_case": true,
-      "remove_stop_words": true,
-      "remove_not_alpha": true,
-      "join": true
-    },
-    "KFOLD_HISTORY": [
+      },
       {
         "loss": [
           0.46763408,
@@ -2536,39 +1527,7 @@
           0.81121665
         ],
         "INPUT_LENGTH": 41
-      }
-    ]
-  },
-  "a5f6cf87-13b4-4ee5-919a-dae90c2bb8bf": {
-    "UUID": "a5f6cf87-13b4-4ee5-919a-dae90c2bb8bf",
-    "BERT": "bert_en_uncased_L-24_H-1024_A-16",
-    "BERT_VERSION": 1,
-    "BATCH_SIZE": 16,
-    "EPOCHS": 3,
-    "OPTIMIZER": "adam",
-    "LEARNING_RATE": 2e-06,
-    "PREPROCESSING_ALGORITHM_UUID": "8b7db91c-c8bf-40f2-986a-83a659b63ba6",
-    "PREPROCESSING_ALGORITHM": {
-      "add_link_flag": true,
-      "add_user_flag": true,
-      "add_hash_flag": true,
-      "add_number_flag": false,
-      "add_keyword_flag": false,
-      "add_location_flag": false,
-      "remove_links": true,
-      "remove_users": true,
-      "remove_hash": true,
-      "unslang": true,
-      "split_words": true,
-      "stem": false,
-      "remove_punctuations": true,
-      "remove_numbers": true,
-      "to_lower_case": true,
-      "remove_stop_words": true,
-      "remove_not_alpha": true,
-      "join": true
-    },
-    "KFOLD_HISTORY": [
+      },
       {
         "loss": [
           0.45502768,
@@ -2601,39 +1560,7 @@
           0.82745939
         ],
         "INPUT_LENGTH": 41
-      }
-    ]
-  },
-  "0cada551-cff5-47d5-a5d7-04312d6b174b": {
-    "UUID": "0cada551-cff5-47d5-a5d7-04312d6b174b",
-    "BERT": "bert_en_uncased_L-24_H-1024_A-16",
-    "BERT_VERSION": 1,
-    "BATCH_SIZE": 16,
-    "EPOCHS": 3,
-    "OPTIMIZER": "adam",
-    "LEARNING_RATE": 2e-06,
-    "PREPROCESSING_ALGORITHM_UUID": "8b7db91c-c8bf-40f2-986a-83a659b63ba6",
-    "PREPROCESSING_ALGORITHM": {
-      "add_link_flag": true,
-      "add_user_flag": true,
-      "add_hash_flag": true,
-      "add_number_flag": false,
-      "add_keyword_flag": false,
-      "add_location_flag": false,
-      "remove_links": true,
-      "remove_users": true,
-      "remove_hash": true,
-      "unslang": true,
-      "split_words": true,
-      "stem": false,
-      "remove_punctuations": true,
-      "remove_numbers": true,
-      "to_lower_case": true,
-      "remove_stop_words": true,
-      "remove_not_alpha": true,
-      "join": true
-    },
-    "KFOLD_HISTORY": [
+      },
       {
         "loss": [
           0.47294879,
@@ -2666,39 +1593,7 @@
           0.83083051
         ],
         "INPUT_LENGTH": 41
-      }
-    ]
-  },
-  "2d0b690d-5a93-46f1-a706-8fa4cbed2646": {
-    "UUID": "2d0b690d-5a93-46f1-a706-8fa4cbed2646",
-    "BERT": "bert_en_uncased_L-24_H-1024_A-16",
-    "BERT_VERSION": 1,
-    "BATCH_SIZE": 16,
-    "EPOCHS": 3,
-    "OPTIMIZER": "adam",
-    "LEARNING_RATE": 2e-06,
-    "PREPROCESSING_ALGORITHM_UUID": "8b7db91c-c8bf-40f2-986a-83a659b63ba6",
-    "PREPROCESSING_ALGORITHM": {
-      "add_link_flag": true,
-      "add_user_flag": true,
-      "add_hash_flag": true,
-      "add_number_flag": false,
-      "add_keyword_flag": false,
-      "add_location_flag": false,
-      "remove_links": true,
-      "remove_users": true,
-      "remove_hash": true,
-      "unslang": true,
-      "split_words": true,
-      "stem": false,
-      "remove_punctuations": true,
-      "remove_numbers": true,
-      "to_lower_case": true,
-      "remove_stop_words": true,
-      "remove_not_alpha": true,
-      "join": true
-    },
-    "KFOLD_HISTORY": [
+      },
       {
         "loss": [
           0.44771016,
@@ -2731,39 +1626,7 @@
           0.82163656
         ],
         "INPUT_LENGTH": 41
-      }
-    ]
-  },
-  "de2846da-ad63-4e64-a2a9-edfd395428a8": {
-    "UUID": "de2846da-ad63-4e64-a2a9-edfd395428a8",
-    "BERT": "bert_en_uncased_L-24_H-1024_A-16",
-    "BERT_VERSION": 1,
-    "BATCH_SIZE": 16,
-    "EPOCHS": 3,
-    "OPTIMIZER": "adam",
-    "LEARNING_RATE": 2e-06,
-    "PREPROCESSING_ALGORITHM_UUID": "8b7db91c-c8bf-40f2-986a-83a659b63ba6",
-    "PREPROCESSING_ALGORITHM": {
-      "add_link_flag": true,
-      "add_user_flag": true,
-      "add_hash_flag": true,
-      "add_number_flag": false,
-      "add_keyword_flag": false,
-      "add_location_flag": false,
-      "remove_links": true,
-      "remove_users": true,
-      "remove_hash": true,
-      "unslang": true,
-      "split_words": true,
-      "stem": false,
-      "remove_punctuations": true,
-      "remove_numbers": true,
-      "to_lower_case": true,
-      "remove_stop_words": true,
-      "remove_not_alpha": true,
-      "join": true
-    },
-    "KFOLD_HISTORY": [
+      },
       {
         "loss": [
           0.45821696,
@@ -2796,39 +1659,7 @@
           0.82592708
         ],
         "INPUT_LENGTH": 41
-      }
-    ]
-  },
-  "ac9bfb18-e474-49ad-a4ba-84f823a289d9": {
-    "UUID": "ac9bfb18-e474-49ad-a4ba-84f823a289d9",
-    "BERT": "bert_en_uncased_L-24_H-1024_A-16",
-    "BERT_VERSION": 1,
-    "BATCH_SIZE": 16,
-    "EPOCHS": 3,
-    "OPTIMIZER": "adam",
-    "LEARNING_RATE": 2e-06,
-    "PREPROCESSING_ALGORITHM_UUID": "8b7db91c-c8bf-40f2-986a-83a659b63ba6",
-    "PREPROCESSING_ALGORITHM": {
-      "add_link_flag": true,
-      "add_user_flag": true,
-      "add_hash_flag": true,
-      "add_number_flag": false,
-      "add_keyword_flag": false,
-      "add_location_flag": false,
-      "remove_links": true,
-      "remove_users": true,
-      "remove_hash": true,
-      "unslang": true,
-      "split_words": true,
-      "stem": false,
-      "remove_punctuations": true,
-      "remove_numbers": true,
-      "to_lower_case": true,
-      "remove_stop_words": true,
-      "remove_not_alpha": true,
-      "join": true
-    },
-    "KFOLD_HISTORY": [
+      },
       {
         "loss": [
           0.46312318,
@@ -2861,39 +1692,7 @@
           0.82684648
         ],
         "INPUT_LENGTH": 41
-      }
-    ]
-  },
-  "306f2bef-ecf9-4165-9ad5-79443f7b1a90": {
-    "UUID": "306f2bef-ecf9-4165-9ad5-79443f7b1a90",
-    "BERT": "bert_en_uncased_L-24_H-1024_A-16",
-    "BERT_VERSION": 1,
-    "BATCH_SIZE": 16,
-    "EPOCHS": 3,
-    "OPTIMIZER": "adam",
-    "LEARNING_RATE": 2e-06,
-    "PREPROCESSING_ALGORITHM_UUID": "8b7db91c-c8bf-40f2-986a-83a659b63ba6",
-    "PREPROCESSING_ALGORITHM": {
-      "add_link_flag": true,
-      "add_user_flag": true,
-      "add_hash_flag": true,
-      "add_number_flag": false,
-      "add_keyword_flag": false,
-      "add_location_flag": false,
-      "remove_links": true,
-      "remove_users": true,
-      "remove_hash": true,
-      "unslang": true,
-      "split_words": true,
-      "stem": false,
-      "remove_punctuations": true,
-      "remove_numbers": true,
-      "to_lower_case": true,
-      "remove_stop_words": true,
-      "remove_not_alpha": true,
-      "join": true
-    },
-    "KFOLD_HISTORY": [
+      },
       {
         "loss": [
           0.46103839,
@@ -2926,39 +1725,7 @@
           0.82224947
         ],
         "INPUT_LENGTH": 41
-      }
-    ]
-  },
-  "003fe99a-4017-4d8e-8b87-ca78d96a85b3": {
-    "UUID": "003fe99a-4017-4d8e-8b87-ca78d96a85b3",
-    "BERT": "bert_en_uncased_L-24_H-1024_A-16",
-    "BERT_VERSION": 1,
-    "BATCH_SIZE": 16,
-    "EPOCHS": 3,
-    "OPTIMIZER": "adam",
-    "LEARNING_RATE": 2e-06,
-    "PREPROCESSING_ALGORITHM_UUID": "8b7db91c-c8bf-40f2-986a-83a659b63ba6",
-    "PREPROCESSING_ALGORITHM": {
-      "add_link_flag": true,
-      "add_user_flag": true,
-      "add_hash_flag": true,
-      "add_number_flag": false,
-      "add_keyword_flag": false,
-      "add_location_flag": false,
-      "remove_links": true,
-      "remove_users": true,
-      "remove_hash": true,
-      "unslang": true,
-      "split_words": true,
-      "stem": false,
-      "remove_punctuations": true,
-      "remove_numbers": true,
-      "to_lower_case": true,
-      "remove_stop_words": true,
-      "remove_not_alpha": true,
-      "join": true
-    },
-    "KFOLD_HISTORY": [
+      },
       {
         "loss": [
           0.44940777,
@@ -2991,39 +1758,7 @@
           0.81274903
         ],
         "INPUT_LENGTH": 41
-      }
-    ]
-  },
-  "6a88256f-99d7-4c5d-8f52-ad97369de85f": {
-    "UUID": "6a88256f-99d7-4c5d-8f52-ad97369de85f",
-    "BERT": "bert_en_uncased_L-24_H-1024_A-16",
-    "BERT_VERSION": 1,
-    "BATCH_SIZE": 16,
-    "EPOCHS": 3,
-    "OPTIMIZER": "adam",
-    "LEARNING_RATE": 2e-06,
-    "PREPROCESSING_ALGORITHM_UUID": "8b7db91c-c8bf-40f2-986a-83a659b63ba6",
-    "PREPROCESSING_ALGORITHM": {
-      "add_link_flag": true,
-      "add_user_flag": true,
-      "add_hash_flag": true,
-      "add_number_flag": false,
-      "add_keyword_flag": false,
-      "add_location_flag": false,
-      "remove_links": true,
-      "remove_users": true,
-      "remove_hash": true,
-      "unslang": true,
-      "split_words": true,
-      "stem": false,
-      "remove_punctuations": true,
-      "remove_numbers": true,
-      "to_lower_case": true,
-      "remove_stop_words": true,
-      "remove_not_alpha": true,
-      "join": true
-    },
-    "KFOLD_HISTORY": [
+      },
       {
         "loss": [
           0.46808675,
@@ -3057,9 +1792,10 @@
         ],
         "INPUT_LENGTH": 41
       }
-    ]
+    ],
+    "TYPE": "BERT"
   },
-  "b3742922-8222-46a9-b6f2-7582214a2cd8": {
+  "7bc816a1-25df-4649-8570-0012d0acd72a": {
     "UUID": "b3742922-8222-46a9-b6f2-7582214a2cd8",
     "BERT": "bert_en_uncased_L-24_H-1024_A-16",
     "BERT_VERSION": 1,
@@ -3121,39 +1857,7 @@
           0.81489426
         ],
         "INPUT_LENGTH": 38
-      }
-    ]
-  },
-  "3469a273-92c7-4a0e-b924-9ee1897e7288": {
-    "UUID": "3469a273-92c7-4a0e-b924-9ee1897e7288",
-    "BERT": "bert_en_uncased_L-24_H-1024_A-16",
-    "BERT_VERSION": 1,
-    "BATCH_SIZE": 16,
-    "EPOCHS": 3,
-    "OPTIMIZER": "adam",
-    "LEARNING_RATE": 2e-06,
-    "PREPROCESSING_ALGORITHM_UUID": "7bc816a1-25df-4649-8570-0012d0acd72a",
-    "PREPROCESSING_ALGORITHM": {
-      "add_link_flag": false,
-      "add_user_flag": false,
-      "add_hash_flag": false,
-      "add_number_flag": false,
-      "add_keyword_flag": false,
-      "add_location_flag": false,
-      "remove_links": true,
-      "remove_users": true,
-      "remove_hash": true,
-      "unslang": true,
-      "split_words": true,
-      "stem": false,
-      "remove_punctuations": true,
-      "remove_numbers": true,
-      "to_lower_case": true,
-      "remove_stop_words": true,
-      "remove_not_alpha": true,
-      "join": true
-    },
-    "KFOLD_HISTORY": [
+      },
       {
         "loss": [
           0.45951854,
@@ -3186,39 +1890,7 @@
           0.82163656
         ],
         "INPUT_LENGTH": 38
-      }
-    ]
-  },
-  "e94f3e5b-48a7-4e66-b5eb-c3032f143e25": {
-    "UUID": "e94f3e5b-48a7-4e66-b5eb-c3032f143e25",
-    "BERT": "bert_en_uncased_L-24_H-1024_A-16",
-    "BERT_VERSION": 1,
-    "BATCH_SIZE": 16,
-    "EPOCHS": 3,
-    "OPTIMIZER": "adam",
-    "LEARNING_RATE": 2e-06,
-    "PREPROCESSING_ALGORITHM_UUID": "7bc816a1-25df-4649-8570-0012d0acd72a",
-    "PREPROCESSING_ALGORITHM": {
-      "add_link_flag": false,
-      "add_user_flag": false,
-      "add_hash_flag": false,
-      "add_number_flag": false,
-      "add_keyword_flag": false,
-      "add_location_flag": false,
-      "remove_links": true,
-      "remove_users": true,
-      "remove_hash": true,
-      "unslang": true,
-      "split_words": true,
-      "stem": false,
-      "remove_punctuations": true,
-      "remove_numbers": true,
-      "to_lower_case": true,
-      "remove_stop_words": true,
-      "remove_not_alpha": true,
-      "join": true
-    },
-    "KFOLD_HISTORY": [
+      },
       {
         "loss": [
           0.46416773,
@@ -3251,39 +1923,7 @@
           0.81765246
         ],
         "INPUT_LENGTH": 38
-      }
-    ]
-  },
-  "33781267-02d3-4574-a094-892a8365348f": {
-    "UUID": "33781267-02d3-4574-a094-892a8365348f",
-    "BERT": "bert_en_uncased_L-24_H-1024_A-16",
-    "BERT_VERSION": 1,
-    "BATCH_SIZE": 16,
-    "EPOCHS": 3,
-    "OPTIMIZER": "adam",
-    "LEARNING_RATE": 2e-06,
-    "PREPROCESSING_ALGORITHM_UUID": "7bc816a1-25df-4649-8570-0012d0acd72a",
-    "PREPROCESSING_ALGORITHM": {
-      "add_link_flag": false,
-      "add_user_flag": false,
-      "add_hash_flag": false,
-      "add_number_flag": false,
-      "add_keyword_flag": false,
-      "add_location_flag": false,
-      "remove_links": true,
-      "remove_users": true,
-      "remove_hash": true,
-      "unslang": true,
-      "split_words": true,
-      "stem": false,
-      "remove_punctuations": true,
-      "remove_numbers": true,
-      "to_lower_case": true,
-      "remove_stop_words": true,
-      "remove_not_alpha": true,
-      "join": true
-    },
-    "KFOLD_HISTORY": [
+      },
       {
         "loss": [
           0.47459099,
@@ -3316,39 +1956,7 @@
           0.80753905
         ],
         "INPUT_LENGTH": 38
-      }
-    ]
-  },
-  "6d4dc02a-72be-48b1-9d9d-d95a54fcba18": {
-    "UUID": "6d4dc02a-72be-48b1-9d9d-d95a54fcba18",
-    "BERT": "bert_en_uncased_L-24_H-1024_A-16",
-    "BERT_VERSION": 1,
-    "BATCH_SIZE": 16,
-    "EPOCHS": 3,
-    "OPTIMIZER": "adam",
-    "LEARNING_RATE": 2e-06,
-    "PREPROCESSING_ALGORITHM_UUID": "7bc816a1-25df-4649-8570-0012d0acd72a",
-    "PREPROCESSING_ALGORITHM": {
-      "add_link_flag": false,
-      "add_user_flag": false,
-      "add_hash_flag": false,
-      "add_number_flag": false,
-      "add_keyword_flag": false,
-      "add_location_flag": false,
-      "remove_links": true,
-      "remove_users": true,
-      "remove_hash": true,
-      "unslang": true,
-      "split_words": true,
-      "stem": false,
-      "remove_punctuations": true,
-      "remove_numbers": true,
-      "to_lower_case": true,
-      "remove_stop_words": true,
-      "remove_not_alpha": true,
-      "join": true
-    },
-    "KFOLD_HISTORY": [
+      },
       {
         "loss": [
           0.46389946,
@@ -3381,39 +1989,7 @@
           0.81826538
         ],
         "INPUT_LENGTH": 38
-      }
-    ]
-  },
-  "a836a6ea-451f-4925-828e-1fae58f6537b": {
-    "UUID": "a836a6ea-451f-4925-828e-1fae58f6537b",
-    "BERT": "bert_en_uncased_L-24_H-1024_A-16",
-    "BERT_VERSION": 1,
-    "BATCH_SIZE": 16,
-    "EPOCHS": 3,
-    "OPTIMIZER": "adam",
-    "LEARNING_RATE": 2e-06,
-    "PREPROCESSING_ALGORITHM_UUID": "7bc816a1-25df-4649-8570-0012d0acd72a",
-    "PREPROCESSING_ALGORITHM": {
-      "add_link_flag": false,
-      "add_user_flag": false,
-      "add_hash_flag": false,
-      "add_number_flag": false,
-      "add_keyword_flag": false,
-      "add_location_flag": false,
-      "remove_links": true,
-      "remove_users": true,
-      "remove_hash": true,
-      "unslang": true,
-      "split_words": true,
-      "stem": false,
-      "remove_punctuations": true,
-      "remove_numbers": true,
-      "to_lower_case": true,
-      "remove_stop_words": true,
-      "remove_not_alpha": true,
-      "join": true
-    },
-    "KFOLD_HISTORY": [
+      },
       {
         "loss": [
           0.48432179,
@@ -3446,39 +2022,7 @@
           0.8038615
         ],
         "INPUT_LENGTH": 38
-      }
-    ]
-  },
-  "4fbf50d9-7849-42cb-b2f5-0e567a6288a2": {
-    "UUID": "4fbf50d9-7849-42cb-b2f5-0e567a6288a2",
-    "BERT": "bert_en_uncased_L-24_H-1024_A-16",
-    "BERT_VERSION": 1,
-    "BATCH_SIZE": 16,
-    "EPOCHS": 3,
-    "OPTIMIZER": "adam",
-    "LEARNING_RATE": 2e-06,
-    "PREPROCESSING_ALGORITHM_UUID": "7bc816a1-25df-4649-8570-0012d0acd72a",
-    "PREPROCESSING_ALGORITHM": {
-      "add_link_flag": false,
-      "add_user_flag": false,
-      "add_hash_flag": false,
-      "add_number_flag": false,
-      "add_keyword_flag": false,
-      "add_location_flag": false,
-      "remove_links": true,
-      "remove_users": true,
-      "remove_hash": true,
-      "unslang": true,
-      "split_words": true,
-      "stem": false,
-      "remove_punctuations": true,
-      "remove_numbers": true,
-      "to_lower_case": true,
-      "remove_stop_words": true,
-      "remove_not_alpha": true,
-      "join": true
-    },
-    "KFOLD_HISTORY": [
+      },
       {
         "loss": [
           0.45609097,
@@ -3511,39 +2055,7 @@
           0.81060374
         ],
         "INPUT_LENGTH": 38
-      }
-    ]
-  },
-  "c12769e4-5c26-4f38-bcfa-d760ac552fc4": {
-    "UUID": "c12769e4-5c26-4f38-bcfa-d760ac552fc4",
-    "BERT": "bert_en_uncased_L-24_H-1024_A-16",
-    "BERT_VERSION": 1,
-    "BATCH_SIZE": 16,
-    "EPOCHS": 3,
-    "OPTIMIZER": "adam",
-    "LEARNING_RATE": 2e-06,
-    "PREPROCESSING_ALGORITHM_UUID": "7bc816a1-25df-4649-8570-0012d0acd72a",
-    "PREPROCESSING_ALGORITHM": {
-      "add_link_flag": false,
-      "add_user_flag": false,
-      "add_hash_flag": false,
-      "add_number_flag": false,
-      "add_keyword_flag": false,
-      "add_location_flag": false,
-      "remove_links": true,
-      "remove_users": true,
-      "remove_hash": true,
-      "unslang": true,
-      "split_words": true,
-      "stem": false,
-      "remove_punctuations": true,
-      "remove_numbers": true,
-      "to_lower_case": true,
-      "remove_stop_words": true,
-      "remove_not_alpha": true,
-      "join": true
-    },
-    "KFOLD_HISTORY": [
+      },
       {
         "loss": [
           0.48062604,
@@ -3576,39 +2088,7 @@
           0.81305546
         ],
         "INPUT_LENGTH": 38
-      }
-    ]
-  },
-  "0878da72-41f7-4bf0-862c-d110ff21163c": {
-    "UUID": "0878da72-41f7-4bf0-862c-d110ff21163c",
-    "BERT": "bert_en_uncased_L-24_H-1024_A-16",
-    "BERT_VERSION": 1,
-    "BATCH_SIZE": 16,
-    "EPOCHS": 3,
-    "OPTIMIZER": "adam",
-    "LEARNING_RATE": 2e-06,
-    "PREPROCESSING_ALGORITHM_UUID": "7bc816a1-25df-4649-8570-0012d0acd72a",
-    "PREPROCESSING_ALGORITHM": {
-      "add_link_flag": false,
-      "add_user_flag": false,
-      "add_hash_flag": false,
-      "add_number_flag": false,
-      "add_keyword_flag": false,
-      "add_location_flag": false,
-      "remove_links": true,
-      "remove_users": true,
-      "remove_hash": true,
-      "unslang": true,
-      "split_words": true,
-      "stem": false,
-      "remove_punctuations": true,
-      "remove_numbers": true,
-      "to_lower_case": true,
-      "remove_stop_words": true,
-      "remove_not_alpha": true,
-      "join": true
-    },
-    "KFOLD_HISTORY": [
+      },
       {
         "loss": [
           0.46943967,
@@ -3641,39 +2121,7 @@
           0.80999082
         ],
         "INPUT_LENGTH": 38
-      }
-    ]
-  },
-  "279d7a2c-2c6c-4862-9a30-b1005620161e": {
-    "UUID": "279d7a2c-2c6c-4862-9a30-b1005620161e",
-    "BERT": "bert_en_uncased_L-24_H-1024_A-16",
-    "BERT_VERSION": 1,
-    "BATCH_SIZE": 16,
-    "EPOCHS": 3,
-    "OPTIMIZER": "adam",
-    "LEARNING_RATE": 2e-06,
-    "PREPROCESSING_ALGORITHM_UUID": "7bc816a1-25df-4649-8570-0012d0acd72a",
-    "PREPROCESSING_ALGORITHM": {
-      "add_link_flag": false,
-      "add_user_flag": false,
-      "add_hash_flag": false,
-      "add_number_flag": false,
-      "add_keyword_flag": false,
-      "add_location_flag": false,
-      "remove_links": true,
-      "remove_users": true,
-      "remove_hash": true,
-      "unslang": true,
-      "split_words": true,
-      "stem": false,
-      "remove_punctuations": true,
-      "remove_numbers": true,
-      "to_lower_case": true,
-      "remove_stop_words": true,
-      "remove_not_alpha": true,
-      "join": true
-    },
-    "KFOLD_HISTORY": [
+      },
       {
         "loss": [
           0.47180458,
@@ -3707,9 +2155,10 @@
         ],
         "INPUT_LENGTH": 38
       }
-    ]
+    ],
+    "TYPE": "BERT"
   },
-  "7dc5edc4-b5c4-4166-8a72-c11c583401f7": {
+  "a85c8435-6f23-4015-9e8c-19547222d6ce": {
     "UUID": "7dc5edc4-b5c4-4166-8a72-c11c583401f7",
     "BERT": "bert_en_uncased_L-24_H-1024_A-16",
     "BERT_VERSION": 1,
@@ -3771,39 +2220,7 @@
           0.8253141
         ],
         "INPUT_LENGTH": 60
-      }
-    ]
-  },
-  "84156f1e-a6b2-4bd3-afb0-67416290cffe": {
-    "UUID": "84156f1e-a6b2-4bd3-afb0-67416290cffe",
-    "BERT": "bert_en_uncased_L-24_H-1024_A-16",
-    "BERT_VERSION": 1,
-    "BATCH_SIZE": 16,
-    "EPOCHS": 3,
-    "OPTIMIZER": "adam",
-    "LEARNING_RATE": 2e-06,
-    "PREPROCESSING_ALGORITHM_UUID": "a85c8435-6f23-4015-9e8c-19547222d6ce",
-    "PREPROCESSING_ALGORITHM": {
-      "add_link_flag": true,
-      "add_user_flag": true,
-      "add_hash_flag": true,
-      "add_number_flag": true,
-      "add_keyword_flag": false,
-      "add_location_flag": false,
-      "remove_links": true,
-      "remove_users": true,
-      "remove_hash": true,
-      "unslang": true,
-      "split_words": true,
-      "stem": false,
-      "remove_punctuations": false,
-      "remove_numbers": true,
-      "to_lower_case": true,
-      "remove_stop_words": false,
-      "remove_not_alpha": false,
-      "join": true
-    },
-    "KFOLD_HISTORY": [
+      },
       {
         "loss": [
           0.47170595,
@@ -3836,39 +2253,7 @@
           0.82623351
         ],
         "INPUT_LENGTH": 60
-      }
-    ]
-  },
-  "bcfa0116-c3c9-4d65-868f-f65de00fddae": {
-    "UUID": "bcfa0116-c3c9-4d65-868f-f65de00fddae",
-    "BERT": "bert_en_uncased_L-24_H-1024_A-16",
-    "BERT_VERSION": 1,
-    "BATCH_SIZE": 16,
-    "EPOCHS": 3,
-    "OPTIMIZER": "adam",
-    "LEARNING_RATE": 2e-06,
-    "PREPROCESSING_ALGORITHM_UUID": "a85c8435-6f23-4015-9e8c-19547222d6ce",
-    "PREPROCESSING_ALGORITHM": {
-      "add_link_flag": true,
-      "add_user_flag": true,
-      "add_hash_flag": true,
-      "add_number_flag": true,
-      "add_keyword_flag": false,
-      "add_location_flag": false,
-      "remove_links": true,
-      "remove_users": true,
-      "remove_hash": true,
-      "unslang": true,
-      "split_words": true,
-      "stem": false,
-      "remove_punctuations": false,
-      "remove_numbers": true,
-      "to_lower_case": true,
-      "remove_stop_words": false,
-      "remove_not_alpha": false,
-      "join": true
-    },
-    "KFOLD_HISTORY": [
+      },
       {
         "loss": [
           0.46011661,
@@ -3901,39 +2286,7 @@
           0.82991111
         ],
         "INPUT_LENGTH": 60
-      }
-    ]
-  },
-  "e8854dfa-6111-48d9-b98f-64207e139c80": {
-    "UUID": "e8854dfa-6111-48d9-b98f-64207e139c80",
-    "BERT": "bert_en_uncased_L-24_H-1024_A-16",
-    "BERT_VERSION": 1,
-    "BATCH_SIZE": 16,
-    "EPOCHS": 3,
-    "OPTIMIZER": "adam",
-    "LEARNING_RATE": 2e-06,
-    "PREPROCESSING_ALGORITHM_UUID": "a85c8435-6f23-4015-9e8c-19547222d6ce",
-    "PREPROCESSING_ALGORITHM": {
-      "add_link_flag": true,
-      "add_user_flag": true,
-      "add_hash_flag": true,
-      "add_number_flag": true,
-      "add_keyword_flag": false,
-      "add_location_flag": false,
-      "remove_links": true,
-      "remove_users": true,
-      "remove_hash": true,
-      "unslang": true,
-      "split_words": true,
-      "stem": false,
-      "remove_punctuations": false,
-      "remove_numbers": true,
-      "to_lower_case": true,
-      "remove_stop_words": false,
-      "remove_not_alpha": false,
-      "join": true
-    },
-    "KFOLD_HISTORY": [
+      },
       {
         "loss": [
           0.45587493,
@@ -3966,39 +2319,7 @@
           0.83052409
         ],
         "INPUT_LENGTH": 60
-      }
-    ]
-  },
-  "f42116ed-f92c-4d1d-a673-e3b5a8850c40": {
-    "UUID": "f42116ed-f92c-4d1d-a673-e3b5a8850c40",
-    "BERT": "bert_en_uncased_L-24_H-1024_A-16",
-    "BERT_VERSION": 1,
-    "BATCH_SIZE": 16,
-    "EPOCHS": 3,
-    "OPTIMIZER": "adam",
-    "LEARNING_RATE": 2e-06,
-    "PREPROCESSING_ALGORITHM_UUID": "a85c8435-6f23-4015-9e8c-19547222d6ce",
-    "PREPROCESSING_ALGORITHM": {
-      "add_link_flag": true,
-      "add_user_flag": true,
-      "add_hash_flag": true,
-      "add_number_flag": true,
-      "add_keyword_flag": false,
-      "add_location_flag": false,
-      "remove_links": true,
-      "remove_users": true,
-      "remove_hash": true,
-      "unslang": true,
-      "split_words": true,
-      "stem": false,
-      "remove_punctuations": false,
-      "remove_numbers": true,
-      "to_lower_case": true,
-      "remove_stop_words": false,
-      "remove_not_alpha": false,
-      "join": true
-    },
-    "KFOLD_HISTORY": [
+      },
       {
         "loss": [
           0.4671805,
@@ -4031,39 +2352,7 @@
           0.82684648
         ],
         "INPUT_LENGTH": 60
-      }
-    ]
-  },
-  "2592eb98-3a00-4235-b019-45f996b03db4": {
-    "UUID": "2592eb98-3a00-4235-b019-45f996b03db4",
-    "BERT": "bert_en_uncased_L-24_H-1024_A-16",
-    "BERT_VERSION": 1,
-    "BATCH_SIZE": 16,
-    "EPOCHS": 3,
-    "OPTIMIZER": "adam",
-    "LEARNING_RATE": 2e-06,
-    "PREPROCESSING_ALGORITHM_UUID": "a85c8435-6f23-4015-9e8c-19547222d6ce",
-    "PREPROCESSING_ALGORITHM": {
-      "add_link_flag": true,
-      "add_user_flag": true,
-      "add_hash_flag": true,
-      "add_number_flag": true,
-      "add_keyword_flag": false,
-      "add_location_flag": false,
-      "remove_links": true,
-      "remove_users": true,
-      "remove_hash": true,
-      "unslang": true,
-      "split_words": true,
-      "stem": false,
-      "remove_punctuations": false,
-      "remove_numbers": true,
-      "to_lower_case": true,
-      "remove_stop_words": false,
-      "remove_not_alpha": false,
-      "join": true
-    },
-    "KFOLD_HISTORY": [
+      },
       {
         "loss": [
           0.44418985,
@@ -4096,39 +2385,7 @@
           0.8320564
         ],
         "INPUT_LENGTH": 60
-      }
-    ]
-  },
-  "42efc27f-8cc4-4881-895c-d43b9a786db4": {
-    "UUID": "42efc27f-8cc4-4881-895c-d43b9a786db4",
-    "BERT": "bert_en_uncased_L-24_H-1024_A-16",
-    "BERT_VERSION": 1,
-    "BATCH_SIZE": 16,
-    "EPOCHS": 3,
-    "OPTIMIZER": "adam",
-    "LEARNING_RATE": 2e-06,
-    "PREPROCESSING_ALGORITHM_UUID": "a85c8435-6f23-4015-9e8c-19547222d6ce",
-    "PREPROCESSING_ALGORITHM": {
-      "add_link_flag": true,
-      "add_user_flag": true,
-      "add_hash_flag": true,
-      "add_number_flag": true,
-      "add_keyword_flag": false,
-      "add_location_flag": false,
-      "remove_links": true,
-      "remove_users": true,
-      "remove_hash": true,
-      "unslang": true,
-      "split_words": true,
-      "stem": false,
-      "remove_punctuations": false,
-      "remove_numbers": true,
-      "to_lower_case": true,
-      "remove_stop_words": false,
-      "remove_not_alpha": false,
-      "join": true
-    },
-    "KFOLD_HISTORY": [
+      },
       {
         "loss": [
           0.45228535,
@@ -4161,39 +2418,7 @@
           0.82684648
         ],
         "INPUT_LENGTH": 60
-      }
-    ]
-  },
-  "dcabc608-7607-4121-a5a0-63b277a0747d": {
-    "UUID": "dcabc608-7607-4121-a5a0-63b277a0747d",
-    "BERT": "bert_en_uncased_L-24_H-1024_A-16",
-    "BERT_VERSION": 1,
-    "BATCH_SIZE": 16,
-    "EPOCHS": 3,
-    "OPTIMIZER": "adam",
-    "LEARNING_RATE": 2e-06,
-    "PREPROCESSING_ALGORITHM_UUID": "a85c8435-6f23-4015-9e8c-19547222d6ce",
-    "PREPROCESSING_ALGORITHM": {
-      "add_link_flag": true,
-      "add_user_flag": true,
-      "add_hash_flag": true,
-      "add_number_flag": true,
-      "add_keyword_flag": false,
-      "add_location_flag": false,
-      "remove_links": true,
-      "remove_users": true,
-      "remove_hash": true,
-      "unslang": true,
-      "split_words": true,
-      "stem": false,
-      "remove_punctuations": false,
-      "remove_numbers": true,
-      "to_lower_case": true,
-      "remove_stop_words": false,
-      "remove_not_alpha": false,
-      "join": true
-    },
-    "KFOLD_HISTORY": [
+      },
       {
         "loss": [
           0.45929233,
@@ -4226,39 +2451,7 @@
           0.83052409
         ],
         "INPUT_LENGTH": 60
-      }
-    ]
-  },
-  "28e12925-ada0-4ab4-ad05-dedfb1372a80": {
-    "UUID": "28e12925-ada0-4ab4-ad05-dedfb1372a80",
-    "BERT": "bert_en_uncased_L-24_H-1024_A-16",
-    "BERT_VERSION": 1,
-    "BATCH_SIZE": 16,
-    "EPOCHS": 3,
-    "OPTIMIZER": "adam",
-    "LEARNING_RATE": 2e-06,
-    "PREPROCESSING_ALGORITHM_UUID": "a85c8435-6f23-4015-9e8c-19547222d6ce",
-    "PREPROCESSING_ALGORITHM": {
-      "add_link_flag": true,
-      "add_user_flag": true,
-      "add_hash_flag": true,
-      "add_number_flag": true,
-      "add_keyword_flag": false,
-      "add_location_flag": false,
-      "remove_links": true,
-      "remove_users": true,
-      "remove_hash": true,
-      "unslang": true,
-      "split_words": true,
-      "stem": false,
-      "remove_punctuations": false,
-      "remove_numbers": true,
-      "to_lower_case": true,
-      "remove_stop_words": false,
-      "remove_not_alpha": false,
-      "join": true
-    },
-    "KFOLD_HISTORY": [
+      },
       {
         "loss": [
           0.47924864,
@@ -4291,39 +2484,7 @@
           0.82653999
         ],
         "INPUT_LENGTH": 60
-      }
-    ]
-  },
-  "e79e006d-6c90-4af5-95cd-38385adad979": {
-    "UUID": "e79e006d-6c90-4af5-95cd-38385adad979",
-    "BERT": "bert_en_uncased_L-24_H-1024_A-16",
-    "BERT_VERSION": 1,
-    "BATCH_SIZE": 16,
-    "EPOCHS": 3,
-    "OPTIMIZER": "adam",
-    "LEARNING_RATE": 2e-06,
-    "PREPROCESSING_ALGORITHM_UUID": "a85c8435-6f23-4015-9e8c-19547222d6ce",
-    "PREPROCESSING_ALGORITHM": {
-      "add_link_flag": true,
-      "add_user_flag": true,
-      "add_hash_flag": true,
-      "add_number_flag": true,
-      "add_keyword_flag": false,
-      "add_location_flag": false,
-      "remove_links": true,
-      "remove_users": true,
-      "remove_hash": true,
-      "unslang": true,
-      "split_words": true,
-      "stem": false,
-      "remove_punctuations": false,
-      "remove_numbers": true,
-      "to_lower_case": true,
-      "remove_stop_words": false,
-      "remove_not_alpha": false,
-      "join": true
-    },
-    "KFOLD_HISTORY": [
+      },
       {
         "loss": [
           0.46368525,
@@ -4357,9 +2518,10 @@
         ],
         "INPUT_LENGTH": 54
       }
-    ]
+    ],
+    "TYPE": "BERT"
   },
-  "5b9aabc4-a0ef-41f2-b223-53feb6f43b93": {
+  "b054e509-4f04-44f2-bcf9-14fa8af4eeed": {
     "UUID": "5b9aabc4-a0ef-41f2-b223-53feb6f43b93",
     "BERT": "bert_en_uncased_L-24_H-1024_A-16",
     "BERT_VERSION": 1,
@@ -4421,39 +2583,7 @@
           0.83604044
         ],
         "INPUT_LENGTH": 77
-      }
-    ]
-  },
-  "11647810-d7e2-43d3-b4c5-58dc1d01c585": {
-    "UUID": "11647810-d7e2-43d3-b4c5-58dc1d01c585",
-    "BERT": "bert_en_uncased_L-24_H-1024_A-16",
-    "BERT_VERSION": 1,
-    "BATCH_SIZE": 16,
-    "EPOCHS": 3,
-    "OPTIMIZER": "adam",
-    "LEARNING_RATE": 2e-06,
-    "PREPROCESSING_ALGORITHM_UUID": "b054e509-4f04-44f2-bcf9-14fa8af4eeed",
-    "PREPROCESSING_ALGORITHM": {
-      "add_link_flag": true,
-      "add_user_flag": true,
-      "add_hash_flag": true,
-      "add_number_flag": true,
-      "add_keyword_flag": false,
-      "add_location_flag": false,
-      "remove_links": true,
-      "remove_users": true,
-      "remove_hash": true,
-      "unslang": true,
-      "split_words": false,
-      "stem": false,
-      "remove_punctuations": false,
-      "remove_numbers": true,
-      "to_lower_case": true,
-      "remove_stop_words": false,
-      "remove_not_alpha": false,
-      "join": true
-    },
-    "KFOLD_HISTORY": [
+      },
       {
         "loss": [
           0.47797479,
@@ -4486,39 +2616,7 @@
           0.82071716
         ],
         "INPUT_LENGTH": 77
-      }
-    ]
-  },
-  "287d9432-1451-43af-8734-e68b81488996": {
-    "UUID": "287d9432-1451-43af-8734-e68b81488996",
-    "BERT": "bert_en_uncased_L-24_H-1024_A-16",
-    "BERT_VERSION": 1,
-    "BATCH_SIZE": 16,
-    "EPOCHS": 3,
-    "OPTIMIZER": "adam",
-    "LEARNING_RATE": 2e-06,
-    "PREPROCESSING_ALGORITHM_UUID": "b054e509-4f04-44f2-bcf9-14fa8af4eeed",
-    "PREPROCESSING_ALGORITHM": {
-      "add_link_flag": true,
-      "add_user_flag": true,
-      "add_hash_flag": true,
-      "add_number_flag": true,
-      "add_keyword_flag": false,
-      "add_location_flag": false,
-      "remove_links": true,
-      "remove_users": true,
-      "remove_hash": true,
-      "unslang": true,
-      "split_words": false,
-      "stem": false,
-      "remove_punctuations": false,
-      "remove_numbers": true,
-      "to_lower_case": true,
-      "remove_stop_words": false,
-      "remove_not_alpha": false,
-      "join": true
-    },
-    "KFOLD_HISTORY": [
+      },
       {
         "loss": [
           0.46079917,
@@ -4551,39 +2649,7 @@
           0.82745939
         ],
         "INPUT_LENGTH": 77
-      }
-    ]
-  },
-  "9f40fdda-cfa5-4244-84bc-eedcc7595ba5": {
-    "UUID": "9f40fdda-cfa5-4244-84bc-eedcc7595ba5",
-    "BERT": "bert_en_uncased_L-24_H-1024_A-16",
-    "BERT_VERSION": 1,
-    "BATCH_SIZE": 16,
-    "EPOCHS": 3,
-    "OPTIMIZER": "adam",
-    "LEARNING_RATE": 2e-06,
-    "PREPROCESSING_ALGORITHM_UUID": "b054e509-4f04-44f2-bcf9-14fa8af4eeed",
-    "PREPROCESSING_ALGORITHM": {
-      "add_link_flag": true,
-      "add_user_flag": true,
-      "add_hash_flag": true,
-      "add_number_flag": true,
-      "add_keyword_flag": false,
-      "add_location_flag": false,
-      "remove_links": true,
-      "remove_users": true,
-      "remove_hash": true,
-      "unslang": true,
-      "split_words": false,
-      "stem": false,
-      "remove_punctuations": false,
-      "remove_numbers": true,
-      "to_lower_case": true,
-      "remove_stop_words": false,
-      "remove_not_alpha": false,
-      "join": true
-    },
-    "KFOLD_HISTORY": [
+      },
       {
         "loss": [
           0.45752616,
@@ -4616,39 +2682,7 @@
           0.83358872
         ],
         "INPUT_LENGTH": 65
-      }
-    ]
-  },
-  "2589125d-7fbf-4610-90ff-b069c4458f51": {
-    "UUID": "2589125d-7fbf-4610-90ff-b069c4458f51",
-    "BERT": "bert_en_uncased_L-24_H-1024_A-16",
-    "BERT_VERSION": 1,
-    "BATCH_SIZE": 16,
-    "EPOCHS": 3,
-    "OPTIMIZER": "adam",
-    "LEARNING_RATE": 2e-06,
-    "PREPROCESSING_ALGORITHM_UUID": "b054e509-4f04-44f2-bcf9-14fa8af4eeed",
-    "PREPROCESSING_ALGORITHM": {
-      "add_link_flag": true,
-      "add_user_flag": true,
-      "add_hash_flag": true,
-      "add_number_flag": true,
-      "add_keyword_flag": false,
-      "add_location_flag": false,
-      "remove_links": true,
-      "remove_users": true,
-      "remove_hash": true,
-      "unslang": true,
-      "split_words": false,
-      "stem": false,
-      "remove_punctuations": false,
-      "remove_numbers": true,
-      "to_lower_case": true,
-      "remove_stop_words": false,
-      "remove_not_alpha": false,
-      "join": true
-    },
-    "KFOLD_HISTORY": [
+      },
       {
         "loss": [
           0.4547707,
@@ -4681,39 +2715,7 @@
           0.83083051
         ],
         "INPUT_LENGTH": 77
-      }
-    ]
-  },
-  "548384e0-c8b2-444c-9b1d-6e0ad746f3de": {
-    "UUID": "548384e0-c8b2-444c-9b1d-6e0ad746f3de",
-    "BERT": "bert_en_uncased_L-24_H-1024_A-16",
-    "BERT_VERSION": 1,
-    "BATCH_SIZE": 16,
-    "EPOCHS": 3,
-    "OPTIMIZER": "adam",
-    "LEARNING_RATE": 2e-06,
-    "PREPROCESSING_ALGORITHM_UUID": "b054e509-4f04-44f2-bcf9-14fa8af4eeed",
-    "PREPROCESSING_ALGORITHM": {
-      "add_link_flag": true,
-      "add_user_flag": true,
-      "add_hash_flag": true,
-      "add_number_flag": true,
-      "add_keyword_flag": false,
-      "add_location_flag": false,
-      "remove_links": true,
-      "remove_users": true,
-      "remove_hash": true,
-      "unslang": true,
-      "split_words": false,
-      "stem": false,
-      "remove_punctuations": false,
-      "remove_numbers": true,
-      "to_lower_case": true,
-      "remove_stop_words": false,
-      "remove_not_alpha": false,
-      "join": true
-    },
-    "KFOLD_HISTORY": [
+      },
       {
         "loss": [
           0.44991669,
@@ -4746,39 +2748,7 @@
           0.82899171
         ],
         "INPUT_LENGTH": 77
-      }
-    ]
-  },
-  "b50be629-44fb-4205-83fe-f0399245f38e": {
-    "UUID": "b50be629-44fb-4205-83fe-f0399245f38e",
-    "BERT": "bert_en_uncased_L-24_H-1024_A-16",
-    "BERT_VERSION": 1,
-    "BATCH_SIZE": 16,
-    "EPOCHS": 3,
-    "OPTIMIZER": "adam",
-    "LEARNING_RATE": 2e-06,
-    "PREPROCESSING_ALGORITHM_UUID": "b054e509-4f04-44f2-bcf9-14fa8af4eeed",
-    "PREPROCESSING_ALGORITHM": {
-      "add_link_flag": true,
-      "add_user_flag": true,
-      "add_hash_flag": true,
-      "add_number_flag": true,
-      "add_keyword_flag": false,
-      "add_location_flag": false,
-      "remove_links": true,
-      "remove_users": true,
-      "remove_hash": true,
-      "unslang": true,
-      "split_words": false,
-      "stem": false,
-      "remove_punctuations": false,
-      "remove_numbers": true,
-      "to_lower_case": true,
-      "remove_stop_words": false,
-      "remove_not_alpha": false,
-      "join": true
-    },
-    "KFOLD_HISTORY": [
+      },
       {
         "loss": [
           0.48291131,
@@ -4811,39 +2781,7 @@
           0.82868528
         ],
         "INPUT_LENGTH": 77
-      }
-    ]
-  },
-  "8ed0ea5f-7fa6-44de-835f-e6f8dd8eb4ba": {
-    "UUID": "8ed0ea5f-7fa6-44de-835f-e6f8dd8eb4ba",
-    "BERT": "bert_en_uncased_L-24_H-1024_A-16",
-    "BERT_VERSION": 1,
-    "BATCH_SIZE": 16,
-    "EPOCHS": 3,
-    "OPTIMIZER": "adam",
-    "LEARNING_RATE": 2e-06,
-    "PREPROCESSING_ALGORITHM_UUID": "b054e509-4f04-44f2-bcf9-14fa8af4eeed",
-    "PREPROCESSING_ALGORITHM": {
-      "add_link_flag": true,
-      "add_user_flag": true,
-      "add_hash_flag": true,
-      "add_number_flag": true,
-      "add_keyword_flag": false,
-      "add_location_flag": false,
-      "remove_links": true,
-      "remove_users": true,
-      "remove_hash": true,
-      "unslang": true,
-      "split_words": false,
-      "stem": false,
-      "remove_punctuations": false,
-      "remove_numbers": true,
-      "to_lower_case": true,
-      "remove_stop_words": false,
-      "remove_not_alpha": false,
-      "join": true
-    },
-    "KFOLD_HISTORY": [
+      },
       {
         "loss": [
           0.47618556,
@@ -4876,39 +2814,7 @@
           0.83634692
         ],
         "INPUT_LENGTH": 77
-      }
-    ]
-  },
-  "a965fff4-ae82-4a08-a41f-54a08d927dc9": {
-    "UUID": "a965fff4-ae82-4a08-a41f-54a08d927dc9",
-    "BERT": "bert_en_uncased_L-24_H-1024_A-16",
-    "BERT_VERSION": 1,
-    "BATCH_SIZE": 16,
-    "EPOCHS": 3,
-    "OPTIMIZER": "adam",
-    "LEARNING_RATE": 2e-06,
-    "PREPROCESSING_ALGORITHM_UUID": "b054e509-4f04-44f2-bcf9-14fa8af4eeed",
-    "PREPROCESSING_ALGORITHM": {
-      "add_link_flag": true,
-      "add_user_flag": true,
-      "add_hash_flag": true,
-      "add_number_flag": true,
-      "add_keyword_flag": false,
-      "add_location_flag": false,
-      "remove_links": true,
-      "remove_users": true,
-      "remove_hash": true,
-      "unslang": true,
-      "split_words": false,
-      "stem": false,
-      "remove_punctuations": false,
-      "remove_numbers": true,
-      "to_lower_case": true,
-      "remove_stop_words": false,
-      "remove_not_alpha": false,
-      "join": true
-    },
-    "KFOLD_HISTORY": [
+      },
       {
         "loss": [
           0.46355303,
@@ -4941,39 +2847,7 @@
           0.8302176
         ],
         "INPUT_LENGTH": 77
-      }
-    ]
-  },
-  "bf73dc03-f430-41d6-a7d8-6dc58707b9c9": {
-    "UUID": "bf73dc03-f430-41d6-a7d8-6dc58707b9c9",
-    "BERT": "bert_en_uncased_L-24_H-1024_A-16",
-    "BERT_VERSION": 1,
-    "BATCH_SIZE": 16,
-    "EPOCHS": 3,
-    "OPTIMIZER": "adam",
-    "LEARNING_RATE": 2e-06,
-    "PREPROCESSING_ALGORITHM_UUID": "b054e509-4f04-44f2-bcf9-14fa8af4eeed",
-    "PREPROCESSING_ALGORITHM": {
-      "add_link_flag": true,
-      "add_user_flag": true,
-      "add_hash_flag": true,
-      "add_number_flag": true,
-      "add_keyword_flag": false,
-      "add_location_flag": false,
-      "remove_links": true,
-      "remove_users": true,
-      "remove_hash": true,
-      "unslang": true,
-      "split_words": false,
-      "stem": false,
-      "remove_punctuations": false,
-      "remove_numbers": true,
-      "to_lower_case": true,
-      "remove_stop_words": false,
-      "remove_not_alpha": false,
-      "join": true
-    },
-    "KFOLD_HISTORY": [
+      },
       {
         "loss": [
           0.47500091,
@@ -5007,9 +2881,10 @@
         ],
         "INPUT_LENGTH": 77
       }
-    ]
+    ],
+    "TYPE": "BERT"
   },
-  "e1f96ffb-e7fc-4dfc-b440-a98ad3e8915d": {
+  "2e359f0b-bfb9-4eda-b2a4-cd839c122de6": {
     "UUID": "e1f96ffb-e7fc-4dfc-b440-a98ad3e8915d",
     "BERT": "bert_en_uncased_L-24_H-1024_A-16",
     "BERT_VERSION": 1,
@@ -5071,39 +2946,7 @@
           0.82470119
         ],
         "INPUT_LENGTH": 66
-      }
-    ]
-  },
-  "4c33baa9-8a0c-44e5-89ac-afd668d27f91": {
-    "UUID": "4c33baa9-8a0c-44e5-89ac-afd668d27f91",
-    "BERT": "bert_en_uncased_L-24_H-1024_A-16",
-    "BERT_VERSION": 1,
-    "BATCH_SIZE": 16,
-    "EPOCHS": 3,
-    "OPTIMIZER": "adam",
-    "LEARNING_RATE": 2e-06,
-    "PREPROCESSING_ALGORITHM_UUID": "2e359f0b-bfb9-4eda-b2a4-cd839c122de6",
-    "PREPROCESSING_ALGORITHM": {
-      "add_link_flag": false,
-      "add_user_flag": false,
-      "add_hash_flag": false,
-      "add_number_flag": false,
-      "add_keyword_flag": false,
-      "add_location_flag": false,
-      "remove_links": true,
-      "remove_users": true,
-      "remove_hash": true,
-      "unslang": true,
-      "split_words": false,
-      "stem": false,
-      "remove_punctuations": false,
-      "remove_numbers": true,
-      "to_lower_case": true,
-      "remove_stop_words": false,
-      "remove_not_alpha": false,
-      "join": true
-    },
-    "KFOLD_HISTORY": [
+      },
       {
         "loss": [
           0.48590878,
@@ -5136,39 +2979,7 @@
           0.82715291
         ],
         "INPUT_LENGTH": 66
-      }
-    ]
-  },
-  "c2ef7acc-6b39-423b-a0d7-b0c4465b20b4": {
-    "UUID": "c2ef7acc-6b39-423b-a0d7-b0c4465b20b4",
-    "BERT": "bert_en_uncased_L-24_H-1024_A-16",
-    "BERT_VERSION": 1,
-    "BATCH_SIZE": 16,
-    "EPOCHS": 3,
-    "OPTIMIZER": "adam",
-    "LEARNING_RATE": 2e-06,
-    "PREPROCESSING_ALGORITHM_UUID": "2e359f0b-bfb9-4eda-b2a4-cd839c122de6",
-    "PREPROCESSING_ALGORITHM": {
-      "add_link_flag": false,
-      "add_user_flag": false,
-      "add_hash_flag": false,
-      "add_number_flag": false,
-      "add_keyword_flag": false,
-      "add_location_flag": false,
-      "remove_links": true,
-      "remove_users": true,
-      "remove_hash": true,
-      "unslang": true,
-      "split_words": false,
-      "stem": false,
-      "remove_punctuations": false,
-      "remove_numbers": true,
-      "to_lower_case": true,
-      "remove_stop_words": false,
-      "remove_not_alpha": false,
-      "join": true
-    },
-    "KFOLD_HISTORY": [
+      },
       {
         "loss": [
           0.47229587,
@@ -5201,39 +3012,7 @@
           0.83358872
         ],
         "INPUT_LENGTH": 66
-      }
-    ]
-  },
-  "1c22dd81-8859-4adb-accf-7bd241b33519": {
-    "UUID": "1c22dd81-8859-4adb-accf-7bd241b33519",
-    "BERT": "bert_en_uncased_L-24_H-1024_A-16",
-    "BERT_VERSION": 1,
-    "BATCH_SIZE": 16,
-    "EPOCHS": 3,
-    "OPTIMIZER": "adam",
-    "LEARNING_RATE": 2e-06,
-    "PREPROCESSING_ALGORITHM_UUID": "2e359f0b-bfb9-4eda-b2a4-cd839c122de6",
-    "PREPROCESSING_ALGORITHM": {
-      "add_link_flag": false,
-      "add_user_flag": false,
-      "add_hash_flag": false,
-      "add_number_flag": false,
-      "add_keyword_flag": false,
-      "add_location_flag": false,
-      "remove_links": true,
-      "remove_users": true,
-      "remove_hash": true,
-      "unslang": true,
-      "split_words": false,
-      "stem": false,
-      "remove_punctuations": false,
-      "remove_numbers": true,
-      "to_lower_case": true,
-      "remove_stop_words": false,
-      "remove_not_alpha": false,
-      "join": true
-    },
-    "KFOLD_HISTORY": [
+      },
       {
         "loss": [
           0.48225265,
@@ -5266,39 +3045,7 @@
           0.83604044
         ],
         "INPUT_LENGTH": 57
-      }
-    ]
-  },
-  "f3b5dc2a-c8ba-488e-8e17-eadad00ea6e3": {
-    "UUID": "f3b5dc2a-c8ba-488e-8e17-eadad00ea6e3",
-    "BERT": "bert_en_uncased_L-24_H-1024_A-16",
-    "BERT_VERSION": 1,
-    "BATCH_SIZE": 16,
-    "EPOCHS": 3,
-    "OPTIMIZER": "adam",
-    "LEARNING_RATE": 2e-06,
-    "PREPROCESSING_ALGORITHM_UUID": "2e359f0b-bfb9-4eda-b2a4-cd839c122de6",
-    "PREPROCESSING_ALGORITHM": {
-      "add_link_flag": false,
-      "add_user_flag": false,
-      "add_hash_flag": false,
-      "add_number_flag": false,
-      "add_keyword_flag": false,
-      "add_location_flag": false,
-      "remove_links": true,
-      "remove_users": true,
-      "remove_hash": true,
-      "unslang": true,
-      "split_words": false,
-      "stem": false,
-      "remove_punctuations": false,
-      "remove_numbers": true,
-      "to_lower_case": true,
-      "remove_stop_words": false,
-      "remove_not_alpha": false,
-      "join": true
-    },
-    "KFOLD_HISTORY": [
+      },
       {
         "loss": [
           0.48220565,
@@ -5331,39 +3078,7 @@
           0.8320564
         ],
         "INPUT_LENGTH": 66
-      }
-    ]
-  },
-  "eed7dbfa-7ead-4625-b784-20dd2f10ace6": {
-    "UUID": "eed7dbfa-7ead-4625-b784-20dd2f10ace6",
-    "BERT": "bert_en_uncased_L-24_H-1024_A-16",
-    "BERT_VERSION": 1,
-    "BATCH_SIZE": 16,
-    "EPOCHS": 3,
-    "OPTIMIZER": "adam",
-    "LEARNING_RATE": 2e-06,
-    "PREPROCESSING_ALGORITHM_UUID": "2e359f0b-bfb9-4eda-b2a4-cd839c122de6",
-    "PREPROCESSING_ALGORITHM": {
-      "add_link_flag": false,
-      "add_user_flag": false,
-      "add_hash_flag": false,
-      "add_number_flag": false,
-      "add_keyword_flag": false,
-      "add_location_flag": false,
-      "remove_links": true,
-      "remove_users": true,
-      "remove_hash": true,
-      "unslang": true,
-      "split_words": false,
-      "stem": false,
-      "remove_punctuations": false,
-      "remove_numbers": true,
-      "to_lower_case": true,
-      "remove_stop_words": false,
-      "remove_not_alpha": false,
-      "join": true
-    },
-    "KFOLD_HISTORY": [
+      },
       {
         "loss": [
           0.47328817,
@@ -5396,39 +3111,7 @@
           0.83604044
         ],
         "INPUT_LENGTH": 66
-      }
-    ]
-  },
-  "25225947-e8de-448f-a1a5-16d8a98eb7e1": {
-    "UUID": "25225947-e8de-448f-a1a5-16d8a98eb7e1",
-    "BERT": "bert_en_uncased_L-24_H-1024_A-16",
-    "BERT_VERSION": 1,
-    "BATCH_SIZE": 16,
-    "EPOCHS": 3,
-    "OPTIMIZER": "adam",
-    "LEARNING_RATE": 2e-06,
-    "PREPROCESSING_ALGORITHM_UUID": "2e359f0b-bfb9-4eda-b2a4-cd839c122de6",
-    "PREPROCESSING_ALGORITHM": {
-      "add_link_flag": false,
-      "add_user_flag": false,
-      "add_hash_flag": false,
-      "add_number_flag": false,
-      "add_keyword_flag": false,
-      "add_location_flag": false,
-      "remove_links": true,
-      "remove_users": true,
-      "remove_hash": true,
-      "unslang": true,
-      "split_words": false,
-      "stem": false,
-      "remove_punctuations": false,
-      "remove_numbers": true,
-      "to_lower_case": true,
-      "remove_stop_words": false,
-      "remove_not_alpha": false,
-      "join": true
-    },
-    "KFOLD_HISTORY": [
+      },
       {
         "loss": [
           0.46586241,
@@ -5461,39 +3144,7 @@
           0.8329758
         ],
         "INPUT_LENGTH": 66
-      }
-    ]
-  },
-  "fa210266-240a-4e2b-a249-fe23ff467fee": {
-    "UUID": "fa210266-240a-4e2b-a249-fe23ff467fee",
-    "BERT": "bert_en_uncased_L-24_H-1024_A-16",
-    "BERT_VERSION": 1,
-    "BATCH_SIZE": 16,
-    "EPOCHS": 3,
-    "OPTIMIZER": "adam",
-    "LEARNING_RATE": 2e-06,
-    "PREPROCESSING_ALGORITHM_UUID": "2e359f0b-bfb9-4eda-b2a4-cd839c122de6",
-    "PREPROCESSING_ALGORITHM": {
-      "add_link_flag": false,
-      "add_user_flag": false,
-      "add_hash_flag": false,
-      "add_number_flag": false,
-      "add_keyword_flag": false,
-      "add_location_flag": false,
-      "remove_links": true,
-      "remove_users": true,
-      "remove_hash": true,
-      "unslang": true,
-      "split_words": false,
-      "stem": false,
-      "remove_punctuations": false,
-      "remove_numbers": true,
-      "to_lower_case": true,
-      "remove_stop_words": false,
-      "remove_not_alpha": false,
-      "join": true
-    },
-    "KFOLD_HISTORY": [
+      },
       {
         "loss": [
           0.47479452,
@@ -5526,39 +3177,7 @@
           0.83481461
         ],
         "INPUT_LENGTH": 66
-      }
-    ]
-  },
-  "8b8c6b2c-b46c-4a58-910b-6c144e4380be": {
-    "UUID": "8b8c6b2c-b46c-4a58-910b-6c144e4380be",
-    "BERT": "bert_en_uncased_L-24_H-1024_A-16",
-    "BERT_VERSION": 1,
-    "BATCH_SIZE": 16,
-    "EPOCHS": 3,
-    "OPTIMIZER": "adam",
-    "LEARNING_RATE": 2e-06,
-    "PREPROCESSING_ALGORITHM_UUID": "2e359f0b-bfb9-4eda-b2a4-cd839c122de6",
-    "PREPROCESSING_ALGORITHM": {
-      "add_link_flag": false,
-      "add_user_flag": false,
-      "add_hash_flag": false,
-      "add_number_flag": false,
-      "add_keyword_flag": false,
-      "add_location_flag": false,
-      "remove_links": true,
-      "remove_users": true,
-      "remove_hash": true,
-      "unslang": true,
-      "split_words": false,
-      "stem": false,
-      "remove_punctuations": false,
-      "remove_numbers": true,
-      "to_lower_case": true,
-      "remove_stop_words": false,
-      "remove_not_alpha": false,
-      "join": true
-    },
-    "KFOLD_HISTORY": [
+      },
       {
         "loss": [
           0.48228286,
@@ -5591,39 +3210,7 @@
           0.82408828
         ],
         "INPUT_LENGTH": 66
-      }
-    ]
-  },
-  "1ce542c5-4e71-446c-9b68-c8f2c7154660": {
-    "UUID": "1ce542c5-4e71-446c-9b68-c8f2c7154660",
-    "BERT": "bert_en_uncased_L-24_H-1024_A-16",
-    "BERT_VERSION": 1,
-    "BATCH_SIZE": 16,
-    "EPOCHS": 3,
-    "OPTIMIZER": "adam",
-    "LEARNING_RATE": 2e-06,
-    "PREPROCESSING_ALGORITHM_UUID": "2e359f0b-bfb9-4eda-b2a4-cd839c122de6",
-    "PREPROCESSING_ALGORITHM": {
-      "add_link_flag": false,
-      "add_user_flag": false,
-      "add_hash_flag": false,
-      "add_number_flag": false,
-      "add_keyword_flag": false,
-      "add_location_flag": false,
-      "remove_links": true,
-      "remove_users": true,
-      "remove_hash": true,
-      "unslang": true,
-      "split_words": false,
-      "stem": false,
-      "remove_punctuations": false,
-      "remove_numbers": true,
-      "to_lower_case": true,
-      "remove_stop_words": false,
-      "remove_not_alpha": false,
-      "join": true
-    },
-    "KFOLD_HISTORY": [
+      },
       {
         "loss": [
           0.45825291,
@@ -5657,9 +3244,10 @@
         ],
         "INPUT_LENGTH": 66
       }
-    ]
+    ],
+    "TYPE": "BERT"
   },
-  "eca50f65-1ea8-40de-a827-015e724b8be1": {
+  "71bd09db-e104-462d-887a-74389438bb49": {
     "UUID": "eca50f65-1ea8-40de-a827-015e724b8be1",
     "BERT": "bert_en_uncased_L-24_H-1024_A-16",
     "BERT_VERSION": 1,
@@ -5721,39 +3309,7 @@
           0.82868528
         ],
         "INPUT_LENGTH": 45
-      }
-    ]
-  },
-  "b81c022e-923d-49c6-85a3-11cd8af5ce9f": {
-    "UUID": "b81c022e-923d-49c6-85a3-11cd8af5ce9f",
-    "BERT": "bert_en_uncased_L-24_H-1024_A-16",
-    "BERT_VERSION": 1,
-    "BATCH_SIZE": 16,
-    "EPOCHS": 3,
-    "OPTIMIZER": "adam",
-    "LEARNING_RATE": 2e-06,
-    "PREPROCESSING_ALGORITHM_UUID": "71bd09db-e104-462d-887a-74389438bb49",
-    "PREPROCESSING_ALGORITHM": {
-      "add_link_flag": false,
-      "add_user_flag": false,
-      "add_hash_flag": false,
-      "add_number_flag": false,
-      "add_keyword_flag": false,
-      "add_location_flag": false,
-      "remove_links": true,
-      "remove_users": true,
-      "remove_hash": true,
-      "unslang": true,
-      "split_words": false,
-      "stem": false,
-      "remove_punctuations": true,
-      "remove_numbers": true,
-      "to_lower_case": true,
-      "remove_stop_words": false,
-      "remove_not_alpha": false,
-      "join": true
-    },
-    "KFOLD_HISTORY": [
+      },
       {
         "loss": [
           0.46362164,
@@ -5786,39 +3342,7 @@
           0.82684648
         ],
         "INPUT_LENGTH": 45
-      }
-    ]
-  },
-  "cafea635-01d9-46f1-b182-4f9b5b487d7a": {
-    "UUID": "cafea635-01d9-46f1-b182-4f9b5b487d7a",
-    "BERT": "bert_en_uncased_L-24_H-1024_A-16",
-    "BERT_VERSION": 1,
-    "BATCH_SIZE": 16,
-    "EPOCHS": 3,
-    "OPTIMIZER": "adam",
-    "LEARNING_RATE": 2e-06,
-    "PREPROCESSING_ALGORITHM_UUID": "71bd09db-e104-462d-887a-74389438bb49",
-    "PREPROCESSING_ALGORITHM": {
-      "add_link_flag": false,
-      "add_user_flag": false,
-      "add_hash_flag": false,
-      "add_number_flag": false,
-      "add_keyword_flag": false,
-      "add_location_flag": false,
-      "remove_links": true,
-      "remove_users": true,
-      "remove_hash": true,
-      "unslang": true,
-      "split_words": false,
-      "stem": false,
-      "remove_punctuations": true,
-      "remove_numbers": true,
-      "to_lower_case": true,
-      "remove_stop_words": false,
-      "remove_not_alpha": false,
-      "join": true
-    },
-    "KFOLD_HISTORY": [
+      },
       {
         "loss": [
           0.47156162,
@@ -5851,39 +3375,7 @@
           0.8243947
         ],
         "INPUT_LENGTH": 45
-      }
-    ]
-  },
-  "6688db2b-9ee8-4ab5-8218-5d53c608b25e": {
-    "UUID": "6688db2b-9ee8-4ab5-8218-5d53c608b25e",
-    "BERT": "bert_en_uncased_L-24_H-1024_A-16",
-    "BERT_VERSION": 1,
-    "BATCH_SIZE": 16,
-    "EPOCHS": 3,
-    "OPTIMIZER": "adam",
-    "LEARNING_RATE": 2e-06,
-    "PREPROCESSING_ALGORITHM_UUID": "71bd09db-e104-462d-887a-74389438bb49",
-    "PREPROCESSING_ALGORITHM": {
-      "add_link_flag": false,
-      "add_user_flag": false,
-      "add_hash_flag": false,
-      "add_number_flag": false,
-      "add_keyword_flag": false,
-      "add_location_flag": false,
-      "remove_links": true,
-      "remove_users": true,
-      "remove_hash": true,
-      "unslang": true,
-      "split_words": false,
-      "stem": false,
-      "remove_punctuations": true,
-      "remove_numbers": true,
-      "to_lower_case": true,
-      "remove_stop_words": false,
-      "remove_not_alpha": false,
-      "join": true
-    },
-    "KFOLD_HISTORY": [
+      },
       {
         "loss": [
           0.47609079,
@@ -5916,39 +3408,7 @@
           0.82163656
         ],
         "INPUT_LENGTH": 45
-      }
-    ]
-  },
-  "1fe3b6bd-0d49-4074-a4bd-4ab64b8ad180": {
-    "UUID": "1fe3b6bd-0d49-4074-a4bd-4ab64b8ad180",
-    "BERT": "bert_en_uncased_L-24_H-1024_A-16",
-    "BERT_VERSION": 1,
-    "BATCH_SIZE": 16,
-    "EPOCHS": 3,
-    "OPTIMIZER": "adam",
-    "LEARNING_RATE": 2e-06,
-    "PREPROCESSING_ALGORITHM_UUID": "71bd09db-e104-462d-887a-74389438bb49",
-    "PREPROCESSING_ALGORITHM": {
-      "add_link_flag": false,
-      "add_user_flag": false,
-      "add_hash_flag": false,
-      "add_number_flag": false,
-      "add_keyword_flag": false,
-      "add_location_flag": false,
-      "remove_links": true,
-      "remove_users": true,
-      "remove_hash": true,
-      "unslang": true,
-      "split_words": false,
-      "stem": false,
-      "remove_punctuations": true,
-      "remove_numbers": true,
-      "to_lower_case": true,
-      "remove_stop_words": false,
-      "remove_not_alpha": false,
-      "join": true
-    },
-    "KFOLD_HISTORY": [
+      },
       {
         "loss": [
           0.47145279,
@@ -5981,39 +3441,7 @@
           0.82991111
         ],
         "INPUT_LENGTH": 45
-      }
-    ]
-  },
-  "27a0e949-7a61-462c-99d5-7fcf3fd32645": {
-    "UUID": "27a0e949-7a61-462c-99d5-7fcf3fd32645",
-    "BERT": "bert_en_uncased_L-24_H-1024_A-16",
-    "BERT_VERSION": 1,
-    "BATCH_SIZE": 16,
-    "EPOCHS": 3,
-    "OPTIMIZER": "adam",
-    "LEARNING_RATE": 2e-06,
-    "PREPROCESSING_ALGORITHM_UUID": "71bd09db-e104-462d-887a-74389438bb49",
-    "PREPROCESSING_ALGORITHM": {
-      "add_link_flag": false,
-      "add_user_flag": false,
-      "add_hash_flag": false,
-      "add_number_flag": false,
-      "add_keyword_flag": false,
-      "add_location_flag": false,
-      "remove_links": true,
-      "remove_users": true,
-      "remove_hash": true,
-      "unslang": true,
-      "split_words": false,
-      "stem": false,
-      "remove_punctuations": true,
-      "remove_numbers": true,
-      "to_lower_case": true,
-      "remove_stop_words": false,
-      "remove_not_alpha": false,
-      "join": true
-    },
-    "KFOLD_HISTORY": [
+      },
       {
         "loss": [
           0.48133924,
@@ -6046,39 +3474,7 @@
           0.82776588
         ],
         "INPUT_LENGTH": 45
-      }
-    ]
-  },
-  "85749284-452f-4db3-8657-9306fcaa034b": {
-    "UUID": "85749284-452f-4db3-8657-9306fcaa034b",
-    "BERT": "bert_en_uncased_L-24_H-1024_A-16",
-    "BERT_VERSION": 1,
-    "BATCH_SIZE": 16,
-    "EPOCHS": 3,
-    "OPTIMIZER": "adam",
-    "LEARNING_RATE": 2e-06,
-    "PREPROCESSING_ALGORITHM_UUID": "71bd09db-e104-462d-887a-74389438bb49",
-    "PREPROCESSING_ALGORITHM": {
-      "add_link_flag": false,
-      "add_user_flag": false,
-      "add_hash_flag": false,
-      "add_number_flag": false,
-      "add_keyword_flag": false,
-      "add_location_flag": false,
-      "remove_links": true,
-      "remove_users": true,
-      "remove_hash": true,
-      "unslang": true,
-      "split_words": false,
-      "stem": false,
-      "remove_punctuations": true,
-      "remove_numbers": true,
-      "to_lower_case": true,
-      "remove_stop_words": false,
-      "remove_not_alpha": false,
-      "join": true
-    },
-    "KFOLD_HISTORY": [
+      },
       {
         "loss": [
           0.46528176,
@@ -6111,39 +3507,7 @@
           0.82010418
         ],
         "INPUT_LENGTH": 45
-      }
-    ]
-  },
-  "6af408a9-bebc-4769-802c-8b4b93a5e7eb": {
-    "UUID": "6af408a9-bebc-4769-802c-8b4b93a5e7eb",
-    "BERT": "bert_en_uncased_L-24_H-1024_A-16",
-    "BERT_VERSION": 1,
-    "BATCH_SIZE": 16,
-    "EPOCHS": 3,
-    "OPTIMIZER": "adam",
-    "LEARNING_RATE": 2e-06,
-    "PREPROCESSING_ALGORITHM_UUID": "71bd09db-e104-462d-887a-74389438bb49",
-    "PREPROCESSING_ALGORITHM": {
-      "add_link_flag": false,
-      "add_user_flag": false,
-      "add_hash_flag": false,
-      "add_number_flag": false,
-      "add_keyword_flag": false,
-      "add_location_flag": false,
-      "remove_links": true,
-      "remove_users": true,
-      "remove_hash": true,
-      "unslang": true,
-      "split_words": false,
-      "stem": false,
-      "remove_punctuations": true,
-      "remove_numbers": true,
-      "to_lower_case": true,
-      "remove_stop_words": false,
-      "remove_not_alpha": false,
-      "join": true
-    },
-    "KFOLD_HISTORY": [
+      },
       {
         "loss": [
           0.46670215,
@@ -6176,39 +3540,7 @@
           0.83083051
         ],
         "INPUT_LENGTH": 45
-      }
-    ]
-  },
-  "f199dceb-aaa3-4ed3-95d3-261b915cb5f4": {
-    "UUID": "f199dceb-aaa3-4ed3-95d3-261b915cb5f4",
-    "BERT": "bert_en_uncased_L-24_H-1024_A-16",
-    "BERT_VERSION": 1,
-    "BATCH_SIZE": 16,
-    "EPOCHS": 3,
-    "OPTIMIZER": "adam",
-    "LEARNING_RATE": 2e-06,
-    "PREPROCESSING_ALGORITHM_UUID": "71bd09db-e104-462d-887a-74389438bb49",
-    "PREPROCESSING_ALGORITHM": {
-      "add_link_flag": false,
-      "add_user_flag": false,
-      "add_hash_flag": false,
-      "add_number_flag": false,
-      "add_keyword_flag": false,
-      "add_location_flag": false,
-      "remove_links": true,
-      "remove_users": true,
-      "remove_hash": true,
-      "unslang": true,
-      "split_words": false,
-      "stem": false,
-      "remove_punctuations": true,
-      "remove_numbers": true,
-      "to_lower_case": true,
-      "remove_stop_words": false,
-      "remove_not_alpha": false,
-      "join": true
-    },
-    "KFOLD_HISTORY": [
+      },
       {
         "loss": [
           0.4792643,
@@ -6241,39 +3573,7 @@
           0.83236283
         ],
         "INPUT_LENGTH": 45
-      }
-    ]
-  },
-  "dd909e78-a2ec-4fd8-94e1-0511b9cd5ae5": {
-    "UUID": "dd909e78-a2ec-4fd8-94e1-0511b9cd5ae5",
-    "BERT": "bert_en_uncased_L-24_H-1024_A-16",
-    "BERT_VERSION": 1,
-    "BATCH_SIZE": 16,
-    "EPOCHS": 3,
-    "OPTIMIZER": "adam",
-    "LEARNING_RATE": 2e-06,
-    "PREPROCESSING_ALGORITHM_UUID": "71bd09db-e104-462d-887a-74389438bb49",
-    "PREPROCESSING_ALGORITHM": {
-      "add_link_flag": false,
-      "add_user_flag": false,
-      "add_hash_flag": false,
-      "add_number_flag": false,
-      "add_keyword_flag": false,
-      "add_location_flag": false,
-      "remove_links": true,
-      "remove_users": true,
-      "remove_hash": true,
-      "unslang": true,
-      "split_words": false,
-      "stem": false,
-      "remove_punctuations": true,
-      "remove_numbers": true,
-      "to_lower_case": true,
-      "remove_stop_words": false,
-      "remove_not_alpha": false,
-      "join": true
-    },
-    "KFOLD_HISTORY": [
+      },
       {
         "loss": [
           0.47768548,
@@ -6307,9 +3607,10 @@
         ],
         "INPUT_LENGTH": 45
       }
-    ]
+    ],
+    "TYPE": "BERT"
   },
-  "1ff43e02-3926-40cd-8c6f-588370ad9eb5": {
+  "d3cc3c6e-10de-4b27-8712-8017da428e41": {
     "UUID": "1ff43e02-3926-40cd-8c6f-588370ad9eb5",
     "BERT": "bert_en_uncased_L-24_H-1024_A-16",
     "BERT_VERSION": 1,
@@ -6371,39 +3672,7 @@
           0.83328223
         ],
         "INPUT_LENGTH": 51
-      }
-    ]
-  },
-  "f5ba8104-097a-4443-b1a2-363d8a65942e": {
-    "UUID": "f5ba8104-097a-4443-b1a2-363d8a65942e",
-    "BERT": "bert_en_uncased_L-24_H-1024_A-16",
-    "BERT_VERSION": 1,
-    "BATCH_SIZE": 16,
-    "EPOCHS": 3,
-    "OPTIMIZER": "adam",
-    "LEARNING_RATE": 2e-06,
-    "PREPROCESSING_ALGORITHM_UUID": "d3cc3c6e-10de-4b27-8712-8017da428e41",
-    "PREPROCESSING_ALGORITHM": {
-      "add_link_flag": true,
-      "add_user_flag": true,
-      "add_hash_flag": true,
-      "add_number_flag": true,
-      "add_keyword_flag": false,
-      "add_location_flag": false,
-      "remove_links": true,
-      "remove_users": true,
-      "remove_hash": true,
-      "unslang": true,
-      "split_words": false,
-      "stem": false,
-      "remove_punctuations": true,
-      "remove_numbers": true,
-      "to_lower_case": true,
-      "remove_stop_words": false,
-      "remove_not_alpha": false,
-      "join": true
-    },
-    "KFOLD_HISTORY": [
+      },
       {
         "loss": [
           0.46367591,
@@ -6436,39 +3705,7 @@
           0.8234753
         ],
         "INPUT_LENGTH": 51
-      }
-    ]
-  },
-  "c20986bb-ec54-4cc0-812f-32707a4c82fc": {
-    "UUID": "c20986bb-ec54-4cc0-812f-32707a4c82fc",
-    "BERT": "bert_en_uncased_L-24_H-1024_A-16",
-    "BERT_VERSION": 1,
-    "BATCH_SIZE": 16,
-    "EPOCHS": 3,
-    "OPTIMIZER": "adam",
-    "LEARNING_RATE": 2e-06,
-    "PREPROCESSING_ALGORITHM_UUID": "d3cc3c6e-10de-4b27-8712-8017da428e41",
-    "PREPROCESSING_ALGORITHM": {
-      "add_link_flag": true,
-      "add_user_flag": true,
-      "add_hash_flag": true,
-      "add_number_flag": true,
-      "add_keyword_flag": false,
-      "add_location_flag": false,
-      "remove_links": true,
-      "remove_users": true,
-      "remove_hash": true,
-      "unslang": true,
-      "split_words": false,
-      "stem": false,
-      "remove_punctuations": true,
-      "remove_numbers": true,
-      "to_lower_case": true,
-      "remove_stop_words": false,
-      "remove_not_alpha": false,
-      "join": true
-    },
-    "KFOLD_HISTORY": [
+      },
       {
         "loss": [
           0.4888971,
@@ -6501,39 +3738,7 @@
           0.82255596
         ],
         "INPUT_LENGTH": 51
-      }
-    ]
-  },
-  "f3ed62a0-44b0-4c23-b9ef-0d71ef08500a": {
-    "UUID": "f3ed62a0-44b0-4c23-b9ef-0d71ef08500a",
-    "BERT": "bert_en_uncased_L-24_H-1024_A-16",
-    "BERT_VERSION": 1,
-    "BATCH_SIZE": 16,
-    "EPOCHS": 3,
-    "OPTIMIZER": "adam",
-    "LEARNING_RATE": 2e-06,
-    "PREPROCESSING_ALGORITHM_UUID": "d3cc3c6e-10de-4b27-8712-8017da428e41",
-    "PREPROCESSING_ALGORITHM": {
-      "add_link_flag": true,
-      "add_user_flag": true,
-      "add_hash_flag": true,
-      "add_number_flag": true,
-      "add_keyword_flag": false,
-      "add_location_flag": false,
-      "remove_links": true,
-      "remove_users": true,
-      "remove_hash": true,
-      "unslang": true,
-      "split_words": false,
-      "stem": false,
-      "remove_punctuations": true,
-      "remove_numbers": true,
-      "to_lower_case": true,
-      "remove_stop_words": false,
-      "remove_not_alpha": false,
-      "join": true
-    },
-    "KFOLD_HISTORY": [
+      },
       {
         "loss": [
           0.46690483,
@@ -6566,39 +3771,7 @@
           0.82500768
         ],
         "INPUT_LENGTH": 51
-      }
-    ]
-  },
-  "3b0c435d-5bdf-4ae7-b6e3-3354ebc85613": {
-    "UUID": "3b0c435d-5bdf-4ae7-b6e3-3354ebc85613",
-    "BERT": "bert_en_uncased_L-24_H-1024_A-16",
-    "BERT_VERSION": 1,
-    "BATCH_SIZE": 16,
-    "EPOCHS": 3,
-    "OPTIMIZER": "adam",
-    "LEARNING_RATE": 2e-06,
-    "PREPROCESSING_ALGORITHM_UUID": "d3cc3c6e-10de-4b27-8712-8017da428e41",
-    "PREPROCESSING_ALGORITHM": {
-      "add_link_flag": true,
-      "add_user_flag": true,
-      "add_hash_flag": true,
-      "add_number_flag": true,
-      "add_keyword_flag": false,
-      "add_location_flag": false,
-      "remove_links": true,
-      "remove_users": true,
-      "remove_hash": true,
-      "unslang": true,
-      "split_words": false,
-      "stem": false,
-      "remove_punctuations": true,
-      "remove_numbers": true,
-      "to_lower_case": true,
-      "remove_stop_words": false,
-      "remove_not_alpha": false,
-      "join": true
-    },
-    "KFOLD_HISTORY": [
+      },
       {
         "loss": [
           0.4462193,
@@ -6631,39 +3804,7 @@
           0.82255596
         ],
         "INPUT_LENGTH": 51
-      }
-    ]
-  },
-  "084f9940-ce97-476c-a86e-17b905332106": {
-    "UUID": "084f9940-ce97-476c-a86e-17b905332106",
-    "BERT": "bert_en_uncased_L-24_H-1024_A-16",
-    "BERT_VERSION": 1,
-    "BATCH_SIZE": 16,
-    "EPOCHS": 3,
-    "OPTIMIZER": "adam",
-    "LEARNING_RATE": 2e-06,
-    "PREPROCESSING_ALGORITHM_UUID": "d3cc3c6e-10de-4b27-8712-8017da428e41",
-    "PREPROCESSING_ALGORITHM": {
-      "add_link_flag": true,
-      "add_user_flag": true,
-      "add_hash_flag": true,
-      "add_number_flag": true,
-      "add_keyword_flag": false,
-      "add_location_flag": false,
-      "remove_links": true,
-      "remove_users": true,
-      "remove_hash": true,
-      "unslang": true,
-      "split_words": false,
-      "stem": false,
-      "remove_punctuations": true,
-      "remove_numbers": true,
-      "to_lower_case": true,
-      "remove_stop_words": false,
-      "remove_not_alpha": false,
-      "join": true
-    },
-    "KFOLD_HISTORY": [
+      },
       {
         "loss": [
           0.47654082,
@@ -6696,39 +3837,7 @@
           0.8243947
         ],
         "INPUT_LENGTH": 51
-      }
-    ]
-  },
-  "feefce93-c4fc-43b0-aef6-c128f543afde": {
-    "UUID": "feefce93-c4fc-43b0-aef6-c128f543afde",
-    "BERT": "bert_en_uncased_L-24_H-1024_A-16",
-    "BERT_VERSION": 1,
-    "BATCH_SIZE": 16,
-    "EPOCHS": 3,
-    "OPTIMIZER": "adam",
-    "LEARNING_RATE": 2e-06,
-    "PREPROCESSING_ALGORITHM_UUID": "d3cc3c6e-10de-4b27-8712-8017da428e41",
-    "PREPROCESSING_ALGORITHM": {
-      "add_link_flag": true,
-      "add_user_flag": true,
-      "add_hash_flag": true,
-      "add_number_flag": true,
-      "add_keyword_flag": false,
-      "add_location_flag": false,
-      "remove_links": true,
-      "remove_users": true,
-      "remove_hash": true,
-      "unslang": true,
-      "split_words": false,
-      "stem": false,
-      "remove_punctuations": true,
-      "remove_numbers": true,
-      "to_lower_case": true,
-      "remove_stop_words": false,
-      "remove_not_alpha": false,
-      "join": true
-    },
-    "KFOLD_HISTORY": [
+      },
       {
         "loss": [
           0.46963408,
@@ -6761,39 +3870,7 @@
           0.8302176
         ],
         "INPUT_LENGTH": 51
-      }
-    ]
-  },
-  "78a2bfd0-3f01-4640-b096-25bc56736c8b": {
-    "UUID": "78a2bfd0-3f01-4640-b096-25bc56736c8b",
-    "BERT": "bert_en_uncased_L-24_H-1024_A-16",
-    "BERT_VERSION": 1,
-    "BATCH_SIZE": 16,
-    "EPOCHS": 3,
-    "OPTIMIZER": "adam",
-    "LEARNING_RATE": 2e-06,
-    "PREPROCESSING_ALGORITHM_UUID": "d3cc3c6e-10de-4b27-8712-8017da428e41",
-    "PREPROCESSING_ALGORITHM": {
-      "add_link_flag": true,
-      "add_user_flag": true,
-      "add_hash_flag": true,
-      "add_number_flag": true,
-      "add_keyword_flag": false,
-      "add_location_flag": false,
-      "remove_links": true,
-      "remove_users": true,
-      "remove_hash": true,
-      "unslang": true,
-      "split_words": false,
-      "stem": false,
-      "remove_punctuations": true,
-      "remove_numbers": true,
-      "to_lower_case": true,
-      "remove_stop_words": false,
-      "remove_not_alpha": false,
-      "join": true
-    },
-    "KFOLD_HISTORY": [
+      },
       {
         "loss": [
           0.47654385,
@@ -6826,39 +3903,7 @@
           0.82745939
         ],
         "INPUT_LENGTH": 50
-      }
-    ]
-  },
-  "1f5612e3-cc6b-4a00-a543-dd1c45b1a7e4": {
-    "UUID": "1f5612e3-cc6b-4a00-a543-dd1c45b1a7e4",
-    "BERT": "bert_en_uncased_L-24_H-1024_A-16",
-    "BERT_VERSION": 1,
-    "BATCH_SIZE": 16,
-    "EPOCHS": 3,
-    "OPTIMIZER": "adam",
-    "LEARNING_RATE": 2e-06,
-    "PREPROCESSING_ALGORITHM_UUID": "d3cc3c6e-10de-4b27-8712-8017da428e41",
-    "PREPROCESSING_ALGORITHM": {
-      "add_link_flag": true,
-      "add_user_flag": true,
-      "add_hash_flag": true,
-      "add_number_flag": true,
-      "add_keyword_flag": false,
-      "add_location_flag": false,
-      "remove_links": true,
-      "remove_users": true,
-      "remove_hash": true,
-      "unslang": true,
-      "split_words": false,
-      "stem": false,
-      "remove_punctuations": true,
-      "remove_numbers": true,
-      "to_lower_case": true,
-      "remove_stop_words": false,
-      "remove_not_alpha": false,
-      "join": true
-    },
-    "KFOLD_HISTORY": [
+      },
       {
         "loss": [
           0.46624373,
@@ -6891,39 +3936,7 @@
           0.8292982
         ],
         "INPUT_LENGTH": 51
-      }
-    ]
-  },
-  "d3ff9294-b34b-43d3-ac93-1dc97f218cb4": {
-    "UUID": "d3ff9294-b34b-43d3-ac93-1dc97f218cb4",
-    "BERT": "bert_en_uncased_L-24_H-1024_A-16",
-    "BERT_VERSION": 1,
-    "BATCH_SIZE": 16,
-    "EPOCHS": 3,
-    "OPTIMIZER": "adam",
-    "LEARNING_RATE": 2e-06,
-    "PREPROCESSING_ALGORITHM_UUID": "d3cc3c6e-10de-4b27-8712-8017da428e41",
-    "PREPROCESSING_ALGORITHM": {
-      "add_link_flag": true,
-      "add_user_flag": true,
-      "add_hash_flag": true,
-      "add_number_flag": true,
-      "add_keyword_flag": false,
-      "add_location_flag": false,
-      "remove_links": true,
-      "remove_users": true,
-      "remove_hash": true,
-      "unslang": true,
-      "split_words": false,
-      "stem": false,
-      "remove_punctuations": true,
-      "remove_numbers": true,
-      "to_lower_case": true,
-      "remove_stop_words": false,
-      "remove_not_alpha": false,
-      "join": true
-    },
-    "KFOLD_HISTORY": [
+      },
       {
         "loss": [
           0.45187862,
@@ -6957,6 +3970,7 @@
         ],
         "INPUT_LENGTH": 51
       }
-    ]
+    ],
+    "TYPE": "BERT"
   }
 }
