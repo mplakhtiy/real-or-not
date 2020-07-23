@@ -31,6 +31,7 @@
     "DIR": "./data-saved-models/BERT/",
     "PREFIX": "BERT-2e359f0b",
     "INPUT_LENGTH": 66,
+    "SEED": 7,
     "HISTORY": {
       "loss": [
         0.4772417,
@@ -61,136 +62,6 @@
         0.8210236,
         0.8360404,
         0.8345081
-      ]
-    }
-  },
-  "862cae3a-9870-4d72-ba34-bb04ae5aa6bf": {
-    "UUID": "862cae3a-9870-4d72-ba34-bb04ae5aa6bf",
-    "BERT": "bert_en_uncased_L-24_H-1024_A-16",
-    "BERT_VERSION": 1,
-    "BATCH_SIZE": 16,
-    "EPOCHS": 3,
-    "OPTIMIZER": "adam",
-    "LEARNING_RATE": 2e-06,
-    "PREPROCESSING_ALGORITHM_UUID": "2e359f0b",
-    "PREPROCESSING_ALGORITHM": {
-      "add_link_flag": false,
-      "add_user_flag": false,
-      "add_hash_flag": false,
-      "add_number_flag": false,
-      "add_keyword_flag": false,
-      "add_location_flag": false,
-      "remove_links": true,
-      "remove_users": true,
-      "remove_hash": true,
-      "unslang": true,
-      "split_words": false,
-      "stem": false,
-      "remove_punctuations": false,
-      "remove_numbers": true,
-      "to_lower_case": true,
-      "remove_stop_words": false,
-      "remove_not_alpha": false,
-      "join": true
-    },
-    "DIR": "./data-saved-models/BERT/",
-    "PREFIX": "BERT-2e359f0b",
-    "INPUT_LENGTH": 66,
-    "HISTORY": {
-      "loss": [
-        0.4855934,
-        0.3177563,
-        0.2213521
-      ],
-      "accuracy": [
-        0.77538,
-        0.8665791,
-        0.9153687
-      ],
-      "val_loss": [
-        0.4197374,
-        0.4070145,
-        0.4275833
-      ],
-      "val_accuracy": [
-        0.8226795,
-        0.8279334,
-        0.8257443
-      ],
-      "test_loss": [
-        0.4145458,
-        0.4089745,
-        0.4320904
-      ],
-      "test_accuracy": [
-        0.8228624,
-        0.8292982,
-        0.8271529
-      ]
-    }
-  },
-  "d1efaf1b-898c-4e14-83b8-3b39701227af": {
-    "UUID": "d1efaf1b-898c-4e14-83b8-3b39701227af",
-    "BERT": "bert_en_uncased_L-24_H-1024_A-16",
-    "BERT_VERSION": 1,
-    "BATCH_SIZE": 16,
-    "EPOCHS": 3,
-    "OPTIMIZER": "adam",
-    "LEARNING_RATE": 2e-06,
-    "PREPROCESSING_ALGORITHM_UUID": "2e359f0b",
-    "PREPROCESSING_ALGORITHM": {
-      "add_link_flag": false,
-      "add_user_flag": false,
-      "add_hash_flag": false,
-      "add_number_flag": false,
-      "add_keyword_flag": false,
-      "add_location_flag": false,
-      "remove_links": true,
-      "remove_users": true,
-      "remove_hash": true,
-      "unslang": true,
-      "split_words": false,
-      "stem": false,
-      "remove_punctuations": false,
-      "remove_numbers": true,
-      "to_lower_case": true,
-      "remove_stop_words": false,
-      "remove_not_alpha": false,
-      "join": true
-    },
-    "DIR": "./data-saved-models/BERT/",
-    "PREFIX": "BERT-2e359f0b",
-    "INPUT_LENGTH": 66,
-    "HISTORY": {
-      "loss": [
-        0.485781,
-        0.3324275,
-        0.2434256
-      ],
-      "accuracy": [
-        0.784575,
-        0.8624507,
-        0.9029837
-      ],
-      "val_loss": [
-        0.4175122,
-        0.4021408,
-        0.4180313
-      ],
-      "val_accuracy": [
-        0.821366,
-        0.8331874,
-        0.8340631
-      ],
-      "test_loss": [
-        0.41864,
-        0.3989678,
-        0.4161292
-      ],
-      "test_accuracy": [
-        0.8188784,
-        0.831137,
-        0.8305241
       ]
     }
   },
@@ -226,6 +97,7 @@
     "DIR": "./data-saved-models/BERT/",
     "PREFIX": "BERT-2e359f0b-SEED-42",
     "INPUT_LENGTH": 66,
+    "SEED": 42,
     "HISTORY": {
       "loss": [
         0.488794,
@@ -256,136 +128,6 @@
         0.8170395,
         0.8332822,
         0.8262335
-      ]
-    }
-  },
-  "cada951f-8f47-465e-8fdc-67a55b176ce2": {
-    "UUID": "cada951f-8f47-465e-8fdc-67a55b176ce2",
-    "BERT": "bert_en_uncased_L-24_H-1024_A-16",
-    "BERT_VERSION": 1,
-    "BATCH_SIZE": 16,
-    "EPOCHS": 3,
-    "OPTIMIZER": "adam",
-    "LEARNING_RATE": 2e-06,
-    "PREPROCESSING_ALGORITHM_UUID": "2e359f0b",
-    "PREPROCESSING_ALGORITHM": {
-      "add_link_flag": false,
-      "add_user_flag": false,
-      "add_hash_flag": false,
-      "add_number_flag": false,
-      "add_keyword_flag": false,
-      "add_location_flag": false,
-      "remove_links": true,
-      "remove_users": true,
-      "remove_hash": true,
-      "unslang": true,
-      "split_words": false,
-      "stem": false,
-      "remove_punctuations": false,
-      "remove_numbers": true,
-      "to_lower_case": true,
-      "remove_stop_words": false,
-      "remove_not_alpha": false,
-      "join": true
-    },
-    "DIR": "./data-saved-models/BERT/",
-    "PREFIX": "BERT-2e359f0b-SEED-42",
-    "INPUT_LENGTH": 66,
-    "HISTORY": {
-      "loss": [
-        0.4963564,
-        0.3404055,
-        0.2510199
-      ],
-      "accuracy": [
-        0.7601802,
-        0.8586977,
-        0.9016701
-      ],
-      "val_loss": [
-        0.4092125,
-        0.3842746,
-        0.3961975
-      ],
-      "val_accuracy": [
-        0.8301226,
-        0.841944,
-        0.8406305
-      ],
-      "test_loss": [
-        0.411675,
-        0.3912102,
-        0.4039267
-      ],
-      "test_accuracy": [
-        0.822556,
-        0.8329758,
-        0.8317499
-      ]
-    }
-  },
-  "b4a67852-68ed-44ec-a56d-222787be39fc": {
-    "UUID": "b4a67852-68ed-44ec-a56d-222787be39fc",
-    "BERT": "bert_en_uncased_L-24_H-1024_A-16",
-    "BERT_VERSION": 1,
-    "BATCH_SIZE": 16,
-    "EPOCHS": 3,
-    "OPTIMIZER": "adam",
-    "LEARNING_RATE": 2e-06,
-    "PREPROCESSING_ALGORITHM_UUID": "2e359f0b",
-    "PREPROCESSING_ALGORITHM": {
-      "add_link_flag": false,
-      "add_user_flag": false,
-      "add_hash_flag": false,
-      "add_number_flag": false,
-      "add_keyword_flag": false,
-      "add_location_flag": false,
-      "remove_links": true,
-      "remove_users": true,
-      "remove_hash": true,
-      "unslang": true,
-      "split_words": false,
-      "stem": false,
-      "remove_punctuations": false,
-      "remove_numbers": true,
-      "to_lower_case": true,
-      "remove_stop_words": false,
-      "remove_not_alpha": false,
-      "join": true
-    },
-    "DIR": "./data-saved-models/BERT/",
-    "PREFIX": "BERT-2e359f0b-SEED-42",
-    "INPUT_LENGTH": 66,
-    "HISTORY": {
-      "loss": [
-        0.4828317,
-        0.3319336,
-        0.2530123
-      ],
-      "accuracy": [
-        0.7706887,
-        0.863952,
-        0.8996059
-      ],
-      "val_loss": [
-        0.4114695,
-        0.389187,
-        0.3896776
-      ],
-      "val_accuracy": [
-        0.8270578,
-        0.8336252,
-        0.8423818
-      ],
-      "test_loss": [
-        0.4309544,
-        0.4034254,
-        0.406991
-      ],
-      "test_accuracy": [
-        0.8139749,
-        0.822556,
-        0.8320564
       ]
     }
   }
