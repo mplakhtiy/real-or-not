@@ -57,6 +57,19 @@ GLOVE_CONFIGS = {
         'LSTM_UNITS': 100,
         'DROPOUT': 0.2,
     },
+    'LSTM_CNN': {
+        'TYPE': 'LSTM_CNN',
+        'BATCH_SIZE': 32,
+        'EPOCHS': 20,
+        'OPTIMIZER': 'rmsprop',
+        'LEARNING_RATE': 1e-4,
+        'EMBEDDING_OPTIONS': {
+            'output_dim': 200,
+        },
+        'CONV_FILTERS': 100,
+        'CONV_KERNEL_SIZE': 5,
+        'LSTM_UNITS': 100,
+    },
     'FASTTEXT': {
         'TYPE': 'FASTTEXT',
         'BATCH_SIZE': 8,
@@ -158,6 +171,19 @@ CONFIGS = {
         },
         'LSTM_UNITS': 128,
         'DROPOUT': 0.2,
+    },
+    'LSTM_CNN': {
+        'TYPE': 'LSTM_CNN',
+        'BATCH_SIZE': 32,
+        'EPOCHS': 10,
+        'OPTIMIZER': 'rmsprop',
+        'LEARNING_RATE': 1e-4,
+        'EMBEDDING_OPTIONS': {
+            'output_dim': 256,
+        },
+        'CONV_FILTERS': 128,
+        'CONV_KERNEL_SIZE': 5,
+        'LSTM_UNITS': 128,
     },
     'FASTTEXT': {
         'TYPE': 'FASTTEXT',

@@ -47,11 +47,19 @@ class Keras:
         for layer in layers:
             model.add(layer)
 
-        model.add(Dense(1, activation=config.get('ACTIVATION', Keras.DEFAULTS['ACTIVATION'])))
+        model.add(Dense(
+            1,
+            activation=config.get('ACTIVATION', Keras.DEFAULTS['ACTIVATION'])
+        ))
 
         model.compile(
-            optimizer=Keras.OPTIMIZERS[config.get('OPTIMIZER', Keras.DEFAULTS['OPTIMIZER'])](
-                learning_rate=config.get('LEARNING_RATE', Keras.DEFAULTS['LEARNING_RATE'])
+            optimizer=Keras.OPTIMIZERS[
+                config.get('OPTIMIZER', Keras.DEFAULTS['OPTIMIZER'])
+            ](
+                learning_rate=config.get(
+                    'LEARNING_RATE',
+                    Keras.DEFAULTS['LEARNING_RATE']
+                )
             ),
             loss='binary_crossentropy',
             metrics=['accuracy']
@@ -82,6 +90,22 @@ class Keras:
 
         if config.get('DROPOUT'):
             layers.append(Dropout(config['DROPOUT']))
+
+        return Keras.get_sequential_model(
+            layers,
+            config
+        )
+
+    @staticmethod
+    def _get_lstm_cnn_model(config):
+        layers = [
+            Conv1D(filters=config['CONV_FILTERS'], kernel_size=config['CONV_KERNEL_SIZE'], activation='relu'),
+            MaxPooling1D(),
+            LSTM(config['LSTM_UNITS'])
+        ]
+
+        if config.get('DROPOUT') is not None:
+            layers = [Dropout(config['DROPOUT'])] + layers
 
         return Keras.get_sequential_model(
             layers,
@@ -159,6 +183,7 @@ class Keras:
             'LSTM': Keras._get_lstm_model,
             'LSTM_DROPOUT': Keras._get_lstm_dropout_model,
             'BI_LSTM': Keras._get_bi_lstm_model,
+            'LSTM_CNN': Keras._get_lstm_cnn_model,
             'FASTTEXT': Keras._get_fast_text_model,
             'RCNN': Keras._get_rcnn_model,
             'CNN': Keras._get_cnn_model,
@@ -169,8 +194,15 @@ class Keras:
         return models[config['TYPE']](config)
 
     @staticmethod
-    def get_bert_model(bert_layer, input_length, optimizer='rmsprop', learning_rate=2e-6):
-        input_word_ids = Input(shape=(input_length,), dtype=tf.int32, name="input_word_ids")
+    def get_bert_model(
+            bert_layer,
+            input_length,
+            optimizer='rmsprop',
+            learning_rate=2e-6
+    ):
+        input_word_ids = Input(
+            shape=(input_length,), dtype=tf.int32, name="input_word_ids"
+        )
         input_mask = Input(shape=(input_length,), dtype=tf.int32, name="input_mask")
         segment_ids = Input(shape=(input_length,), dtype=tf.int32, name="segment_ids")
 
@@ -214,14 +246,16 @@ class Keras:
 
     @staticmethod
     def fit(model, data, config):
-        data_len = len(data)
-        if data_len == 6:
+        is_with_test_data = len(data) == 6
+
+        if is_with_test_data:
             x_train, y_train, x_val, y_val, x_test, y_test = data
         else:
             x_train, y_train, x_val, y_val = data
 
         callbacks = []
-        if data_len == 6:
+
+        if is_with_test_data:
             test_data_callback = TestDataCallback(
                 x_test=x_test,
                 y_test=y_test
@@ -229,8 +263,9 @@ class Keras:
             callbacks.append(test_data_callback)
 
         if config.get('DIR') is not None and config.get('PREFIX') is not None:
+            suffix = '-e{epoch:03d}-a{accuracy:03f}-va{val_accuracy:03f}-ta.h5'
             callbacks.append(ModelCheckpoint(
-                config['DIR'] + config['PREFIX'] + '-e{epoch:03d}-a{accuracy:03f}-va{val_accuracy:03f}-ta.h5',
+                config['DIR'] + config['PREFIX'] + suffix,
                 verbose=1,
                 monitor='val_loss',
                 save_best_only=True,
@@ -252,6 +287,8 @@ class Keras:
         model_history = history.history.copy()
         model_history['test_loss'] = test_data_callback.loss
         model_history['test_accuracy'] = test_data_callback.accuracy
-        model_history = {k: [round(float(v), 6) for v in data] for k, data in model_history.items()}
+        model_history = {
+            k: [round(float(v), 6) for v in data] for k, data in model_history.items()
+        }
 
         return model_history

@@ -64,7 +64,15 @@ PREPROCESSING_ALGORITHMS = {
 
 def get_preprocessing_algorithm(alg_id=None, join=False):
     if alg_id is None:
-        return PREPROCESSING_ALGORITHMS.copy()
+        if not join:
+            return PREPROCESSING_ALGORITHMS.copy()
+        else:
+            a = {}
+            for key, value in PREPROCESSING_ALGORITHMS.items():
+                a[key] = value
+                a[key]['join'] = True
+
+            return a
 
     for key, alg in PREPROCESSING_ALGORITHMS.items():
         if alg_id in key:
