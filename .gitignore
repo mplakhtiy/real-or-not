@@ -10,3 +10,4 @@ archive/v2/models/bert*
 archive/v2/classifiers/SVM*
 archive**/
 han-venv
+data-saved-models
