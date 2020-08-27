@@ -13,7 +13,7 @@ TRAIN_UUID = str(uuid.uuid4())
 SEED = 7
 KFOLD = 10
 
-USE_GLOVE = True
+USE_GLOVE = False
 
 NETWORKS_KEYS = [
     # 'LSTM', 'LSTM_DROPOUT', 'BI_LSTM',

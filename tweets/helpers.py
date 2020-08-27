@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
 import numpy as np
 import operator
-# from tensorflow.keras.initializers import Constant
-# from tensorflow.keras.preprocessing.sequence import pad_sequences
-from keras.initializers import Constant
-from keras.preprocessing.sequence import pad_sequences
+from tensorflow.keras.initializers import Constant
+from tensorflow.keras.preprocessing.sequence import pad_sequences
+# from keras.initializers import Constant
+# from keras.preprocessing.sequence import pad_sequences
 
 
 class Helpers:

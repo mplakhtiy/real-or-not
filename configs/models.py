@@ -60,8 +60,8 @@ GLOVE_CONFIGS = {
     'LSTM_CNN': {
         'TYPE': 'LSTM_CNN',
         'BATCH_SIZE': 32,
-        'EPOCHS': 20,
-        'OPTIMIZER': 'rmsprop',
+        'EPOCHS': 7,
+        'OPTIMIZER': 'adam',
         'LEARNING_RATE': 1e-4,
         'EMBEDDING_OPTIONS': {
             'output_dim': 200,
@@ -175,8 +175,8 @@ CONFIGS = {
     'LSTM_CNN': {
         'TYPE': 'LSTM_CNN',
         'BATCH_SIZE': 32,
-        'EPOCHS': 10,
-        'OPTIMIZER': 'rmsprop',
+        'EPOCHS': 7,
+        'OPTIMIZER': 'adam',
         'LEARNING_RATE': 1e-4,
         'EMBEDDING_OPTIONS': {
             'output_dim': 256,

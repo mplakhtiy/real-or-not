@@ -15,14 +15,14 @@ saved_models_pathes = [str(lst) for lst in list(Path("./data-saved-models/").rgl
                       [str(lst) for lst in list(Path("./data-saved-models/").rglob("*.pickle"))]
 SEED = 7
 
-NETWORKS_KEYS = ['LSTM', 'LSTM_DROPOUT', 'BI_LSTM', 'FASTTEXT', 'RCNN', 'CNN', 'RNN', 'GRU']
+NETWORKS_KEYS = ['LSTM', 'LSTM_DROPOUT', 'BI_LSTM', 'LSTM_CNN', 'FASTTEXT', 'RCNN', 'CNN', 'RNN', 'GRU']
 BERT_KEY = ['BERT']
 BERT_MODEL = {
     'BERT': 'bert_en_uncased_L-24_H-1024_A-16',
     'BERT_VERSION': 1,
 }
 OMIT_BERT = True
-CLASSIFIERS_KEYS = ['RIDGE', 'SVC', 'LOGISTIC_REGRESSION', 'SGD']
+CLASSIFIERS_KEYS = ['RIDGE', 'SVC', 'LOGISTIC_REGRESSION', 'SGD', 'DECISION_TREE', 'RANDOM_FOREST']
 PREPROCESSING_ALGORITHM_IDS = [
     '1258a9d2',
     '60314ef9',
@@ -37,10 +37,10 @@ PREPROCESSING_ALGORITHM_IDS = [
 ]
 
 PREDICTIONS = {
-    'bert': {},
-    'glove-true': {},
-    # 'glove-false': {},
-    # 'classifiers': {},
+    # 'bert': {},
+    # 'glove-true': {},
+    'glove-false': {},
+    'classifiers': {},
 }
 
 STATICS = {}
@@ -59,7 +59,6 @@ correct_targets_saved = False
 for folder in PREDICTIONS.keys():
     is_classifier = folder == 'classifiers'
     is_bert = folder == 'bert'
-
     keys = None
 
     if is_bert and OMIT_BERT:
@@ -146,7 +145,7 @@ for folder in PREDICTIONS.keys():
             x_val_predictions = model.predict(x_val)
             x_test_predictions = model.predict(x_test)
 
-            PREDICTIONS[folder][key] = {
+            PREDICTIONS[folder][f'{key}-{preprocessing_algorithm_id}'] = {
                 'x_train': flatten(x_train_predictions.tolist()),
                 'x_val': flatten(x_val_predictions.tolist()),
                 'x_test': flatten(x_test_predictions.tolist()),
@@ -166,16 +165,16 @@ for folder in PREDICTIONS.keys():
 
             print(key)
             print(model_path)
-            print(f'a - {model.evaluate(x_train, y_train, verbose=0)}')
-            print(f'va - {model.evaluate(x_val, y_val, verbose=0)}')
-            print(f'ta - {model.evaluate(x_test, y_test, verbose=0)}')
+            # print(f'a - {model.evaluate(x_train, y_train, verbose=0)}')
+            # print(f'va - {model.evaluate(x_val, y_val, verbose=0)}')
+            # print(f'ta - {model.evaluate(x_test, y_test, verbose=0)}')
             print('----------------------------')
 
             x_train_predictions = model.predict(x_train)
             x_val_predictions = model.predict(x_val)
             x_test_predictions = model.predict(x_test)
 
-            PREDICTIONS[folder][key] = {
+            PREDICTIONS[folder][f'{key}-{preprocessing_algorithm_id}'] = {
                 'x_train': flatten(x_train_predictions.tolist()),
                 'x_val': flatten(x_val_predictions.tolist()),
                 'x_test': flatten(x_test_predictions.tolist()),
@@ -198,10 +197,10 @@ for folder in PREDICTIONS.keys():
             # print(f'ta - {cls.score(x_test, y_test)}')
             # print('----------------------------')
 
-            PREDICTIONS[folder][key] = {
-                'x_train': get_probs(cls.decision_function(x_train).tolist()),
-                'x_val': get_probs(cls.decision_function(x_val).tolist()),
-                'x_test': get_probs(cls.decision_function(x_test).tolist()),
+            PREDICTIONS[folder][f'{key}-{preprocessing_algorithm_id}'] = {
+                'x_train': cls.predict(x_train).tolist(),
+                'x_val':  cls.predict(x_val).tolist(),
+                'x_test':  cls.predict(x_test).tolist(),
             }
 
-save_to_file('./predictions_v_4.json', {**PREDICTIONS, **STATICS})
+save_to_file('./predictions_v_5.json', {**PREDICTIONS, **STATICS})

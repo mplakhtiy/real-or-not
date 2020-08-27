@@ -1,17 +1,24 @@
-from models.keras import Keras
 from utils import get_from_file, save_to_file
-import plotly.express as px
 import pandas as pd
 
 
 def get_average_history(kfold_history):
     k = len(kfold_history)
-    epochs = len(kfold_history[0]['accuracy'])
+    # epochs = len(kfold_history[0]['accuracy'])
+    epochs = len(kfold_history[0]['acc'])
+    # average_history = {
+    #     "loss": [0] * epochs,
+    #     "accuracy": [0] * epochs,
+    #     "val_loss": [0] * epochs,
+    #     "val_accuracy": [0] * epochs,
+    #     "test_loss": [0] * epochs,
+    #     "test_accuracy": [0] * epochs,
+    # }
     average_history = {
         "loss": [0] * epochs,
-        "accuracy": [0] * epochs,
+        "acc": [0] * epochs,
         "val_loss": [0] * epochs,
-        "val_accuracy": [0] * epochs,
+        "val_acc": [0] * epochs,
         "test_loss": [0] * epochs,
         "test_accuracy": [0] * epochs,
     }
@@ -119,9 +126,9 @@ def get_highest_history(kfold_history, key='val_accuracy'):
 
 
 # logs = get_from_file('./logs/keras/2020-05-12.json')
-logs = get_from_file('./logs/keras-glove/2020-07-12.json')
 result = {
     'Model': [],
+    'Train Id': [],
     'GloVe': [],
     'Optimizer': [],
     'Algorithm Id': [],
@@ -131,55 +138,72 @@ result = {
     'Test Score': [],
 }
 
-kerases_logs = ['./logs/keras/2020-05-07.json','./logs/keras/2020-05-12.json', './logs/keras/2020-07-11.json']
-kerases_glove_logs = [
-    './logs/keras-glove/2020-07-06.json', './logs/keras-glove/2020-07-09.json',
-    './logs/keras-glove/2020-07-10.json', './logs/keras-glove/2020-07-11.json',
-    './logs/keras-glove/2020-07-12.json'
-]
-bert_logs = ['./logs/bert/2020-07-20.json']
+# kerases_logs = ['./logs/keras/2020-05-07.json','./logs/keras/2020-05-12.json', './logs/keras/2020-07-11.json']
+# kerases_glove_logs = [
+#     './logs/keras-glove/2020-07-06.json', './logs/keras-glove/2020-07-09.json',
+#     './logs/keras-glove/2020-07-10.json', './logs/keras-glove/2020-07-11.json',
+#     './logs/keras-glove/2020-07-12.json'
+# ]
+# bert_logs = ['./logs/bert/2020-07-20.json']
 
-for log_path in bert_logs:
+logs = ['./logs/han/2020-08-22.json', './logs/han'
+                                      '-glove/2020-08-22.json']
+
+for log_path in logs:
     for log_id, log in get_from_file(log_path).items():
         result['Model'].append(log["TYPE"])
+        result['Train Id'].append(log["TRAIN_UUID"][:8])
         result['Algorithm Id'].append(log["PREPROCESSING_ALGORITHM_UUID"][:8])
         if 'GLOVE' in log:
             result['GloVe'].append(True)
         else:
             result['GloVe'].append(False)
         result['Optimizer'].append(log['OPTIMIZER'])
-        h = get_highest_history(log['KFOLD_HISTORY'], 'test_accuracy')
+        h = get_highest_history(log['KFOLD_HISTORY'], 'val_accuracy')
         result['Fold'].append(h['fold'])
         result['Epoch'].append(h['epoch'])
         result['Val Score'].append(h['val_accuracy'])
         result['Test Score'].append(h['test_accuracy'])
 
+# save_to_file('averages.json', DATA)
 
+# for model_type, history in MODELS_AVERAGES_HISTORY.items():
+#     draw_comparison(history, f'Model: {model_type}')
 
+a = {}
+for k, v in result.items():
+    a[k] = pd.Series(v)
+a = pd.DataFrame(a)
+a.to_csv(f'highest.csv', index=False)
 
+# Generate Averages
+# logs = get_from_file('./logs/han-glove/2020-08-23.json')
+#
+#
 # MODELS_AVERAGES_HISTORY = {}
 #
 # for log_id, log in logs.items():
-#     if not MODELS_AVERAGES_HISTORY.get(log["TYPE"]):
-#         MODELS_AVERAGES_HISTORY[log["TYPE"]] = {}
-#     MODELS_AVERAGES_HISTORY[log["TYPE"]][log['PREPROCESSING_ALGORITHM_UUID']] = get_average_history(
+#     key = f'{log["TYPE"]}-{log["TRAIN_UUID"]}'
+#     if not MODELS_AVERAGES_HISTORY.get(key):
+#         MODELS_AVERAGES_HISTORY[key] = {}
+#     MODELS_AVERAGES_HISTORY[key][log['PREPROCESSING_ALGORITHM_UUID']] = get_average_history(
 #         log['KFOLD_HISTORY'])
-
-# save_to_file('averages.json', MODELS_AVERAGES_HISTORY)
-
+#
+# # save_to_file('averages.json', MODELS_AVERAGES_HISTORY)
+#
 # result = {
 #     'Model': [],
 #     'Algorithm ID': []
 # }
 #
-# for model_type, data in MODELS_AVERAGES_HISTORY.items():
+# for model_key, data in MODELS_AVERAGES_HISTORY.items():
 #     result = {
 #         'Model': [],
 #         'Algorithm ID': []
 #     }
 #
 #     for algorithm_id, history in data.items():
-#         result['Model'].append(model_type)
+#         result['Model'].append(model_key)
 #         result['Algorithm ID'].append(algorithm_id[:8])
 #
 #         for key in history:
@@ -193,14 +217,4 @@ for log_path in bert_logs:
 #     for k, v in result.items():
 #         a[k] = pd.Series(v)
 #     a = pd.DataFrame(a)
-#     a.to_csv(f'{model_type}-averages.csv', index=False)
-# save_to_file('averages.json', DATA)
-
-# for model_type, history in MODELS_AVERAGES_HISTORY.items():
-#     draw_comparison(history, f'Model: {model_type}')
-
-    a = {}
-    for k, v in result.items():
-        a[k] = pd.Series(v)
-    a = pd.DataFrame(a)
-    a.to_csv(f'highest.csv', index=False)
+#     a.to_csv(f'{model_key}-averages.csv', index=False)

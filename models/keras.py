@@ -285,8 +285,11 @@ class Keras:
         )
 
         model_history = history.history.copy()
-        model_history['test_loss'] = test_data_callback.loss
-        model_history['test_accuracy'] = test_data_callback.accuracy
+
+        if is_with_test_data:
+            model_history['test_loss'] = test_data_callback.loss
+            model_history['test_accuracy'] = test_data_callback.accuracy
+
         model_history = {
             k: [round(float(v), 6) for v in data] for k, data in model_history.items()
         }

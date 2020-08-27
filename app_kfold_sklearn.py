@@ -119,14 +119,14 @@ VECTORIZERS = [
 ]
 
 CLASSIFIERS = [
-    # {
-    #     'TYPE': 'RIDGE',
-    #     'OPTIONS': {}
-    # },
-    # {
-    #     'TYPE': 'LOGISTIC_REGRESSION',
-    #     'OPTIONS': {}
-    # },
+    {
+        'TYPE': 'RIDGE',
+        'OPTIONS': {}
+    },
+    {
+        'TYPE': 'LOGISTIC_REGRESSION',
+        'OPTIONS': {}
+    },
     # {
     #     'TYPE': 'RANDOM_FOREST',
     #     'OPTIONS': {}

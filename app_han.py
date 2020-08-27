@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 # Implementation of Hierarchical Attentional Networks for Document Classification
 # http://www.cs.cmu.edu/~./hovy/papers/16HLT-hierarchical-attention-networks.pdf
+# https://github.com/arunarn2/HierarchicalAttentionNetworks
 # requirements: python3.6, tensorflow 1.4.0, keras 2.0.8 !!!
 
 from keras.callbacks import Callback, ModelCheckpoint
@@ -11,40 +12,38 @@ from keras.engine.topology import Layer
 from keras.optimizers import Adam, RMSprop
 from keras.layers import Dense, Input
 from keras.layers import Embedding, GRU, Bidirectional, TimeDistributed
-from utils import get_glove_embeddings, log_model
+from utils import get_glove_embeddings, log_model, ensure_path_exists
 from data import train_data, test_data
 from tweets import Helpers, tweets_preprocessor
-from sklearn.model_selection import StratifiedKFold
+from sklearn.model_selection import train_test_split
 from keras.preprocessing.text import Tokenizer
 from configs import get_preprocessing_algorithm
 import numpy as np
 import uuid
 
-HAN_CONFIG = {
-    'TYPE': 'HAN',
-    'BATCH_SIZE': 32,
-    'EPOCHS': 20,
-    'OPTIMIZER': 'adam',
-    'LEARNING_RATE': 1e-4,
-    'EMBEDDING_OPTIONS': {
-        'output_dim': 200,
-    },
-    'GRU_UNITS': 100,
-    'ATTN_UNITS': 100,
+PREDICTIONS = {
+    'x_train': [],
+    'x_val': [],
+    'x_test': [],
 }
 
 
 class TestDataCallback(Callback):
-    def __init__(self, x_test, y_test):
+    def __init__(self, x_test, y_test, x_train, x_val):
         super().__init__()
         self.accuracy = []
         self.loss = []
+        self.x_train = x_train
+        self.x_val = x_val
         self.x_test = x_test
         self.y_test = y_test
 
     def on_epoch_end(self, epoch, logs=None):
         score = self.model.evaluate(self.x_test, self.y_test, verbose=1)
         self.loss.append(score[0])
+        PREDICTIONS['x_train'].append([v[0] for v in self.model.predict(self.x_train).tolist()])
+        PREDICTIONS['x_val'].append([v[0] for v in self.model.predict(self.x_val).tolist()])
+        PREDICTIONS['x_test'].append([v[0] for v in self.model.predict(self.x_test).tolist()])
         self.accuracy.append(score[1])
 
 
@@ -153,12 +152,14 @@ def fit(model, data, config):
     if is_with_test_data:
         test_data_callback = TestDataCallback(
             x_test=x_test,
-            y_test=y_test
+            y_test=y_test,
+            x_train=x_train,
+            x_val=x_val
         )
         callbacks.append(test_data_callback)
 
     if config.get('DIR') is not None and config.get('PREFIX') is not None:
-        suffix = '-e{epoch:03d}-a{accuracy:03f}-va{val_accuracy:03f}-ta.h5'
+        suffix = '-e{epoch:03d}-a{acc:03f}-va{val_acc:03f}-ta.hdf5'
         callbacks.append(ModelCheckpoint(
             config['DIR'] + config['PREFIX'] + suffix,
             verbose=1,
@@ -189,128 +190,102 @@ def fit(model, data, config):
     return model_history
 
 
+HAN_CONFIG = {
+    'TYPE': 'HAN',
+    'BATCH_SIZE': 32,
+    'EPOCHS': 5,
+    'OPTIMIZER': 'adam',
+    'LEARNING_RATE': 1e-4,
+    'EMBEDDING_OPTIONS': {
+        'output_dim': 256,
+    },
+    'GRU_UNITS': 128,
+    'ATTN_UNITS': 128,
+}
+
 TRAIN_UUID = str(uuid.uuid4())
 
 SEED = 7
-KFOLD = 10
 
-USE_GLOVE = True
+USE_GLOVE = False
 
-NETWORKS_KEYS = ['HAN']
+NETWORK_KEY = 'HAN'
+PREPROCESSING_ALGORITHM_ID = 'a85c8435'
 
-PREFIX = NETWORKS_KEYS[0]
+PREPROCESSING_ALGORITHM = get_preprocessing_algorithm(PREPROCESSING_ALGORITHM_ID, join=True)
 
+CONFIG = HAN_CONFIG.copy()
 
-def wrapInArr(arr):
-    print(arr)
-    l = [arr]
-    print(l)
-    return np.array(l)
+if USE_GLOVE:
+    CONFIG['GLOVE'] = {
+        'SIZE': 200
+    }
+    GLOVE = f'glove.twitter.27B.{CONFIG["GLOVE"]["SIZE"]}d.txt'
+    GLOVE_FILE_PATH = f'./data/glove/{GLOVE}'
+    GLOVE_EMBEDDINGS = get_glove_embeddings(GLOVE_FILE_PATH)
 
-for key in NETWORKS_KEYS:
-    MODEL_CONFIG = HAN_CONFIG.copy()
-    MODEL_CONFIG['TRAIN_UUID'] = TRAIN_UUID
+CONFIG['TRAIN_UUID'] = TRAIN_UUID
+CONFIG['UUID'] = str(uuid.uuid4())
+CONFIG['PREPROCESSING_ALGORITHM'] = PREPROCESSING_ALGORITHM
+CONFIG['PREPROCESSING_ALGORITHM_UUID'] = PREPROCESSING_ALGORITHM_ID
+CONFIG['HISTORY'] = None
+# CONFIG['DIR'] = f'./data-saved-models/glove-true/{NETWORK_KEY}/'
+# ensure_path_exists(CONFIG['DIR'])
+# CONFIG['PREFIX'] = f'{NETWORK_KEY}-{PREPROCESSING_ALGORITHM_ID}-SEED-{SEED}'
 
-    if USE_GLOVE:
-        MODEL_CONFIG['GLOVE'] = {
-            'SIZE': 200
-        }
-        GLOVE = f'glove.twitter.27B.{MODEL_CONFIG["GLOVE"]["SIZE"]}d.txt'
-        GLOVE_FILE_PATH = f'./data/glove/{GLOVE}'
-        GLOVE_EMBEDDINGS = get_glove_embeddings(GLOVE_FILE_PATH)
+train_data['preprocessed'] = tweets_preprocessor.preprocess(
+    train_data.text,
+    PREPROCESSING_ALGORITHM,
+    keywords=train_data.keyword,
+    locations=train_data.location
+)
 
-    for key, preprocessing_algorithm in get_preprocessing_algorithm(join=True).items():
-        CONFIG = MODEL_CONFIG.copy()
-        CONFIG['UUID'] = str(uuid.uuid4())
-        CONFIG['PREPROCESSING_ALGORITHM'] = preprocessing_algorithm
-        CONFIG['PREPROCESSING_ALGORITHM_UUID'] = key
-        CONFIG['KFOLD_HISTORY'] = []
+test_data['preprocessed'] = tweets_preprocessor.preprocess(
+    test_data.text,
+    PREPROCESSING_ALGORITHM,
+    keywords=test_data.keyword,
+    locations=test_data.location
+)
 
-        kfold = StratifiedKFold(n_splits=KFOLD, shuffle=True, random_state=SEED)
+train_inputs, val_inputs, train_targets, val_targets = train_test_split(
+    train_data['preprocessed'],
+    train_data['target'],
+    test_size=0.3,
+    random_state=SEED
+)
 
-        train_data['preprocessed'] = tweets_preprocessor.preprocess(
-            train_data.text,
-            preprocessing_algorithm,
-            keywords=train_data.keyword,
-            locations=train_data.location
-        )
+keras_tokenizer = Tokenizer()
 
-        test_data['preprocessed'] = tweets_preprocessor.preprocess(
-            test_data.text,
-            preprocessing_algorithm,
-            keywords=test_data.keyword,
-            locations=test_data.location
-        )
+(x_train, x_val, x_test), input_dim, input_len = Helpers.get_model_inputs(
+    (train_inputs, val_inputs, test_data.preprocessed),
+    keras_tokenizer
+)
+y_train = train_targets
+y_val = val_targets
+y_test = test_data.target.values
 
-        inputs = train_data['preprocessed']
-        targets = train_data['target']
+x_train = np.array([[v] for v in x_train])
+x_val = np.array([[v] for v in x_val])
+x_test = np.array([[v] for v in x_test])
 
-        for train, validation in kfold.split(inputs, targets):
-            keras_tokenizer = Tokenizer()
-            (x_train, x_val, x_test), input_dim, input_len = Helpers.get_model_inputs(
-                (inputs[train], inputs[validation], test_data.preprocessed),
-                keras_tokenizer
-            )
-            y_train = targets[train]
-            y_val = targets[validation]
-            y_test = test_data.target.values
+CONFIG['EMBEDDING_OPTIONS']['input_dim'] = input_dim
+CONFIG['EMBEDDING_OPTIONS']['input_length'] = input_len
 
-            x_train = np.array([[v] for v in x_train])
-            x_val = np.array([[v] for v in x_val])
-            x_test = np.array([[v] for v in x_test])
+if USE_GLOVE:
+    Helpers.with_glove_embedding_options(CONFIG, keras_tokenizer, GLOVE_EMBEDDINGS)
 
+model = get_han_model(CONFIG)
 
-            CONFIG['EMBEDDING_OPTIONS']['input_dim'] = input_dim
-            CONFIG['EMBEDDING_OPTIONS']['input_length'] = input_len
+history = fit(model, (x_train, y_train, x_val, y_val, x_test, y_test), CONFIG)
 
-            if USE_GLOVE:
-                Helpers.with_glove_embedding_options(CONFIG, keras_tokenizer, GLOVE_EMBEDDINGS)
+CONFIG['HISTORY'] = history
+loss_index = history['val_loss'].index(min(history['val_loss']))
 
-            model = get_han_model(CONFIG)
+CONFIG['PREDICTIONS'] = {
+    'x_train': PREDICTIONS['x_train'][loss_index],
+    'x_val': PREDICTIONS['x_val'][loss_index],
+    'x_test': PREDICTIONS['x_test'][loss_index],
+}
 
-
-            history = fit(model, (x_train, y_train, x_val, y_val, x_test, y_test), CONFIG)
-
-            try:
-                del CONFIG['EMBEDDING_OPTIONS']['embeddings_initializer']
-            except KeyError:
-                pass
-
-            try:
-                del CONFIG['EMBEDDING_OPTIONS']['trainable']
-            except KeyError:
-                pass
-
-            try:
-                history['EMBEDDING_OPTIONS'] = CONFIG['EMBEDDING_OPTIONS'].copy()
-            except KeyError:
-                pass
-
-            try:
-                history['GLOVE'] = CONFIG['GLOVE'].copy()
-            except KeyError:
-                pass
-
-            try:
-                del CONFIG['EMBEDDING_OPTIONS']['input_dim']
-            except KeyError:
-                pass
-
-            try:
-                del CONFIG['EMBEDDING_OPTIONS']['input_length']
-            except KeyError:
-                pass
-
-            try:
-                del CONFIG['GLOVE']['VOCAB_COVERAGE']
-            except KeyError:
-                pass
-
-            try:
-                del CONFIG['GLOVE']['TEXT_COVERAGE']
-            except KeyError:
-                pass
-
-            CONFIG['KFOLD_HISTORY'].append(history)
-
-            log_model(CONFIG)
+log_model(CONFIG)
+print('VAL_ACC: {} ; TEST ACC: {}'.format(history['val_acc'][loss_index], history['test_accuracy'][loss_index]))
