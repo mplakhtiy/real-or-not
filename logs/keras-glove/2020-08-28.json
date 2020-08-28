@@ -1,0 +1,104 @@
+{
+  "906422b5-fdc3-4d9a-98aa-815ee8671b87": {
+    "TYPE": "LSTM_CNN",
+    "BATCH_SIZE": 32,
+    "EPOCHS": 7,
+    "OPTIMIZER": "adam",
+    "LEARNING_RATE": 0.0001,
+    "EMBEDDING_OPTIONS": {
+      "output_dim": 200,
+      "input_dim": 11347,
+      "input_length": 23,
+      "embeddings_initializer": "{\"class_name\": \"Constant\"}",
+      "trainable": false
+    },
+    "CONV_FILTERS": 100,
+    "CONV_KERNEL_SIZE": 5,
+    "LSTM_UNITS": 100,
+    "GLOVE": {
+      "SIZE": 200,
+      "VOCAB_COVERAGE": 0.89494,
+      "TEXT_COVERAGE": 0.96609
+    },
+    "UUID": "906422b5-fdc3-4d9a-98aa-815ee8671b87",
+    "PREPROCESSING_ALGORITHM": {
+      "add_link_flag": true,
+      "add_user_flag": true,
+      "add_hash_flag": true,
+      "add_number_flag": false,
+      "add_keyword_flag": false,
+      "add_location_flag": false,
+      "remove_links": true,
+      "remove_users": true,
+      "remove_hash": true,
+      "unslang": true,
+      "split_words": true,
+      "stem": false,
+      "remove_punctuations": true,
+      "remove_numbers": true,
+      "to_lower_case": true,
+      "remove_stop_words": true,
+      "remove_not_alpha": true,
+      "join": false
+    },
+    "PREPROCESSING_ALGORITHM_UUID": "8b7db91c",
+    "DIR": "./data-saved-models/glove-false/LSTM_CNN/",
+    "PREFIX": "LSTM_CNN-8b7db91c-SEED-7",
+    "HISTORY": {
+      "loss": [
+        0.568011,
+        0.433579,
+        0.389908,
+        0.358839,
+        0.318461,
+        0.271322,
+        0.22069
+      ],
+      "accuracy": [
+        0.747983,
+        0.817414,
+        0.83055,
+        0.851004,
+        0.872584,
+        0.896979,
+        0.919872
+      ],
+      "val_loss": [
+        0.469481,
+        0.434364,
+        0.425014,
+        0.428627,
+        0.440042,
+        0.463038,
+        0.485083
+      ],
+      "val_accuracy": [
+        0.803415,
+        0.812172,
+        0.815236,
+        0.81655,
+        0.814799,
+        0.811296,
+        0.813485
+      ],
+      "test_loss": [
+        0.490582,
+        0.460173,
+        0.452011,
+        0.45888,
+        0.472101,
+        0.495185,
+        0.518244
+      ],
+      "test_accuracy": [
+        0.782715,
+        0.793135,
+        0.803249,
+        0.804474,
+        0.801103,
+        0.799571,
+        0.804474
+      ]
+    }
+  }
+}

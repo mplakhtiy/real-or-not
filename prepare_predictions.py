@@ -37,8 +37,8 @@ PREPROCESSING_ALGORITHM_IDS = [
 ]
 
 PREDICTIONS = {
-    # 'bert': {},
-    # 'glove-true': {},
+    'bert': {},
+    'glove-true': {},
     'glove-false': {},
     'classifiers': {},
 }
@@ -203,4 +203,4 @@ for folder in PREDICTIONS.keys():
                 'x_test':  cls.predict(x_test).tolist(),
             }
 
-save_to_file('./predictions_v_5.json', {**PREDICTIONS, **STATICS})
+save_to_file('./predictions_v_6.json', {**PREDICTIONS, **STATICS})
