@@ -9,17 +9,29 @@ import tensorflow as tf
 
 
 class TestDataCallback(Callback):
-    def __init__(self, x_test, y_test):
+    def __init__(self, x_test, y_test, is_history=True, is_predictions=False):
         super().__init__()
         self.accuracy = []
         self.loss = []
+        self.predictions = []
+        self._is_history = is_history
+        self._is_predictions = is_predictions
         self.x_test = x_test
         self.y_test = y_test
 
+    @staticmethod
+    def _flatten_predictions(predictions):
+        return [round(float(prediction[0]), 6) for prediction in predictions]
+
     def on_epoch_end(self, epoch, logs=None):
-        score = self.model.evaluate(self.x_test, self.y_test, verbose=1)
-        self.loss.append(score[0])
-        self.accuracy.append(score[1])
+        if self._is_history:
+            score = self.model.evaluate(self.x_test, self.y_test, verbose=1)
+            self.loss.append(score[0])
+            self.accuracy.append(score[1])
+        if self._is_predictions:
+            self.predictions.append(
+                TestDataCallback._flatten_predictions(self.model.predict(self.x_test).tolist())
+            )
 
 
 class Keras:
@@ -258,7 +270,9 @@ class Keras:
         if is_with_test_data:
             test_data_callback = TestDataCallback(
                 x_test=x_test,
-                y_test=y_test
+                y_test=y_test,
+                is_history=False,
+                is_predictions=True,
             )
             callbacks.append(test_data_callback)
 
@@ -287,11 +301,15 @@ class Keras:
         model_history = history.history.copy()
 
         if is_with_test_data:
-            model_history['test_loss'] = test_data_callback.loss
-            model_history['test_accuracy'] = test_data_callback.accuracy
+            # model_history['test_loss'] = test_data_callback.loss
+            # model_history['test_accuracy'] = test_data_callback.accuracy
+            pass
 
         model_history = {
             k: [round(float(v), 6) for v in data] for k, data in model_history.items()
         }
+
+        if is_with_test_data:
+            model_history['val_predictions'] = test_data_callback.predictions
 
         return model_history

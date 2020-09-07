@@ -101,8 +101,10 @@ def log_model(config):
     if 'BERT' in config:
         dir_path = f'./logs/bert/'
     # dir_path = f'./logs/han-glove/'
+
+    dir_path = f'{dir_path}10000/'
     ensure_path_exists(dir_path)
-    file_name = f'{datetime.now().date()}.json'
+    file_name = f'{config["TYPE"]}.json'
     file_path = dir_path + file_name
 
     if not os.path.exists(file_path):
@@ -114,9 +116,9 @@ def log_model(config):
 
 
 def log_classifier(config):
-    dir_path = f'./logs/sklearn/'
+    dir_path = f'./logs/sklearn/10000/'
     ensure_path_exists(dir_path)
-    file_name = f'{datetime.now().date()}.json'
+    file_name = f'{config["CLASSIFIER"]["TYPE"]}.json'
     file_path = dir_path + file_name
 
     if not os.path.exists(file_path):

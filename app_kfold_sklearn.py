@@ -1,77 +1,26 @@
 # -*- coding: utf-8 -*-
 from tweets import tweets_preprocessor
 from models import Sklearn
-from sklearn.model_selection import cross_val_score
-from utils import log, save_classifier, log_classifier
+from utils import log_classifier
 from data import train_data, test_data
 from sklearn.model_selection import StratifiedKFold
+from configs import get_preprocessing_algorithm
 import uuid
-
+import numpy as np
 
 ########################################################################################################################
-
-PREPROCESSING_ALGORITHMS = {
-    '1258a9d2-111e-4d4a-acda-852dd7ba3e88': {
-        'add_link_flag': True, 'add_user_flag': True, 'add_hash_flag': True, 'add_number_flag': True,
-        'add_keyword_flag': False, 'add_location_flag': False, 'remove_links': True, 'remove_users': True,
-        'remove_hash': True, 'unslang': True, 'split_words': True, 'stem': False, 'remove_punctuations': True,
-        'remove_numbers': True, 'to_lower_case': True, 'remove_stop_words': True, 'remove_not_alpha': True,
-        'join': True},
-    '60314ef9-271d-4865-a7db-6889b1670f59': {
-        'add_link_flag': False, 'add_user_flag': True, 'add_hash_flag': True, 'add_number_flag': False,
-        'add_keyword_flag': False, 'add_location_flag': False, 'remove_links': True, 'remove_users': True,
-        'remove_hash': True, 'unslang': True, 'split_words': True, 'stem': False, 'remove_punctuations': True,
-        'remove_numbers': True, 'to_lower_case': True, 'remove_stop_words': True, 'remove_not_alpha': True,
-        'join': True},
-    '4c2e484d-5cb8-4e3e-ba7b-679ae7a73fca': {
-        'add_link_flag': True, 'add_user_flag': True, 'add_hash_flag': True, 'add_number_flag': True,
-        'add_keyword_flag': True, 'add_location_flag': True, 'remove_links': True, 'remove_users': True,
-        'remove_hash': True, 'unslang': True, 'split_words': True, 'stem': False, 'remove_punctuations': True,
-        'remove_numbers': True, 'to_lower_case': True, 'remove_stop_words': True, 'remove_not_alpha': True,
-        'join': True},
-    '8b7db91c-c8bf-40f2-986a-83a659b63ba6': {
-        'add_link_flag': True, 'add_user_flag': True, 'add_hash_flag': True, 'add_number_flag': False,
-        'add_keyword_flag': False, 'add_location_flag': False, 'remove_links': True, 'remove_users': True,
-        'remove_hash': True, 'unslang': True, 'split_words': True, 'stem': False, 'remove_punctuations': True,
-        'remove_numbers': True, 'to_lower_case': True, 'remove_stop_words': True, 'remove_not_alpha': True,
-        'join': True},
-    '7bc816a1-25df-4649-8570-0012d0acd72a': {
-        'add_link_flag': False, 'add_user_flag': False, 'add_hash_flag': False, 'add_number_flag': False,
-        'add_keyword_flag': False, 'add_location_flag': False, 'remove_links': True, 'remove_users': True,
-        'remove_hash': True, 'unslang': True, 'split_words': True, 'stem': False, 'remove_punctuations': True,
-        'remove_numbers': True, 'to_lower_case': True, 'remove_stop_words': True, 'remove_not_alpha': True,
-        'join': True},
-    'a85c8435-6f23-4015-9e8c-19547222d6ce': {
-        'add_link_flag': True, 'add_user_flag': True, 'add_hash_flag': True, 'add_number_flag': True,
-        'add_keyword_flag': False, 'add_location_flag': False, 'remove_links': True, 'remove_users': True,
-        'remove_hash': True, 'unslang': True, 'split_words': True, 'stem': False, 'remove_punctuations': False,
-        'remove_numbers': True, 'to_lower_case': True, 'remove_stop_words': False, 'remove_not_alpha': False,
-        'join': True},
-    'b054e509-4f04-44f2-bcf9-14fa8af4eeed': {
-        'add_link_flag': True, 'add_user_flag': True, 'add_hash_flag': True, 'add_number_flag': True,
-        'add_keyword_flag': False, 'add_location_flag': False, 'remove_links': True, 'remove_users': True,
-        'remove_hash': True, 'unslang': True, 'split_words': False, 'stem': False, 'remove_punctuations': False,
-        'remove_numbers': True, 'to_lower_case': True, 'remove_stop_words': False, 'remove_not_alpha': False,
-        'join': True},
-    '2e359f0b-bfb9-4eda-b2a4-cd839c122de6': {
-        'add_link_flag': False, 'add_user_flag': False, 'add_hash_flag': False, 'add_number_flag': False,
-        'add_keyword_flag': False, 'add_location_flag': False, 'remove_links': True, 'remove_users': True,
-        'remove_hash': True, 'unslang': True, 'split_words': False, 'stem': False, 'remove_punctuations': False,
-        'remove_numbers': True, 'to_lower_case': True, 'remove_stop_words': False, 'remove_not_alpha': False,
-        'join': True},
-    '71bd09db-e104-462d-887a-74389438bb49': {
-        'add_link_flag': False, 'add_user_flag': False, 'add_hash_flag': False, 'add_number_flag': False,
-        'add_keyword_flag': False, 'add_location_flag': False, 'remove_links': True, 'remove_users': True,
-        'remove_hash': True, 'unslang': True, 'split_words': False, 'stem': False, 'remove_punctuations': True,
-        'remove_numbers': True, 'to_lower_case': True, 'remove_stop_words': False, 'remove_not_alpha': False,
-        'join': True},
-    'd3cc3c6e-10de-4b27-8712-8017da428e41': {
-        'add_link_flag': True, 'add_user_flag': True, 'add_hash_flag': True, 'add_number_flag': True,
-        'add_keyword_flag': False, 'add_location_flag': False, 'remove_links': True, 'remove_users': True,
-        'remove_hash': True, 'unslang': True, 'split_words': False, 'stem': False, 'remove_punctuations': True,
-        'remove_numbers': True, 'to_lower_case': True, 'remove_stop_words': False, 'remove_not_alpha': False,
-        'join': True}
-}
+PREPROCESSING_ALGORITHM_IDS = [
+    '1258a9d2',
+    '60314ef9',
+    '4c2e484d',
+    '8b7db91c',
+    '7bc816a1',
+    'a85c8435',
+    'b054e509',
+    '2e359f0b',
+    '71bd09db',
+    'd3cc3c6e',
+]
 
 VECTORIZERS = [
     {
@@ -127,93 +76,107 @@ CLASSIFIERS = [
         'TYPE': 'LOGISTIC_REGRESSION',
         'OPTIONS': {}
     },
-    # {
-    #     'TYPE': 'RANDOM_FOREST',
-    #     'OPTIONS': {}
-    # },
-    # {
-    #     'TYPE': 'DECISION_TREE',
-    #     'OPTIONS': {}
-    # },
     {
-        'TYPE': 'SVC',
+        'TYPE': 'RANDOM_FOREST',
         'OPTIONS': {}
     },
-    # {
-    #     'TYPE': 'SGD',
-    #     'OPTIONS': {}
-    # }
+    {
+        'TYPE': 'DECISION_TREE',
+        'OPTIONS': {}
+    },
+    {
+       'TYPE': 'SVC',
+       'OPTIONS': {}
+    },
+    {
+        'TYPE': 'SGD',
+        'OPTIONS': {}
+    }
 ]
 SEED = 7
 KFOLD = 10
 
-for VECTORIZER in VECTORIZERS:
-    for CLASSIFIER in CLASSIFIERS:
-        for algorithm_id, preprocessing_algorithm in PREPROCESSING_ALGORITHMS.items():
-            LOG_DICT = {
-                'UUID': str(uuid.uuid4()),
-                'PREPROCESSING_ALGORITHM_UUID': algorithm_id,
-                'PREPROCESSING_ALGORITHM': preprocessing_algorithm,
-                'VECTORIZER': VECTORIZER,
-                'CLASSIFIER': CLASSIFIER,
-                'KFOLD_HISTORY': []
-            }
+PAIRS = [
+    [0, 2, 7],
+    [1, 3, 3],
+    [2, 0, 1],
+    [3, 3, 4],
+    # [4, 1, 2],
+    [5, 4, 7],
+]
+TRAIN_UUID = str(uuid.uuid4())
 
-            kfold = StratifiedKFold(n_splits=KFOLD, shuffle=True, random_state=SEED)
+for pair in PAIRS:
+    CLASSIFIER = CLASSIFIERS[pair[0]]
+    VECTORIZER = VECTORIZERS[pair[1]]
+    preprocessing_algorithm_id = PREPROCESSING_ALGORITHM_IDS[pair[2]]
+    print(CLASSIFIER, VECTORIZER, preprocessing_algorithm_id)
 
-            train_data['preprocessed'] = tweets_preprocessor.preprocess(
-                train_data.text,
-                preprocessing_algorithm,
-                keywords=train_data.keyword,
-                locations=train_data.location
-            )
+    preprocessing_algorithm = get_preprocessing_algorithm(preprocessing_algorithm_id, join=True)
 
-            test_data['preprocessed'] = tweets_preprocessor.preprocess(
-                test_data.text,
-                preprocessing_algorithm,
-                keywords=test_data.keyword,
-                locations=test_data.location
-            )
+    LOG_DICT = {
+        'UUID': str(uuid.uuid4()),
+        'TRAIN_UUID': TRAIN_UUID,
+        'PREPROCESSING_ALGORITHM_UUID': preprocessing_algorithm_id,
+        'PREPROCESSING_ALGORITHM': preprocessing_algorithm,
+        'VECTORIZER': VECTORIZER,
+        'CLASSIFIER': CLASSIFIER,
+        'KFOLD_HISTORY': []
+    }
 
-            inputs = train_data['preprocessed']
-            targets = train_data['target']
+    kfold = StratifiedKFold(n_splits=KFOLD, shuffle=True, random_state=SEED)
 
-            k = 0
+    train_data['preprocessed'] = tweets_preprocessor.preprocess(
+        train_data.text,
+        preprocessing_algorithm,
+        keywords=train_data.keyword,
+        locations=train_data.location
+    )
 
-            for train, validation in kfold.split(inputs, targets):
+    test_data['preprocessed'] = tweets_preprocessor.preprocess(
+        test_data.text,
+        preprocessing_algorithm,
+        keywords=test_data.keyword,
+        locations=test_data.location
+    )
 
-                vectorizer = Sklearn.VECTORIZERS[VECTORIZER['TYPE']](**VECTORIZER['OPTIONS'])
+    inputs = np.concatenate([train_data['preprocessed'], test_data.preprocessed])
+    targets = np.concatenate([train_data['target'], test_data.target])
 
-                x_train = vectorizer.fit_transform(inputs[train]).todense()
-                y_train = targets[train]
+    k = 0
 
-                x_val = vectorizer.transform(inputs[validation]).todense()
-                y_val = targets[validation]
+    for train, validation in kfold.split(inputs, targets):
+        vectorizer = Sklearn.VECTORIZERS[VECTORIZER['TYPE']](**VECTORIZER['OPTIONS'])
 
-                x_test = vectorizer.transform(test_data.preprocessed).todense()
-                y_test = test_data.target.values
+        x_train = vectorizer.fit_transform(inputs[train]).todense()
+        y_train = targets[train]
 
-                classifier = Sklearn.CLASSIFIERS[CLASSIFIER['TYPE']](**CLASSIFIER['OPTIONS'])
-                try:
-                    classifier.fit(x_train, y_train)
+        x_val = vectorizer.transform(inputs[validation]).todense()
+        y_val = targets[validation]
 
-                    train_score = round(classifier.score(x_train, y_train), 6)
-                    val_score = round(classifier.score(x_val, y_val), 6)
-                    test_score = round(classifier.score(x_test, y_test), 6)
+        x_test = vectorizer.transform(test_data.preprocessed).todense()
+        y_test = test_data.target.values
 
-                    history = {
-                        'train_score': train_score,
-                        'val_score': val_score,
-                        'test_score': test_score
-                    }
-                except:
-                    history = 'error'
+        classifier = Sklearn.CLASSIFIERS[CLASSIFIER['TYPE']](**CLASSIFIER['OPTIONS'])
 
-                LOG_DICT['KFOLD_HISTORY'].append(history)
+        classifier.fit(x_train, y_train)
 
-                print(CLASSIFIER['TYPE'], VECTORIZER, history, k)
+        train_score = round(classifier.score(x_train, y_train), 6)
+        val_score = round(classifier.score(x_val, y_val), 6)
+        test_score = round(classifier.score(x_test, y_test), 6)
 
-                log_classifier(LOG_DICT)
+        history = {
+            'train_score': train_score,
+            'val_score': val_score,
+            'val_predictions': classifier.predict(x_val).tolist(),
+            'test_score': test_score,
+            'test_predictions': classifier.predict(x_test).tolist(),
+        }
 
-                k += 1
+        LOG_DICT['KFOLD_HISTORY'].append(history)
 
+        print(CLASSIFIER['TYPE'], VECTORIZER, k)
+
+        log_classifier(LOG_DICT)
+
+        k += 1

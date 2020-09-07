@@ -25,7 +25,7 @@ GLOVE_CONFIGS = {
     'LSTM': {
         'TYPE': 'LSTM',
         'BATCH_SIZE': 32,
-        'EPOCHS': 20,
+        'EPOCHS': 15,
         'OPTIMIZER': 'adam',
         'LEARNING_RATE': 1e-4,
         'EMBEDDING_OPTIONS': {
@@ -36,7 +36,7 @@ GLOVE_CONFIGS = {
     'LSTM_DROPOUT': {
         'TYPE': 'LSTM_DROPOUT',
         'BATCH_SIZE': 32,
-        'EPOCHS': 50,
+        'EPOCHS': 25,
         'OPTIMIZER': 'adam',
         'LEARNING_RATE': 1e-4,
         'EMBEDDING_OPTIONS': {
@@ -48,7 +48,7 @@ GLOVE_CONFIGS = {
     'BI_LSTM': {
         'TYPE': 'BI_LSTM',
         'BATCH_SIZE': 32,
-        'EPOCHS': 20,
+        'EPOCHS': 15,
         'OPTIMIZER': 'adam',
         'LEARNING_RATE': 1e-4,
         'EMBEDDING_OPTIONS': {
@@ -60,7 +60,7 @@ GLOVE_CONFIGS = {
     'LSTM_CNN': {
         'TYPE': 'LSTM_CNN',
         'BATCH_SIZE': 32,
-        'EPOCHS': 7,
+        'EPOCHS': 10,
         'OPTIMIZER': 'adam',
         'LEARNING_RATE': 1e-4,
         'EMBEDDING_OPTIONS': {
@@ -73,7 +73,7 @@ GLOVE_CONFIGS = {
     'FASTTEXT': {
         'TYPE': 'FASTTEXT',
         'BATCH_SIZE': 8,
-        'EPOCHS': 150,
+        'EPOCHS': 65,
         'OPTIMIZER': 'adam',
         'LEARNING_RATE': 1e-4,
         'EMBEDDING_OPTIONS': {
@@ -99,7 +99,7 @@ GLOVE_CONFIGS = {
     'CNN': {
         'TYPE': 'CNN',
         'BATCH_SIZE': 32,
-        'EPOCHS': 20,
+        'EPOCHS': 15,
         'OPTIMIZER': 'adam',
         'LEARNING_RATE': 1e-4,
         'EMBEDDING_OPTIONS': {
@@ -113,7 +113,7 @@ GLOVE_CONFIGS = {
     'RNN': {
         'TYPE': 'RNN',
         'BATCH_SIZE': 32,
-        'EPOCHS': 20,
+        'EPOCHS': 10,
         'OPTIMIZER': 'adam',
         'LEARNING_RATE': 1e-4,
         'EMBEDDING_OPTIONS': {
@@ -125,7 +125,7 @@ GLOVE_CONFIGS = {
     'GRU': {
         'TYPE': 'GRU',
         'BATCH_SIZE': 32,
-        'EPOCHS': 20,
+        'EPOCHS': 15,
         'OPTIMIZER': 'adam',
         'LEARNING_RATE': 1e-4,
         'EMBEDDING_OPTIONS': {
@@ -140,7 +140,7 @@ CONFIGS = {
     'LSTM': {
         'TYPE': 'LSTM',
         'BATCH_SIZE': 128,
-        'EPOCHS': 10,
+        'EPOCHS': 7,
         'OPTIMIZER': 'adam',
         'LEARNING_RATE': 1e-4,
         'EMBEDDING_OPTIONS': {
@@ -150,8 +150,8 @@ CONFIGS = {
     },
     'LSTM_DROPOUT': {
         'TYPE': 'LSTM_DROPOUT',
-        'BATCH_SIZE': 64,
-        'EPOCHS': 15,
+        'BATCH_SIZE': 128,
+        'EPOCHS': 10,
         'OPTIMIZER': 'adam',
         'LEARNING_RATE': 1e-4,
         'EMBEDDING_OPTIONS': {
@@ -163,7 +163,7 @@ CONFIGS = {
     'BI_LSTM': {
         'TYPE': 'BI_LSTM',
         'BATCH_SIZE': 128,
-        'EPOCHS': 10,
+        'EPOCHS': 7,
         'OPTIMIZER': 'adam',
         'LEARNING_RATE': 1e-4,
         'EMBEDDING_OPTIONS': {
@@ -174,7 +174,7 @@ CONFIGS = {
     },
     'LSTM_CNN': {
         'TYPE': 'LSTM_CNN',
-        'BATCH_SIZE': 32,
+        'BATCH_SIZE': 128,
         'EPOCHS': 7,
         'OPTIMIZER': 'adam',
         'LEARNING_RATE': 1e-4,
@@ -187,7 +187,7 @@ CONFIGS = {
     },
     'FASTTEXT': {
         'TYPE': 'FASTTEXT',
-        'BATCH_SIZE': 64,
+        'BATCH_SIZE': 128,
         'EPOCHS': 30,
         'OPTIMIZER': 'adam',
         'LEARNING_RATE': 1e-4,
@@ -199,7 +199,7 @@ CONFIGS = {
     'RCNN': {
         'TYPE': 'RCNN',
         'BATCH_SIZE': 128,
-        'EPOCHS': 15,
+        'EPOCHS': 10,
         'OPTIMIZER': 'adam',
         'LEARNING_RATE': 1e-4,
         'EMBEDDING_OPTIONS': {
@@ -213,7 +213,7 @@ CONFIGS = {
     },
     'CNN': {
         'TYPE': 'CNN',
-        'BATCH_SIZE': 64,
+        'BATCH_SIZE': 128,
         'EPOCHS': 15,
         'OPTIMIZER': 'adam',
         'LEARNING_RATE': 1e-4,
@@ -227,8 +227,8 @@ CONFIGS = {
     },
     'RNN': {
         'TYPE': 'RNN',
-        'BATCH_SIZE': 64,
-        'EPOCHS': 15,
+        'BATCH_SIZE': 128,
+        'EPOCHS': 10,
         'OPTIMIZER': 'adam',
         'LEARNING_RATE': 1e-4,
         'EMBEDDING_OPTIONS': {
@@ -240,7 +240,7 @@ CONFIGS = {
     'GRU': {
         'TYPE': 'GRU',
         'BATCH_SIZE': 128,
-        'EPOCHS': 15,
+        'EPOCHS': 10,
         'OPTIMIZER': 'adam',
         'LEARNING_RATE': 1e-4,
         'EMBEDDING_OPTIONS': {
