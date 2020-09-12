@@ -1,6 +1,7 @@
 import pandas as pd
 
-data = pd.read_csv('./7000-10fcv-27m-TDS.csv')
+# data = pd.read_csv('./7000-10fcv-27m-tds.csv')
+data = pd.read_csv('./v2/7000/7000-10fcv-27m-tds.csv')
 
 data_dict = data.to_dict()
 
@@ -28,7 +29,7 @@ data_dict = data.to_dict()
 #     'Correct Prediction': [],
 # }
 
-result= {
+result = {
     'id': [],
     'index': [],
     'fold': [],
@@ -109,7 +110,7 @@ for index in data_dict['id']:
             # break
 
     # if has_diff:
-    if len(l) == len(KEYS) and len(l) != 0:
+    if len(l) != len(KEYS) and len(l) != 0:
         # result['id'].append(data_dict['id'][index])
         result['id'].append(data_dict['id'][index])
         result['fold'].append(data_dict['fold'][index])
@@ -126,4 +127,6 @@ a = {}
 for k, v in result.items():
     a[k] = pd.Series(v)
 a = pd.DataFrame(a)
-a.to_csv(f'./7000-10fcv-27m-TDS-failed.csv', index=False)
+a.to_csv(f'./v2/7000/7000-10fcv-27m-tds-some-failed.csv', index=False)
+
+

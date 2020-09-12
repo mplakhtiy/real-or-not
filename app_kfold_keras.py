@@ -2,19 +2,26 @@
 import uuid
 from tweets import Helpers, tweets_preprocessor
 from models import Keras
-from utils import get_glove_embeddings, log_model
+from utils import get_glove_embeddings, log_model, get_from_file
 from data import train_data, test_data
 from sklearn.model_selection import StratifiedKFold
 from tensorflow.keras.preprocessing.text import Tokenizer
 from configs import get_preprocessing_algorithm, get_model_config
 import numpy as np
+import time
+
+# print('3hours delay')
+# time.sleep(10800)
+
 
 TRAIN_UUID = str(uuid.uuid4())
 
 SEED = 7
 KFOLD = 10
+failed_10000 = get_from_file('./10000/10000-failed.json')['failed_indexes']
+failed_7000 = get_from_file('./7000/7000-failed.json')['failed_indexes']
 
-USE_GLOVE = True
+USE_GLOVE = False
 
 NETWORKS_KEYS = [
     'LSTM',
@@ -66,7 +73,7 @@ PAIRS_KERAS = [
 ]
 
 pairs = PAIRS_GLOVE if USE_GLOVE else PAIRS_KERAS
-GLOVE_EMBEDDINGS = get_glove_embeddings('./data/glove/glove.twitter.27B.200d.txt')
+# GLOVE_EMBEDDINGS = get_glove_embeddings('./data/glove/glove.twitter.27B.200d.txt')
 
 for pair in pairs:
     model_key = NETWORKS_KEYS[pair[0]]
@@ -105,18 +112,24 @@ for pair in pairs:
         locations=test_data.location
     )
 
-    inputs = np.concatenate([train_data['preprocessed'], test_data.preprocessed])
-    targets = np.concatenate([train_data['target'], test_data.target])
+    inputs = np.array(train_data['preprocessed'])
+    targets = np.array(train_data['target'])
+    x_f = inputs[failed_7000]
+    y_f = targets[failed_7000]
+    inputs = np.delete(inputs, failed_7000)
+    targets = np.delete(targets, failed_7000)
 
     for train, validation in kfold.split(inputs, targets):
         keras_tokenizer = Tokenizer()
 
-        (x_train, x_val), input_dim, input_len = Helpers.get_model_inputs(
-            (inputs[train], inputs[validation]),
+        (x_train, x_val, x_test, x_failed), input_dim, input_len = Helpers.get_model_inputs(
+            (inputs[train], inputs[validation], test_data.preprocessed, x_f),
             keras_tokenizer
         )
         y_train = targets[train]
         y_val = targets[validation]
+        y_test = test_data.target.values
+        y_failed = y_f
 
         CONFIG['EMBEDDING_OPTIONS']['input_dim'] = input_dim
         CONFIG['EMBEDDING_OPTIONS']['input_length'] = input_len
@@ -126,7 +139,7 @@ for pair in pairs:
 
         model = Keras.get_model(CONFIG)
 
-        history = Keras.fit(model, (x_train, y_train, x_val, y_val, x_val, y_val), CONFIG)
+        history = Keras.fit(model, (x_train, y_train, x_val, y_val, x_test, y_test, x_failed, y_failed), CONFIG)
 
         try:
             del CONFIG['EMBEDDING_OPTIONS']['embeddings_initializer']

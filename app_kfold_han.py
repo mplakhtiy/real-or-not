@@ -11,7 +11,7 @@ from keras.engine.topology import Layer
 from keras.optimizers import Adam, RMSprop
 from keras.layers import Dense, Input
 from keras.layers import Embedding, GRU, Bidirectional, TimeDistributed
-from utils import get_glove_embeddings, log_model
+from utils import get_glove_embeddings, log_model, get_from_file
 from data import train_data, test_data
 from tweets import Helpers, tweets_preprocessor
 from sklearn.model_selection import StratifiedKFold
@@ -19,6 +19,10 @@ from keras.preprocessing.text import Tokenizer
 from configs import get_preprocessing_algorithm
 import numpy as np
 import uuid
+import time
+
+print('6 hours delay')
+time.sleep(21600)
 
 # HAN_CONFIG = {
 #     'TYPE': 'HAN',
@@ -32,6 +36,7 @@ import uuid
 #     'GRU_UNITS': 100,
 #     'ATTN_UNITS': 100,
 # }
+
 
 HAN_CONFIG = {
     'TYPE': 'HAN',
@@ -48,34 +53,59 @@ HAN_CONFIG = {
 
 
 class TestDataCallback(Callback):
-    def __init__(self, x_test, y_test, x_val, is_history=True, is_predictions=False):
+    def __init__(self, x_test=None, y_test=None, x_train=None, x_val=None, x_failed=None, y_failed=None,
+                 is_test_history=True, is_predictions=False, is_failed_history=True):
         super().__init__()
-        self.accuracy = []
-        self.loss = []
+        self.test_accuracy = []
+        self.test_loss = []
+        self.failed_accuracy = []
+        self.failed_loss = []
+        self.train_predictions = []
         self.val_predictions = []
         self.test_predictions = []
-        self._is_history = is_history
+        self.failed_predictions = []
+        self._is_test_history = is_test_history
+        self._is_failed_history = is_failed_history
         self._is_predictions = is_predictions
         self.x_test = x_test
         self.y_test = y_test
+        self.x_train = x_train
         self.x_val = x_val
+        self.x_failed = x_failed
+        self.y_failed = y_failed
 
     @staticmethod
     def _flatten_predictions(predictions):
         return [round(float(prediction[0]), 6) for prediction in predictions]
 
     def on_epoch_end(self, epoch, logs=None):
-        if self._is_history:
-            score = self.model.evaluate(self.x_test, self.y_test, verbose=1)
-            self.loss.append(score[0])
-            self.accuracy.append(score[1])
+        if self._is_test_history and self.x_test is not None and self.y_test is not None:
+            test_score = self.model.evaluate(self.x_test, self.y_test, verbose=1)
+            self.test_loss.append(test_score[0])
+            self.test_accuracy.append(test_score[1])
+
+        if self._is_failed_history and self.x_failed is not None and self.y_failed is not None:
+            failed_score = self.model.evaluate(self.x_failed, self.y_failed, verbose=1)
+            self.failed_loss.append(failed_score[0])
+            self.failed_accuracy.append(failed_score[1])
+
         if self._is_predictions:
-            self.test_predictions.append(
-                TestDataCallback._flatten_predictions(self.model.predict(self.x_test).tolist())
-            )
-            self.val_predictions.append(
-                TestDataCallback._flatten_predictions(self.model.predict(self.x_val).tolist())
-            )
+            if self.x_train is not None:
+                self.train_predictions.append(
+                    TestDataCallback._flatten_predictions(self.model.predict(self.x_train).tolist())
+                )
+            if self.x_val is not None:
+                self.val_predictions.append(
+                    TestDataCallback._flatten_predictions(self.model.predict(self.x_val).tolist())
+                )
+            if self.x_test is not None:
+                self.test_predictions.append(
+                    TestDataCallback._flatten_predictions(self.model.predict(self.x_test).tolist())
+                )
+            if self.x_failed is not None:
+                self.failed_predictions.append(
+                    TestDataCallback._flatten_predictions(self.model.predict(self.x_failed).tolist())
+                )
 
 
 # class defining the custom attention layer
@@ -171,10 +201,10 @@ def get_han_model(config):
 
 
 def fit(model, data, config):
-    is_with_test_data = len(data) == 6
+    is_with_test_data = len(data) == 8
 
     if is_with_test_data:
-        x_train, y_train, x_val, y_val, x_test, y_test = data
+        x_train, y_train, x_val, y_val, x_test, y_test, x_failed, y_failed = data
     else:
         x_train, y_train, x_val, y_val = data
 
@@ -184,9 +214,13 @@ def fit(model, data, config):
         test_data_callback = TestDataCallback(
             x_test=x_test,
             y_test=y_test,
+            is_test_history=True,
+            is_predictions=True,
             x_val=x_val,
-            is_history=True,
-            is_predictions=True
+            x_train=x_train,
+            is_failed_history=True,
+            x_failed=x_failed,
+            y_failed=y_failed
         )
         callbacks.append(test_data_callback)
 
@@ -213,19 +247,27 @@ def fit(model, data, config):
     )
 
     model_history = history.history.copy()
-    model_history['test_loss'] = test_data_callback.loss
-    model_history['test_accuracy'] = test_data_callback.accuracy
+
+    model_history['test_loss'] = test_data_callback.test_loss
+    model_history['test_accuracy'] = test_data_callback.test_accuracy
+    model_history['failed_loss'] = test_data_callback.failed_loss
+    model_history['failed_accuracy'] = test_data_callback.failed_accuracy
+
     model_history = {
         k: [round(float(v), 6) for v in data] for k, data in model_history.items()
     }
     model_history_copy = {
         'accuracy': model_history['acc'],
         'loss': model_history['loss'],
-        'val_accuracy': model_history['val_acc'],
         'val_loss': model_history['val_loss'],
-        'val_predictions': test_data_callback.val_predictions,
+        'val_accuracy': model_history['val_acc'],
+        'failed_loss': model_history['failed_loss'],
+        'failed_accuracy': model_history['failed_accuracy'],
         'test_loss': model_history['test_loss'],
         'test_accuracy': model_history['test_accuracy'],
+        'train_predictions': test_data_callback.train_predictions,
+        'val_predictions': test_data_callback.val_predictions,
+        'failed_predictions': test_data_callback.failed_predictions,
         'test_predictions': test_data_callback.test_predictions
     }
 
@@ -238,6 +280,9 @@ SEED = 7
 KFOLD = 10
 
 USE_GLOVE = False
+
+failed_10000 = get_from_file('./10000/10000-failed.json')['failed_indexes']
+failed_7000 = get_from_file('./7000/7000-failed.json')['failed_indexes']
 
 NETWORKS_KEY = 'HAN'
 PREFIX = NETWORKS_KEY
@@ -257,7 +302,7 @@ if USE_GLOVE:
 PREPROCESSING_ALGORITHM = get_preprocessing_algorithm(PREPROCESSING_ALGORITHM_ID, join=True)
 CONFIG = MODEL_CONFIG.copy()
 CONFIG['UUID'] = str(uuid.uuid4())
-CONFIG['PREPROCESSING_ALGORITHM'] = PREPROCESSING_ALGORITHM_ID
+CONFIG['PREPROCESSING_ALGORITHM'] = PREPROCESSING_ALGORITHM
 CONFIG['PREPROCESSING_ALGORITHM_UUID'] = PREPROCESSING_ALGORITHM_ID
 CONFIG['KFOLD_HISTORY'] = []
 
@@ -277,27 +322,33 @@ test_data['preprocessed'] = tweets_preprocessor.preprocess(
     locations=test_data.location
 )
 
-inputs = train_data['preprocessed']
-targets = train_data['target']
+inputs = np.array(train_data['preprocessed'])
+targets = np.array(train_data['target'])
 # inputs = np.concatenate([train_data['preprocessed'], test_data.preprocessed])
 # targets = np.concatenate([train_data['target'], test_data.target])
+x_f = inputs[failed_7000]
+y_f = targets[failed_7000]
+inputs = np.delete(inputs, failed_7000)
+targets = np.delete(targets, failed_7000)
 
 for train, validation in kfold.split(inputs, targets):
     keras_tokenizer = Tokenizer()
-    (x_train, x_val, x_test), input_dim, input_len = Helpers.get_model_inputs(
-        (inputs[train], inputs[validation], test_data.preprocessed),
+    (x_train, x_val, x_test, x_failed), input_dim, input_len = Helpers.get_model_inputs(
+        (inputs[train], inputs[validation], test_data.preprocessed, x_f),
         keras_tokenizer
     )
-    # (x_train, x_val), input_dim, input_len = Helpers.get_model_inputs(
-    #     (inputs[train], inputs[validation]),
+    # (x_train, x_val, x_failed), input_dim, input_len = Helpers.get_model_inputs(
+    #     (inputs[train], inputs[validation], x_f),
     #     keras_tokenizer
     # )
     y_train = targets[train]
     y_val = targets[validation]
     y_test = test_data.target.values
+    y_failed = y_f
 
     x_train = np.array([[v] for v in x_train])
     x_val = np.array([[v] for v in x_val])
+    x_failed = np.array([[v] for v in x_failed])
     x_test = np.array([[v] for v in x_test])
 
     CONFIG['EMBEDDING_OPTIONS']['input_dim'] = input_dim
@@ -308,8 +359,8 @@ for train, validation in kfold.split(inputs, targets):
 
     model = get_han_model(CONFIG)
 
-    history = fit(model, (x_train, y_train, x_val, y_val, x_test, y_test), CONFIG)
-    # history = fit(model, (x_train, y_train, x_val, y_val, x_val, y_val), CONFIG)
+    history = fit(model, (x_train, y_train, x_val, y_val, x_test, y_test, x_failed, y_failed), CONFIG)
+    # history = fit(model, (x_train, y_train, x_val, y_val, None, None, x_failed, y_failed), CONFIG)
 
     try:
         del CONFIG['EMBEDDING_OPTIONS']['embeddings_initializer']

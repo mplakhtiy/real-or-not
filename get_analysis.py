@@ -7,18 +7,18 @@ import pandas as pd
 
 folder = '7000'
 
-logs = [str(lst) for lst in list(Path(f"./logs/bert/{folder}").rglob("*.json"))] + \
-       [str(lst) for lst in list(Path(f"./logs/keras/{folder}").rglob("*.json"))] + \
-       [str(lst) for lst in list(Path(f"./logs/keras-glove/{folder}").rglob("*.json"))] + \
-       [str(lst) for lst in list(Path(f"./logs/han/{folder}").rglob("*.json"))] + \
-       [str(lst) for lst in list(Path(f"./logs/han-glove/{folder}").rglob("*.json"))] + \
-       [str(lst) for lst in list(Path(f"./logs/sklearn/{folder}").rglob("*.json"))]
+logs = [str(lst) for lst in list(Path(f"./logs/bert/v2/{folder}").rglob("*.json"))] + \
+       [str(lst) for lst in list(Path(f"./logs/keras/v2/{folder}").rglob("*.json"))] + \
+       [str(lst) for lst in list(Path(f"./logs/keras-glove/v2/{folder}").rglob("*.json"))] + \
+       [str(lst) for lst in list(Path(f"./logs/han/v2/{folder}").rglob("*.json"))] + \
+       [str(lst) for lst in list(Path(f"./logs/han-glove/v2/{folder}").rglob("*.json"))] + \
+       [str(lst) for lst in list(Path(f"./logs/sklearn/v2/{folder}").rglob("*.json"))]
 
 
 def get_best_epoch(history):
     best_loss_index = history['val_loss'].index(min(history['val_loss']))
     temp_acc = 0
-    temp_loss = 99999
+    temp_loss = 999999999
     best_acc_index = 0
 
     for i in range(best_loss_index + 1):
@@ -30,56 +30,85 @@ def get_best_epoch(history):
     return best_acc_index, best_loss_index
 
 
-new_log = {}
+def get_highest_fold(folds, key):
+    fold_index = 0
+    temp_score = 0
 
-for log_path in logs:
-    log = list(get_from_file(log_path).values())[0]
-    kfold_history = []
-
-    if '/sklearn' in log_path:
-        new_log[log_path] = log
-
+    for i, fold in enumerate(folds):
+        if 'sklearn' not in key:
+            if temp_score < fold['test_accuracy'][fold['best_acc_epoch']]:
+                temp_score = fold['test_accuracy'][fold['best_acc_epoch']]
+                fold_index = i
+        else:
+            if temp_score < fold['test_score']:
+                temp_score = fold['test_score']
+                fold_index = i
+    if 'sklearn' not in key:
+        return folds[fold_index]['test_predictions']
     else:
-        for fold_history in log['KFOLD_HISTORY']:
-            best_acc_epoch, best_loss_epoch = get_best_epoch(fold_history)
-            new_fold = {
-                "loss": fold_history['loss'],
-                "accuracy": fold_history['accuracy'],
-                "val_loss": fold_history['val_loss'],
-                "val_accuracy": fold_history['val_accuracy'],
-                "test_loss": fold_history['test_loss'],
-                "test_accuracy": fold_history['test_accuracy'],
-                "best_acc_epoch": best_acc_epoch,
-                "best_loss_epoch": best_loss_epoch,
-                "val_predictions": fold_history['val_predictions'][best_acc_epoch],
-                "test_predictions": fold_history['test_predictions'][best_acc_epoch]
-            }
+        return folds[fold_index]['test_predictions']
 
-            kfold_history.append(new_fold)
 
-            log_copy = log.copy()
-            del log_copy['KFOLD_HISTORY']
-            log_copy['KFOLD_HISTORY'] = kfold_history
+# new_log = {}
+#
+# for log_path in logs:
+#     log = list(get_from_file(log_path).values())[0]
+#     kfold_history = []
+#
+#     if '/sklearn' in log_path:
+#         new_log[log_path] = log
+#
+#     else:
+#         for fold_history in log['KFOLD_HISTORY']:
+#             best_acc_epoch, best_loss_epoch = get_best_epoch(fold_history)
+#             new_fold = {
+#                 "loss": fold_history['loss'],
+#                 "accuracy": fold_history['accuracy'],
+#                 "val_loss": fold_history['val_loss'],
+#                 "val_accuracy": fold_history['val_accuracy'],
+#                 "test_loss": fold_history['test_loss'],
+#                 "test_accuracy": fold_history['test_accuracy'],
+#                 "best_acc_epoch": best_acc_epoch,
+#                 "best_loss_epoch": best_loss_epoch,
+#                 "train_predictions": fold_history['train_predictions'][best_acc_epoch],
+#                 "val_predictions": fold_history['val_predictions'][best_acc_epoch],
+#                 "failed_predictions": fold_history['failed_predictions'][best_acc_epoch],
+#                 "test_predictions": fold_history['test_predictions'][best_acc_epoch]
+#             }
+#
+#             kfold_history.append(new_fold)
+#
+#             log_copy = log.copy()
+#             del log_copy['KFOLD_HISTORY']
+#             log_copy['KFOLD_HISTORY'] = kfold_history
+#
+#             new_log[log_path] = log_copy
+#
+# save_to_file(f'./{folder}-10fcv-27m.json', new_log)
 
-            new_log[log_path] = log_copy
+new_log = get_from_file(f'./v2/{folder}/{folder}-10fcv-27m.json')
 
-save_to_file(f'./{folder}-10fcv-27m.json', new_log)
-
-SEED = 7
-KFOLD = 10
-
-kfold = StratifiedKFold(n_splits=KFOLD, shuffle=True, random_state=SEED)
+# SEED = 7
+# KFOLD = 10
+# failed_10000 = get_from_file('./v1/10000/10000-failed.json')['failed_indexes']
+# failed_7000 = get_from_file('./v1/7000/7000-failed.json')['failed_indexes']
+# kfold = StratifiedKFold(n_splits=KFOLD, shuffle=True, random_state=SEED)
 
 # inputs = np.concatenate([train_data['text'], test_data.text])
 # targets = np.concatenate([train_data['target'], test_data.target])
-# inputs = train_data['text']
-# targets = train_data['target']
-inputs = test_data['text']
-targets = test_data['target']
+# inputs = np.array(train_data['text'])
+# targets = np.array(train_data['target'])
+# x_f = inputs[failed_7000]
+# y_f = targets[failed_7000]
+# inputs = np.delete(inputs, failed_7000)
+# targets = np.delete(targets, failed_7000)
+
+# inputs = test_data['text']
+# targets = test_data['target']
 
 result_csv = {
     'index': [],
-    'fold': [],
+    # 'fold': [],
     'text': [],
     'target': [],
     'BERT-2e359f0b': [],
@@ -119,26 +148,64 @@ for key in new_log:
             csv_key = f'{new_log[key]["TYPE"]}-GloVe-{new_log[key]["PREPROCESSING_ALGORITHM_UUID"]}'
         else:
             csv_key = f'{new_log[key]["TYPE"]}-{new_log[key]["PREPROCESSING_ALGORITHM_UUID"]}'
-    for fold in new_log[key]['KFOLD_HISTORY']:
-        result_csv[csv_key] = result_csv[csv_key] + fold['test_predictions']
-        # result_csv[csv_key].append('*')
+
+    predictions = get_highest_fold(new_log[key]['KFOLD_HISTORY'], key)
+    result_csv[csv_key] = predictions
+
+result_csv['index'] = result_csv['index'] + list(range(test_data.text.size))
+# result_csv['fold'] = result_csv['fold'] + [i] * test_data.text.size
+result_csv['text'] = result_csv['text'] + test_data.text.tolist()
+result_csv['target'] = result_csv['target'] + test_data.target.tolist()
+
+    # for fold in new_log[key]['KFOLD_HISTORY']:
+    #     result_csv[csv_key] = result_csv[csv_key] + fold['test_predictions']
 
 # for train, validation in kfold.split(inputs, targets):
 #     result_csv['index'] = result_csv['index'] + validation.tolist()
 #     result_csv['text'] = result_csv['text'] + inputs[validation].tolist()
 #     result_csv['target'] = result_csv['target'] + targets[validation].tolist()
-#     # result_csv['index'].append('*')
-#     # result_csv['text'].append('*')
-#     # result_csv['target'].append('*')
 
-for i in range(10):
-    result_csv['index'] = result_csv['index'] + list(range(test_data.text.size))
-    result_csv['fold'] = result_csv['fold'] + [i] * test_data.text.size
-    result_csv['text'] = result_csv['text'] + test_data.text.tolist()
-    result_csv['target'] = result_csv['target'] + test_data.target.tolist()
+# for i in range(10):
+#     result_csv['index'] = result_csv['index'] + list(range(test_data.text.size))
+#     result_csv['fold'] = result_csv['fold'] + [i] * test_data.text.size
+#     result_csv['text'] = result_csv['text'] + test_data.text.tolist()
+#     result_csv['target'] = result_csv['target'] + test_data.target.tolist()
+#     #
+# result_csv['index'] = result_csv['index'] + list(range(x_f.size))
+# result_csv['fold'] = result_csv['fold'] + [i] * x_f.size
+# result_csv['text'] = result_csv['text'] + x_f.tolist()
+# result_csv['target'] = result_csv['target'] + y_f.tolist()
 
 csv_file = {}
 for k, v in result_csv.items():
     csv_file[k] = pd.Series(v)
 a = pd.DataFrame(csv_file)
-a.to_csv(f'./{folder}-10fcv-27m-TDS.csv', index=True)
+a.to_csv(f'./{folder}-10fcv-27m-best-fold-tds-test.csv', index=True)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

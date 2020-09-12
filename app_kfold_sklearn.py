@@ -1,13 +1,16 @@
 # -*- coding: utf-8 -*-
 from tweets import tweets_preprocessor
 from models import Sklearn
-from utils import log_classifier
+from utils import log_classifier, get_from_file
 from data import train_data, test_data
 from sklearn.model_selection import StratifiedKFold
 from configs import get_preprocessing_algorithm
 import uuid
 import numpy as np
+import time
 
+# print('5 hours delay')
+# time.sleep(18000)
 ########################################################################################################################
 PREPROCESSING_ALGORITHM_IDS = [
     '1258a9d2',
@@ -95,13 +98,14 @@ CLASSIFIERS = [
 ]
 SEED = 7
 KFOLD = 10
-
+failed_10000 = get_from_file('./10000/10000-failed.json')['failed_indexes']
+failed_7000 = get_from_file('./7000/7000-failed.json')['failed_indexes']
 PAIRS = [
     [0, 2, 7],
     [1, 3, 3],
     [2, 0, 1],
     [3, 3, 4],
-    # [4, 1, 2],
+    [4, 1, 2],
     [5, 4, 7],
 ]
 TRAIN_UUID = str(uuid.uuid4())
@@ -140,8 +144,12 @@ for pair in PAIRS:
         locations=test_data.location
     )
 
-    inputs = np.concatenate([train_data['preprocessed'], test_data.preprocessed])
-    targets = np.concatenate([train_data['target'], test_data.target])
+    inputs = np.array(train_data['preprocessed'])
+    targets = np.array(train_data['target'])
+    x_f = inputs[failed_7000]
+    y_f = targets[failed_7000]
+    inputs = np.delete(inputs, failed_7000)
+    targets = np.delete(targets, failed_7000)
 
     k = 0
 
@@ -154,6 +162,9 @@ for pair in PAIRS:
         x_val = vectorizer.transform(inputs[validation]).todense()
         y_val = targets[validation]
 
+        x_failed = vectorizer.transform(x_f).todense()
+        y_failed = y_f
+
         x_test = vectorizer.transform(test_data.preprocessed).todense()
         y_test = test_data.target.values
 
@@ -163,12 +174,15 @@ for pair in PAIRS:
 
         train_score = round(classifier.score(x_train, y_train), 6)
         val_score = round(classifier.score(x_val, y_val), 6)
+        failed_score = round(classifier.score(x_failed, y_failed), 6)
         test_score = round(classifier.score(x_test, y_test), 6)
 
         history = {
             'train_score': train_score,
             'val_score': val_score,
             'val_predictions': classifier.predict(x_val).tolist(),
+            'failed_score': failed_score,
+            'failed_predictions': classifier.predict(x_failed).tolist(),
             'test_score': test_score,
             'test_predictions': classifier.predict(x_test).tolist(),
         }

@@ -9,29 +9,63 @@ import tensorflow as tf
 
 
 class TestDataCallback(Callback):
-    def __init__(self, x_test, y_test, is_history=True, is_predictions=False):
+    def __init__(self, x_train_set=None, y_train_set=None, x_train=None, x_val=None, x_test_set=None, y_test_set=None,
+                 is_test_set_history=True, is_predictions=False, is_train_set_history=True):
         super().__init__()
-        self.accuracy = []
-        self.loss = []
-        self.predictions = []
-        self._is_history = is_history
+        self.train_set_accuracy = []
+        self.train_set_loss = []
+        self.test_set_accuracy = []
+        self.test_set_loss = []
+
+        self.train_predictions = []
+        self.val_predictions = []
+        self.train_set_predictions = []
+        self.test_set_predictions = []
+
+        self._is_train_set_history = is_train_set_history
+        self._is_test_set_history = is_test_set_history
+
         self._is_predictions = is_predictions
-        self.x_test = x_test
-        self.y_test = y_test
+
+        self._x_train_set = x_train_set
+        self._y_train_set = y_train_set
+        self._x_test_set = x_test_set
+        self._y_test_set = y_test_set
+        self._x_train = x_train
+        self._x_val = x_val
 
     @staticmethod
     def _flatten_predictions(predictions):
         return [round(float(prediction[0]), 6) for prediction in predictions]
 
     def on_epoch_end(self, epoch, logs=None):
-        if self._is_history:
-            score = self.model.evaluate(self.x_test, self.y_test, verbose=1)
-            self.loss.append(score[0])
-            self.accuracy.append(score[1])
+        if self._is_train_set_history and self._x_train_set is not None and self._y_train_set is not None:
+            train_set_score = self.model.evaluate(self._x_train_set, self._y_train_set, verbose=1)
+            self.train_set_loss.append(train_set_score[0])
+            self.train_set_accuracy.append(train_set_score[1])
+
+        if self._is_test_set_history and self._x_test_set is not None and self._y_test_set is not None:
+            test_set_score = self.model.evaluate(self._x_test_set, self._y_test_set, verbose=1)
+            self.test_set_loss.append(test_set_score[0])
+            self.test_set_accuracy.append(test_set_score[1])
+
         if self._is_predictions:
-            self.predictions.append(
-                TestDataCallback._flatten_predictions(self.model.predict(self.x_test).tolist())
-            )
+            if self._x_train is not None:
+                self.train_predictions.append(
+                    TestDataCallback._flatten_predictions(self.model.predict(self._x_train).tolist())
+                )
+            if self._x_val is not None:
+                self.val_predictions.append(
+                    TestDataCallback._flatten_predictions(self.model.predict(self._x_val).tolist())
+                )
+            if self._x_test_set is not None:
+                self.test_set_predictions.append(
+                    TestDataCallback._flatten_predictions(self.model.predict(self._x_test_set).tolist())
+                )
+            if self._x_train_set is not None:
+                self.train_set_predictions.append(
+                    TestDataCallback._flatten_predictions(self.model.predict(self._x_train_set).tolist())
+                )
 
 
 class Keras:
@@ -258,10 +292,10 @@ class Keras:
 
     @staticmethod
     def fit(model, data, config):
-        is_with_test_data = len(data) == 6
+        is_with_test_data = len(data) == 8
 
         if is_with_test_data:
-            x_train, y_train, x_val, y_val, x_test, y_test = data
+            x_train, y_train, x_val, y_val, x_train_set, y_train_set, x_test_set, y_test_set = data
         else:
             x_train, y_train, x_val, y_val = data
 
@@ -269,10 +303,15 @@ class Keras:
 
         if is_with_test_data:
             test_data_callback = TestDataCallback(
-                x_test=x_test,
-                y_test=y_test,
-                is_history=False,
+                x_train_set=x_train_set,
+                y_train_set=y_train_set,
+                is_train_set_history=True,
                 is_predictions=True,
+                x_val=x_val,
+                x_train=x_train,
+                is_test_set_history=True,
+                x_test_set=x_test_set,
+                y_test_set=y_test_set
             )
             callbacks.append(test_data_callback)
 
@@ -301,15 +340,19 @@ class Keras:
         model_history = history.history.copy()
 
         if is_with_test_data:
-            # model_history['test_loss'] = test_data_callback.loss
-            # model_history['test_accuracy'] = test_data_callback.accuracy
-            pass
+            model_history['train_set_loss'] = test_data_callback.train_set_loss
+            model_history['train_set_accuracy'] = test_data_callback.train_set_accuracy
+            model_history['test_set_loss'] = test_data_callback.test_set_loss
+            model_history['test_set_accuracy'] = test_data_callback.test_set_accuracy
 
         model_history = {
             k: [round(float(v), 6) for v in data] for k, data in model_history.items()
         }
 
         if is_with_test_data:
-            model_history['val_predictions'] = test_data_callback.predictions
+            model_history['train_predictions'] = test_data_callback.train_predictions
+            model_history['val_predictions'] = test_data_callback.val_predictions
+            model_history['train_set_predictions'] = test_data_callback.train_set_predictions
+            model_history['test_set_predictions'] = test_data_callback.test_set_predictions
 
         return model_history
