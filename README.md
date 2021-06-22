@@ -5,3 +5,8 @@ Nowadays, disaster detection, based on Twitter tweets, has become one of the cha
 
 #### Keywords: 
 Disaster detection, NLP, Twitter
+
+#### Resources:
+- https://drive.google.com/file/d/1k2BGDn3t76rQjQIMA2GaRIzSFLXwnEIf/view?usp=sharing
+- https://www.ibspan.waw.pl/~paprzyck/mp/cvr/research/varia_papers/BDA_Maryan.pdf
+- https://link.springer.com/chapter/10.1007/978-3-030-66665-1_16
